@@ -8,7 +8,7 @@
     },
     "main.css": {
       "files": [
-        "styles/main.scss"
+        "styles/main.less"
       ],
       "main": true
     },
@@ -22,6 +22,6 @@
     }
   },
   "config": {
-    "devUrl": "http://example.dev"
+    "devUrl": "http://localhost/fiesta-travel"
   }
 }
