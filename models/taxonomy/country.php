@@ -41,10 +41,8 @@ if ( ! function_exists( 'country_taxonomy' ) ) {
             'show_tagcloud'              => true,
             'rewrite'                    => $rewrite,
         );
-        register_taxonomy( 'country', array( 'post', ' product', ' trip', ' service', ' host', ' partner' ), $args );
-
+        register_taxonomy( 'country', array( 'post', 'product', 'trip', 'service', 'host', 'partner' ), $args );
     }
     add_action( 'init', 'country_taxonomy', 0 );
-
 }
 ?>

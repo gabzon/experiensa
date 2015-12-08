@@ -40,7 +40,7 @@ function excluded_taxonomy() {
 		'show_tagcloud'              => true,
 		'rewrite'                    => $rewrite,
 	);
-	register_taxonomy( 'excluded', array( 'post', ' product', ' trip' ), $args );
+	register_taxonomy( 'excluded', array( 'post', 'product', 'trip' ), $args );
 
 }
 add_action( 'init', 'excluded_taxonomy', 0 );

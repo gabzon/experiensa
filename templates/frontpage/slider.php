@@ -21,7 +21,7 @@ $query = new WP_Query( $args );
                 <li>
                     <?php $feature_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
                     <img src="<?php echo $feature_image; ?>" alt="" class="ui image"/>
-                    <div class="container">                        
+                    <div class="container">
                         <?php get_template_part('templates/frontpage/landing'); ?>
                     </div>
                 </li>

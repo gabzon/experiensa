@@ -28,7 +28,13 @@
         'home': {
             init: function() {
                 // JavaScript to be fired on the home page
-                $('#slides').superslides({play:'5000'});
+                $('#slides').superslides({play:'8000'});
+
+                $("#promotions-carousel").owlCarousel({
+                    items: 3,
+                    itemsDesktop: [1199, 3],
+                    itemsDesktopSmall: [979, 3]
+                });
             },
             finalize: function() {
                 // JavaScript to be fired on the home page, after the init JS

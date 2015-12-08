@@ -20,7 +20,7 @@ use Roots\Sage\Wrapper;
 
 <div class="pusher">
     <?php get_template_part('templates/header'); ?>
-    <div class="content">                
+    <div class="content">
         <main class="main">
             <?php include Wrapper\template_path(); ?>
         </main><!-- /.main -->

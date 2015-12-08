@@ -1,7 +1,7 @@
 <?php
-$location_list = wp_get_post_terms(get_the_ID(), 'location', array("fields" => "names"));
-$theme_list = wp_get_post_terms(get_the_ID(), 'theme', array("fields" => "names"));
-$country_list = wp_get_post_terms(get_the_ID(), 'place', array("fields" => "names"));
+$location_list  = wp_get_post_terms(get_the_ID(), 'location', array("fields" => "names"));
+$theme_list     = wp_get_post_terms(get_the_ID(), 'theme', array("fields" => "names"));
+$country_list   = wp_get_post_terms(get_the_ID(), 'country', array("fields" => "names"));
 
 $product_hosting = get_post_meta(get_the_ID(), 'product_hosting', true);
 $product_flights = get_post_meta(get_the_ID(), 'product_flights', true);
@@ -12,18 +12,14 @@ $product_payment = get_post_meta(get_the_ID(), 'product_payment', true);
 $gallery = get_post_meta(get_the_ID(), 'product_gallery', false);
 ?>
 <div id="preview">
-    <br><br>
-    <br>
     <div class="ui two column grid stackable">
-        <div class="eleven wide column">
-            <header>
-                <h1 class="ui header inverted white">
-                    <?php the_title(); ?>
-                    <div class="sub header">
-                        <?php the_excerpt(); ?>
-                    </div>
-                </h1>
-            </header>
+        <div class="ten wide column">
+            <div class="font-white">
+                <h1><?php the_title(); ?></h1>
+                <p>
+                    <?php the_excerpt(); ?>
+                </p>
+            </div>
             <br>
             <?php if ( ($post->post_content == "") || $product_hosting || $product_flights || $product_included || $product_not_included || $product_cancelation || $product_payment ): ?>
                 <a href="#details" class="ui basic inverted white button">
@@ -31,14 +27,9 @@ $gallery = get_post_meta(get_the_ID(), 'product_gallery', false);
                     <i class="file text icon"></i>
                 </a>
             <?php endif; ?>
-            <?php if ($gallery): ?>
-                <a href="#gallery" class="ui basic inverted white button">
-                    <?php _e('Photos','sage'); ?>&nbsp;
-                    <i class="camera icon"></i>
-                </a>
-            <?php endif; ?>
         </div>
-        <div class="five wide column">
+        <div class="one wide column"></div>
+        <div class="four wide column">
             <table class="ui table">
                 <tbody>
                     <tr>

@@ -2,20 +2,28 @@
 use Roots\Sage\Nav;
 $menu_name = 'primary_navigation';
 
-$layout_options = get_option('layout_settings');
 $agency_options = get_option('agency_settings');
-
 $logo = $agency_options['agency_logo'];
 $phone = $agency_options['agency_phone'];
 
-$display_phone = $layout_options['setting_header_phone'];
-$request_btn = $layout_options['setting_header_request'];
-$language = $layout_options['setting_header_language'];
 ?>
 
-<header class="ui borderless small menu grid stackable">
+<header class="ui borderless <?= get_menu_style(); ?> small menu grid">
     <div class="mobile only row">
-
+        <a class="item" href="<?= esc_url(home_url('/')); ?>">
+            <?php
+            if ($logo):
+                echo 'echo <img class="ui tiny image logo" src="' . wp_get_attachment_url($logo) . '" width="120" />';
+            else:
+                bloginfo('name');
+            endif;
+            ?>
+        </a>
+        <div class="menu right">
+            <a class="item mobile-menu ui button">
+                <i class="sidebar icon"></i>
+            </a>
+        </div>
     </div>
     <div class="tablet only row">
 
@@ -23,7 +31,8 @@ $language = $layout_options['setting_header_language'];
     <div class="computer only row">
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
             <?php if ($logo): ?>
-                <img class="ui tiny image logo" src="<?php echo wp_get_attachment_url($logo);?>" width="120"/>
+                <img class="ui mini image logo" src="<?php echo wp_get_attachment_url($logo);?>" /> &nbsp;
+                <?php bloginfo('name'); ?>
             <?php else: ?>
                 <?php bloginfo('name'); ?>
             <?php endif; ?>
@@ -41,25 +50,9 @@ $language = $layout_options['setting_header_language'];
                 endforeach;
             endif;
             ?>
-            <?php if ($display_phone === 'yes'): ?>
-                <?php if ($phone): ?>
-                    <div class="item">
-                        <a href="tel:<?php echo $phone ?>" class="ui inverted button">
-                            <i class="call icon"></i><?php echo $phone; ?>
-                        </a>
-                    </div>
-                <?php endif; ?>
-            <?php endif; ?>
-            <?php if ($request_btn === 'yes'): ?>
-                <div class="item">
-                    <a href="tel:<?php echo $phone ?>" class="ui inverted button">
-                        <i class="call icon"></i> <?php _e('Make a request','sage'); ?>
-                    </a>
-                </div>
-            <?php endif; ?>
-            <div class="item">
-                <a href="#">red</a>
-            </div>
+            <?php get_phone_button(); ?>
+            <?php get_quote_button(); ?>
+            <?php get_language_button(); ?>
         </div>
     </div>
 </header>

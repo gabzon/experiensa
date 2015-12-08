@@ -28,7 +28,7 @@ if ( ! function_exists('product_post_type') ) {
             'label'                 => __( 'Product', 'sage' ),
             'description'           => __( 'List of products (Travel oferts and packages)', 'sage' ),
             'labels'                => $labels,
-            'supports'              => array('title', 'editor', 'thumbnail', 'comments', 'excerpt', 'revisions'),
+            'supports'              => array('title', 'thumbnail', 'excerpt', 'revisions'),
             'taxonomies'            => array( 'category', 'post_tag', 'product_type', 'country', 'theme' ),
             'hierarchical'          => false,
             'public'                => true,

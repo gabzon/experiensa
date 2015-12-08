@@ -41,7 +41,7 @@ if ( ! function_exists( 'included_taxonomy' ) ) {
             'show_tagcloud'              => true,
             'rewrite'                    => $rewrite,
         );
-        register_taxonomy( 'included', array( 'post', ' product', ' trip' ), $args );
+        register_taxonomy( 'included', array( 'post', 'product', 'trip' ), $args );
 
     }
     add_action( 'init', 'included_taxonomy', 0 );
