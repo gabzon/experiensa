@@ -42,7 +42,7 @@ function get_quote_button(){
     $quote_options = $layout_options['group_quote'];
     if ($quote_options['header_quote_display'][0] === 'TRUE'){
         echo '<div class="item">';
-            echo '<a id="quote-button" href="#" class="ui ' . $quote_options['header_quote_button_color'][0] . ' ' . get_button_style() . ' button">';
+            echo '<a id="request-button" href="#" class="ui ' . $quote_options['header_quote_button_color'][0] . ' ' . get_button_style() . ' button">';
             echo '<i class="edit icon"></i> ' . __('Make a request','sage');
             echo '</a>';
         echo '</div>';

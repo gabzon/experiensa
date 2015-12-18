@@ -19,6 +19,7 @@ $sage_includes = [
   'conf',                       // All configurations
   'models/taxonomy',            // Custom taxonomies
   'models/post-type',           // All custom post types
+  'modules',
 ];
 
 foreach ($sage_includes as $file) {

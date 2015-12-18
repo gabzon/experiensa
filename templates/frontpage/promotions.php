@@ -1,10 +1,10 @@
-<?php $query = new WP_Query(array('post_type' => 'product')); ?>
+<?php $query = new WP_Query( array('post_type' => 'product','category_name' => 'promotions')); ?>
 
-<section id="promotion" class="ui basic green inverted vertical segment">
+<section id="promotion" class="ui basic green inverted vertical segment center aligned">
     <br>
     <br>
     <div class="ui container">
-        <h2 class="ui center aligned header inverted uppercase"><?php _e('Promotions'); ?></h2>
+        <h1><?php _e('Promotions'); ?></h1><br>
         <?php if ( $query->have_posts() ) : ?>
             <div id="promotions-carousel">
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>
@@ -20,8 +20,11 @@
                     </div>
                 <?php endwhile; wp_reset_postdata(); ?>
             </div>
+        <?php else: ?>
+            <h3><?php _e('There are no promotions currently','sage'); ?></h3>
         <?php endif; ?>
     </div>
+    <br>
     <br>
     <br>
 </section>

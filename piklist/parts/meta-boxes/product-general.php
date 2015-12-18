@@ -8,9 +8,10 @@ Flow: Product Workflow
 */
 
 $price = array(
-    'type'  => 'text',
+    'type'  => 'number',
     'field' => 'product_price',
     'label' => __('Price','sage'),
+    'attributes'    => array( 'step' => 'any' ),
     'columns'   => 4
 );
 
@@ -99,6 +100,7 @@ piklist('field', array(
             'field'         => 'product_tour_operator_margin',
             'columns'       => 6,
             'label'         => __('Margin (%)','sage'),
+            'attributes'    => array( 'step' => 'any' ),
             'conditions'    => array(
                 array(
                     'field' => 'product_is_tour_operator',

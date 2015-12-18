@@ -21,8 +21,17 @@ $query = new WP_Query( $args );
                 <li>
                     <?php $feature_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
                     <img src="<?php echo $feature_image; ?>" alt="" class="ui image"/>
-                    <div class="container">
-                        <?php get_template_part('templates/frontpage/landing'); ?>
+                    <div class="ui container">
+                        <div class="ui grid">
+                            <div class="twelve wide column" id="slider-text">
+                                <h1 class="fitText"><?= the_title(); ?></h1>
+                                <h4><?= the_excerpt(); ?></h4>
+                                <h5><?= get_post_meta($post->ID,'product_price',true) . ' ' . get_post_meta($post->ID,'product_currency',true); ?></h5>
+                                <a href="<?php the_permalink(); ?>" class="ui basic inverted button">
+                                    <?php _e('See more','sage'); ?>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </li>
 

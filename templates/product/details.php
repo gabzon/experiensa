@@ -29,12 +29,7 @@ $product_payment = get_post_meta(get_the_ID(), 'product_payment', true);
     <?php endif ?>
 </div>
 
-<?php if($post->post_content != ""): ?>
-    <div class="ui bottom active tab" data-tab="tab-itinerary">
-        <br>
-        <?php the_content(); ?>
-    </div>
-<?php endif; ?>
+
 
 <?php if($product_hosting) : ?>
     <div class="ui bottom tab" data-tab="tab-hosting">

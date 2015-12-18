@@ -16,8 +16,8 @@ use Roots\Sage\Wrapper;
 <![endif]-->
 
 <?php do_action('get_header'); ?>
-<?php get_template_part('templates/sidebar-menu') ?>
-
+<?php get_template_part('templates/sidebar-menu'); ?>
+<?php get_template_part('templates/sidebar-form'); ?>
 <div class="pusher">
     <?php get_template_part('templates/header'); ?>
     <div class="content">
@@ -37,5 +37,15 @@ do_action('get_footer');
 get_template_part('templates/footer');
 wp_footer();
 ?>
+<script>
+var $buoop = {c:2};
+function $buo_f(){
+    var e = document.createElement("script");
+    e.src = "//browser-update.org/update.min.js";
+    document.body.appendChild(e);
+};
+try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+catch(e){window.attachEvent("onload", $buo_f)}
+</script>
 </body>
 </html>

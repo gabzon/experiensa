@@ -49,8 +49,9 @@ $product_host_rating = array(
 $product_host_checkin_date = array(
     'type'      => 'datepicker',
     'field'     => 'product_etablishment_checkin_date',
-    'label'     => __('Check-in daate','sage'),
-    'columns'   => 3
+    'label'     => __('Check-in date','sage'),
+    'columns'   => 3,
+    'options'   => array('dateFormat' => 'd/m/yy'),
 );
 
 $product_host_checkin_time = array(
@@ -61,10 +62,11 @@ $product_host_checkin_time = array(
 );
 
 $product_host_checkout_date = array(
-    'type'      => 'text',
+    'type'      => 'datepicker',
     'field'     => 'product_etablishment_checkout_date',
     'label'     => __('Check-out date','sage'),
-    'columns'   => 3
+    'columns'   => 3,
+    'options'   => array('dateFormat' => 'd/m/yy'),
 );
 
 $product_host_checkout_time = array(

@@ -24,7 +24,7 @@ if ( ! function_exists('product_post_type') ) {
             'pages'                 => true,
             'feeds'                 => true,
         );
-        $post_types['product'] = array(
+        $post_types['travel_product'] = array(
             'label'                 => __( 'Product', 'sage' ),
             'description'           => __( 'List of products (Travel oferts and packages)', 'sage' ),
             'labels'                => $labels,
