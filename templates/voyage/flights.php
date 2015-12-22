@@ -1,15 +1,15 @@
 <?php
-$airline        = get_post_meta($post->ID,'product_flight_airline');
-$flight_number  = get_post_meta($post->ID,'product_flight_number');
-$flight_class   = get_post_meta($post->ID,'product_flight_class');
-$departure_city = get_post_meta($post->ID,'product_flight_departure_city');
-$departure_date = get_post_meta($post->ID,'product_flight_departure_date');
-$departure_time = get_post_meta($post->ID,'product_flight_departure_time');
-$arrival_city   = get_post_meta($post->ID,'product_flight_arrival_city');
-$arrival_date   = get_post_meta($post->ID,'product_flight_arrival_date');
-$arrival_time   = get_post_meta($post->ID,'product_flight_arrival_time');
+$airline        = get_post_meta($post->ID,'voyage_flight_airline');
+$flight_number  = get_post_meta($post->ID,'voyage_flight_number');
+$flight_class   = get_post_meta($post->ID,'voyage_flight_class');
+$departure_city = get_post_meta($post->ID,'voyage_flight_departure_city');
+$departure_date = get_post_meta($post->ID,'voyage_flight_departure_date');
+$departure_time = get_post_meta($post->ID,'voyage_flight_departure_time');
+$arrival_city   = get_post_meta($post->ID,'voyage_flight_arrival_city');
+$arrival_date   = get_post_meta($post->ID,'voyage_flight_arrival_date');
+$arrival_time   = get_post_meta($post->ID,'voyage_flight_arrival_time');
 ?>
-<br>
+
 <?php if ($airline): ?>
     <hr>
     <br>

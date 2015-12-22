@@ -2,7 +2,7 @@
     <div class="ui grid stackable">
         <div class="mobile only row">
             <div class="sixteen wide column">
-                <?php get_template_part('templates/product/preview-table'); ?>
+                <?php get_template_part('templates/voyage/preview-table'); ?>
             </div>
         </div>
         <div class="tablet only row">
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="six wide column">
-                    <?php get_template_part('templates/product/preview-table'); ?>
+                    <?php get_template_part('templates/voyage/preview-table'); ?>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="one wide column"></div>
                 <div class="five wide column">
-                    <?php get_template_part('templates/product/preview-table'); ?>
+                    <?php get_template_part('templates/voyage/preview-table'); ?>
                 </div>
             </div>
         </div>

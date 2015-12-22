@@ -11,7 +11,7 @@ $phone = $agency_options['agency_phone'];
 <header class="ui borderless <?= get_menu_style(); ?> small menu grid">
     <div class="mobile only row">
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
-            <?php
+            <?php 
             if ($logo):
                 echo 'echo <img class="ui tiny image logo" src="' . wp_get_attachment_url($logo) . '" width="120" />';
             else:

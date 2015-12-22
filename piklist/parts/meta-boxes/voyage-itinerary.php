@@ -1,46 +1,46 @@
 <?php
 /*
-Title: Product
-Post Type: product
+Title: Voyage Itinerary
+Post Type: voyage
 Meta box: true
 Tab: Itinerary
-Flow: Product Workflow
+Flow: Voyage Workflow
 */
 
 /*******************************************************************************
 ** Itenirary Section
 *******************************************************************************/
-$product_itinerary_day = array(
+$voyage_itinerary_day = array(
     'type'      => 'text',
-    'field'     => 'product_itinerary_day',
+    'field'     => 'voyage_itinerary_day',
     'label'     => __('Day','sage'),
     'columns'   => 2
 );
 
-$product_itinerary_title = array(
+$voyage_itinerary_title = array(
     'type'      => 'text',
-    'field'     => 'product_itinerary_title',
+    'field'     => 'voyage_itinerary_title',
     'label'     => __('Title','sage'),
     'columns'   => 4
 );
 
-$product_itinerary_subtitle = array(
+$voyage_itinerary_subtitle = array(
     'type'      => 'text',
-    'field'     => 'product_itinerary_subtitle',
+    'field'     => 'voyage_itinerary_subtitle',
     'label'     => __('Sub title','sage'),
     'columns'   => 6
 );
 
-$product_itinerary_description = array(
+$voyage_itinerary_description = array(
     'type'      => 'textarea',
-    'field'     => 'product_itinerary_description',
+    'field'     => 'voyage_itinerary_description',
     'label'     => __('Description','sage'),
     'columns'   => 12
 );
 
-$product_itinerary_gallery = array(
+$voyage_itinerary_gallery = array(
     'type'      => 'file',
-    'field'     => 'product_itinerary_gallery',
+    'field'     => 'voyage_itinerary_gallery',
     'label'     => __('Gallery','sage'),
 );
 
@@ -49,10 +49,10 @@ piklist('field', array(
     'template'  => 'field',
     'add_more'  => true,
     'fields'    => array(
-        $product_itinerary_day,
-        $product_itinerary_title,
-        $product_itinerary_subtitle,
-        $product_itinerary_description,
-        $product_itinerary_gallery
+        $voyage_itinerary_day,
+        $voyage_itinerary_title,
+        $voyage_itinerary_subtitle,
+        $voyage_itinerary_description,
+        $voyage_itinerary_gallery
     )
 ));

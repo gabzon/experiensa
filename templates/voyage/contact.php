@@ -1,5 +1,5 @@
 <br>
-<div id="product-contact" class="ui basic vertical segment">
+<div id="voyage-contact" class="ui basic vertical segment">
     <h3><?php _e("We'll contact you as soon as we can"); ?></h3>
     <form class="ui form" action="" method="post" id="contact_form">
         <div class="three fields">

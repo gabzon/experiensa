@@ -1,10 +1,10 @@
 <?php
-$product_hosting = get_post_meta(get_the_ID(), 'product_hosting', true);
-$product_flights = get_post_meta(get_the_ID(), 'product_flights', true);
-$product_included = get_post_meta(get_the_ID(), 'product_included', true);
-$product_not_included = get_post_meta(get_the_ID(), 'product_not_included', true);
-$product_cancelation = get_post_meta(get_the_ID(), 'product_cancelation', true);
-$product_payment = get_post_meta(get_the_ID(), 'product_payment', true);
+$voyage_hosting = get_post_meta(get_the_ID(), 'voyage_hosting', true);
+$voyage_flights = get_post_meta(get_the_ID(), 'voyage_flights', true);
+$voyage_included = get_post_meta(get_the_ID(), 'voyage_included', true);
+$voyage_not_included = get_post_meta(get_the_ID(), 'voyage_not_included', true);
+$voyage_cancelation = get_post_meta(get_the_ID(), 'voyage_cancelation', true);
+$voyage_payment = get_post_meta(get_the_ID(), 'voyage_payment', true);
 ?>
 
 <div class="ui top secondary menu">
@@ -12,26 +12,26 @@ $product_payment = get_post_meta(get_the_ID(), 'product_payment', true);
         <div class="active item" data-tab="tab-itinerary"><?php _e('Itinerary', 'sage'); ?></div>
     <?php endif; ?>
 
-    <?php if($product_hosting) : ?>
+    <?php if($voyage_hosting) : ?>
         <div class="item" data-tab="tab-hosting"><?php _e('Hosting', 'sage'); ?></div>
     <?php endif; ?>
 
-    <?php if($product_flights) : ?>
+    <?php if($voyage_flights) : ?>
         <div class="item" data-tab="tab-flights"><?php _e('Flights', 'sage'); ?></div>
     <?php endif; ?>
 
-    <?php if($product_included || $product_not_included || $product_cancelation) : ?>
+    <?php if($voyage_included || $voyage_not_included || $voyage_cancelation) : ?>
         <div class="item" data-tab="tab-info"><?php _e('Additional info', 'sage'); ?></div>
     <?php endif; ?>
 
-    <?php if($product_payment) : ?>
+    <?php if($voyage_payment) : ?>
         <div class="item" data-tab="tab-payment"><?php _e('Payment methods', 'sage'); ?></div>
     <?php endif ?>
 </div>
 
 
 
-<?php if($product_hosting) : ?>
+<?php if($voyage_hosting) : ?>
     <div class="ui bottom tab" data-tab="tab-hosting">
         <br>
         <?php echo $product_hosting ?>

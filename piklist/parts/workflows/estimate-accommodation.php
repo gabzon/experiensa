@@ -1,18 +1,18 @@
 <?php
 /*
-Title: Itinerary
-Order: 50
-Flow: Product Workflow
+Title: Accommodation
+Order: 40
+Flow: Estimate Workflow
 */
 
 piklist('include_meta_boxes', array(
-    'product_typediv',
+    'estimate_typediv',
     'categorydiv',
     'countrydiv',
     'tagdiv-post_tag',
     'themediv',
     'postimagediv',
-    'piklist_meta_product_itinerary'
+    'piklist_meta_estimate_accommodation'
 ));
 
 ?>

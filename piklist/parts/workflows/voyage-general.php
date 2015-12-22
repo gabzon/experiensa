@@ -2,13 +2,13 @@
 /*
 Title: General
 Order: 10
-Flow: Product Workflow
+Flow: Voyage Workflow
 Default: true
 */
 
 piklist('include_meta_boxes', array(
     'postexcerpt',
-    'product_typediv',
+    'voyage_typediv',
     'categorydiv',
     'countrydiv',
     'locationdiv',
@@ -17,7 +17,7 @@ piklist('include_meta_boxes', array(
     'tagdiv-post_tag',
     'themediv',
     'postimagediv',
-    'piklist_meta_product_general'
+    'piklist_meta_voyage_general'
 ));
 
 ?>

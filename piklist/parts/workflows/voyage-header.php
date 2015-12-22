@@ -1,8 +1,8 @@
 <?php
 /*
-Flow: Product Workflow
+Flow: Voyage Workflow
 Page: post.php, post-new.php, post-edit.php, admin.php
-Post Type: product
+Post Type: voyage
 Header: true
 Position: editor
 */

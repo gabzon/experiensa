@@ -1,15 +1,15 @@
 <?php
 /*
-Title: Product
-Post Type: product
+Title: Voyage
+Post Type: voyage
 Meta box: true
 Tab: General
-Flow: Product Workflow
+Flow: Voyage Workflow
 */
 
 $price = array(
     'type'  => 'number',
-    'field' => 'product_price',
+    'field' => 'voyage_price',
     'label' => __('Price','sage'),
     'attributes'    => array( 'step' => 'any' ),
     'columns'   => 4
@@ -17,7 +17,7 @@ $price = array(
 
 $currency = array(
     'type'      => 'select',
-    'field'     => 'product_currency',
+    'field'     => 'voyage_currency',
     'label'     => __('Currency','sage'),
     'choices'   => array(
         'CHF'   =>  'CHF',
@@ -29,16 +29,16 @@ $currency = array(
 
 $expiry_date = array(
     'type'      => 'datepicker',
-    'field'     => 'product_expiry_date',
+    'field'     => 'voyage_expiry_date',
     'label'     => __('Expiry date','sage'),
     'columns'   => 4
 );
 
 $slogan = array(
     'type'      => 'text',
-    'field'     => 'product_slogan',
+    'field'     => 'voyage_slogan',
     'columns'   => 12,
-    'label'     => __('Product slogan','sage')
+    'label'     => __('Voyage slogan','sage')
 );
 
 piklist('field', array(
@@ -59,14 +59,14 @@ piklist('field', array(
     'fields' => array(
         array(
             'type'          => 'text',
-            'field'         => 'product_days',
+            'field'         => 'voyage_days',
             'columns'       => 2,
             'attributes'    => array( 'placeholder' => __('Days','sage')),
             'validate'      => array( array( 'type' => 'number' ))
         ),
         array(
             'type'          => 'text',
-            'field'         => 'product_nights',
+            'field'         => 'voyage_nights',
             'columns'       => 2,
             'attributes' => array( 'placeholder' => __('Nights')),
             'validate' => array( array( 'type' => 'number' ) )
@@ -76,7 +76,7 @@ piklist('field', array(
 
 piklist('field', array(
     'type'          => 'checkbox',
-    'field'         => 'product_conditions',
+    'field'         => 'voyage_conditions',
     'label'         => __('Conditions','sage'),
     'choices'       => array(
         'refundable'    => __('Refundable','sage'),
@@ -90,20 +90,20 @@ piklist('field', array(
     'fields'    => array(
         array(
             'type'      => 'checkbox',
-            'field'     => 'product_is_tour_operator',
+            'field'     => 'voyage_is_tour_operator',
             'label'     => __('Resell','sage'),
             'columns'   => 6,
             'choices'   => array( 'TRUE'  => 'Yes' )
         ),
         array(
             'type'          => 'number',
-            'field'         => 'product_tour_operator_margin',
+            'field'         => 'voyage_tour_operator_margin',
             'columns'       => 6,
             'label'         => __('Margin (%)','sage'),
             'attributes'    => array( 'step' => 'any' ),
             'conditions'    => array(
                 array(
-                    'field' => 'product_is_tour_operator',
+                    'field' => 'voyage_is_tour_operator',
                     'value' => 'TRUE'
                 ),
             ),
@@ -113,15 +113,12 @@ piklist('field', array(
 
 piklist('field', array(
     'type'  => 'editor',
-    'field' => 'product_information_conditions',
+    'field' => 'voyage_information_conditions',
     'label' => __('Additional information & Conditions','sage')
 ));
 
 piklist('field', array(
     'type'  => 'file',
-    'field' => 'product_gallery',
+    'field' => 'voyage_gallery',
     'label' => __('Photo Gallery','sage')
 ));
-
-
-//TODO Check for background slider

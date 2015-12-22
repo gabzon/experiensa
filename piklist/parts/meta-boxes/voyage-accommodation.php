@@ -1,25 +1,25 @@
 <?php
 /*
-Title: Product Accommodation
-Post Type: product
+Title: Voyage Accommodation
+Post Type: voyage
 Tab: Accommodation
-Flow: Product Workflow
+Flow: Voyage Workflow
 */
 
 /*******************************************************************************
 ** Accommodation Section
 *******************************************************************************/
 
-$product_host_name = array(
+$voyage_host_name = array(
     'type'      => 'text',
-    'field'     => 'product_etablishment_name',
+    'field'     => 'voyage_etablishment_name',
     'label'     => __('Etablishment name','sage'),
     'columns'   => 6
 );
 
-$product_host_type = array(
+$voyage_host_type = array(
     'type'      => 'select',
-    'field'     => 'product_etablishment_type',
+    'field'     => 'voyage_etablishment_type',
     'label'     => __('Etablishment type','sage'),
     'columns'   => 4,
     'choices'   => array(
@@ -32,9 +32,9 @@ $product_host_type = array(
     )
 );
 
-$product_host_rating = array(
+$voyage_host_rating = array(
     'type'      => 'select',
-    'field'     => 'product_etablishment_rating',
+    'field'     => 'voyage_etablishment_rating',
     'label'     => __('Rating','sage'),
     'columns'   => 2,
     'choices'   => array(
@@ -46,46 +46,46 @@ $product_host_rating = array(
     )
 );
 
-$product_host_checkin_date = array(
+$voyage_host_checkin_date = array(
     'type'      => 'datepicker',
-    'field'     => 'product_etablishment_checkin_date',
+    'field'     => 'voyage_etablishment_checkin_date',
     'label'     => __('Check-in date','sage'),
     'columns'   => 3,
     'options'   => array('dateFormat' => 'd/m/yy'),
 );
 
-$product_host_checkin_time = array(
+$voyage_host_checkin_time = array(
     'type'      => 'text',
-    'field'     => 'product_etablishment_checkin_time',
+    'field'     => 'voyage_etablishment_checkin_time',
     'label'     => __('Check-in time','sage'),
     'columns'   => 3
 );
 
-$product_host_checkout_date = array(
+$voyage_host_checkout_date = array(
     'type'      => 'datepicker',
-    'field'     => 'product_etablishment_checkout_date',
+    'field'     => 'voyage_etablishment_checkout_date',
     'label'     => __('Check-out date','sage'),
     'columns'   => 3,
     'options'   => array('dateFormat' => 'd/m/yy'),
 );
 
-$product_host_checkout_time = array(
+$voyage_host_checkout_time = array(
     'type'      => 'text',
-    'field'     => 'product_etablishment_checkout_time',
+    'field'     => 'voyage_etablishment_checkout_time',
     'label'     => __('Check-out time','sage'),
     'columns'   => 3
 );
 
-$product_host_comments = array(
+$voyage_host_comments = array(
     'type'      => 'textarea',
-    'field'     => 'product_etablishment_comments',
+    'field'     => 'voyage_etablishment_comments',
     'label'     => __('Comments & Description','sage'),
     'columns'   => 12
 );
 
-$product_host_gallery = array(
+$voyage_host_gallery = array(
     'type'      => 'file',
-    'field'     => 'product_etablishment_gallery',
+    'field'     => 'voyage_etablishment_gallery',
     'label'     => __('Photo Gallery','sage'),
 );
 
@@ -94,14 +94,14 @@ piklist('field', array(
     'template'  => 'field',
     'add_more'  => true,
     'fields'    => array(
-        $product_host_name,
-        $product_host_type,
-        $product_host_rating,
-        $product_host_checkin_date,
-        $product_host_checkin_time,
-        $product_host_checkout_date,
-        $product_host_checkout_time,
-        $product_host_comments,
-        $product_host_gallery
+        $voyage_host_name,
+        $voyage_host_type,
+        $voyage_host_rating,
+        $voyage_host_checkin_date,
+        $voyage_host_checkin_time,
+        $voyage_host_checkout_date,
+        $voyage_host_checkout_time,
+        $voyage_host_comments,
+        $voyage_host_gallery
     )
 ));

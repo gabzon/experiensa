@@ -1,35 +1,35 @@
 <?php
 
-if ( ! function_exists('product_post_type') ) {
+if ( ! function_exists('voyage_post_type') ) {
 
-    function product_post_type($post_types){
+    function voyage_post_type($post_types){
         $labels = array(
-            'name' => __('Products', 'sage'),
-            'singular_name' => __('Product', 'sage'),
-            'menu_name' => __('Products', 'sage'),
+            'name' => __('Voyages', 'sage'),
+            'singular_name' => __('Voyage', 'sage'),
+            'menu_name' => __('Voyages', 'sage'),
             'parent_item_colon' => __('Parent Item:', 'sage'),
-            'all_items' => __('All Products', 'sage'),
-            'view_item' => __('View Product', 'sage'),
-            'add_new_item' => __('Add New Product', 'sage'),
+            'all_items' => __('All Voyages', 'sage'),
+            'view_item' => __('View Voyage', 'sage'),
+            'add_new_item' => __('Add New Voyage', 'sage'),
             'add_new' => __('Add New', 'sage'),
-            'edit_item' => __('Edit Product', 'sage'),
-            'update_item' => __('Update Product', 'sage'),
-            'search_items' => __('Search Product', 'sage'),
+            'edit_item' => __('Edit Voyage', 'sage'),
+            'update_item' => __('Update Voyage', 'sage'),
+            'search_items' => __('Search Voyage', 'sage'),
             'not_found' => __('Not found', 'sage'),
             'not_found_in_trash' => __('Not found in Trash', 'sage'),
         );
         $rewrite = array(
-            'slug'                  => 'product',
+            'slug'                  => 'voyage',
             'with_front'            => true,
             'pages'                 => true,
             'feeds'                 => true,
         );
-        $post_types['travel_product'] = array(
-            'label'                 => __( 'Product', 'sage' ),
-            'description'           => __( 'List of products (Travel oferts and packages)', 'sage' ),
+        $post_types['voyage'] = array(
+            'label'                 => __( 'Voyage', 'sage' ),
+            'description'           => __( 'List of voyages (Travel oferts and packages)', 'sage' ),
             'labels'                => $labels,
             'supports'              => array('title', 'thumbnail', 'excerpt', 'revisions'),
-            'taxonomies'            => array( 'category', 'post_tag', 'product_type', 'country', 'theme' ),
+            'taxonomies'            => array( 'category', 'post_tag', 'voyage_type', 'country', 'theme' ),
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,
@@ -37,7 +37,7 @@ if ( ! function_exists('product_post_type') ) {
             'show_in_nav_menus'     => true,
             'show_in_admin_bar'     => true,
             'menu_position'         => 7,
-            'menu_icon'             => 'dashicons-products',
+            'menu_icon'             => 'dashicons-palmtree',
             'can_export'            => true,
             'has_archive'           => true,
             'exclude_from_search'   => false,
@@ -54,7 +54,7 @@ if ( ! function_exists('product_post_type') ) {
         );
         return $post_types;
     }
-    add_filter('piklist_post_types', 'product_post_type');
+    add_filter('piklist_post_types', 'voyage_post_type');
 }
 
 /* Flush rewrite rules for custom post types. */

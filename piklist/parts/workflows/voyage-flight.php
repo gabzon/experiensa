@@ -2,17 +2,17 @@
 /*
 Title: Flights
 Order: 30
-Flow: Product Workflow
+Flow: Voyage Workflow
 */
 
 piklist('include_meta_boxes', array(
-    'product_typediv',
+    'voyage_typediv',
     'categorydiv',
     'countrydiv',
     'tagdiv-post_tag',
     'themediv',
     'postimagediv',
-    'piklist_meta_product_flight'
+    'piklist_meta_voyage_flight'
 ));
 
 ?>

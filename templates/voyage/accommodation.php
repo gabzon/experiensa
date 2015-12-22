@@ -1,13 +1,13 @@
 <?php
-$host_name          = get_post_meta($post->ID,'product_etablishment_name');
-$host_type          = get_post_meta($post->ID,'product_etablishment_type');
-$host_rating        = get_post_meta($post->ID,'product_etablishment_rating');
-$host_checkin_date  = get_post_meta($post->ID,'product_etablishment_checkin_date');
-$host_checkin_time  = get_post_meta($post->ID,'product_etablishment_checkin_time');
-$host_checkout_date = get_post_meta($post->ID,'product_etablishment_checkout_date');
-$host_checkout_time = get_post_meta($post->ID,'product_etablishment_checkout_time');
-$host_comments      = get_post_meta($post->ID,'product_etablishment_comments');
-$host_gallery       = get_post_meta($post->ID,'product_etablishment_gallery');
+$host_name          = get_post_meta($post->ID,'voyage_etablishment_name');
+$host_type          = get_post_meta($post->ID,'voyage_etablishment_type');
+$host_rating        = get_post_meta($post->ID,'voyage_etablishment_rating');
+$host_checkin_date  = get_post_meta($post->ID,'voyage_etablishment_checkin_date');
+$host_checkin_time  = get_post_meta($post->ID,'voyage_etablishment_checkin_time');
+$host_checkout_date = get_post_meta($post->ID,'voyage_etablishment_checkout_date');
+$host_checkout_time = get_post_meta($post->ID,'voyage_etablishment_checkout_time');
+$host_comments      = get_post_meta($post->ID,'voyage_etablishment_comments');
+$host_gallery       = get_post_meta($post->ID,'voyage_etablishment_gallery');
 ?>
 <br>
 
