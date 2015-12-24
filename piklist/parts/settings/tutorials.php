@@ -1,10 +1,11 @@
 <?php
 
 /*
-Title: Theme Settings Section
-Setting: my_theme_settings
-Tab: Basic
+Title: Tutorial Section
+Setting: experiensa_tutorials
 */
+
+
 piklist('field', array(
     'type' => 'text'
     ,'field' => 'text'

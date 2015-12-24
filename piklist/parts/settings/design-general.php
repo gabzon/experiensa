@@ -1,8 +1,7 @@
 <?php
-
 /*
 Title: Website Design
-Setting: design_settings
+Setting: experiensa_design_settings
 */
 
 piklist('field',array(
@@ -27,6 +26,5 @@ piklist('field',array(
         'black'         => __('Black','sage'),
     ),
 ));
-
 
 ?>

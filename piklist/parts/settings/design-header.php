@@ -2,13 +2,16 @@
 
 /*
 Title: Header Settings
-Setting: layout_settings
-Tab: Header
+Setting: experiensa_design_settings
+Tab: Header Design
+Tab Order: 10
 */
 
 /* ****************************************************************************/
 /* Phone button ***************************************************************/
 /* ****************************************************************************/
+
+// TODO: Add small, "nothing", large menu options
 
 $phone_display =  array(
     'type'      => 'select',
@@ -173,6 +176,22 @@ piklist('field',array(
     'choices'   => array(
         'attached'  => __('Attached','sage'),
         'fixed'     => __('Fixed','sage'),
+    ),
+));
+
+/* ****************************************************************************/
+/* Header menu styles *********************************************************/
+/* ****************************************************************************/
+
+piklist('field', array(
+    'type'      => 'checkbox',
+    'field'     => 'header_menu_options',
+    'label'     => __('Header menu Style','sage'),
+    'columns'   => 4,
+    'choices'   => array(
+        'borderless'=> __('Borderless','sage'),
+        'small'     => __('Small','sage'),
+        'large'     => __('Large','sage'),
     ),
 ));
 

@@ -2,8 +2,9 @@
 
 /*
 Title: Landing Page Settings
-Setting: layout_settings
-Tab: Landing
+Setting: experiensa_design_settings
+Tab: Landing Page
+Tab Order: 20
 */
 
 piklist('field', array(
@@ -17,7 +18,8 @@ piklist('field', array(
     ),
 ));
 
-
-
+// TODO: Order of apperance Slider, destinations (countries), popular cities, etc, promotions
+// TODO: Colors for different sections
+// TODO: Appears or not
 
 ?>

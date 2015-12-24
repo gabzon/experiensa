@@ -24,7 +24,7 @@ $query = new WP_Query( $args );
                     <div class="ui container">
                         <div class="ui grid">
                             <div class="twelve wide column" id="slider-text">
-                                <h1 class="fitText"><?= the_title(); ?></h1>
+                                <h1 class="fitText" style="text-transform:uppercase"><?= the_title(); ?></h1>
                                 <h4><?= the_excerpt(); ?></h4>
                                 <h5><?= get_post_meta($post->ID,'product_price',true) . ' ' . get_post_meta($post->ID,'product_currency',true); ?></h5>
                                 <a href="<?php the_permalink(); ?>" class="ui basic inverted button">

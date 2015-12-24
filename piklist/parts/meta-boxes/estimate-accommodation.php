@@ -10,14 +10,14 @@ Flow: Estimate Workflow
 ** Accommodation Section
 *******************************************************************************/
 
-$estimate_host_name = array(
+$estimate_host_name = [
     'type'      => 'text',
     'field'     => 'estimate_etablishment_name',
     'label'     => __('Etablishment name','sage'),
     'columns'   => 6
-);
+];
 
-$estimate_host_type = array(
+$estimate_host_type = [
     'type'      => 'select',
     'field'     => 'estimate_etablishment_type',
     'label'     => __('Etablishment type','sage'),
@@ -30,7 +30,7 @@ $estimate_host_type = array(
         'private'   => __('Private apartment','sage'),
         'hostel'    => __('Hostel','sage'),
     )
-);
+];
 
 $estimate_host_rating = array(
     'type'      => 'select',
@@ -83,15 +83,16 @@ $estimate_host_comments = array(
     'columns'   => 12
 );
 
-$estimate_host_gallery = array(
+$estimate_host_gallery = [
     'type'      => 'file',
     'field'     => 'estimate_etablishment_gallery',
     'label'     => __('Photo Gallery','sage'),
-);
+];
 
-piklist('field', array(
+$accommodation_group = array(
     'type'      => 'group',
     'template'  => 'field',
+    'field'     => 'estimate_accommodation_group',
     'add_more'  => true,
     'fields'    => array(
         $estimate_host_name,
@@ -103,5 +104,22 @@ piklist('field', array(
         $estimate_host_checkout_time,
         $estimate_host_comments,
         $estimate_host_gallery
+    )
+);
+
+$comments = [
+    'type'      => 'text',
+    'field'     => 'estimate_accommodation_comments',
+    'label'     => __('Comments','sage'),
+    'columns'   => 12
+];
+
+piklist('field', array(
+    'type'      => 'group',
+    'template'  => 'field',
+    'add_more'  => true,
+    'fields'    => array(
+        $accommodation_group,
+        $comments
     )
 ));

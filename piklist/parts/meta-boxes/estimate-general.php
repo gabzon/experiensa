@@ -7,6 +7,13 @@ Tab: General
 Flow: Estimate Workflow
 */
 
+$title = array(
+    'type'          => 'text',
+    'field'         => 'estimate_title',
+    'label'         => __('Title','sage'),
+    'columns'       => 12
+);
+
 $price = array(
     'type'          => 'number',
     'field'         => 'estimate_price',
@@ -14,7 +21,6 @@ $price = array(
     'attributes'    => array( 'step' => 'any' ),
     'columns'       => 4
 );
-
 
 $currency = array(
     'type'      => 'select',
@@ -42,84 +48,58 @@ $slogan = array(
     'label'     => __('Voyage slogan','sage')
 );
 
-piklist('field', array(
-    'type'      => 'group',
-    'label'     => __('General info','sage'),
-    'fields'    => array(
-        $price,
-        $currency,
-        $expiry_date,
-        $slogan
-    )
-));
+$conditions = array(
+    'type'      => 'textarea',
+    'field'     => 'estimate_information_conditions',
+    'label'     => __('Additional information & Conditions','sage'),
+    'columns'   => 12
+);
 
-piklist('field', array(
-    'type' => 'group',
-    'scope' => 'post_meta',
-    'label' => __('Number of Days'),
-    'fields' => array(
-        array(
-            'type'          => 'text',
-            'field'         => 'estimate_days',
-            'columns'       => 2,
-            'attributes'    => array( 'placeholder' => __('Days','sage')),
-            'validate'      => array( array( 'type' => 'number' ))
-        ),
-        array(
-            'type'          => 'text',
-            'field'         => 'estimate_nights',
-            'columns'       => 2,
-            'attributes' => array( 'placeholder' => __('Nights')),
-            'validate' => array( array( 'type' => 'number' ) )
-        ),
-    ),
-));
-
-piklist('field', array(
-    'type'          => 'checkbox',
-    'field'         => 'estimate_conditions',
-    'label'         => __('Conditions','sage'),
-    'choices'       => array(
-        'refundable'    => __('Refundable','sage'),
-        'flexible'      => __('Flexible','sage')
-    ),
-));
-
-piklist('field', array(
-    'type'      => 'group',
-    'label'     => __('Resell to other agencies?','sage'),
-    'fields'    => array(
-        array(
-            'type'      => 'checkbox',
-            'field'     => 'estimate_is_tour_operator',
-            'label'     => __('Resell','sage'),
-            'columns'   => 6,
-            'choices'   => array( 'TRUE'  => 'Yes' )
-        ),
-        array(
-            'type'          => 'number',
-            'field'         => 'estimate_tour_operator_margin',
-            'columns'       => 6,
-            'label'         => __('Margin (%)','sage'),
-            'attributes'    => array( 'step' => 'any' ),
-            'conditions'    => array(
-                array(
-                    'field' => 'estimate_is_tour_operator',
-                    'value' => 'TRUE'
-                ),
-            ),
-        ),
-    ),
-));
-
-piklist('field', array(
-    'type'  => 'editor',
-    'field' => 'estimate_information_conditions',
-    'label' => __('Additional information & Conditions','sage')
-));
-
-piklist('field', array(
+$photos = array(
     'type'  => 'file',
     'field' => 'estimate_gallery',
     'label' => __('Photo Gallery','sage')
+);
+
+$people = array(
+    'type'  => 'text',
+    'field' => 'estimate_people',
+    'label' => __('Number of people','sage'),
+    'columns' => 4,
+);
+
+$number_days = array(
+    'type'          => 'text',
+    'field'         => 'estimate_days',
+    'label'         => __('Days','sage'),
+    'columns'       => 2,
+    'attributes'    => array( 'placeholder' => __('Days','sage')),
+    'validate'      => [ ['type' => 'number'] ]
+);
+
+$number_nights = array(
+    'type'          => 'text',
+    'field'         => 'estimate_nights',
+    'label'         => __('Nights','sage'),
+    'columns'       => 2,
+    'attributes'    => ['placeholder' => __('Nights')],
+    'validate'      => array( array( 'type' => 'number' ) )
+);
+
+piklist('field', array(
+    'type'      => 'group',
+    'label'     => __('Options','sage'),
+    'add_more'  => true,
+    'fields'    => array(
+        $title,
+        $price,
+        $currency,
+        $expiry_date,
+        $slogan,
+        $conditions,
+        $photos,
+        $people,
+        $number_days,
+        $number_nights
+    )
 ));
