@@ -4,7 +4,7 @@ use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
 
 $args = array (
-'post_type'              => array( 'product' ),
+'post_type'              => array( 'voyage' ),
 'category_name'          => 'landing-slider',
 'order'                  => 'DESC',
 );
