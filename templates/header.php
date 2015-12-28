@@ -3,8 +3,9 @@ use Roots\Sage\Nav;
 $menu_name = 'primary_navigation';
 
 $agency_options = get_option('agency_settings');
-$logo = $agency_options['agency_logo'];
-$phone = $agency_options['agency_phone'];
+$design_options = get_option('experiensa_design_settings');
+$logo   = $agency_options['agency_logo'];
+$phone  = $agency_options['agency_phone'];
 ?>
 
 <header class="ui secondary <?= get_menu_style(); ?> menu grid">
@@ -30,14 +31,15 @@ $phone = $agency_options['agency_phone'];
     <div class="computer only row">
         <a class="item menu-link <?php scroll_menu(); ?>" href="<?= esc_url(home_url('/')); ?>">
             <?php if ($logo): ?>
-                <img class="ui tiny image logo" src="<?php echo wp_get_attachment_url($logo);?>" /> &nbsp;
-                <?php bloginfo('name'); ?>
+                <img class="ui <?= $design_options['header_logo_size']; ?> image logo" src="<?php echo wp_get_attachment_url($logo);?>" /> &nbsp;
+                <?php if ($design_options['header_company_name'] === 'TRUE'): ?>
+                    <?php bloginfo('name'); ?>
+                <?php endif; ?>
             <?php else: ?>
                 <?php bloginfo('name'); ?>
             <?php endif; ?>
         </a>
         <div class="right menu">
-
             <?php  if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
                 $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                 $menu_items = wp_get_nav_menu_items($menu->term_id);

@@ -11,7 +11,30 @@ Tab Order: 10
 /* Phone button ***************************************************************/
 /* ****************************************************************************/
 
-// TODO: Add small, "nothing", large menu options
+piklist('field', array(
+    'type'      => 'select',
+    'field'     => 'header_logo_size',
+    'label'     => __('Logo size','sage'),
+    'columns'   => 4,
+    'value'     => 'tiny',
+    'choices'   => array(
+        'mini'      => __('Mini (35px)','sage'),
+        'tiny'      => __('Tiny (80px)','sage'),
+        'small'     => __('Small (150px)','sage')
+    ),
+));
+
+piklist('field', array(
+    'type'      => 'checkbox',
+    'field'     => 'header_company_name',
+    'label'     => __('Company name','sage'),
+    'columns'   => 5,
+    'value'     => 'TRUE',
+    'choices'   => array(
+        'TRUE'      => __('Display Company name next to the logo','sage'),
+    ),
+));
+
 
 $phone_display =  array(
     'type'      => 'select',
