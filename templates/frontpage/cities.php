@@ -18,7 +18,8 @@ $cities = get_terms($taxonomies, $args);
             <h1 class="massive-header">
                 <?php setlocale(LC_ALL, 'fr_FR'); ?>
                 <!-- utf8_encode(strftime()) -->
-                <?php _e('The best prices in ','sage'); echo " "; echo strftime('%B'); ?>
+                <?php // _e('The best prices in ','sage'); echo " "; echo strftime('%B'); ?>
+                <?php _e('Discover the charm amazing cities','sage'); ?>
             </h1>
             <br>
             <div id="landing-destinations" class="">

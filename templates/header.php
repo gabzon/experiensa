@@ -12,7 +12,7 @@ $phone = $agency_options['agency_phone'];
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
             <?php
             if ($logo):
-                echo 'echo <img class="ui tiny image logo" src="' . wp_get_attachment_url($logo) . '" width="120" />';
+                echo 'echo <img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
             else:
                 bloginfo('name');
             endif;
@@ -30,7 +30,7 @@ $phone = $agency_options['agency_phone'];
     <div class="computer only row">
         <a class="item menu-link <?php scroll_menu(); ?>" href="<?= esc_url(home_url('/')); ?>">
             <?php if ($logo): ?>
-                <img class="ui mini image logo" src="<?php echo wp_get_attachment_url($logo);?>" /> &nbsp;
+                <img class="ui tiny image logo" src="<?php echo wp_get_attachment_url($logo);?>" /> &nbsp;
                 <?php bloginfo('name'); ?>
             <?php else: ?>
                 <?php bloginfo('name'); ?>

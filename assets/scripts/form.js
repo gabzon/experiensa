@@ -1,11 +1,11 @@
 function requestForm(){
 
     // Form
-    var frominput = $('#departure').pickadate({
+    var frominput = jQuery('#departure').pickadate({
         min: 1
     });
-    var toinput = $('#return').pickadate();
-    
+    var toinput = jQuery('#return').pickadate();
+
     var frompicker = frominput.pickadate('picker');
     var topicker = toinput.pickadate('picker');
 
@@ -32,6 +32,7 @@ function requestForm(){
     jQuery('.ui .checkbox').checkbox();
 
     jQuery('select.dropdown').dropdown();
+
     // Slider --------------------
     function collision($div1, $div2) {
         var x1 = $div1.offset().left;
@@ -66,7 +67,7 @@ function requestForm(){
                 jQuery('.price-range-both i').css('display', 'inline');
             }
 
-            if (collision($('.price-range-min'), $('.price-range-max')) === true) {
+            if (collision(jQuery('.price-range-min'), jQuery('.price-range-max')) === true) {
                 jQuery('.price-range-min, .price-range-max').css('opacity', '0');
                 jQuery('.price-range-both').css('display', 'block');
             } else {
@@ -76,12 +77,12 @@ function requestForm(){
         },
     });
 
-    jQuery( "#budget" ).val( "CHF" + $( "#price-slider" ).slider( 'values', 0 ) + " - CHF" + $( "#price-slider" ).slider( 'values', 1 ) );
+    jQuery( "#budget" ).val( "CHF" + jQuery( "#price-slider" ).slider( 'values', 0 ) + " - CHF" + jQuery( "#price-slider" ).slider( 'values', 1 ) );
 
-    jQuery('.ui-slider-range').append('<span class="price-range-both value"><i>CHF' + $('#price-slider').slider('values', 0 ) + ' - </i>' + $('#price-slider').slider('values', 1 ) + '</span>');
+    jQuery('.ui-slider-range').append('<span class="price-range-both value"><i>CHF' + jQuery('#price-slider').slider('values', 0 ) + ' - </i>' + jQuery('#price-slider').slider('values', 1 ) + '</span>');
 
-    jQuery('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">CHF ' + $('#price-slider').slider('values', 0 ) + '</span>');
+    jQuery('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">CHF ' + jQuery('#price-slider').slider('values', 0 ) + '</span>');
 
-    jQuery('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">CHF ' + $('#price-slider').slider('values', 1 ) + '</span>');
+    jQuery('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">CHF ' + jQuery('#price-slider').slider('values', 1 ) + '</span>');
 
 }
