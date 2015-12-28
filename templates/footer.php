@@ -1,7 +1,9 @@
 <?php
 $agency_options = get_option('agency_settings');
 $logo = $agency_options['agency_logo'];
+// TODO: Add background color option
 ?>
+
 <footer class="ui segment inverted red vertical">
     <div class="ui container">
         <div class="ui five column grid stackable">

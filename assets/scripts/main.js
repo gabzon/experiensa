@@ -19,8 +19,8 @@
         'common': {
             init: function() {
 
-                menuMobile();
-                requestATravel();
+                //menuMobile();
+                //requestATravel();
                 requestForm();
 
                 // Autocomplete google maps ------------------------------------
@@ -57,16 +57,19 @@
                         url: sage_vars.ajaxurl,
                         data: newRequest,
                         success:function(data){
-                            $("#feedback").html(data);
+                            //$("#feedback").html(data);
                         }
                     });
                     return false;
                 }
 
                 $('#form-submit').click(function(){
-                    $('#newRequest').submit(ajaxSubmit);
+                    alert('YEEEAHH!');
+                    //$('#newRequest').submit(ajaxSubmit);
                 });
 
+
+                scrollMenu();
             },
             finalize: function() {
                 // JavaScript to be fired on the home page, after the init JS

@@ -2,6 +2,7 @@
     "dependencies": {
         "main.js": {
             "files": [
+                "scripts/form.js",
                 "scripts/menu.js",
                 "scripts/main.js"
             ],

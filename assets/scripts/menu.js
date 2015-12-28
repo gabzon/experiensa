@@ -1,15 +1,13 @@
 // Menu sidebar ----------------------------------------------------------------
-function menuMobile(){
-    jQuery('.mobile-menu').on('click', function (event) {
-        jQuery('#main-menu.ui.sidebar').sidebar('toggle');
+jQuery(function($){
+    $('.mobile-menu').on('click', function (event) {
+        $('#main-menu.ui.sidebar').sidebar('toggle');
     });
-}
-// Request sidebar -------------------------------------------------------------
-function requestATravel(){
-    jQuery('#request-button').on('click',function(event) {
-        jQuery('#request-form.ui.right.sidebar').sidebar('toggle');
+
+    $('#request-button').on('click',function(event) {
+        $('#request-form.ui.right.sidebar').sidebar('toggle');
     });
-}
+});
 
 function scrollMenu(){
     jQuery(window).scroll(function () {

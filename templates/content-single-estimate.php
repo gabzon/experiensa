@@ -1,16 +1,19 @@
-<?php $title            = get_post_meta($post->ID,'estimate_title'); ?>
-<?php $price            = get_post_meta($post->ID,'estimate_price'); ?>
-<?php $currency         = get_post_meta($post->ID,'estimate_currency'); ?>
-<?php $expiry_date      = get_post_meta($post->ID,'estimate_expiry_date'); ?>
-<?php $slogan           = get_post_meta($post->ID,'estimate_slogan'); ?>
-<?php $conditions       = get_post_meta($post->ID,'estimate_information_conditions'); ?>
-<?php $photos           = get_post_meta($post->ID,'estimate_gallery'); ?>
-<?php $people           = get_post_meta($post->ID,'estimate_people'); ?>
-<?php $number_days      = get_post_meta($post->ID,'estimate_days'); ?>
-<?php $number_nights    = get_post_meta($post->ID,'estimate_nights'); ?>
+<?php
+// General
+$title            = get_post_meta($post->ID,'estimate_title');
+$price            = get_post_meta($post->ID,'estimate_price');
+$currency         = get_post_meta($post->ID,'estimate_currency');
+$expiry_date      = get_post_meta($post->ID,'estimate_expiry_date');
+$slogan           = get_post_meta($post->ID,'estimate_slogan');
+$conditions       = get_post_meta($post->ID,'estimate_information_conditions');
+$photos           = get_post_meta($post->ID,'estimate_gallery');
+$people           = get_post_meta($post->ID,'estimate_people');
+$number_days      = get_post_meta($post->ID,'estimate_days');
+$number_nights    = get_post_meta($post->ID,'estimate_nights');
 
+?>
 <br>
-<div class="ui container">
+<div class="ui container" style="margin-top: 40px">
     <?php while (have_posts()) : the_post(); ?>
         <article <?php post_class(); ?>>
             <header>
@@ -49,6 +52,9 @@
                                     /
                                     <i class="moon icon"></i><?= $number_nights[$i] . ' ' . __('nights','sage'); ?>
                                 </span>
+                            </div>
+                            <div class="content">
+                                <?php get_template_part('templates/estimate/flight'); ?>
                             </div>
                             <div class="ui bottom attached blue button">
                                 <i class="add icon"></i>

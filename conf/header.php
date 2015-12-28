@@ -12,6 +12,13 @@ function get_menu_style(){
     return $design_options['header_menu_style'] . ' ' . $design_options['header_color_fill'] . ' ' . $design_options['website_color'] . ' ' . $opts;
 }
 
+function scroll_menu(){
+    $classes = get_body_class();
+    if (in_array('home',$classes)) {
+        return 'white-font';
+    }
+}
+
 function get_button_style(){
     $design_options = get_option('experiensa_design_settings');
     $button_styles = $design_options['header_button_styles'];
@@ -32,7 +39,7 @@ function get_phone_button(){
     $phone = $agency_options['agency_phone'];
     if ($phone_options['header_display_phone_number'][0]  === 'TRUE'){
         if ($phone) {
-            echo '<a href="tel:' . $phone . '" class="item menu-link white-font">';
+            echo '<a href="tel:' . $phone . '" class="item menu-link '. scroll_menu() . ' ">';
             echo '<i class="call icon"></i>';
             echo $phone;
             echo '</a>';

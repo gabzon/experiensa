@@ -28,7 +28,7 @@ $phone = $agency_options['agency_phone'];
 
     </div>
     <div class="computer only row">
-        <a class="item menu-link white-font" href="<?= esc_url(home_url('/')); ?>">
+        <a class="item menu-link <?php scroll_menu(); ?>" href="<?= esc_url(home_url('/')); ?>">
             <?php if ($logo): ?>
                 <img class="ui mini image logo" src="<?php echo wp_get_attachment_url($logo);?>" /> &nbsp;
                 <?php bloginfo('name'); ?>
@@ -37,12 +37,13 @@ $phone = $agency_options['agency_phone'];
             <?php endif; ?>
         </a>
         <div class="right menu">
+
             <?php  if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
                 $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                 $menu_items = wp_get_nav_menu_items($menu->term_id);
                 foreach ( (array) $menu_items as $key => $menu_item ) :
                     $class = $menu_item->classes; ?>
-                    <a href="<?php echo $menu_item->url; ?>" class="item menu-link white-font <?php if(get_the_ID() == $menu_item->object_id){echo 'active';}else{}?>">
+                    <a href="<?php echo $menu_item->url; ?>" class="item menu-link <?= scroll_menu(); ?> <?php if(get_the_ID() == $menu_item->object_id){echo 'active';}else{}?>">
                         <?php echo $menu_item->title; ?>
                     </a>
                     <?php

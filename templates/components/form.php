@@ -8,80 +8,14 @@
         <?php get_template_part('templates/components/contact'); ?>
 
         <!-- Destination information -->
-        <div class="ui grid stackable">
-            <div class="sixteen wide column">
-                <div class="ui fluid input field">
-                    <div class="ui left icon input">
-                        <input name="destination" id="destination" type="text" placeholder="<?php _e('Destination','sage'); ?>" />
-                        <i class="marker icon"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="eight wide column">
-                <div class="ui fluid input icon field">
-                    <i class="calendar icon"></i>
-                    <input name="departure" id="departure" type="text" class="datepicker" placeholder="<?php _e('Departure date','sage'); ?>">
-                </div>
-            </div>
-            <div class="eight wide column">
-                <div class="ui fluid input icon field">
-                    <input name="return" id="return" type="text" class="datepicker" placeholder="<?php _e('Return date','sage'); ?>">
-                    <i class="calendar icon"></i>
-                </div>
-            </div>
-        </div>
+        <?php get_template_part('templates/components/destination'); ?>
         <br>
-
         <!-- Budget and Companions -->
-        <div class="budget-slider">
-            <div id="price-slider"></div>
-            <input type="hidden" name="budget" id="budget">
-        </div>
+        <?php get_template_part('templates/components/budget'); ?>
         <br><br>
 
-        <div class="ui fluid input field">
-            <select name="companion" id="companion" class="ui dropdown">
-                <option value=""><?php _e('Traveling with','sage'); ?></option>
-                <option value="alone"><?php _e('Alone','sage'); ?></option>
-                <option value="couple"><?php _e('In couple','sage'); ?></option>
-                <option value="family"><?php _e('Family','sage'); ?></option>
-                <option value="friends"><?php _e('Friends','sage'); ?></option>
-                <option value="group"><?php _e('Group','sage'); ?></option>
-                <option value="colleagues"><?php _e('Collegues','sage'); ?></option>
-            </select>
-        </div>
-
-        <div class="ui fluid input field">
-            <select name="adults" id="adults" class="ui dropdown">
-                <option value=""><?php _e('Adults','sage'); ?></option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="more"><?php _e('More','sage'); ?></option>
-            </select>
-        </div>
-
-        <div class="ui fluid input field" ng-hide="companion">
-            <select name="kids" id="kids" class="ui dropdown">
-                <option value=""><?php _e('Kids','sage'); ?></option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="more"><?php _e('More','sage'); ?></option>
-            </select>
-        </div>
+        <!-- Options -->
+        <?php get_template_part('templates/components/options'); ?>
 
         <!-- Préférences -->
         <div class="ui one column grid">
