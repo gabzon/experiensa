@@ -1,9 +1,9 @@
 <?php
-$day            = get_post_meta($post->ID,'product_itinerary_day');
-$title          = get_post_meta($post->ID,'product_itinerary_title');
-$subtitle       = get_post_meta($post->ID,'product_itinerary_subtitle');
-$description    = get_post_meta($post->ID,'product_itinerary_description');
-$gallery        = get_post_meta($post->ID,'product_itinerary_gallery');
+$day            = get_post_meta($post->ID,'voyage_itinerary_day');
+$title          = get_post_meta($post->ID,'voyage_itinerary_title');
+$subtitle       = get_post_meta($post->ID,'voyage_itinerary_subtitle');
+$description    = get_post_meta($post->ID,'voyage_itinerary_description');
+$gallery        = get_post_meta($post->ID,'voyage_itinerary_gallery');
 ?>
 <br>
 <?php Piklist::pre($day) ?>
