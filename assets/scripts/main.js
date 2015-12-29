@@ -18,7 +18,6 @@
         // All pages
         'common': {
             init: function() {
-
                 //menuMobile();
                 //requestATravel();
                 requestForm();
@@ -41,6 +40,8 @@
         // Home page
         'home': {
             init: function() {
+                scrollMenu();
+
                 $('#slides').superslides({play:'8000'});
 
                 $("#promotions-carousel").slick({
@@ -68,8 +69,6 @@
                     //$('#newRequest').submit(ajaxSubmit);
                 });
 
-
-                scrollMenu();
             },
             finalize: function() {
                 // JavaScript to be fired on the home page, after the init JS
@@ -83,6 +82,8 @@
         },
         'single_product':{
             init: function(){
+                scrollMenu();
+                
                 $('#host-gallery').slick({
                     autoplay:true,
                     slidesToShow: 1,

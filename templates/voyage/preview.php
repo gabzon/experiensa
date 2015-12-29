@@ -8,10 +8,8 @@
         <div class="tablet only row">
             <div class="ui grid">
                 <div class="ten wide column">
-                    <div class="font-white">
-                        <h1><?php the_title(); ?></h1>
-                        <p><?php the_excerpt(); ?></p>
-                    </div>
+                    <h1 class="font-white"><?php the_title(); ?></h1>
+                    <p class="font-white"><?php the_excerpt(); ?></p>
                 </div>
                 <div class="six wide column">
                     <?php get_template_part('templates/voyage/preview-table'); ?>
@@ -21,8 +19,8 @@
         <div class="computer only row">
             <div class="ui grid">
                 <div class="ten wide column">
-                    <div class="font-white">
-                        <h1><?php the_title(); ?></h1>
+                    <div>
+                        <h1 class="font-white"><?php the_title(); ?></h1>
                         <p><?php the_excerpt(); ?></p>
                     </div>
                 </div>

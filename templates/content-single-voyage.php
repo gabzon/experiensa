@@ -16,7 +16,7 @@
         </script>
     <?php endif; ?>
 
-    <div class="voyage-slider" style="height:95vh;">
+    <div class="voyage-slider" style="height:100vh;">
         <div class="ui container">
             <br><br>
             <?php get_template_part('templates/voyage/preview'); ?>
