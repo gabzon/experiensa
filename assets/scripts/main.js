@@ -80,10 +80,10 @@
                 // JavaScript to be fired on the about us page
             }
         },
-        'single_product':{
+        'single_voyage':{
             init: function(){
                 scrollMenu();
-                
+
                 $('#host-gallery').slick({
                     autoplay:true,
                     slidesToShow: 1,
@@ -107,7 +107,6 @@
                 }
                 $('#contact_form').submit(ajaxSubmit);
 
-                scrollMenu();
             }
         }
     };

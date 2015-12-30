@@ -6,7 +6,6 @@ $description    = get_post_meta($post->ID,'voyage_itinerary_description');
 $gallery        = get_post_meta($post->ID,'voyage_itinerary_gallery');
 ?>
 <br>
-<?php Piklist::pre($day) ?>
 <?php if ($day): ?>
     <hr>
     <br>

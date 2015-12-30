@@ -14,7 +14,10 @@ function get_menu_style(){
 
 function scroll_menu(){
     $classes = get_body_class();
-    if (in_array('home',$classes)) {
+    if (in_array('home', $classes)) {
+        return 'white-font';
+    }
+    if (in_array('single-voyage', $classes)) {
         return 'white-font';
     }
 }
