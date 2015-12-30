@@ -22,38 +22,38 @@ $voyage_info = get_post_meta(get_the_ID(), 'voyage_information_conditions', true
                             <?php _e('* This offer is flexible, please look our flexibility conditions') ?>
                         </div>
                     <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-        <h3><?php _e('Information & Conditions','sage'); ?></h3>
-        <?= $voyage_info; ?>
-        <br><br>
-    <?php endif; ?>
-
-    <?php if ($included || $excluded): ?>
-        <hr>
-        <br>
-        <div class="ui two column grid stackable">
-            <div class="column">
-                <h3><?php _e('Included','sage') ?></h3>
-                <?php if ($included): ?>
-                    <ul>
-                        <?php foreach ($included as $key): ?>
-                            <li><strong><?= $key->name; ?></strong> <?= $key->description; ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
-            </div>
-            <div class="column">
-                <h3><?php _e('Not included','sage') ?></h3>
-                <?php if ($excluded): ?>
-                    <ul>
-                        <?php foreach ($excluded as $key): ?>
-                            <li><strong><?= $key->name; ?></strong> <?= $key->description; ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     <?php endif; ?>
+    <h3><?php _e('Information & Conditions','sage'); ?></h3>
+    <?= $voyage_info; ?>
+    <br><br>
+<?php endif; ?>
+
+<?php if ($included || $excluded): ?>
+    <hr>
+    <br>
+    <div class="ui two column grid stackable">
+        <div class="column">
+            <h3><?php _e('Included','sage') ?></h3>
+            <?php if ($included): ?>
+                <ul>
+                    <?php foreach ($included as $key): ?>
+                        <li><strong><?= $key->name; ?></strong> <?= $key->description; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </div>
+        <div class="column">
+            <h3><?php _e('Not included','sage') ?></h3>
+            <?php if ($excluded): ?>
+                <ul>
+                    <?php foreach ($excluded as $key): ?>
+                        <li><strong><?= $key->name; ?></strong> <?= $key->description; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>

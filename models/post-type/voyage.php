@@ -36,6 +36,7 @@ if ( ! function_exists('voyage_post_type') ) {
             'show_in_menu'          => true,
             'show_in_nav_menus'     => true,
             'show_in_admin_bar'     => true,
+            'show_in_rest'          => true,
             'menu_position'         => 7,
             'menu_icon'             => 'dashicons-palmtree',
             'can_export'            => true,
