@@ -29,7 +29,7 @@ if ( ! function_exists('voyage_post_type') ) {
             'description'           => __( 'List of voyages (Travel oferts and packages)', 'sage' ),
             'labels'                => $labels,
             'supports'              => array('title', 'thumbnail', 'excerpt', 'revisions'),
-            'taxonomies'            => array( 'category', 'post_tag', 'voyage_type', 'country', 'theme' , 'location'),
+            'taxonomies'            => array( 'category', 'post_tag', 'voyage_type', 'country', 'theme' , 'location', 'included', 'excluded'),
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,

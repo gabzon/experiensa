@@ -7,6 +7,7 @@ $gallery        = get_post_meta($post->ID,'voyage_itinerary_gallery');
 ?>
 <br>
 <?php if ($day): ?>
+    <br>
     <hr>
     <br>
     <div class="ui segment basic" id="product-accommodation">

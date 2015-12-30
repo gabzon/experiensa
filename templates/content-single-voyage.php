@@ -25,13 +25,10 @@
 
     <div class="ui container">
         <article <?php post_class(); ?>>
-            <br>
             <?php get_template_part('templates/voyage/flights'); ?>
-            <br>
             <?php get_template_part('templates/voyage/accommodation'); ?>
-            <br>
-            <?php get_template_part('templates/voyage/itinerary'); ?>
-            <br>
+            <?php get_template_part('templates/voyage/itinerary'); ?>            
+            <?php get_template_part('templates/voyage/conditions'); ?>
             <?php get_template_part('templates/voyage/contact'); ?>
         </article>
     </div>

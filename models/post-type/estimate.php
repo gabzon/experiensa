@@ -35,7 +35,7 @@ if ( ! function_exists('estimate_post_type') ) {
             'description'           => __( 'List of Estimate (quotes)', 'sage' ),
             'labels'                => $labels,
             'supports'              => array( 'title', 'editor', 'author', 'comments', 'revisions', ),
-            'taxonomies'            => array( 'category', 'post_tag' ),
+            'taxonomies'            => array( 'category', 'post_tag', 'included', 'excluded' ),
             'hierarchical'          => false,
             'public'                => true,
             'show_ui'               => true,

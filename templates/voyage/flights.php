@@ -11,6 +11,7 @@ $arrival_time   = get_post_meta($post->ID,'voyage_flight_arrival_time');
 ?>
 
 <?php if ($airline): ?>
+    <br>
     <hr>
     <br>
     <div class="ui segment basic" id="flight">

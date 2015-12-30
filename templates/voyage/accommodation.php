@@ -23,6 +23,7 @@ function display_rating($host_rating){
 ?>
 
 <?php if ($host_name): ?>
+    <br>
     <hr>
     <br>
     <div class="ui segment basic" id="product-accommodation">
