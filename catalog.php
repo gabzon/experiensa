@@ -3,7 +3,9 @@
 * Template Name: Catalog
 */
 ?>
-
+<br><br>
+<div class="ui container">
+<br>
 <?php while (have_posts()) : the_post(); ?>
     <?php get_template_part('templates/page', 'header'); ?>
     <?php get_template_part('templates/content', 'page'); ?>
@@ -16,7 +18,7 @@
 <?php $colombia = json_decode($colombia); ?>
 <?php $own = json_decode($own); ?>
 <?php $voyages = array(); ?>
-<div class="ui container">
+
     <?php foreach ($fiesta as $key => $value): ?>
         <?php array_push($voyages, $value); ?>
     <?php endforeach; ?>
@@ -27,16 +29,19 @@
         <?php array_push($voyages, $value); ?>
     <?php endforeach; ?>
     <br>
-    <div class="ui three column grid stackable">
+    <div class="ui four column grid stackable">
         <?php foreach ($voyages as $key => $value): ?>
             <div class="column">
                 <div class="ui card">
                     <div class="image">
-                        <?php $img =  $value->featured_image; ?>
-                        <?php $feature_img =  wp_get_attachment_image_src( $img ); ?>
-                        <img src="<?= $feature_img[0]  ?>" alt="" />
+                        <img src="<?= $value->cover_image; ?>" alt="" />
                     </div>
                     <div class="content">
+                        <div class="right floated">
+                            <?php if ($value->voyage_price): ?>
+                                <?php echo $value->voyage_price . ' ' . $value->voyage_currency; ?>
+                            <?php endif; ?>
+                        </div>
                         <div class="header">
                             <?php echo $value->title->rendered; ?>
                         </div>

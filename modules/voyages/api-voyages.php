@@ -22,6 +22,17 @@ function slug_register_voyage_cover_image() {
     );
 }
 
+add_action( 'rest_api_init', 'slug_register_voyage_currency' );
+function slug_register_voyage_currency() {
+    register_rest_field( 'voyage', 'voyage_currency',
+        array(
+            'get_callback'    => 'slug_get_voyage_currency',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+
 /**
  * Get the value of the "starship" field
  *
@@ -40,4 +51,7 @@ function slug_get_voyage_cover_image( $object, $field_name, $request ) {
     return $cover_image[0];
 }
 
+function slug_get_voyage_currency( $object, $field_name, $request ) {
+    return get_post_meta( $object[ 'id' ], $field_name, true );
+}
 ?>
