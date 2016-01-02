@@ -38,6 +38,8 @@
                     </div>
                     <div class="content">
                         <div class="right floated">
+                            <?php $default_currency = get_post_meta(224,'voyage_currency',true); ?>
+                            <?php echo "main: ". $default_currency; ?>
                             <?php if ($value->voyage_price): ?>
                                 <?php echo $value->voyage_price . ' ' . $value->voyage_currency; ?>
                             <?php endif; ?>
@@ -47,6 +49,9 @@
                         </div>
                         <div class="meta">
                             <?php echo $value->excerpt->rendered; ?>
+                        </div>
+                        <div class="content">
+                            <?= convertCurrency($value->voyage_price, $value->voyage_currency, $default_currency) ?>
                         </div>
                     </div>
                 </div>
