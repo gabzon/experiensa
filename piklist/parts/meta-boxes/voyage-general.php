@@ -15,22 +15,18 @@ $price = array(
     'columns'   => 4
 );
 
-$currency = array(
-    'type'      => 'select',
-    'field'     => 'voyage_currency',
-    'label'     => __('Currency','sage'),
-    'choices'   => array(
-        'CHF'   =>  'CHF',
-        'USD'   =>  'USD',
-        'EUR'   =>  'EUR',
-    ),
-    'columns'   => 4
-);
-
 $expiry_date = array(
     'type'      => 'datepicker',
     'field'     => 'voyage_expiry_date',
     'label'     => __('Expiry date','sage'),
+    'columns'   => 4
+);
+
+$from = array(
+    'type'      => 'checkbox',
+    'field'     => 'voyage_display_from',
+    'label'     => __('Display from','sage'),
+    'choices'   => array( 'TRUE'  => 'Yes' ),
     'columns'   => 4
 );
 
@@ -46,8 +42,8 @@ piklist('field', array(
     'label'     => __('General info','sage'),
     'fields'    => array(
         $price,
-        $currency,
         $expiry_date,
+        $from,
         $slogan
     )
 ));
@@ -103,19 +99,12 @@ piklist('field', array(
             'attributes'    => array( 'step' => 'any' ),
             'conditions'    => array(
                 array(
-                    'field' => 'voyage_is_tour_operator',
+                    'field' => 'voyage_resell',
                     'value' => 'TRUE'
                 ),
             ),
         ),
     ),
-));
-
-piklist('field', array(
-    'type'      => 'checkbox',
-    'field'     => 'voyage_display_from',
-    'label'     => __('Display from','sage'),
-    'choices'   => array( 'TRUE'  => 'Yes' )
 ));
 
 piklist('field', array(

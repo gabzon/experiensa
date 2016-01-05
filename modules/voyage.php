@@ -6,11 +6,11 @@ class Voyage{
         $reseller       = get_post_meta($id, 'voyage_resell', false);
         $display_from   = get_post_meta($id, 'voyage_display_from', false);
         $price          = get_post_meta($id,'voyage_price', true);
-
+        //piklist::pre($display_from);
         $currency = ($settings['agency_currency']) ? ' ' . $settings['agency_currency'] : '';
-        $from = ($display_from === 'TRUE') ? __('From','sage') . ' ' : '';
+        $from = ($display_from[0][0] === 'TRUE') ? __('From','sage') . ' ' : '';
 
-        if ( $reseller === 'TRUE' ) {
+        if ( $reseller[0][0] === 'TRUE' ) {
             $margin     = get_post_meta($id,'voyage_tour_operator_margin',true);
             return $from . ceil($price + (($margin * $price)/100)) . $currency;
         } else {
