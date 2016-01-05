@@ -26,11 +26,13 @@ $query = new WP_Query( $args );
                             <div class="twelve wide column" id="slider-text">
                                 <h1 class="fitText" style="text-transform:uppercase"><?= the_title(); ?></h1>
                                 <h4><?= the_excerpt(); ?></h4>
-                                <br>                                
+                                <br>
                                 <a href="<?php the_permalink(); ?>" class="ui huge animated fade inverted button" tabindex="0">
-                                    <div class="visible content"><?php _e('More info','sage'); ?></div>
-                                    <div class="hidden content">
+                                    <div class="visible content">
                                         <?= Voyage::price($post->ID); ?>
+                                    </div>
+                                    <div class="hidden content">
+                                        <?php _e('More info','sage'); ?>
                                     </div>
                                 </a>
                             </div>
