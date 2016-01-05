@@ -1,0 +1,2753 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Sevinci Agency\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-05 19:04+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ./templates\n"
+"X-Poedit-SearchPath-2: ./lib\n"
+"X-Poedit-SearchPathExcluded-0: ../bower_components\n"
+"X-Poedit-SearchPathExcluded-1: ../node_modules\n"
+
+#: lib/extras.php:31
+msgid "Continued"
+msgstr "Suite"
+
+#: lib/setup.php:30
+msgid "Primary Navigation"
+msgstr "Navigation Primaire"
+
+#: lib/setup.php:58
+msgid "Primary"
+msgstr "Premier"
+
+#: lib/setup.php:67
+msgid "Footer"
+msgstr "Pied de page"
+
+#: lib/titles.php:13
+msgid "Latest Posts"
+msgstr "Derniers Articles"
+
+#: lib/titles.php:18
+#, php-format
+msgid "Search Results for %s"
+msgstr "Résultats de la recherche pour %s"
+
+#: lib/titles.php:20 models/taxonomy/country.php:25
+#: models/taxonomy/excluded.php:24 models/taxonomy/included.php:25
+#: models/taxonomy/location.php:25 models/taxonomy/product-type.php:25
+#: models/taxonomy/theme.php:25
+msgid "Not Found"
+msgstr "Pas trouvé"
+
+#: templates/about/team.php:17
+msgid "The team"
+msgstr "L'équipe"
+
+#: templates/catalog/isotop-top.php:13
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: templates/catalog/isotop-top.php:17
+msgid "All"
+msgstr "Tout"
+
+#: templates/catalog/list.php:27 templates/frontpage/slider.php:31
+msgid "More info"
+msgstr "Plus d'info"
+
+#: templates/comments.php:19
+msgid "&larr; Older comments"
+msgstr "&larr; Commentaires plus anciens"
+
+#: templates/comments.php:22
+msgid "Newer comments &rarr;"
+msgstr "Commentaires plus récents &rarr;"
+
+#: templates/comments.php:31
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#: templates/components/contact.php:3
+msgid "Full name"
+msgstr "Nom complet"
+
+#: templates/components/contact.php:8 piklist/parts/meta-boxes/partner.php:16
+#: piklist/parts/settings/agency-information.php:79
+msgid "Email"
+msgstr "Email"
+
+#: templates/components/contact.php:13 templates/voyage/contact.php:10
+#: piklist/parts/settings/agency-information.php:90
+msgid "Phone"
+msgstr "Téléphone"
+
+#: templates/components/destination.php:3
+msgid "Destination"
+msgstr "Destination"
+
+#: templates/components/destination.php:10
+#: piklist/parts/meta-boxes/estimate-flight.php:58
+#: piklist/parts/meta-boxes/voyage-flight.php:58
+msgid "Departure date"
+msgstr "Date de départ"
+
+#: templates/components/destination.php:14
+msgid "Return date"
+msgstr "Date de retour"
+
+#: templates/components/form.php:5
+msgid "Request"
+msgstr "Devis"
+
+#: templates/components/form.php:24 templates/components/form.php:59
+msgid "Preferences"
+msgstr "Préférences"
+
+#: templates/components/form.php:32
+msgid "Flight options"
+msgstr "Options de vol"
+
+#: templates/components/form.php:37
+msgid "Class"
+msgstr "Classe"
+
+#: templates/components/form.php:39
+#: piklist/parts/meta-boxes/estimate-flight.php:34
+#: piklist/parts/meta-boxes/voyage-flight.php:34
+msgid "Economy"
+msgstr "Economique"
+
+#: templates/components/form.php:42
+msgid "Business Class"
+msgstr "Business Class"
+
+#: templates/components/form.php:45
+msgid "First Class"
+msgstr "Première class"
+
+#: templates/components/form.php:48
+msgid "Seat"
+msgstr "Siège"
+
+#: templates/components/form.php:50
+msgid "Either"
+msgstr "L'un ou l'autre"
+
+#: templates/components/form.php:53
+msgid "Aisle"
+msgstr "Couloir"
+
+#: templates/components/form.php:56
+msgid "Windows"
+msgstr "Fenêtre"
+
+#: templates/components/form.php:61
+msgid "Vegeterian meal"
+msgstr "Menu végétarien"
+
+#: templates/components/form.php:64
+msgid "Special assistance"
+msgstr "Assistance spéciale"
+
+#: templates/components/form.php:71
+msgid "Hosting options"
+msgstr "Options d'hébergement"
+
+#: templates/components/form.php:77
+msgid "Internet"
+msgstr "Internet"
+
+#: templates/components/form.php:80
+msgid "Breakfast"
+msgstr "petit déjeuner"
+
+#: templates/components/form.php:83
+msgid "Parking"
+msgstr "Parking"
+
+#: templates/components/form.php:86
+msgid "Swiming Pool"
+msgstr "Piscine"
+
+#: templates/components/form.php:89
+msgid "Laundry Room"
+msgstr "Buanderie"
+
+#: templates/components/form.php:92
+msgid "Gym/Fitness"
+msgstr "Fitness"
+
+#: templates/components/form.php:95
+msgid "Space Well-being"
+msgstr "Space bienêtre"
+
+#: templates/components/form.php:98
+msgid "Conference room"
+msgstr "Salle de conference"
+
+#: templates/components/form.php:102
+#: piklist/parts/meta-boxes/estimate-accommodation.php:26
+#: piklist/parts/meta-boxes/voyage-accommodation.php:26
+msgid "Hotel"
+msgstr "Hotel"
+
+#: templates/components/form.php:105
+msgid "House/Appartment"
+msgstr "Maison/apartement"
+
+#: templates/components/form.php:108
+msgid "Homestay"
+msgstr "Chez l'habitant"
+
+#: templates/components/form.php:111
+msgid "Camping"
+msgstr "Camping"
+
+#: templates/components/form.php:132
+msgid "Theme & activities options"
+msgstr "Option des thèmes et activités"
+
+#: templates/components/form.php:137
+msgid "Culture & History"
+msgstr "Culture et Histoire"
+
+#: templates/components/form.php:140
+#: piklist/parts/meta-boxes/estimate-flight.php:35
+#: piklist/parts/meta-boxes/voyage-flight.php:35
+msgid "Business"
+msgstr "Business"
+
+#: templates/components/form.php:143 templates/components/form.php:153
+msgid "Fun & Entertainment"
+msgstr "Divertissements"
+
+#: templates/components/form.php:146
+msgid "Romance"
+msgstr "Romantique"
+
+#: templates/components/form.php:150
+msgid "Adventure"
+msgstr "Aventure"
+
+#: templates/components/form.php:157
+msgid "Relaxation"
+msgstr "Détente"
+
+#: templates/components/form.php:160
+msgid "Discovery & Leisure"
+msgstr "Découverte et Loisirs"
+
+#: templates/components/form.php:168
+msgid "Transport options"
+msgstr "Options de transport"
+
+#: templates/components/form.php:173
+msgid "Type of transportation"
+msgstr "Type de transportation"
+
+#: templates/components/form.php:175
+msgid "Type of transport"
+msgstr "Type de transport"
+
+#: templates/components/form.php:176
+msgid "Private"
+msgstr "Privé"
+
+#: templates/components/form.php:177
+msgid "Semi private"
+msgstr "Semi privé"
+
+#: templates/components/form.php:178
+msgid "Public"
+msgstr "Publique"
+
+#: templates/components/form.php:183 templates/components/form.php:185
+msgid "Driver"
+msgstr "Conducteur"
+
+#: templates/components/form.php:184
+msgid "Self Drive"
+msgstr "Sans chauffeur"
+
+#: templates/components/form.php:192
+msgid "Request a quote"
+msgstr "Demande de devis"
+
+#: templates/components/options.php:3
+msgid "Traveling with"
+msgstr "voyage avec"
+
+#: templates/components/options.php:4
+msgid "Alone"
+msgstr "Seul"
+
+#: templates/components/options.php:5
+msgid "In couple"
+msgstr "En couple"
+
+#: templates/components/options.php:6
+msgid "Family"
+msgstr "Famille"
+
+#: templates/components/options.php:7
+msgid "Friends"
+msgstr "Amis"
+
+#: templates/components/options.php:8
+msgid "Group"
+msgstr "Groupe"
+
+#: templates/components/options.php:9
+msgid "Collegues"
+msgstr "Collègues"
+
+#: templates/components/options.php:15
+msgid "Adults"
+msgstr "Adultes"
+
+#: templates/components/options.php:25 templates/components/options.php:41
+msgid "More"
+msgstr "Plus"
+
+#: templates/components/options.php:31
+msgid "Kids"
+msgstr "Enfants"
+
+#: templates/content-page.php:2 templates/content-single-estimate.php:72
+#: templates/content-single.php:11
+msgid "Pages:"
+msgstr "Pages :"
+
+#: templates/content-single-estimate.php:30
+msgid "Expiry date: "
+msgstr "Date d'expiration:"
+
+#: templates/content-single-estimate.php:51
+msgid "days"
+msgstr "jours"
+
+#: templates/content-single-estimate.php:53
+msgid "nights"
+msgstr "nuits"
+
+#: templates/entry-meta.php:2
+msgid "By"
+msgstr "Par"
+
+#: templates/estimate/flight.php:28
+msgid "Departure"
+msgstr "Départ"
+
+#: templates/estimate/flight.php:36
+msgid "Arrival"
+msgstr "Arrivée"
+
+#: templates/frontpage/about.php:6
+msgid "About"
+msgstr "A propos"
+
+#: templates/frontpage/cities.php:22
+msgid "Discover the charm amazing cities"
+msgstr "Découvrez des villes incroyables"
+
+#: templates/frontpage/countries.php:25
+msgid "Discover amazing countries"
+msgstr "Découvrez des pays incroyables"
+
+#: templates/frontpage/promotions.php:11
+msgid "Promotions"
+msgstr "Promotions"
+
+#: templates/frontpage/promotions.php:28
+msgid "Sorry! Currently there are no promotions"
+msgstr "Désolé! Nous n'avons pas des promotions actuellement "
+
+#: templates/frontpage/services.php:7
+msgid "Pre-reservation"
+msgstr "Pre-réservation"
+
+#: templates/frontpage/services.php:9
+msgid ""
+"With fiesta travel you get the opportunity to make reservations without "
+"making any down paiments. No more raise of pricing"
+msgstr ""
+"Avec Fiesta Travel vous avez la possibilité de réserver vos vols en nous "
+"versant un simple acompte et vous offre des facilités de paiement."
+
+#: templates/frontpage/services.php:17
+msgid "Luggage"
+msgstr "Bagage"
+
+#: templates/frontpage/services.php:19
+msgid ""
+"Take two luggages instead of one! Fiesta travel have special deal for extra "
+"luggage. Next time someone asks you to bring them something, say yes!"
+msgstr ""
+"Emportez avec vous deux bagages au lieu d’un seul ! Fiesta Travel bénéficie "
+"d’offre spéciale pour les bagages supplémentaires."
+
+#: templates/frontpage/services.php:26
+msgid "Group offers"
+msgstr "Offre de groupes"
+
+#: templates/frontpage/services.php:28
+msgid ""
+"We organise trips the best groups deals. Our team and our partners would be "
+"glad to organize, plan and service you during your family, group or business "
+"trips"
+msgstr ""
+"Nous organisons des voyages de groupes à des tarifs très avantageux. Notre "
+"équipe et nos partenaires seront heureux de créer, d’organiser et de vous "
+"accompagner pendant votre voyage avec votre association sportive, votre "
+"entreprise ou vos amis !"
+
+#: templates/frontpage/services.php:35
+msgid "Best deals"
+msgstr "Les meilleures offres"
+
+#: templates/frontpage/services.php:37
+msgid ""
+"Our commitment to our clients is not only in the best services, but also at "
+"the best price. Our partners in south america will give you the best prices "
+"you can ever find."
+msgstr ""
+"Notre engagement auprès de nos clients n’est pas seulement dans la qualité "
+"de service mais aussi le meilleur prix. Avec nos partenaires en Amérique du "
+"sud, nous vous offrons les tarifs les plus compétitifs."
+
+#: templates/frontpage/services.php:50
+msgid "Louer une voiture"
+msgstr "Louer une voiture"
+
+#: templates/voyage/accommodation.php:37
+msgid "Accommodation"
+msgstr "Hébergement"
+
+#: templates/voyage/accommodation.php:59 templates/voyage/accommodation.php:61
+msgid "Check-in: "
+msgstr "Enregistrement"
+
+#: templates/voyage/conditions.php:17
+msgid "* This offer is refundable, please look our refund conditions"
+msgstr ""
+"* Cette offre est remboursable, veuillez lire les condition de remboursement"
+
+#: templates/voyage/conditions.php:22
+msgid "* This offer is flexible, please look our flexibility conditions"
+msgstr ""
+"* Cette offre est flexible, veillez regarder les conditions de flexibilités"
+
+#: templates/voyage/conditions.php:29
+msgid "Information & Conditions"
+msgstr "Renseignements et conditions"
+
+#: templates/voyage/conditions.php:39 models/taxonomy/included.php:11
+msgid "Included"
+msgstr "Compris"
+
+#: templates/voyage/conditions.php:49
+msgid "Not included"
+msgstr "Non inclus"
+
+#: templates/voyage/contact.php:3
+msgid "We'll contact you as soon as we can"
+msgstr "Nous allons vous contacter aussi tôt que possible"
+
+#: templates/voyage/itinerary.php:21
+msgid "Itinerary"
+msgstr "Itinéraire"
+
+#: templates/voyage/preview-table.php:18
+#: piklist/parts/meta-boxes/estimate-flight.php:103
+#: piklist/parts/meta-boxes/estimate-general.php:20
+#: piklist/parts/meta-boxes/voyage-general.php:13
+msgid "Price"
+msgstr "Prix"
+
+#: templates/voyage/preview-table.php:24
+msgid "Duration"
+msgstr "Durée"
+
+#: templates/voyage/preview-table.php:31
+#: piklist/parts/meta-boxes/estimate-general.php:74
+#: piklist/parts/meta-boxes/estimate-general.php:76
+#: piklist/parts/meta-boxes/voyage-general.php:60
+msgid "Days"
+msgstr "Jours"
+
+#: templates/voyage/preview-table.php:34
+#: piklist/parts/meta-boxes/estimate-general.php:83
+#: piklist/parts/meta-boxes/estimate-general.php:85
+#: piklist/parts/meta-boxes/voyage-general.php:67
+msgid "Nights"
+msgstr "Nuits"
+
+#: templates/voyage/preview-table.php:41
+#: piklist/parts/settings/agency-information.php:68
+msgid "Country"
+msgstr "Pays"
+
+#: templates/voyage/preview-table.php:45
+msgid "Location"
+msgstr "Lieu"
+
+#: templates/voyage/preview-table.php:56
+msgid "Contact us"
+msgstr "Contactez nous"
+
+#: 404.php:4
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Désolé, mais la page que vous essayiez de voir n'existe pas."
+
+#: base.php:14
+msgid ""
+"You are using an <strong>outdated</strong> browser. Please <a href=\"http://"
+"browsehappy.com/\">upgrade your browser</a> to improve your experience."
+msgstr ""
+"Vous utilisez un navigateur <strong>obsolète</strong>. S'il vous plaît <a "
+"href=\"http://browsehappy.com/\">mettez à niveau</a>votre navigateur pour "
+"améliorer votre expérience."
+
+#: conf/header.php:59
+msgid "Request a Trip"
+msgstr "Devis"
+
+#: conf/languages.php:8
+msgid "Languages"
+msgstr "Langues"
+
+#: conf/setting-menu.php:6
+msgid "General"
+msgstr "Générale"
+
+#: conf/setting-menu.php:7
+msgid "Experiensa"
+msgstr "Experiensa"
+
+#: conf/setting-menu.php:15 conf/setting-menu.php:30 conf/setting-menu.php:46
+msgid "Save Settings"
+msgstr "Enregistrer les paramètres"
+
+#: conf/setting-menu.php:23
+msgid "Design Settings"
+msgstr "Paramètres du design"
+
+#: conf/setting-menu.php:24
+msgid "Design"
+msgstr "Design"
+
+#: conf/setting-menu.php:39 conf/setting-menu.php:40
+msgid "Tutorials"
+msgstr "Tutoriaux"
+
+#: functions.php:28
+#, php-format
+msgid "Error locating %s for inclusion"
+msgstr "Erreur en localisant %s pour l'inclusion"
+
+#: index.php:5 search.php:5
+msgid "Sorry, no results were found."
+msgstr "Désolé, aucun résultat n'a été trouvé."
+
+#: models/post-type/estimate.php:9 models/post-type/estimate.php:10
+msgid "Estimates"
+msgstr "Devis"
+
+#: models/post-type/estimate.php:11
+msgid "Parent Estimate:"
+msgstr "Devis père:"
+
+#: models/post-type/estimate.php:12
+msgid "All Estimate"
+msgstr "Tous les devis"
+
+#: models/post-type/estimate.php:13
+msgid "Add New Estimate"
+msgstr "Ajouter nouveau devis"
+
+#: models/post-type/estimate.php:14 models/post-type/feedback.php:14
+#: models/post-type/host.php:14 models/post-type/partner.php:15
+#: models/post-type/service.php:15 models/post-type/voyage.php:14
+msgid "Add New"
+msgstr "Ajouter un nouveau"
+
+#: models/post-type/estimate.php:15
+msgid "New Estimate"
+msgstr "Nouveau devis"
+
+#: models/post-type/estimate.php:16
+msgid "Edit Estimate"
+msgstr "Editer devis"
+
+#: models/post-type/estimate.php:17
+msgid "Update Estimate"
+msgstr "Actualiser devis"
+
+#: models/post-type/estimate.php:18
+msgid "View Estimate"
+msgstr "Voir devis"
+
+#: models/post-type/estimate.php:19
+msgid "Search Estimate"
+msgstr "Rechercher devis"
+
+#: models/post-type/estimate.php:20 models/post-type/feedback.php:20
+#: models/post-type/host.php:20 models/post-type/partner.php:21
+#: models/post-type/service.php:21 models/post-type/voyage.php:18
+msgid "Not found"
+msgstr "Pas trouvé"
+
+#: models/post-type/estimate.php:21 models/post-type/feedback.php:21
+#: models/post-type/host.php:21 models/post-type/partner.php:22
+#: models/post-type/service.php:22 models/post-type/voyage.php:19
+msgid "Not found in Trash"
+msgstr "Pas trouvé dans la corbeille"
+
+#: models/post-type/estimate.php:22
+msgid "Estimates list"
+msgstr "Liste de devis"
+
+#: models/post-type/estimate.php:23
+msgid "Estimates list navigation"
+msgstr "Navigation de la liste de devis"
+
+#: models/post-type/estimate.php:24
+msgid "Filter Estimates list"
+msgstr "Filtrer la liste de devis"
+
+#: models/post-type/estimate.php:34
+msgid "Estimate"
+msgstr "Devis"
+
+#: models/post-type/estimate.php:35
+msgid "List of Estimate (quotes)"
+msgstr "Liste de devis"
+
+#: models/post-type/estimate.php:55
+msgid "Proposed"
+msgstr "Proposé"
+
+#: models/post-type/estimate.php:56
+msgid "Modified"
+msgstr "Modifié"
+
+#: models/post-type/estimate.php:57
+msgid "Accepted"
+msgstr "Accepté"
+
+#: models/post-type/estimate.php:58
+msgid "Payed"
+msgstr "Payé"
+
+#: models/post-type/feedback.php:9 models/post-type/feedback.php:33
+msgid "Feedback"
+msgstr "Feedback"
+
+#: models/post-type/feedback.php:10
+msgid "Feedbacks"
+msgstr "Feedbacks"
+
+#: models/post-type/feedback.php:11
+msgid "Parent Feedback:"
+msgstr "Père du feedback:"
+
+#: models/post-type/feedback.php:12
+msgid "All Feedbacks"
+msgstr "Tout les feedbacks"
+
+#: models/post-type/feedback.php:13
+msgid "Add New Feedback"
+msgstr "Ajouté nouveau feedback"
+
+#: models/post-type/feedback.php:15
+msgid "New Feedback"
+msgstr "Nouveau feedback"
+
+#: models/post-type/feedback.php:16
+msgid "Edit Feedback"
+msgstr "Editer feedback"
+
+#: models/post-type/feedback.php:17
+msgid "Update Feedback"
+msgstr "Actualiser feedback"
+
+#: models/post-type/feedback.php:18
+msgid "View Feedback"
+msgstr "Voir feedback"
+
+#: models/post-type/feedback.php:19
+msgid "Search Feedback"
+msgstr "Rechercher feedback"
+
+#: models/post-type/feedback.php:22
+msgid "Feedback list"
+msgstr "Liste de feedback"
+
+#: models/post-type/feedback.php:23
+msgid "Feedback list navigation"
+msgstr "Navigation de la liste de feedbacks"
+
+#: models/post-type/feedback.php:24
+msgid "Filter Feedback list"
+msgstr "Filtrer liste de feedback"
+
+#: models/post-type/feedback.php:34
+msgid "List of feedback / comments given by client regarding services"
+msgstr ""
+"Liste de feedbacks / commentaires faites par les clients en regards des "
+"services"
+
+#: models/post-type/host.php:9 models/post-type/host.php:33
+msgid "Host"
+msgstr "Hébergement"
+
+#: models/post-type/host.php:10
+msgid "Hosts"
+msgstr "Hébergeurs"
+
+#: models/post-type/host.php:11
+msgid "Parent Host:"
+msgstr "Hébergeur père:"
+
+#: models/post-type/host.php:12
+msgid "All Hosts"
+msgstr "Tous les hébergeurs"
+
+#: models/post-type/host.php:13
+msgid "Add New Host"
+msgstr "Ajouter hébergeur"
+
+#: models/post-type/host.php:15
+msgid "New Host"
+msgstr "Nouveau hébergeur"
+
+#: models/post-type/host.php:16
+msgid "Edit Host"
+msgstr "Editer Hébergement"
+
+#: models/post-type/host.php:17
+msgid "Update Host"
+msgstr "Actualiser hébergeur"
+
+#: models/post-type/host.php:18
+msgid "View Host"
+msgstr "Voir hébergeur"
+
+#: models/post-type/host.php:19
+msgid "Search Host"
+msgstr "Rechercher hébergeur"
+
+#: models/post-type/host.php:22
+msgid "Hosts list"
+msgstr "Liste d'hébergeurs"
+
+#: models/post-type/host.php:23
+msgid "Hosts list navigation"
+msgstr "Navigation de la liste d'hébergeurs"
+
+#: models/post-type/host.php:24
+msgid "Filter Hosts list"
+msgstr "Filtrer la liste d'hébergements"
+
+#: models/post-type/host.php:34
+msgid "List of hotels, hostels, appartments, etc"
+msgstr "Liste d'hôtels, auberges, appartements, etc"
+
+#: models/post-type/partner.php:10 models/post-type/partner.php:11
+#: piklist/parts/settings/agency-partners.php:12
+msgid "Partners"
+msgstr "Partenaires"
+
+#: models/post-type/partner.php:12
+msgid "Parent Partner:"
+msgstr "Père du partenaire"
+
+#: models/post-type/partner.php:13
+msgid "All Partners"
+msgstr "Tous les partenaires"
+
+#: models/post-type/partner.php:14
+msgid "Add New Partner"
+msgstr "Ajouter partenaire"
+
+#: models/post-type/partner.php:16
+msgid "New Partner"
+msgstr "Nouveau partenaire"
+
+#: models/post-type/partner.php:17
+msgid "Edit Partner"
+msgstr "Editer partenaire"
+
+#: models/post-type/partner.php:18
+msgid "Update Partner"
+msgstr "Actualiser partenaire"
+
+#: models/post-type/partner.php:19
+msgid "View Partner"
+msgstr "Voir partenaire"
+
+#: models/post-type/partner.php:20
+msgid "Search Partner"
+msgstr "Rechercher partenaire"
+
+#: models/post-type/partner.php:23
+msgid "Partners list"
+msgstr "Liste de partenaires"
+
+#: models/post-type/partner.php:24
+msgid "Partners list navigation"
+msgstr "Navigation de la liste de partenaires"
+
+#: models/post-type/partner.php:25
+msgid "Filter Partners list"
+msgstr "Filtrer liste de partenaires"
+
+#: models/post-type/partner.php:34
+msgid "Partner"
+msgstr "Partenaire"
+
+#: models/post-type/partner.php:35
+msgid ""
+"List of travel agencies, tour operators and other services that belong to "
+"the listo group"
+msgstr ""
+"Liste d'agences de voyages, tour opérateurs et autres services qui font "
+"parti du group Listo"
+
+#: models/post-type/service.php:10 models/post-type/service.php:11
+msgid "Services"
+msgstr "Services"
+
+#: models/post-type/service.php:12
+msgid "Parent Service:"
+msgstr "Service père:"
+
+#: models/post-type/service.php:13
+msgid "All Services"
+msgstr "Tout les services"
+
+#: models/post-type/service.php:14
+msgid "Add New Service"
+msgstr "Ajouter Service"
+
+#: models/post-type/service.php:16
+msgid "New Service"
+msgstr "Nouveau service"
+
+#: models/post-type/service.php:17
+msgid "Edit Service"
+msgstr "Editer Service"
+
+#: models/post-type/service.php:18
+msgid "Update Service"
+msgstr "Actualiser service"
+
+#: models/post-type/service.php:19
+msgid "View Service"
+msgstr "Voir service"
+
+#: models/post-type/service.php:20
+msgid "Search Service"
+msgstr "Rechercher service"
+
+#: models/post-type/service.php:23
+msgid "Services list"
+msgstr "List de services"
+
+#: models/post-type/service.php:24
+msgid "Services list navigation"
+msgstr "Navigation de la liste de service"
+
+#: models/post-type/service.php:25
+msgid "Filter Services list"
+msgstr "Filtrer la liste de services"
+
+#: models/post-type/service.php:34
+msgid "Service"
+msgstr "Service"
+
+#: models/post-type/service.php:35
+msgid "List of services surrounding a trip"
+msgstr "Liste de services autour un voyage"
+
+#: models/post-type/voyage.php:7 models/post-type/voyage.php:9
+msgid "Voyages"
+msgstr "Voyages"
+
+#: models/post-type/voyage.php:8 models/post-type/voyage.php:28
+msgid "Voyage"
+msgstr "Voyage"
+
+#: models/post-type/voyage.php:10
+msgid "Parent Item:"
+msgstr "Article parent:"
+
+#: models/post-type/voyage.php:11
+msgid "All Voyages"
+msgstr "Tout les voyages"
+
+#: models/post-type/voyage.php:12
+msgid "View Voyage"
+msgstr "Voir voyage"
+
+#: models/post-type/voyage.php:13
+msgid "Add New Voyage"
+msgstr "ajouter un nouveau voyage"
+
+#: models/post-type/voyage.php:15
+msgid "Edit Voyage"
+msgstr "Editer voyage"
+
+#: models/post-type/voyage.php:16
+msgid "Update Voyage"
+msgstr "Actualiser voyage"
+
+#: models/post-type/voyage.php:17
+msgid "Search Voyage"
+msgstr "Rechercher voyage"
+
+#: models/post-type/voyage.php:29
+msgid "List of voyages (Travel oferts and packages)"
+msgstr "List de voyages (offres de vacances et paquets)"
+
+#: models/post-type/voyage.php:49
+msgid "Draft"
+msgstr "Brouillon"
+
+#: models/post-type/voyage.php:50
+msgid "Pending"
+msgstr "En attente"
+
+#: models/post-type/voyage.php:51
+msgid "Publish"
+msgstr "Publié"
+
+#: models/post-type/voyage.php:52
+msgid "Future"
+msgstr "Future"
+
+#: models/post-type/voyage.php:53
+msgid "Deactivated"
+msgstr "Désactivé"
+
+#: models/taxonomy/country.php:11
+msgid "Countries"
+msgstr "Pays"
+
+#: models/taxonomy/country.php:12
+msgid "All Countries"
+msgstr "tous les pays"
+
+#: models/taxonomy/country.php:13
+msgid "Parent Country"
+msgstr "Pays père"
+
+#: models/taxonomy/country.php:14
+msgid "Parent Country:"
+msgstr "Pays parent:"
+
+#: models/taxonomy/country.php:15
+msgid "New Country Name"
+msgstr "Nouveau pays"
+
+#: models/taxonomy/country.php:16
+msgid "Add New Country"
+msgstr "Ajouter un nouveau pays"
+
+#: models/taxonomy/country.php:17
+msgid "Edit Country"
+msgstr "Editer pays"
+
+#: models/taxonomy/country.php:18
+msgid "Update Country"
+msgstr "Actualiser pays"
+
+#: models/taxonomy/country.php:19
+msgid "View Country"
+msgstr "Voir pays"
+
+#: models/taxonomy/country.php:20
+msgid "Separate Countries with commas"
+msgstr "Séparer les pays avec de virgules"
+
+#: models/taxonomy/country.php:21
+msgid "Add or remove Countries"
+msgstr "Ajouter ou supprimer pays"
+
+#: models/taxonomy/country.php:22 models/taxonomy/excluded.php:21
+#: models/taxonomy/included.php:22 models/taxonomy/location.php:22
+#: models/taxonomy/product-type.php:22 models/taxonomy/theme.php:22
+msgid "Choose from the most used"
+msgstr "Choisissez parmi les plus utilisés"
+
+#: models/taxonomy/country.php:23
+msgid "Popular Countries"
+msgstr "Pays populaires"
+
+#: models/taxonomy/country.php:24
+msgid "Search Countries"
+msgstr "Rechercher pays"
+
+#: models/taxonomy/country.php:26
+msgid "Countries list"
+msgstr "Liste des pays"
+
+#: models/taxonomy/country.php:27
+msgid "Countries list navigation"
+msgstr "Navigation de la liste de pays"
+
+#: models/taxonomy/excluded.php:10
+msgid "Excluded"
+msgstr "Exclu"
+
+#: models/taxonomy/excluded.php:11
+msgid "All Excluded"
+msgstr "Tous Exclus"
+
+#: models/taxonomy/excluded.php:12
+msgid "Parent Excluded"
+msgstr "Exclu père"
+
+#: models/taxonomy/excluded.php:13
+msgid "Parent Excluded:"
+msgstr "Exclu père:"
+
+#: models/taxonomy/excluded.php:14
+msgid "New Excluded Name"
+msgstr "Nouveau Exclus"
+
+#: models/taxonomy/excluded.php:15
+msgid "Add New Excluded"
+msgstr "Ajouter exclu"
+
+#: models/taxonomy/excluded.php:16
+msgid "Edit Excluded"
+msgstr "Editer Exclu"
+
+#: models/taxonomy/excluded.php:17
+msgid "Update Excluded"
+msgstr "Actualiser exclu"
+
+#: models/taxonomy/excluded.php:18
+msgid "View Excluded"
+msgstr "Voir exclus"
+
+#: models/taxonomy/excluded.php:19
+msgid "Separate Excluded with commas"
+msgstr "Séparer exclu avec de virgules"
+
+#: models/taxonomy/excluded.php:20
+msgid "Add or remove Excluded"
+msgstr "Ajouter ou supprimer exclu"
+
+#: models/taxonomy/excluded.php:22
+msgid "Popular Excluded"
+msgstr "Popular Exclus"
+
+#: models/taxonomy/excluded.php:23
+msgid "Search Excluded"
+msgstr "Rechercher exclu"
+
+#: models/taxonomy/excluded.php:25
+msgid "Excluded list"
+msgstr "Liste d'exclus"
+
+#: models/taxonomy/excluded.php:26
+msgid "Excluded list navigation"
+msgstr "Navigation de la liste d'exclus"
+
+#: models/taxonomy/included.php:12
+msgid "All Included"
+msgstr "Tout inclu"
+
+#: models/taxonomy/included.php:13
+msgid "Parent Included"
+msgstr "Père d'Inclu"
+
+#: models/taxonomy/included.php:14
+msgid "Parent Included:"
+msgstr "Inclu père:"
+
+#: models/taxonomy/included.php:15
+msgid "New Included Name"
+msgstr "Nouvelle Inclus"
+
+#: models/taxonomy/included.php:16
+msgid "Add New Included"
+msgstr "Ajouter nouveau Inclu"
+
+#: models/taxonomy/included.php:17
+msgid "Edit Included"
+msgstr "Editer inclu"
+
+#: models/taxonomy/included.php:18
+msgid "Update Included"
+msgstr "Actualiser inclu"
+
+#: models/taxonomy/included.php:19
+msgid "View Included"
+msgstr "Voir inclu"
+
+#: models/taxonomy/included.php:20
+msgid "Separate Included with commas"
+msgstr "Séparer inclus avec de virgules"
+
+#: models/taxonomy/included.php:21
+msgid "Add or remove Included"
+msgstr "Ajouter ou supprimer inclu"
+
+#: models/taxonomy/included.php:23
+msgid "Popular Included"
+msgstr "Inclus populaires"
+
+#: models/taxonomy/included.php:24
+msgid "Search Included"
+msgstr "Recherche incluse"
+
+#: models/taxonomy/included.php:26
+msgid "Included list"
+msgstr "Liste d'Inclus"
+
+#: models/taxonomy/included.php:27
+msgid "Included list navigation"
+msgstr "Navigation de la liste d'Inclus"
+
+#: models/taxonomy/location.php:11
+msgid "Locations"
+msgstr "Emplacements"
+
+#: models/taxonomy/location.php:12
+msgid "All Locations"
+msgstr "Tous les emplacements"
+
+#: models/taxonomy/location.php:13
+msgid "Parent Location"
+msgstr "Emplacement père"
+
+#: models/taxonomy/location.php:14
+msgid "Parent Location:"
+msgstr "Emplacement père:"
+
+#: models/taxonomy/location.php:15
+msgid "New Location Name"
+msgstr "Nouveau emplacement"
+
+#: models/taxonomy/location.php:16
+msgid "Add New Location"
+msgstr "Ajouter emplacement"
+
+#: models/taxonomy/location.php:17
+msgid "Edit Location"
+msgstr "Editer emplacement"
+
+#: models/taxonomy/location.php:18
+msgid "Update Location"
+msgstr "Actualiser emplacement"
+
+#: models/taxonomy/location.php:19
+msgid "View Location"
+msgstr "Voir emplacement"
+
+#: models/taxonomy/location.php:20
+msgid "Separate Locations with commas"
+msgstr "Séparer emplacements avec de virgules"
+
+#: models/taxonomy/location.php:21
+msgid "Add or remove Locations"
+msgstr "Ajouter ou supprimer emplacement"
+
+#: models/taxonomy/location.php:23
+msgid "Popular Locations"
+msgstr "Emplacements populaires"
+
+#: models/taxonomy/location.php:24
+msgid "Search Locations"
+msgstr "Rechercher emplacement"
+
+#: models/taxonomy/location.php:26
+msgid "Locations list"
+msgstr "Liste d'emplacements"
+
+#: models/taxonomy/location.php:27
+msgid "Locations list navigation"
+msgstr "Navigation de la liste d'emplacements"
+
+#: models/taxonomy/product-type.php:11
+msgid "Product Types"
+msgstr "Type de produits"
+
+#: models/taxonomy/product-type.php:12
+msgid "All Product Types"
+msgstr "Tous les types de produit"
+
+#: models/taxonomy/product-type.php:13
+msgid "Parent Product Type"
+msgstr "Type de produit père"
+
+#: models/taxonomy/product-type.php:14
+msgid "Parent Product Type:"
+msgstr "type de produit père:"
+
+#: models/taxonomy/product-type.php:15
+msgid "New Product Type Name"
+msgstr "Nouveau type de produit"
+
+#: models/taxonomy/product-type.php:16
+msgid "Add New Product Type"
+msgstr "Ajouter type de produit"
+
+#: models/taxonomy/product-type.php:17
+msgid "Edit Product Type"
+msgstr "Editer type de produit"
+
+#: models/taxonomy/product-type.php:18
+msgid "Update Product Type"
+msgstr "Actualiser type de produit"
+
+#: models/taxonomy/product-type.php:19
+msgid "View Product Type"
+msgstr "Voir type de produit"
+
+#: models/taxonomy/product-type.php:20
+msgid "Separate product types with commas"
+msgstr "Séparer les types de produits avec des virgules"
+
+#: models/taxonomy/product-type.php:21
+msgid "Add or remove product types"
+msgstr "Ajouter ou supprimer types de produit"
+
+#: models/taxonomy/product-type.php:23
+msgid "Popular product types"
+msgstr "Type de produits populaire"
+
+#: models/taxonomy/product-type.php:24
+msgid "Search Product Types"
+msgstr "Rechercher types de produits"
+
+#: models/taxonomy/product-type.php:26
+msgid "Product Types list"
+msgstr "Liste des types de produit"
+
+#: models/taxonomy/product-type.php:27
+msgid "Product Types list navigation"
+msgstr "Navigation de la liste de type de produits"
+
+#: models/taxonomy/theme.php:11
+msgid "Themes"
+msgstr "Thèmes"
+
+#: models/taxonomy/theme.php:12
+msgid "All Themes"
+msgstr "Tous les thèmes"
+
+#: models/taxonomy/theme.php:13
+msgid "Parent Theme"
+msgstr "Thème père"
+
+#: models/taxonomy/theme.php:14
+msgid "Parent Theme:"
+msgstr "Thème père:"
+
+#: models/taxonomy/theme.php:15
+msgid "New Theme Name"
+msgstr "Nouveau thème"
+
+#: models/taxonomy/theme.php:16
+msgid "Add New Theme"
+msgstr "Ajouter un nouveau thème"
+
+#: models/taxonomy/theme.php:17
+msgid "Edit Theme"
+msgstr "Editer thème"
+
+#: models/taxonomy/theme.php:18
+msgid "Update Theme"
+msgstr "Actualiser thème"
+
+#: models/taxonomy/theme.php:19
+msgid "View Theme"
+msgstr "Voir thème"
+
+#: models/taxonomy/theme.php:20
+msgid "Separate Themes with commas"
+msgstr "Séparer thèmes avec de virgules"
+
+#: models/taxonomy/theme.php:21
+msgid "Add or remove Themes"
+msgstr "Ajouter ou supprimer thème"
+
+#: models/taxonomy/theme.php:23
+msgid "Popular Themes"
+msgstr "Thèmes populaires"
+
+#: models/taxonomy/theme.php:24
+msgid "Search Themes"
+msgstr "Recherche thèmes"
+
+#: models/taxonomy/theme.php:26
+msgid "Themes list"
+msgstr "Liste de thèmes"
+
+#: models/taxonomy/theme.php:27
+msgid "Themes list navigation"
+msgstr "Navigation de la liste de thèmes"
+
+#: modules/voyage.php:11
+msgid "From"
+msgstr "Dès"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:16
+#: piklist/parts/meta-boxes/voyage-accommodation.php:16
+msgid "Etablishment name"
+msgstr "Nom de l'établissement"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:23
+#: piklist/parts/meta-boxes/voyage-accommodation.php:23
+msgid "Etablishment type"
+msgstr "Type d'établissement "
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:27
+#: piklist/parts/meta-boxes/voyage-accommodation.php:27
+msgid "Bed & Breakfast"
+msgstr "Bed & Breakfast"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:28
+#: piklist/parts/meta-boxes/voyage-accommodation.php:28
+msgid "Residence"
+msgstr "Résidence"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:29
+#: piklist/parts/meta-boxes/voyage-accommodation.php:29
+msgid "Airbnb"
+msgstr "Airbnb"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:30
+#: piklist/parts/meta-boxes/voyage-accommodation.php:30
+msgid "Private apartment"
+msgstr "Appartement privé"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:31
+#: piklist/parts/meta-boxes/voyage-accommodation.php:31
+msgid "Hostel"
+msgstr "Auberge de jeunesse"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:38
+#: piklist/parts/meta-boxes/voyage-accommodation.php:38
+msgid "Rating"
+msgstr "Classement"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:41
+#: piklist/parts/meta-boxes/voyage-accommodation.php:41
+msgid "5 Stars"
+msgstr "5 étoiles"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:42
+#: piklist/parts/meta-boxes/voyage-accommodation.php:42
+msgid "4 Stars"
+msgstr "4 étoiles"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:43
+#: piklist/parts/meta-boxes/voyage-accommodation.php:43
+msgid "3 Stars"
+msgstr "3 étoiles"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:44
+#: piklist/parts/meta-boxes/voyage-accommodation.php:44
+msgid "2 Stars"
+msgstr "2 étoiles"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:45
+#: piklist/parts/meta-boxes/voyage-accommodation.php:45
+msgid "1 Star"
+msgstr "1 étoile"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:52
+#: piklist/parts/meta-boxes/voyage-accommodation.php:52
+msgid "Check-in date"
+msgstr "Date d'enregistrement"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:60
+#: piklist/parts/meta-boxes/voyage-accommodation.php:60
+msgid "Check-in time"
+msgstr "Heure d'enregistrement"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:67
+#: piklist/parts/meta-boxes/voyage-accommodation.php:67
+msgid "Check-out date"
+msgstr "Date de départ"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:75
+#: piklist/parts/meta-boxes/voyage-accommodation.php:75
+msgid "Check-out time"
+msgstr "Heure de départ"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:82
+#: piklist/parts/meta-boxes/voyage-accommodation.php:82
+msgid "Comments & Description"
+msgstr "Commentaires et description"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:89
+#: piklist/parts/meta-boxes/estimate-general.php:61
+#: piklist/parts/meta-boxes/voyage-accommodation.php:89
+#: piklist/parts/meta-boxes/voyage-general.php:119
+msgid "Photo Gallery"
+msgstr "Galerie de photos"
+
+#: piklist/parts/meta-boxes/estimate-accommodation.php:113
+#: piklist/parts/meta-boxes/estimate-flight.php:112
+msgid "Comments"
+msgstr "Commentaires"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:17
+#: piklist/parts/meta-boxes/voyage-flight.php:17
+msgid "Airline"
+msgstr "Compagnie aérienne"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:24
+#: piklist/parts/meta-boxes/voyage-flight.php:24
+msgid "Flight number"
+msgstr "Numéro de vol"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:30
+#: piklist/parts/meta-boxes/voyage-flight.php:30
+msgid "Flight Class"
+msgstr "Catégorie du vol"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:36
+#: piklist/parts/meta-boxes/voyage-flight.php:36
+msgid "First"
+msgstr "Première"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:44
+#: piklist/parts/meta-boxes/voyage-flight.php:44
+msgid "Departure city"
+msgstr "Ville de départ"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:51
+#: piklist/parts/meta-boxes/voyage-flight.php:51
+msgid "Arrival city"
+msgstr "Ville d'arrivée"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:66
+#: piklist/parts/meta-boxes/voyage-flight.php:66
+msgid "Departure time"
+msgstr "Heure de départ"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:73
+#: piklist/parts/meta-boxes/voyage-flight.php:73
+msgid "Arrival date"
+msgstr "Date d'arrivée"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:81
+#: piklist/parts/meta-boxes/voyage-flight.php:81
+msgid "Arrival time"
+msgstr "Heure d'arrivée"
+
+#: piklist/parts/meta-boxes/estimate-flight.php:120
+#: piklist/parts/meta-boxes/estimate-general.php:91
+msgid "Options"
+msgstr "Options"
+
+#: piklist/parts/meta-boxes/estimate-general.php:13
+#: piklist/parts/meta-boxes/voyage-itinerary.php:23
+msgid "Title"
+msgstr "Titre"
+
+#: piklist/parts/meta-boxes/estimate-general.php:28
+#: piklist/parts/settings/agency-defaults.php:12
+msgid "Currency"
+msgstr "Devise"
+
+#: piklist/parts/meta-boxes/estimate-general.php:40
+#: piklist/parts/meta-boxes/voyage-general.php:21
+msgid "Expiry date"
+msgstr "Date d'expiration"
+
+#: piklist/parts/meta-boxes/estimate-general.php:48
+#: piklist/parts/meta-boxes/voyage-general.php:37
+msgid "Voyage slogan"
+msgstr "Slogan du voyage"
+
+#: piklist/parts/meta-boxes/estimate-general.php:54
+#: piklist/parts/meta-boxes/voyage-general.php:113
+msgid "Additional information & Conditions"
+msgstr "Information additionnelle et conditions"
+
+#: piklist/parts/meta-boxes/estimate-general.php:67
+msgid "Number of people"
+msgstr "Nombre de personnes"
+
+#: piklist/parts/meta-boxes/partner.php:9
+msgid "Website"
+msgstr "Site web"
+
+#: piklist/parts/meta-boxes/voyage-general.php:28
+msgid "Display from"
+msgstr "Afficher Dès"
+
+#: piklist/parts/meta-boxes/voyage-general.php:42
+msgid "General info"
+msgstr "Information générale"
+
+#: piklist/parts/meta-boxes/voyage-general.php:54
+msgid "Number of Days"
+msgstr "Nombre de jours"
+
+#: piklist/parts/meta-boxes/voyage-general.php:76
+msgid "Conditions"
+msgstr "Conditions"
+
+#: piklist/parts/meta-boxes/voyage-general.php:78
+msgid "Refundable"
+msgstr "Remboursable"
+
+#: piklist/parts/meta-boxes/voyage-general.php:79
+msgid "Flexible"
+msgstr "Flexible"
+
+#: piklist/parts/meta-boxes/voyage-general.php:85
+msgid "Resell to other agencies?"
+msgstr "Revendre à d'autres agences?"
+
+#: piklist/parts/meta-boxes/voyage-general.php:90
+msgid "Resell"
+msgstr "Revente"
+
+#: piklist/parts/meta-boxes/voyage-general.php:98
+msgid "Margin (%)"
+msgstr "Marge(%)"
+
+#: piklist/parts/meta-boxes/voyage-itinerary.php:16
+msgid "Day"
+msgstr "Jour"
+
+#: piklist/parts/meta-boxes/voyage-itinerary.php:30
+msgid "Sub title"
+msgstr "Sous-titre"
+
+#: piklist/parts/meta-boxes/voyage-itinerary.php:37
+msgid "Description"
+msgstr "Description"
+
+#: piklist/parts/meta-boxes/voyage-itinerary.php:44
+msgid "Gallery"
+msgstr "Galerie"
+
+#: piklist/parts/settings/agency-information.php:11
+msgid "Logo"
+msgstr "Logo"
+
+#: piklist/parts/settings/agency-information.php:13
+#: piklist/parts/settings/agency-information.php:14
+#: piklist/parts/settings/agency-partners.php:42
+#: piklist/parts/settings/agency-partners.php:43
+msgid "Add Logo"
+msgstr "Ajouter logo"
+
+#: piklist/parts/settings/agency-information.php:22
+msgid "Agency Description"
+msgstr "Description de l'agence"
+
+#: piklist/parts/settings/agency-information.php:27
+msgid "Enter the agency description"
+msgstr "Entrez la description de l'agence"
+
+#: piklist/parts/settings/agency-information.php:35
+msgid "Address"
+msgstr "Adresse"
+
+#: piklist/parts/settings/agency-information.php:38
+msgid "Enter the agency address"
+msgstr "Entrez l'adresse de l'agence"
+
+#: piklist/parts/settings/agency-information.php:46
+msgid "Postal Code"
+msgstr "Code postal"
+
+#: piklist/parts/settings/agency-information.php:49
+msgid "Enter the agency postal code"
+msgstr "Entrez le code postal de l'agence"
+
+#: piklist/parts/settings/agency-information.php:57
+msgid "City"
+msgstr "Ville"
+
+#: piklist/parts/settings/agency-information.php:60
+msgid "Enter the agency city"
+msgstr "Entrez la ville de l'agence"
+
+#: piklist/parts/settings/agency-information.php:71
+msgid "Enter the agency country"
+msgstr "Entrez le pays de l'agence"
+
+#: piklist/parts/settings/agency-information.php:82
+msgid "Enter the agency email"
+msgstr "Entrez l'email de l'agence"
+
+#: piklist/parts/settings/agency-information.php:93
+msgid "Enter the agency phone"
+msgstr "Entrez le téléphone de l'agence"
+
+#: piklist/parts/settings/agency-information.php:101
+msgid "Fax"
+msgstr "Fax"
+
+#: piklist/parts/settings/agency-information.php:104
+msgid "Enter the agency fax"
+msgstr "Entrez le fax de l'agence"
+
+#: piklist/parts/settings/agency-information.php:112
+msgid "Schedule"
+msgstr "Calendrier"
+
+#: piklist/parts/settings/agency-information.php:117
+msgid "Enter the agency schedule"
+msgstr "Entrez le calendrier de l'agence"
+
+#: piklist/parts/settings/agency-information.php:126
+msgid "Agency Map"
+msgstr "Plan de l'agence"
+
+#: piklist/parts/settings/agency-information.php:137
+#: piklist/parts/settings/design-header.php:45
+#: piklist/parts/settings/design-header.php:95
+#: piklist/parts/settings/design-header.php:144
+#: piklist/parts/settings/design-landing.php:16
+msgid "Yes"
+msgstr "Oui"
+
+#: piklist/parts/settings/agency-information.php:138
+#: piklist/parts/settings/design-header.php:46
+#: piklist/parts/settings/design-header.php:96
+#: piklist/parts/settings/design-header.php:145
+#: piklist/parts/settings/design-landing.php:17
+msgid "No"
+msgstr "Non"
+
+#: piklist/parts/settings/agency-partners.php:20
+msgid "Partner Name"
+msgstr "Nom du partenaire"
+
+#: piklist/parts/settings/agency-partners.php:23
+msgid "Enter the partner name"
+msgstr "Entrez le nom du partenaire"
+
+#: piklist/parts/settings/agency-partners.php:30
+msgid "Partner Website"
+msgstr "Site web du partenaire"
+
+#: piklist/parts/settings/agency-partners.php:33
+msgid "Enter the partner website"
+msgstr "Entrez le site web du partenaire"
+
+#: piklist/parts/settings/agency-partners.php:40
+msgid "Partner Logo"
+msgstr "Logo du partenaire"
+
+#: piklist/parts/settings/agency-social.php:13
+msgid "Facebook"
+msgstr "Facebook"
+
+#: piklist/parts/settings/agency-social.php:16
+msgid "Enter the agency Facebook"
+msgstr "Entrez le lien Facebook de l'agence"
+
+#: piklist/parts/settings/agency-social.php:29
+msgid "Twitter"
+msgstr "Twitter"
+
+#: piklist/parts/settings/agency-social.php:32
+msgid "Enter the agency Twitter"
+msgstr "Entrez le lien twitter de l'agence"
+
+#: piklist/parts/settings/agency-social.php:45
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: piklist/parts/settings/agency-social.php:48
+msgid "Enter the agency Pinterest"
+msgstr "Entrez le lien Pinterest de l'agence"
+
+#: piklist/parts/settings/agency-social.php:61
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: piklist/parts/settings/agency-social.php:64
+msgid "Enter the agency LinkedIn"
+msgstr "Entrez le lien linkedin de l'agence"
+
+#: piklist/parts/settings/agency-social.php:77
+msgid "Google Plus"
+msgstr "Google Plus"
+
+#: piklist/parts/settings/agency-social.php:80
+msgid "Enter the agency Google Plus"
+msgstr "Entrez le lien google plus de l'agence"
+
+#: piklist/parts/settings/agency-social.php:93
+msgid "Skype"
+msgstr "Skype"
+
+#: piklist/parts/settings/agency-social.php:96
+msgid "Enter the agency Skype"
+msgstr "Entrez le nom skype de l'agence"
+
+#: piklist/parts/settings/agency-social.php:109
+msgid "Instagram"
+msgstr "Instagram"
+
+#: piklist/parts/settings/agency-social.php:112
+msgid "Enter the agency Instagram"
+msgstr "Entrez le lien instagram de l'agence"
+
+#: piklist/parts/settings/design-footer.php:16
+#: piklist/parts/settings/design-landing.php:27
+#: piklist/parts/settings/design-landing.php:72
+#: piklist/parts/settings/design-landing.php:116
+msgid "No Color"
+msgstr "Pas de couleur"
+
+#: piklist/parts/settings/design-footer.php:17
+#: piklist/parts/settings/design-general.php:14
+#: piklist/parts/settings/design-header.php:58
+#: piklist/parts/settings/design-header.php:108
+#: piklist/parts/settings/design-header.php:157
+#: piklist/parts/settings/design-landing.php:28
+#: piklist/parts/settings/design-landing.php:73
+#: piklist/parts/settings/design-landing.php:117
+msgid "Red"
+msgstr "Rouge"
+
+#: piklist/parts/settings/design-footer.php:18
+#: piklist/parts/settings/design-general.php:15
+#: piklist/parts/settings/design-header.php:59
+#: piklist/parts/settings/design-header.php:109
+#: piklist/parts/settings/design-header.php:158
+#: piklist/parts/settings/design-landing.php:29
+#: piklist/parts/settings/design-landing.php:74
+#: piklist/parts/settings/design-landing.php:118
+msgid "Orange"
+msgstr "Orange"
+
+#: piklist/parts/settings/design-footer.php:19
+#: piklist/parts/settings/design-general.php:16
+#: piklist/parts/settings/design-header.php:60
+#: piklist/parts/settings/design-header.php:110
+#: piklist/parts/settings/design-header.php:159
+#: piklist/parts/settings/design-landing.php:30
+#: piklist/parts/settings/design-landing.php:75
+#: piklist/parts/settings/design-landing.php:119
+msgid "Yellow"
+msgstr "Jaune"
+
+#: piklist/parts/settings/design-footer.php:20
+#: piklist/parts/settings/design-general.php:17
+#: piklist/parts/settings/design-header.php:61
+#: piklist/parts/settings/design-header.php:111
+#: piklist/parts/settings/design-header.php:160
+#: piklist/parts/settings/design-landing.php:31
+#: piklist/parts/settings/design-landing.php:76
+#: piklist/parts/settings/design-landing.php:120
+msgid "Olive"
+msgstr "Olive"
+
+#: piklist/parts/settings/design-footer.php:21
+#: piklist/parts/settings/design-general.php:18
+#: piklist/parts/settings/design-header.php:62
+#: piklist/parts/settings/design-header.php:112
+#: piklist/parts/settings/design-header.php:161
+#: piklist/parts/settings/design-landing.php:32
+#: piklist/parts/settings/design-landing.php:77
+#: piklist/parts/settings/design-landing.php:121
+msgid "Green"
+msgstr "Vert"
+
+#: piklist/parts/settings/design-footer.php:22
+#: piklist/parts/settings/design-general.php:19
+#: piklist/parts/settings/design-header.php:63
+#: piklist/parts/settings/design-header.php:113
+#: piklist/parts/settings/design-header.php:162
+#: piklist/parts/settings/design-landing.php:33
+#: piklist/parts/settings/design-landing.php:78
+#: piklist/parts/settings/design-landing.php:122
+msgid "Teal"
+msgstr "Sarcelle"
+
+#: piklist/parts/settings/design-footer.php:23
+#: piklist/parts/settings/design-general.php:20
+#: piklist/parts/settings/design-header.php:64
+#: piklist/parts/settings/design-header.php:114
+#: piklist/parts/settings/design-header.php:163
+#: piklist/parts/settings/design-landing.php:34
+#: piklist/parts/settings/design-landing.php:79
+#: piklist/parts/settings/design-landing.php:123
+msgid "Blue"
+msgstr "Bleu"
+
+#: piklist/parts/settings/design-footer.php:24
+#: piklist/parts/settings/design-general.php:21
+#: piklist/parts/settings/design-header.php:65
+#: piklist/parts/settings/design-header.php:115
+#: piklist/parts/settings/design-header.php:164
+#: piklist/parts/settings/design-landing.php:35
+#: piklist/parts/settings/design-landing.php:80
+#: piklist/parts/settings/design-landing.php:124
+msgid "Violet"
+msgstr "Violet"
+
+#: piklist/parts/settings/design-footer.php:25
+#: piklist/parts/settings/design-general.php:22
+#: piklist/parts/settings/design-header.php:66
+#: piklist/parts/settings/design-header.php:116
+#: piklist/parts/settings/design-header.php:165
+#: piklist/parts/settings/design-landing.php:36
+#: piklist/parts/settings/design-landing.php:81
+#: piklist/parts/settings/design-landing.php:125
+msgid "Purple"
+msgstr "Mauve"
+
+#: piklist/parts/settings/design-footer.php:26
+#: piklist/parts/settings/design-general.php:23
+#: piklist/parts/settings/design-header.php:67
+#: piklist/parts/settings/design-header.php:117
+#: piklist/parts/settings/design-header.php:166
+#: piklist/parts/settings/design-landing.php:37
+#: piklist/parts/settings/design-landing.php:82
+#: piklist/parts/settings/design-landing.php:126
+msgid "Pink"
+msgstr "Rose"
+
+#: piklist/parts/settings/design-footer.php:27
+#: piklist/parts/settings/design-general.php:24
+#: piklist/parts/settings/design-header.php:68
+#: piklist/parts/settings/design-header.php:118
+#: piklist/parts/settings/design-header.php:167
+#: piklist/parts/settings/design-landing.php:38
+#: piklist/parts/settings/design-landing.php:83
+#: piklist/parts/settings/design-landing.php:127
+msgid "Brown"
+msgstr "Brun"
+
+#: piklist/parts/settings/design-footer.php:28
+#: piklist/parts/settings/design-general.php:25
+#: piklist/parts/settings/design-header.php:69
+#: piklist/parts/settings/design-header.php:119
+#: piklist/parts/settings/design-header.php:168
+#: piklist/parts/settings/design-landing.php:39
+#: piklist/parts/settings/design-landing.php:84
+#: piklist/parts/settings/design-landing.php:128
+msgid "Grey"
+msgstr "Gris"
+
+#: piklist/parts/settings/design-footer.php:29
+#: piklist/parts/settings/design-general.php:26
+#: piklist/parts/settings/design-header.php:70
+#: piklist/parts/settings/design-header.php:120
+#: piklist/parts/settings/design-header.php:169
+#: piklist/parts/settings/design-landing.php:40
+#: piklist/parts/settings/design-landing.php:85
+#: piklist/parts/settings/design-landing.php:129
+msgid "Black"
+msgstr "Noir"
+
+#: piklist/parts/settings/design-footer.php:30
+#: piklist/parts/settings/design-landing.php:41
+#: piklist/parts/settings/design-landing.php:86
+#: piklist/parts/settings/design-landing.php:130
+msgid "Default website"
+msgstr "Site par défaut"
+
+#: piklist/parts/settings/design-footer.php:39
+#: piklist/parts/settings/design-landing.php:50
+#: piklist/parts/settings/design-landing.php:95
+#: piklist/parts/settings/design-landing.php:139
+msgid "Inverted color"
+msgstr "Couleur inversée"
+
+#: piklist/parts/settings/design-footer.php:46
+#: piklist/parts/settings/design-landing.php:146
+msgid "Theme section color"
+msgstr "Couleur de la section thème "
+
+#: piklist/parts/settings/design-footer.php:47
+#: piklist/parts/settings/design-landing.php:59
+#: piklist/parts/settings/design-landing.php:103
+#: piklist/parts/settings/design-landing.php:147
+msgid ""
+"If inverted color is checked, this section background will be colored instead"
+msgstr ""
+"Si la option de la couleur inversé est coché le fond de la section sera "
+"remplis"
+
+#: piklist/parts/settings/design-general.php:10
+msgid "Website Color"
+msgstr "Couleur du site web"
+
+#: piklist/parts/settings/design-general.php:13
+#: piklist/parts/settings/design-header.php:57
+#: piklist/parts/settings/design-header.php:107
+#: piklist/parts/settings/design-header.php:156
+msgid "Default (White)"
+msgstr "Défaut (Blanc)"
+
+#: piklist/parts/settings/design-header.php:17
+msgid "Logo size"
+msgstr "Taille du logo"
+
+#: piklist/parts/settings/design-header.php:21
+msgid "Mini (35px)"
+msgstr "Mini (35px)"
+
+#: piklist/parts/settings/design-header.php:22
+msgid "Tiny (80px)"
+msgstr "Minuscule (80px)"
+
+#: piklist/parts/settings/design-header.php:23
+msgid "Small (150px)"
+msgstr "Petit (150px)"
+
+#: piklist/parts/settings/design-header.php:30
+msgid "Company name"
+msgstr "Nom de l'entreprise"
+
+#: piklist/parts/settings/design-header.php:34
+msgid "Display Company name next to the logo"
+msgstr "Afficher le nombre de l'entreprise à coté du logo"
+
+#: piklist/parts/settings/design-header.php:42
+msgid "Display Phone number"
+msgstr "Afficher numéro de téléphone"
+
+#: piklist/parts/settings/design-header.php:53
+msgid "Phone Button Color"
+msgstr "Couleur du bouton de téléphone"
+
+#: piklist/parts/settings/design-header.php:77
+msgid "Phone Button"
+msgstr "Bouton du téléphone"
+
+#: piklist/parts/settings/design-header.php:92
+msgid "Display Resquest button"
+msgstr "Afficher bouton de devis"
+
+#: piklist/parts/settings/design-header.php:103
+msgid "Request Button Color"
+msgstr "Couleur du bouton du devis"
+
+#: piklist/parts/settings/design-header.php:127
+msgid "Request Quote Button"
+msgstr "Bouton du devis"
+
+#: piklist/parts/settings/design-header.php:141
+msgid "Display multilanguage"
+msgstr "Afficher multilangue"
+
+#: piklist/parts/settings/design-header.php:152
+msgid "Language Button Color"
+msgstr "Couleur du bouton langue"
+
+#: piklist/parts/settings/design-header.php:176
+msgid "Language Button"
+msgstr "Bouton de langue"
+
+#: piklist/parts/settings/design-header.php:186
+msgid "Phone Button Style"
+msgstr "Style du bouton de téléphone"
+
+#: piklist/parts/settings/design-header.php:189
+msgid "Inverted"
+msgstr "Inversé"
+
+#: piklist/parts/settings/design-header.php:190
+msgid "Emphasis"
+msgstr "Accentué"
+
+#: piklist/parts/settings/design-header.php:191
+msgid "Basic"
+msgstr "Basique"
+
+#: piklist/parts/settings/design-header.php:198
+msgid "Fixed or attached"
+msgstr "Fixé ou attaché"
+
+#: piklist/parts/settings/design-header.php:200
+msgid "Attached"
+msgstr "Attaché"
+
+#: piklist/parts/settings/design-header.php:201
+msgid "Fixed"
+msgstr "Fixé"
+
+#: piklist/parts/settings/design-header.php:212
+msgid "Header menu Style"
+msgstr "Style du menu header"
+
+#: piklist/parts/settings/design-header.php:215
+msgid "Borderless"
+msgstr "Sans bordure"
+
+#: piklist/parts/settings/design-header.php:216
+msgid "Small"
+msgstr "Petit"
+
+#: piklist/parts/settings/design-header.php:217
+msgid "Large"
+msgstr "Large"
+
+#: piklist/parts/settings/design-header.php:224
+msgid "Menu color fill"
+msgstr "Couleur du menu"
+
+#: piklist/parts/settings/design-header.php:228
+msgid "Background fill (inverted)"
+msgstr "Remplir fond (inverser)"
+
+#: piklist/parts/settings/design-header.php:229
+msgid "Font colors (normal)"
+msgstr "Couleur de la police"
+
+#: piklist/parts/settings/design-landing.php:13
+msgid "Display Promotional Slider"
+msgstr "Afficher les diapositives promotionnelles "
+
+#: piklist/parts/settings/design-landing.php:58
+msgid "Destination section color"
+msgstr "Couleur de la section destination"
+
+#: piklist/parts/settings/design-landing.php:102
+msgid "Promotion section color"
+msgstr "Couleur de la section promotion"
+
+#: bower_components/jquery-ui/jquery-ui.min.js:8
+msgid "'"
+msgstr "'"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/parser.js:239
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/parser.js:239
+#, javascript-format
+msgid "Not enough arguments following: %s"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/parser.js:348
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/parser.js:348
+#, javascript-format
+msgid "Invalid JSON config file: %s"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:132
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:134
+msgid "Commands:"
+msgstr "Commandes"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:165
+msgid "Options:"
+msgstr "Options:"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:174
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:196
+msgid "boolean"
+msgstr "boolean"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:175
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:197
+msgid "count"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:176
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:177
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:198
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:199
+msgid "string"
+msgstr "string"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:178
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:200
+msgid "array"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:182
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:204
+msgid "required"
+msgstr "requis"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:183
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:205
+msgid "choices:"
+msgstr "choix:"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:202
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:224
+msgid "Examples:"
+msgstr "Exemples:"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:280
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:321
+msgid "generated-value"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/usage.js:302
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/usage.js:343
+msgid "default:"
+msgstr "Défaut:"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/validation.js:19
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/validation.js:19
+#, javascript-format
+msgid "Not enough non-option arguments: got %s, need at least %s"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/validation.js:23
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/validation.js:23
+#, javascript-format
+msgid "Too many non-option arguments: got %s, maximum of %s"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/validation.js:148
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/validation.js:148
+msgid "Invalid values:"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/validation.js:151
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/validation.js:151
+#, javascript-format
+msgid "Argument: %s, Given: %s, Choices: %s"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/validation.js:171
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/validation.js:171
+#, javascript-format
+msgid "Argument check failed: %s"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/lib/validation.js:238
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/lib/validation.js:238
+msgid "Implications failed:"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:26
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:37
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:46
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:55
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:66
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:76
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:290
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:292
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:26
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:37
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:46
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:55
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:66
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:76
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:290
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:292
+msgid "Hello"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:84
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:84
+#, javascript-format
+msgid "Hello %s %s"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:100
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:109
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:125
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:141
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:163
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:183
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:100
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:109
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:125
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:141
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:163
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:183
+msgid "banana"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:124
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:328
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:124
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:328
+msgid "meow"
+msgstr ""
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:162
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:162
+msgid "apple"
+msgstr "pomme"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:164
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:313
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:164
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:313
+msgid "foo"
+msgstr "foo"
+
+#: node_modules/browser-sync/node_modules/localtunnel/node_modules/yargs/node_modules/y18n/test/y18n-test.js:165
+#: node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/y18n/test/y18n-test.js:165
+msgid "bar"
+msgstr "bar"
+
+#~ msgid "Customer"
+#~ msgstr "Client"
+
+#~ msgid "Agent"
+#~ msgstr "Agent"
+
+#~ msgid "Manager"
+#~ msgstr "Manager"
+
+#~ msgid "is not a number"
+#~ msgstr "n'est pas un numéro"
+
+#~ msgid "Show All"
+#~ msgstr "Tout afficher "
+
+#~ msgid "Settings"
+#~ msgstr "Paramètres"
+
+#~ msgid "Search Country"
+#~ msgstr "Chercher pays"
+
+#~ msgid "Hotels"
+#~ msgstr "Hôtels"
+
+#~ msgid "Parent Hotel:"
+#~ msgstr "Hôtel parent :"
+
+#~ msgid "All Hotels"
+#~ msgstr "Tous les hôtels"
+
+#~ msgid "View Hotel"
+#~ msgstr "Voir hotel"
+
+#~ msgid "Add New Hotel"
+#~ msgstr "Ajouter nouveau hôtel"
+
+#~ msgid "Edit Hotel"
+#~ msgstr "Editer hôtel"
+
+#~ msgid "Update Hotel"
+#~ msgstr "Actualiser hôtel"
+
+#~ msgid "Search Hotel"
+#~ msgstr "Chercher hôtel"
+
+#~ msgid "Products"
+#~ msgstr "Produits"
+
+#~ msgid "Product"
+#~ msgstr "Produit"
+
+#~ msgid "All Products"
+#~ msgstr "Tous les produits"
+
+#~ msgid "View Product"
+#~ msgstr "Voir produit"
+
+#~ msgid "Add New Product"
+#~ msgstr "Ajouter nouveau produit"
+
+#~ msgid "Edit Product"
+#~ msgstr "Editer produit"
+
+#~ msgid "Update Product"
+#~ msgstr "Actualiser produit"
+
+#~ msgid "Search Product"
+#~ msgstr "Chercher produit"
+
+#~ msgid "Quotes"
+#~ msgstr "Devis"
+
+#~ msgid "Quote"
+#~ msgstr "Devis"
+
+#~ msgid "Parent Quote:"
+#~ msgstr "Devis parent:"
+
+#~ msgid "All Quotes"
+#~ msgstr "Tous les devis"
+
+#~ msgid "View Quote"
+#~ msgstr "Voir devis"
+
+#~ msgid "Add New Quote"
+#~ msgstr "Ajouter nouveau devis"
+
+#~ msgid "Edit Quote"
+#~ msgstr "Editer devis"
+
+#~ msgid "Update Quote"
+#~ msgstr "Actualiser devis"
+
+#~ msgid "Search Quote"
+#~ msgstr "Chercher devis"
+
+#~ msgid "Testimonials"
+#~ msgstr "Témoignages"
+
+#~ msgid "Testimonial"
+#~ msgstr "Témoignage"
+
+#~ msgid "Parent Testimonial:"
+#~ msgstr "Témoignage parent:"
+
+#~ msgid "All Testimonials"
+#~ msgstr "Tous les témoignages"
+
+#~ msgid "View Testimonial"
+#~ msgstr "Voir témoignages"
+
+#~ msgid "Add New Testimonial"
+#~ msgstr "Ajouter nouveau témoignage"
+
+#~ msgid "Edit Testimonial"
+#~ msgstr "Editer témoignages"
+
+#~ msgid "Update Testimonial"
+#~ msgstr "Actualiser témoignage"
+
+#~ msgid "Search Testimonial"
+#~ msgstr "Chercher témoignages"
+
+#~ msgid "Flights"
+#~ msgstr "Vols"
+
+#~ msgid "Hosting"
+#~ msgstr "Hébergement"
+
+#~ msgid "Activities"
+#~ msgstr "Activités"
+
+#~ msgid "Transport"
+#~ msgstr "Transport"
+
+#~ msgid "Thanks"
+#~ msgstr "Merci"
+
+#~ msgid "We'll contact you shortly"
+#~ msgstr "Nous vous contacterons prochainement"
+
+#~ msgid "Offers"
+#~ msgstr "Offres"
+
+#~ msgid "The best prices in "
+#~ msgstr "Les meilleurs prix en"
+
+#~ msgid "June"
+#~ msgstr "juin"
+
+#~ msgid "Travel with 2 luggages"
+#~ msgstr "Voyagez avec 2 bagages"
+
+#~ msgid "According to the flights"
+#~ msgstr "Offre valable selon certain conditions"
+
+#~ msgid "promotions"
+#~ msgstr "promotions"
+
+#~ msgid "Request a travel"
+#~ msgstr "Demande de devis"
+
+#~ msgid "Additional info"
+#~ msgstr "Information additionnelle"
+
+#~ msgid "Payment methods"
+#~ msgstr "Mode de paiement"
+
+#~ msgid "Not Included"
+#~ msgstr "Pas compris"
+
+#~ msgid "Cancelation"
+#~ msgstr "Annulation"
+
+#~ msgid "Details"
+#~ msgstr "Détails"
+
+#~ msgid "Photos"
+#~ msgstr "Photos"
+
+#~ msgid "Customize"
+#~ msgstr "Personnaliser"
+
+#~ msgid "Search for:"
+#~ msgstr "Rechercher pour :"
+
+#~ msgid "Search"
+#~ msgstr "Recherche"
+
+#~ msgid "Author"
+#~ msgstr "Auteur"
+
+#~ msgid "Capital"
+#~ msgstr "Capital"
+
+#~ msgid "Enter the capital"
+#~ msgstr "Entrez la capital"
+
+#~ msgid "Population"
+#~ msgstr "Population"
+
+#~ msgid "Enter the population"
+#~ msgstr "Entrez la population"
+
+#~ msgid "Surface"
+#~ msgstr "Surface"
+
+#~ msgid "Enter the surface"
+#~ msgstr "Entrez la surface"
+
+#~ msgid "Religion"
+#~ msgstr "Religion"
+
+#~ msgid "Enter the religion"
+#~ msgstr "Entrez la religion"
+
+#~ msgid "Enter the currency"
+#~ msgstr "Entrez la devise"
+
+#~ msgid "Add Photo(s)"
+#~ msgstr "Ajouter photo(s)"
+
+#~ msgid "Add Photos"
+#~ msgstr "Ajouter photos"
+
+#~ msgid "Flag"
+#~ msgstr "Drapeau"
+
+#~ msgid "Stars"
+#~ msgstr "étoiles"
+
+#~ msgid "Number of Rooms"
+#~ msgstr "Numéro de chambres"
+
+#~ msgid "Enter the number of rooms"
+#~ msgstr "Entrez le nombre de chambres"
+
+#~ msgid "TV"
+#~ msgstr "TV"
+
+#~ msgid "Enter the price"
+#~ msgstr "Entrez le prix"
+
+#~ msgid "Price for date"
+#~ msgstr "Prix par date"
+
+#~ msgid "Date"
+#~ msgstr "Date"
+
+#~ msgid "Description Price"
+#~ msgstr "Description du prix"
+
+#~ msgid "Add Picture(s)"
+#~ msgstr "Ajouter image(s)"
+
+#~ msgid "Add Pictures"
+#~ msgstr "Ajouter images"
+
+#~ msgid "Payment Method"
+#~ msgstr "Mode de paiements"
+
+#~ msgid "Aditional Information"
+#~ msgstr "Information additionnelle"
+
+#~ msgid "Slogan"
+#~ msgstr "Slogan"
+
+#~ msgid "Enter the slogan"
+#~ msgstr "Entrez le slogan"
+
+#~ msgid "Google+"
+#~ msgstr "Google+"
+
+#~ msgid "Languages Spoken"
+#~ msgstr "Langues parlées"
+
+#~ msgid "English"
+#~ msgstr "Anglais"
+
+#~ msgid "Spanish"
+#~ msgstr "Espagnol"
+
+#~ msgid "French"
+#~ msgstr "Français"
+
+#~ msgid "Italian"
+#~ msgstr "Italian"
+
+#~ msgid "Picture"
+#~ msgstr "Photo"
+
+#~ msgid "Your theme requires PIKLIST to work properly."
+#~ msgstr ""
+#~ "Votre thème nécessite l'extension Piklist pour fonctionner correctement."
+
+#~ msgid "The following plugin(s) require PIKLIST, and have been deactivated:"
+#~ msgstr "L'extenstion suivante nécessite PIKLIST, et ont été désactivés:"
+
+#~ msgid "You can:"
+#~ msgstr "Vous pouvez:"
+
+#~ msgid "Activate Piklist for this site"
+#~ msgstr "Activer piklist pour ce site"
+
+#~ msgid "Network Activate Piklist for all sites."
+#~ msgstr "Activer Piklist pour tous les sites du réseau"
+
+#~ msgid "Install Piklist"
+#~ msgstr "Installer piklist"
+
+#~ msgid "%1$s %2$sDismiss this message."
+#~ msgstr "%1$s %2$sRejeter ce message."
+
+#~ msgid "%1$s %2$sChange your theme."
+#~ msgstr "%1$s %2$sChangez votre thème."
+
+#~ msgid "show"
+#~ msgstr "afficher"
+
+#~ msgid "hide"
+#~ msgstr "cacher"
+
+#~ msgid "toggle"
+#~ msgstr "basculer"
+
+#~ msgid "d"
+#~ msgstr "d"
+
+#~ msgid "o"
+#~ msgstr "o"
+
+#~ msgid "m"
+#~ msgstr "m"
+
+#~ msgid "y"
+#~ msgstr "y"
+
+#~ msgid "@"
+#~ msgstr "@"
+
+#~ msgid "!"
+#~ msgstr "!"
+
+#~ msgid "Aile"
+#~ msgstr "Couloir"
+
+#~ msgid "Order"
+#~ msgstr "Ordre"
+
+#~ msgid "New Request"
+#~ msgstr "Nouveau devis"
+
+#~ msgid "about"
+#~ msgstr "à propos"
+
+#~ msgid "Send"
+#~ msgstr "Envoyer"
+
+#~ msgid "The best prices"
+#~ msgstr "Les meilleurs prix"
+
+#~ msgid "Payment"
+#~ msgstr "Paiement"
+
+#~ msgid ""
+#~ "The page you are looking for might have been removed, had its name "
+#~ "changed, or is temporarily unavailable."
+#~ msgstr ""
+#~ "La page demandée a changé de nom ou est temporairement inaccessible."
+
+#~ msgid "Please try the following:"
+#~ msgstr "Veuillez essayer les actions suivantes :"
+
+#~ msgid "Check your spelling"
+#~ msgstr "Vérifiez votre syntaxe"
+
+#~ msgid "Return to the <a href=\"%s\">home page</a>"
+#~ msgstr "Revenir à la <a href=\"%s\">page d'accueil</a>"
+
+#~ msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+#~ msgstr ""
+#~ "Cliquer sur le bouton <a href=\"javascript:history.back()\">Retour</a>"
+
+#~ msgid "Theme Activation"
+#~ msgstr "Activation du thème"
+
+#~ msgid "%s Theme Activation"
+#~ msgstr "Activation du thème %s"
+
+#~ msgid "Create static front page?"
+#~ msgstr "Créer une page d'accueil ?"
+
+#~ msgid "Create a page called Home and set it to be the static front page"
+#~ msgstr ""
+#~ "Créer une page \"Home\" et la définir comme page d'accueil statique ?"
+
+#~ msgid "Change permalink structure?"
+#~ msgstr "Modifier la structure des permaliens ?"
+
+#~ msgid "Update permalink structure?"
+#~ msgstr "Mettre à jour la structure des permaliens ?"
+
+#~ msgid "Change permalink structure to /&#37;postname&#37;/"
+#~ msgstr "Changer la structure permaliens en /&#37;postname&#37;/"
+
+#~ msgid "Change uploads folder?"
+#~ msgstr "Changer le dossier d'upload ?"
+
+#~ msgid "Update uploads folder?"
+#~ msgstr "Mettre à jour le dossier d'upload ?"
+
+#~ msgid "Change uploads folder to /assets/ instead of /wp-content/uploads/"
+#~ msgstr ""
+#~ "Changer le dossier d'upload en /assets/ à la place de /wp-content/uploads/"
+
+#~ msgid "Create navigation menu?"
+#~ msgstr "Créer un menu de navigation ?"
+
+#~ msgid "Create the Primary Navigation menu and set the location"
+#~ msgstr "Créer le menus de navigation primaire et définir sa position"
+
+#~ msgid "Add pages to menu?"
+#~ msgstr "Ajouter les pages au menu ?"
+
+#~ msgid "Add all current published pages to the Primary Navigation"
+#~ msgstr ""
+#~ "Ajouter toutes les pages actuellement publiées à la navigation primaire"
+
+#~ msgid "Please make sure your <a href=\"%s\">.htaccess</a> file is writable "
+#~ msgstr ""
+#~ "Veuillez vérifier que votre fichier <a href=\"%s\">.htaccess</a> soit "
+#~ "accessible en écriture"
+
+#~ msgid "Daily Archives: %s"
+#~ msgstr "Archives quotidiennes : %s"
+
+#~ msgid "Monthly Archives: %s"
+#~ msgstr "Archives mensuelles : %s"
+
+#~ msgid "Yearly Archives: %s"
+#~ msgstr "Archives annuelles : %s"
+
+#~ msgid "Author Archives: %s"
+#~ msgstr "Archives d'auteurs : %s"
+
+#~ msgid "File Not Found"
+#~ msgstr "Fichier non trouvé"
+
+#~ msgid "Primary Sidebar"
+#~ msgstr "Barre latérale Primaire"
+
+#~ msgid "Use this widget to add a vCard"
+#~ msgstr "Utiliser ce widget pour ajouter une vCard"
+
+#~ msgid "Roots: vCard"
+#~ msgstr "Roots: vCard"
+
+#~ msgid "vCard"
+#~ msgstr "vCard"
+
+#~ msgid "<cite class=\"fn\">%s</cite>"
+#~ msgstr "<cite class=\"fn\">%s</cite>"
+
+#~ msgid "%1$s"
+#~ msgstr "%1$s"
+
+#~ msgid "(Edit)"
+#~ msgstr "(Editer)"
+
+#~ msgid "Your comment is awaiting moderation."
+#~ msgstr "Votre commentaire est en attente de modération."
+
+#~ msgid ""
+#~ "This post is password protected. Enter the password to view comments."
+#~ msgstr ""
+#~ "Cet article est protégé par mot de passe. Entrez le mot de passe pour "
+#~ "voir les commentaires."
+
+#~ msgid "One Response to &ldquo;%2$s&rdquo;"
+#~ msgid_plural "%1$s Responses to &ldquo;%2$s&rdquo;"
+#~ msgstr[0] "Une réponse à &ldquo;%2$s&rdquo;"
+#~ msgstr[1] "%1$s résponses à &ldquo;%2$s&rdquo;"
+
+#~ msgid "Leave a Reply"
+#~ msgstr "Répondre"
+
+#~ msgid "Leave a Reply to %s"
+#~ msgstr "Répondre à %s"
+
+#~ msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+#~ msgstr ""
+#~ "Vous devez être <a href=\"%s\">connecté</a> pour ajouter un commentaire."
+
+#~ msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+#~ msgstr "Connecté en tant que <a href=\"%s/wp-admin/profile.php\">%s</a>."
+
+#~ msgid "Log out of this account"
+#~ msgstr "Déconnexion de ce compte"
+
+#~ msgid "Log out &raquo;"
+#~ msgstr "Déconnexion &raquo;"
+
+#~ msgid "Name"
+#~ msgstr "Nom"
+
+#~ msgid " (required)"
+#~ msgstr " (obligatoire)"
+
+#~ msgid "Email (will not be published)"
+#~ msgstr "Email (ne sera pas publié)"
+
+#~ msgid "Comment"
+#~ msgstr "Commentaire"
+
+#~ msgid "Submit Comment"
+#~ msgstr "Ajouter un commentaire"
+
+#~ msgid "&larr; Older posts"
+#~ msgstr "&larr; Articles plus anciens"
+
+#~ msgid "Newer posts &rarr;"
+#~ msgstr "Articles plus récents &rarr;"
+
+#~ msgid "Posted on %s at %s."
+#~ msgstr "Publié le %s à %s."
+
+#~ msgid "Written by"
+#~ msgstr "Rédigé par"
+
+#~ msgid "Title (optional):"
+#~ msgstr "Titre (facultatif) :"
+
+#~ msgid "Street Address:"
+#~ msgstr "Rue :"
+
+#~ msgid "City/Locality:"
+#~ msgstr "Ville/Localité :"
+
+#~ msgid "State/Region:"
+#~ msgstr "État/Région :"
+
+#~ msgid "Zipcode/Postal Code:"
+#~ msgstr "Code Postal :"
+
+#~ msgid "Telephone:"
+#~ msgstr "Téléphone :"
+
+#~ msgid "Email:"
+#~ msgstr "Email :"
