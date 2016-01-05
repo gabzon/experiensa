@@ -25,7 +25,7 @@
                 <?php endwhile; wp_reset_postdata(); ?>
             </div>
         <?php else: ?>
-            <h3><?php _e('There are no promotions currently','sage'); ?></h3>
+            <h3><?php _e('Sorry! Currently there are no promotions','sage'); ?></h3>
         <?php endif; ?>
     </div>
     <br>
