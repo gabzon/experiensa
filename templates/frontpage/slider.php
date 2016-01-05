@@ -26,9 +26,12 @@ $query = new WP_Query( $args );
                             <div class="twelve wide column" id="slider-text">
                                 <h1 class="fitText" style="text-transform:uppercase"><?= the_title(); ?></h1>
                                 <h4><?= the_excerpt(); ?></h4>
-                                <h5><?= get_post_meta($post->ID,'product_price',true) . ' ' . get_post_meta($post->ID,'product_currency',true); ?></h5>
-                                <a href="<?php the_permalink(); ?>" class="ui basic inverted button">
-                                    <?php _e('See more','sage'); ?>
+                                <br>                                
+                                <a href="<?php the_permalink(); ?>" class="ui huge animated fade inverted button" tabindex="0">
+                                    <div class="visible content"><?php _e('More info','sage'); ?></div>
+                                    <div class="hidden content">
+                                        <?= Voyage::price($post->ID); ?>
+                                    </div>
                                 </a>
                             </div>
                         </div>

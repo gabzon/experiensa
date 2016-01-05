@@ -1,10 +1,13 @@
 <?php
 $agency_options = get_option('agency_settings');
 $logo = $agency_options['agency_logo'];
-// TODO: Add background color option
+$design_options = get_option('experiensa_design_settings');
+$section = $design_options['footer_section_group'];
+$color = $section['footer_section_color'][0];
+$inverted = $section['footer_section_inverted'][0];
 ?>
 
-<footer class="ui segment inverted red vertical">
+<footer class="ui segment <?= get_the_color($color, $inverted[0]); ?> vertical">
     <div class="ui container">
         <div class="ui five column grid stackable">
             <div class="ui center aligned column">

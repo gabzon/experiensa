@@ -1,6 +1,10 @@
 <?php $query = new WP_Query( array('post_type' => 'product','category_name' => 'promotions')); ?>
-
-<section id="promotion" class="ui basic green inverted vertical segment center aligned">
+<?php $design_options = get_option('experiensa_design_settings');
+      $section = $design_options['promotion_color_group'];
+      $color = $section['promotion_section_color'][0];
+      $inverted = $section['promotion_section_inverted'][0];
+?>
+<section id="promotion" class="ui basic <?= get_the_color($color, $inverted[0]); ?> vertical segment center aligned">
     <br>
     <br>
     <div class="ui container">
@@ -14,7 +18,7 @@
                             <?php the_post_thumbnail('agency-promotion'); ?>
                             <div class="promotion-content">
                                 <h2 class="title"><?php the_title(); ?></h2>
-                                <span class="price"><?php echo get_post_meta(get_the_ID(), 'product_price', true); ?></span>
+                                <span class="price"><?= Voyage::price($post->ID); ?></span>
                             </div>
                         </a>
                     </div>
@@ -28,3 +32,16 @@
     <br>
     <br>
 </section>
+
+
+<!-- 'destination_section_color'
+
+'promotion_section_inverted'
+
+'promotion_color'
+
+'theme_section_color'
+
+'theme_section_inverted'
+
+'theme_color_group' -->

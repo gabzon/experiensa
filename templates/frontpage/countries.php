@@ -1,5 +1,8 @@
 <?php
-$design_options = get_option('design_settings');
+$design_options = get_option('experiensa_design_settings');
+$section = $design_options['promotion_color_group'];
+$color = $section['promotion_section_color'][0];
+$inverted = $section['promotion_section_inverted'][0];
 
 $taxonomies = array('country');
 $args = array(
@@ -10,7 +13,7 @@ $args = array(
 $countries = get_terms($taxonomies, $args);
 ?>
 
-<div class="ui <?= $design_options['website_color']; ?> inverted basic vertical segment center aligned">
+<div class="ui <?= get_the_color($color, $inverted[0]); ?> basic vertical segment center aligned">
     <br>
     <br>
     <div class="ui container">

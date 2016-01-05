@@ -11,4 +11,19 @@ function convertCurrency($amount, $from, $to){
     return ceil(round($converted, 3));
 }
 
+function get_the_color($color,$inverted){
+    $the_color = '';
+    $design_options = get_option('experiensa_design_settings');
+
+    if ($color === 'website') {
+        $the_color = $design_options['website_color'];
+    }else{
+        $the_color = $color;
+    }
+
+    if ($inverted === 'inverted') { $the_color .= ' ' . $inverted; }
+
+    return $the_color;
+}
+
 ?>

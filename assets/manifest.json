@@ -10,7 +10,7 @@
         },
         "main.css": {
             "files": [
-                "styles/main.less"
+                "styles/main.scss"
             ],
             "main": true
         },

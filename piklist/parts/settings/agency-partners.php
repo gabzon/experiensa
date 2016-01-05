@@ -3,7 +3,7 @@
  Title: Agency Partners
  Setting: agency_settings
  Tab: Partner
- Tab Order: 20
+ Tab Order: 30
  */
 
 piklist('field', array(

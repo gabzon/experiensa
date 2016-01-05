@@ -1,15 +1,5 @@
 <?php
 
-function get_the_price($id, $is_tour){
-    $price      = get_post_meta($id,'voyage_price', true);
-    $margin     = get_post_meta($id,'voyage_tour_operator_margin',true);
-    if ( $is_tour === 'TRUE' ) {
-        echo ceil($price + (($margin * $price)/100));
-    } else {
-        echo get_post_meta($id,'voyage_price',true);
-    }
-}
-
 function product_contact(){
     $headers = array('Content-Type: text/html; charset=UTF-8');
     $email          = $_POST['email'];

@@ -3,7 +3,7 @@
  Title: Agency Social
  Setting: agency_settings
  Tab: Social
- Tab Order: 10
+ Tab Order: 20
  */
 
 piklist('field', array(

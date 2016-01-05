@@ -90,7 +90,7 @@ piklist('field', array(
     'fields'    => array(
         array(
             'type'      => 'checkbox',
-            'field'     => 'voyage_is_tour_operator',
+            'field'     => 'voyage_resell',
             'label'     => __('Resell','sage'),
             'columns'   => 6,
             'choices'   => array( 'TRUE'  => 'Yes' )
@@ -109,6 +109,13 @@ piklist('field', array(
             ),
         ),
     ),
+));
+
+piklist('field', array(
+    'type'      => 'checkbox',
+    'field'     => 'voyage_display_from',
+    'label'     => __('Display from','sage'),
+    'choices'   => array( 'TRUE'  => 'Yes' )
 ));
 
 piklist('field', array(

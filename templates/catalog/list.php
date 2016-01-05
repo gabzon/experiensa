@@ -1,6 +1,6 @@
 <?php
 $args = array (
-'post_type' => 'product',
+'post_type' => 'voyage',
 'numberposts'   => -1,
 );
 
@@ -36,7 +36,7 @@ $products = new WP_Query( $args );
                                         <?php the_title(); ?>
                                     </span>
                                     <span class="right floated">
-                                        <?php echo "From CHF " . get_post_meta($post->ID,'product_price',true); ?>
+                                        <?= Voyage::price($post->ID); ?>
                                     </span>
                                 </div>
                             </div>
