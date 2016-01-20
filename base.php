@@ -37,6 +37,7 @@ do_action('get_footer');
 get_template_part('templates/footer');
 wp_footer();
 ?>
+
 <script>
 var $buoop = {c:2};
 function $buo_f(){

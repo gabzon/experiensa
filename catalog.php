@@ -4,6 +4,7 @@
 */
 ?>
 <br><br>
+
 <div class="ui container">
 <br>
 <?php while (have_posts()) : the_post(); ?>
@@ -59,5 +60,9 @@
         <?php endforeach; ?>
     </div>
 
-    <?php Piklist::pre($voyages); ?>
+    <?php //Piklist::pre($voyages); ?>
 </div>
+
+<script type="text/javascript">
+    React.render(React.createElement('div',null,'Hello from React'), document.body);
+</script>
