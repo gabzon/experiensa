@@ -1,4 +1,4 @@
-<?php $query = new WP_Query( array('post_type' => 'product','category_name' => 'promotions')); ?>
+<?php $query = new WP_Query( array('post_type' => 'voyage','category_name' => 'promotions')); ?>
 <?php $design_options = get_option('experiensa_design_settings');
       $section = $design_options['promotion_color_group'];
       $color = $section['promotion_section_color'][0];
