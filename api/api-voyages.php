@@ -52,6 +52,7 @@ function slug_get_voyage_cover_image( $object, $field_name, $request ) {
 }
 
 function slug_get_voyage_currency( $object, $field_name, $request ) {
-    return get_post_meta( $object[ 'id' ], $field_name, true );
+    $agency_options = get_option('agency_settings');
+    return $agency_options['agency_currency'];
 }
 ?>
