@@ -4,7 +4,6 @@
 */
 ?>
 <br><br>
-
 <div class="ui container">
     <br>
     <?php while (have_posts()) : the_post(); ?>
@@ -19,30 +18,34 @@
         <?php foreach ($voyages as $key => $value): ?>
             <div class="column">
                 <div class="ui card">
-
-                    <div class="image">
-                        <img src="<?= $value['cover_image']; ?>" alt="" />
-                    </div>
+                    <?php if ($value['cover_image']): ?>
+                        <div class="image">
+                            <img src="<?= $value['cover_image']; ?>" alt="" />
+                        </div>
+                    <?php endif; ?>
                     <div class="content">
                         <div class="right floated">
-                            <?php $default_currency = get_post_meta(224,'voyage_currency',true); ?>
                             <?php if ($value['voyage_price']): ?>
-                                <?php echo $value['voyage_price'] . ' ' . $value['voyage_currency']; ?>
+                                <?= convertCurrency($value['voyage_price'], $value['voyage_currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency(); ?>
                             <?php endif; ?>
                         </div>
                         <div class="header">
                             <?php echo $value['title']; ?>
                         </div>
                         <div class="meta">
-                            <?php echo $value['excerpt']; ?>
                         </div>
                         <div class="content">
-                            <?= convertCurrency($value['voyage_price'], $value['voyage_currency'], $default_currency) . ' ' . $default_currency; ?>
+                            <?php echo $value['excerpt']; ?>
+                            <br>
+                        </div>
+                        <div class="extra content">                            
+                            <?php $mailto = 'mailto:' . Helpers::get_email() . '?subject= Offre '.$value['title']; ?>
+                            <a href="<?= $mailto; ?>" class="ui button"><?php _e('Contact us','sage'); ?></a>
                         </div>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
-    <br>
+    <br><br>
 </div>
