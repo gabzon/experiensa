@@ -51,7 +51,7 @@ $gallery = get_post_meta(get_the_ID(), 'voyage_gallery', false);
     </tr>
     <tr>
         <th colspan="2">
-            <a href="#product-contact" class="fluid ui blue button">
+            <a href="mailto:vente@fiestatravel.ch?subject=Offre: <?= get_the_title(); ?>" class="fluid ui blue button">
                 <i class="shop icon"></i>
                 <?php _e('Contact us','sage'); ?>
             </a>
