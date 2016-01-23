@@ -27,9 +27,9 @@
         <article <?php post_class(); ?>>
             <?php get_template_part('templates/voyage/flights'); ?>
             <?php get_template_part('templates/voyage/accommodation'); ?>
-            <?php get_template_part('templates/voyage/itinerary'); ?>            
+            <?php get_template_part('templates/voyage/itinerary'); ?>
             <?php get_template_part('templates/voyage/conditions'); ?>
-            <?php get_template_part('templates/voyage/contact'); ?>
+            <?php //get_template_part('templates/voyage/contact'); ?>
         </article>
     </div>
 <?php endwhile; ?>
