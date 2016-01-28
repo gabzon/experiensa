@@ -27,4 +27,17 @@ piklist('field',array(
     ),
 ));
 
+piklist('field',array(
+    'type'      => 'select',
+    'field'     => 'agency_catalog_template',
+    'label'     => __('Catalog template','sage'),
+    'columns'   => 3,
+    'value'     => 'simple-grid',
+    'choices'   => array(
+        'simple-grid'   =>  __('Simple Grid','sage'),
+        'isotope-grid'  =>  __('Isotope Grid','sage'),
+        'partners-api'  =>  __('Partners API','sage'),
+    ),
+));
+
 ?>

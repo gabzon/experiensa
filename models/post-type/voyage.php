@@ -45,13 +45,13 @@ if ( ! function_exists('voyage_post_type') ) {
             'publicly_queryable'    => true,
             'rewrite'               => $rewrite,
             'capability_type'       => 'page',
-            'status' => array(
-                'draft'         => array( 'label' => __('Draft','sage')),
-                'pending'       => array( 'label' => __('Pending','sage')),
-                'publish'       => array( 'label' => __('Publish','sage')),
-                'future'        => array( 'label' => __('Future','sage')),
-                'deactivated'   => array( 'label' => __('Deactivated','sage'))
-            ),
+            // 'status' => array(
+            //     'draft'         => array( 'label' => __('Draft','sage')),
+            //     'pending'       => array( 'label' => __('Pending','sage')),
+            //     'publish'       => array( 'label' => __('Publish','sage')),
+            //     'future'        => array( 'label' => __('Future','sage')),
+            //     'deactivated'   => array( 'label' => __('Deactivated','sage'))
+            // ),
         );
         return $post_types;
     }

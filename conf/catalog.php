@@ -38,6 +38,11 @@ class Catalog{
             $partner_api[$i] = $api_content;
         }
 
+        $agency_api = get_site_url() . '/wp-json/wp/v2/voyage';
+        $agency_content = file_get_contents($agency_api);
+        $agency_content = json_decode($agency_content);
+        $partner_api[] =$agency_content;
+
         $voyages = array();
 
         for ($i=0; $i < count($partner_api); $i++) {
