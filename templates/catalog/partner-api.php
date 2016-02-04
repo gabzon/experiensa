@@ -31,10 +31,19 @@
                     </div>
                     <div class="extra content">
                         <?php $mailto = 'mailto:' . Helpers::get_email() . '?subject= Offre '.$value['title']; ?>
+
                         <a href="<?= $mailto; ?>" class="ui button"><?php _e('Contact us','sage'); ?></a>
+                        <div class="right floated">
+                            <button id="modal-details" class="ui button" type="submit" name="select"><?php _e('Details','sage'); ?></button>
+                        </div>
+
+                        <?php Catalog::display_trip_detail($value); ?>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Modal Window for detail -->
+
     <?php endforeach; ?>
 </div>

@@ -21,6 +21,20 @@
                 //menuMobile();
                 //requestATravel();
                 requestForm();
+                $('.ui.card a#modal-details').click(function(){
+                    var clickBtnValue = $(this).val();
+                    var ajaxurl = '',
+                    data =  {'action': clickBtnValue};
+                    $.post(ajaxurl, data, function (response) {
+                        // Response div goes here.
+                        alert("action performed successfully");
+                    });
+                });
+                // var activatingElement;
+                // $('.ui.card a#modal-details').on('click',function(){
+                //     activatingElement = this;
+                //     $('.ui.modal').modal('show','hide others');
+                // });
 
                 // Autocomplete google maps ------------------------------------
                 // function initialize() {
