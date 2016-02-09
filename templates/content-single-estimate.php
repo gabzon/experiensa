@@ -20,6 +20,10 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
                 <h1 class="entry-title"><?php the_title(); ?></h1>
             </header>
             <br>
+            <div class="entry-content">
+                <?php the_content(); ?>
+            </div>
+            <br><br>
             <div class="ui three column grid stackable">
                 <?php for ($i=0; $i < count($price); $i++): ?>
                     <div class="column">
@@ -31,7 +35,7 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
                                 </div>
                             </div>
                             <div class="image">
-                                <?php //echo $photo[$i]; ?>
+                                <?php Gallery::display_gallery(get_the_ID(), $i); ?>
                             </div>
                             <div class="content">
                                 <a class="header"></a>
@@ -65,9 +69,6 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
                 <?php endfor ?>
             </div>
             <br>
-            <div class="entry-content">
-                <?php the_content(); ?>
-            </div>
             <footer>
                 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
             </footer>

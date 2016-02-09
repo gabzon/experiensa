@@ -21,15 +21,17 @@
                 //menuMobile();
                 //requestATravel();
                 requestForm();
+
                 $('.ui.card a#modal-details').click(function(){
                     var clickBtnValue = $(this).val();
-                    var ajaxurl = '',
+                    var ajaxurl = '../',
                     data =  {'action': clickBtnValue};
                     $.post(ajaxurl, data, function (response) {
                         // Response div goes here.
                         alert("action performed successfully");
                     });
                 });
+
                 // var activatingElement;
                 // $('.ui.card a#modal-details').on('click',function(){
                 //     activatingElement = this;
@@ -120,7 +122,19 @@
                     return false;
                 }
                 $('#contact_form').submit(ajaxSubmit);
-
+            }
+        },
+        'single_estimate':{
+            init:function(){
+                $(".estimate-gallery").slick({
+                    infinite: true,
+                    //dots: false,
+                    //arrows: false,
+                    fade: true,
+                    speed: 100,
+                    adaptiveHeight: true,
+                    cssEase: 'linear'
+                });
             }
         }
     };

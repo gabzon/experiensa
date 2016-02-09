@@ -17,7 +17,9 @@ piklist('include_meta_boxes', array(
     'tagdiv-post_tag',
     'themediv',
     'postimagediv',
-    'piklist_meta_estimate_general'
+    'piklist_meta_estimate_general',
+    'commentsdiv',
+    'commentstatusdiv'
 ));
 
 ?>

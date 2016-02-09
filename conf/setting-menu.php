@@ -36,8 +36,8 @@ function design_experiensa_setting_page($pages){
 add_filter('piklist_admin_pages', 'layout_experiensa_setting_page');
 function layout_experiensa_setting_page($pages){
     $pages[] = array(
-        'page_title'    => __('Tutorials','sage'),
-        'menu_title'    => __('Tutorials', 'sage'),
+        'page_title'    => __('Howto\'s','sage'),
+        'menu_title'    => __('Howto\'s', 'sage'),
         'capability'    => 'manage_options',
         'sub_menu'      => 'experiensa-settings',
         'menu_slug'     => 'experiensa-tutorials',
