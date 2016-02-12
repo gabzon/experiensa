@@ -22,14 +22,10 @@
                 //requestATravel();
                 requestForm();
 
-                $('.ui.card a#modal-details').click(function(){
-                    var clickBtnValue = $(this).val();
-                    var ajaxurl = '../',
-                    data =  {'action': clickBtnValue};
-                    $.post(ajaxurl, data, function (response) {
-                        // Response div goes here.
-                        alert("action performed successfully");
-                    });
+                $('.ui.card button#modal-details').on('click', function () {
+                    $(this).data('modal').modal('show');
+                }).each(function (i, b) {
+                    $(this).data('modal', $(this).parents('.column').children('.ui.modal').modal());
                 });
 
                 // var activatingElement;
@@ -64,7 +60,8 @@
                     infinite: true,
                     slidesToShow: 3,
                     slidesToScroll: 3,
-                    arrows: true
+                    arrows: true,
+                    adaptiveHeight: true
                 });
 
                 function ajaxSubmit(){
@@ -88,6 +85,8 @@
             },
             finalize: function() {
                 // JavaScript to be fired on the home page, after the init JS
+                var stHeight = $('#promotions-carousel').height();
+                $('#promotions-carousel').css('height',stHeight + 'px' );
             }
         },
         // About us page, note the change from about-us to about_us.
@@ -156,7 +155,9 @@
         },
         loadEvents: function() {
             // Fire common init JS
+            //$("#promotions-carousel").slick();
             UTIL.fire('common');
+
 
             // Fire page-specific init JS, and then finalize JS
             $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {

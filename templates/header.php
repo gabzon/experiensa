@@ -8,7 +8,7 @@ $logo   = $agency_options['agency_logo'];
 $phone  = $agency_options['agency_phone'];
 ?>
 
-<header class="ui secondary <?= get_menu_style(); ?> menu grid">
+<header class="ui <?= get_menu_style(); ?> menu grid">
     <div class="mobile only row">
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
             <?php

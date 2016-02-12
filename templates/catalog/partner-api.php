@@ -25,25 +25,21 @@
                     </div>
                     <div class="meta">
                     </div>
-                    <div class="content">
-                        <?php echo $value['excerpt']; ?>
-                        <br>
+                </div><!-- .content -->
+                <div class="extra content">
+                    <?php echo $value['excerpt']; ?>
+                    <br>
+                    <?php $mailto = 'mailto:' . Helpers::get_email() . '?subject= Offre '.$value['title']; ?>
+                    <a href="<?= $mailto; ?>" class="ui button"><?php _e('Contact us','sage'); ?></a>
+                    <div class="right floated">
+                        <button id="modal-details" class="ui button" type="submit" name="select"><?php _e('Details','sage'); ?></button>
                     </div>
-                    <div class="extra content">
-                        <?php $mailto = 'mailto:' . Helpers::get_email() . '?subject= Offre '.$value['title']; ?>
+                </div><!-- .extra.content -->
+            </div><!-- .ui.card -->
 
-                        <a href="<?= $mailto; ?>" class="ui button"><?php _e('Contact us','sage'); ?></a>
-                        <div class="right floated">
-                            <button id="modal-details" class="ui button" type="submit" name="select"><?php _e('Details','sage'); ?></button>
-                        </div>
-
-                        <?php Catalog::display_trip_detail($value); ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Window for detail -->
+            <!-- Modal Window for detail -->
+            <?php Catalog::display_trip_detail($value); ?>
+        </div><!-- .column -->
 
     <?php endforeach; ?>
 </div>

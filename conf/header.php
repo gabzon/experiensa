@@ -9,7 +9,15 @@ function get_menu_style(){
         if (is_array($options)) { foreach ($options as $key) { $opts .= $key . ' '; } }
         else { echo $opts = $options . ' '; }
     }
-    return $design_options['header_menu_style'] . ' ' . $design_options['header_color_fill'] . ' ' . $design_options['website_color'] . ' ' . $opts;
+    $classes = get_body_class();
+    $secondary = '';
+    if (in_array('home', $classes)) {
+        $secondary = 'secondary';
+    }
+    if (in_array('single-voyage', $classes)) {
+        $secondary = 'secondary';
+    }
+    return $secondary .' '. $design_options['header_menu_style'] . ' ' . $design_options['header_color_fill'] . ' ' . $design_options['website_color'] . ' ' . $opts;
 }
 
 function scroll_menu(){

@@ -1,10 +1,5 @@
 {
     "dependencies": {
-        "boot.js":{
-            "files":[
-                "app/**/*.js"
-            ]
-        },
         "main.js": {
             "files": [
                 "scripts/form.js",
