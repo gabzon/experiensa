@@ -1,49 +1,57 @@
-.slick-dots li button:before {
-    font-size: 26px;
+.promotion-item{
+    margin: 5px;
+    .promotion-item a{
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+    }
+    .promotion-content{
+        position: absolute;
+        text-align: center; width: 100%;
+        top: 45%;
+        left: 0;
+        padding: 0 15px;
+        color: #ffffff;
+        text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
+    }
+    .promotion-item img{ width: 100%; height: auto; }
+}
+.promotion-item:hover{
+    .title{display:none};
 }
 
-.outter-arrows .slick-prev { left: 20px; z-index: 9999;}
-.slick-prev:before {
-    content: '<';
-    color: white;
-    font-weight: bold;
-    font-size: 40px;
-}
-
-.outter-arrows .slick-next { right: 20px; z-index: 9999; }
-.slick-next:before {
-    content: '>';
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    padding:3px;
-}
-
-.promotion-item{ margin: 5px; }
-.promotion-item a{
-    width: 100%;
-    height: 100%;
+.owl-carousel .owl-item img {
+    height:auto;
+    width:100%;
     display: block;
-    position: relative;
 }
-.promotion-content{ position: absolute; top: 0; left: 0; }
-.promotion-item img{ width: 100%; height: auto; }
-.overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 4px;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0);
-    transition: all 0.3s ease;
+
+.owl-carousel .item {
+    margin:0px;
 }
-.overlay:hover{ background-color: rgba(0, 0, 0, 0.4); }
-.promotion-content{
-    position: absolute;
-    text-align: center; width: 100%;
-    top: 35%;
-    left: 0;
-    padding: 0 15px;
-    color: #ffffff;
-    text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
+
+.owl-carousel .owl-nav div {
+  position: absolute;
+}
+.owl-carousel .owl-nav .owl-prev{
+    left: -45px;
+    top: 50%;
+}
+
+.owl-carousel .owl-nav .owl-next{
+    right: -45px;
+    top: 50%;
+}
+
+.owl-slider .owl-nav .owl-prev{
+    color:white;
+    left: 10px;
+    top: 50%;
+}
+
+.owl-slider .owl-nav .owl-next{
+    color:white;
+    right: 10px;
+    top: 50%;
 }

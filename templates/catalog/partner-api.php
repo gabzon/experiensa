@@ -29,12 +29,14 @@
                 <div class="extra content">
                     <?php echo $value['excerpt']; ?>
                     <br>
+                </div><!-- .extra.content -->
+                <div class="ui two bottom attached buttons">
                     <?php $mailto = 'mailto:' . Helpers::get_email() . '?subject= Offre '.$value['title']; ?>
                     <a href="<?= $mailto; ?>" class="ui button"><?php _e('Contact us','sage'); ?></a>
                     <div class="right floated">
-                        <button id="modal-details" class="ui button" type="submit" name="select"><?php _e('Details','sage'); ?></button>
+                        <button id="modal-details" class="ui blue button" type="submit" name="select"><i class="eye icon"></i> <?php _e('Details','sage'); ?></button>
                     </div>
-                </div><!-- .extra.content -->
+                </div>
             </div><!-- .ui.card -->
 
             <!-- Modal Window for detail -->

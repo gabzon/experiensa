@@ -7,12 +7,12 @@ class Catalog{
         $args = array (
         'post_type'              => array( 'partner' ),
         'orderby'                => 'rand',
-        'posts_per_page'         => -1
+        'posts_per_page'         => -1,
     );
 
     // The Query
     $query = new WP_Query( $args );
-
+    
     $partners = [];
     // The Loop
     if ( $query->have_posts() ) {

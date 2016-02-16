@@ -51,7 +51,12 @@ $gallery = get_post_meta(get_the_ID(), 'voyage_gallery', false);
     </tr>
     <tr>
         <th colspan="2">
-            <a href="mailto:vente@fiestatravel.ch?subject=Offre: <?= get_the_title(); ?>" class="fluid ui blue button">
+            <?php
+                $mailto = Agency::get_email();
+                $mailto .= '?subject=Offre:' . get_the_title();
+                $mailto .= '&body=' . __('I\'m interested in this this offert','sage');
+            ?>
+            <a href="mailto: <?= $mailto; ?>" class="fluid ui blue button">
                 <i class="shop icon"></i>
                 <?php _e('Contact us','sage'); ?>
             </a>

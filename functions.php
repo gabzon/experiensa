@@ -16,11 +16,12 @@ $sage_includes = [
   'lib/titles.php',             // Page titles
   'lib/wrapper.php',            // Theme wrapper class
   'lib/customizer.php',         // Theme customizer
+  'api',
   'conf',                       // All configurations
+  'components',                 // Reusable components
   'models/taxonomy',            // Custom taxonomies
   'models/post-type',           // All custom post types
   'modules',
-  'api',
 ];
 
 foreach ($sage_includes as $file) {

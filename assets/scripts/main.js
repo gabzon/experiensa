@@ -56,13 +56,29 @@
 
                 $('#slides').superslides({play:'8000'});
 
-                $("#promotions-carousel").slick({
-                    infinite: true,
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    arrows: true,
-                    adaptiveHeight: true
+                $(".owl-carousel").owlCarousel({
+                    autoPlay: 5000, //Set AutoPlay to 3 seconds
+                    loop:true,
+                    nav:true,
+                    margin: 10,
+                    navText: [
+                        "<i class='chevron circle left large icon'></i>",
+                        "<i class='chevron circle right large icon'></i>"
+                    ],
+                    responsive:{
+                        0:{
+                            items:1
+                        },
+                        600:{
+                            items:3
+                        },
+                        1920:{
+                            items:5
+                        }
+                    }
                 });
+
+                $(".owl-carousel .item.promotion-item .image").dimmer({on:'hover'});
 
                 function ajaxSubmit(){
                     var newRequest = $(this).serialize();
@@ -125,14 +141,15 @@
         },
         'single_estimate':{
             init:function(){
-                $(".estimate-gallery").slick({
-                    infinite: true,
-                    //dots: false,
-                    //arrows: false,
-                    fade: true,
-                    speed: 100,
-                    adaptiveHeight: true,
-                    cssEase: 'linear'
+                $(".owl-carousel").owlCarousel({
+                    autoPlay: 5000, //Set AutoPlay to 3 seconds
+                    loop:true,
+                    items: 1,
+                    nav:true,
+                    navText: [
+                        "<i class='chevron circle left icon'></i>",
+                        "<i class='chevron circle right icon'></i>"
+                    ],
                 });
             }
         }
