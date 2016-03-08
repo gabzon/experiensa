@@ -23,19 +23,22 @@ $query = new WP_Query( $args );
                     <img src="<?php echo $feature_image; ?>" alt="" class="ui image"/>
                     <div class="ui container">
                         <div class="ui grid">
-                            <div class="twelve wide column" id="slider-text">
-                                <h1 class="fitText" style="text-transform:uppercase"><?= the_title(); ?></h1>
-                                <h4><?= the_excerpt(); ?></h4>
-                                <br>
-                                <a href="<?php the_permalink(); ?>" class="ui huge animated fade inverted button" tabindex="0">
-                                    <div class="visible content">
-                                        <?= Voyage::price($post->ID); ?>
-                                    </div>
-                                    <div class="hidden content">
-                                        <?php _e('More info','sage'); ?>
-                                    </div>
-                                </a>
-                            </div>
+                            <?php $design_options = get_option('experiensa_design_settings'); ?>
+                            <?php if ( !$design_options['setting_landing_slider_description'] ): ?>
+                                <div class="twelve wide column" id="slider-text">
+                                    <h1 class="fitText" style="text-transform:uppercase"><?= the_title(); ?></h1>
+                                    <h4><?= the_excerpt(); ?></h4>
+                                    <br>
+                                    <a href="<?php the_permalink(); ?>" class="ui huge animated fade inverted button" tabindex="0">
+                                        <div class="visible content">
+                                            <?= Voyage::price($post->ID); ?>
+                                        </div>
+                                        <div class="hidden content">
+                                            <?php _e('More info','sage'); ?>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </li>
