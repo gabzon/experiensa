@@ -17,7 +17,7 @@ use Roots\Sage\Wrapper;
 
 <?php do_action('get_header'); ?>
 <?php get_template_part('templates/sidebar-menu'); ?>
-<?php get_template_part('templates/sidebar-form'); ?>
+<?php //get_template_part('templates/sidebar-form'); ?>
 <div class="pusher">
     <?php get_template_part('templates/header'); ?>
     <div class="content">
