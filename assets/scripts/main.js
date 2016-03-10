@@ -58,9 +58,8 @@
                     return false;
                 }
 
-                $('#form-submit').click(function(){
-                    alert('YEEEAHH!');
-                    //$('#newRequest').submit(ajaxSubmit);
+                $('#form-submit').click(function(){                    
+                    $('#newRequest').submit(ajaxSubmit);
                 });
             },
             finalize: function() {

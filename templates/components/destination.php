@@ -23,12 +23,12 @@
         <div class="ui fluid input field">
             <select name="flexibility" id="flexibility" class="ui dropdown">
                 <option value=""><?php _e('Flexibility','sage'); ?></option>
-                <option value="exact"><?php _e('Exact dates','sage'); ?></option>
-                <option value="3-days"><?php _e('+/- 3 days','sage'); ?></option>
-                <option value="1-week"><?php _e('+/- 1 week','sage'); ?></option>
-                <option value="2-weeks"><?php _e('+/- 2 weeks','sage'); ?></option>
-                <option value="1 month"><?php _e('+/- 1 month','sage'); ?></option>
-                <option value="whenever"><?php _e('Whenever','sage'); ?></option>
+                <option value="<?php _e('Exact dates','sage'); ?>"><?php _e('Exact dates','sage'); ?></option>
+                <option value="<?php _e('+/- 3 days','sage'); ?>"><?php _e('+/- 3 days','sage'); ?></option>
+                <option value="<?php _e('+/- 1 week','sage'); ?>"><?php _e('+/- 1 week','sage'); ?></option>
+                <option value="<?php _e('+/- 2 weeks','sage'); ?>"><?php _e('+/- 2 weeks','sage'); ?></option>
+                <option value="<?php _e('+/- 1 month','sage'); ?>"><?php _e('+/- 1 month','sage'); ?></option>
+                <option value="<?php _e('Whenever','sage'); ?>"><?php _e('Whenever','sage'); ?></option>
             </select>
         </div>
     </div>
