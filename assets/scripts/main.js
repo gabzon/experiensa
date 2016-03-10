@@ -44,6 +44,24 @@
                 //     var autocomplete = new google.maps.places.Autocomplete(input, options);
                 // }
                 // google.maps.event.addDomListener(window, 'load', initialize);
+
+                function ajaxSubmit(){
+                    var newRequest = $(this).serialize();
+                    $.ajax({
+                        type:"POST",
+                        url: sage_vars.ajaxurl,
+                        data: newRequest,
+                        success:function(data){
+                            //$("#feedback").html(data);
+                        }
+                    });
+                    return false;
+                }
+
+                $('#form-submit').click(function(){
+                    alert('YEEEAHH!');
+                    //$('#newRequest').submit(ajaxSubmit);
+                });
             },
             finalize: function() {
                 // JavaScript to be fired on all pages, after page specific JS is fired
@@ -79,24 +97,6 @@
                 });
 
                 $(".owl-carousel .item.promotion-item .image").dimmer({on:'hover'});
-
-                function ajaxSubmit(){
-                    var newRequest = $(this).serialize();
-                    $.ajax({
-                        type:"POST",
-                        url: sage_vars.ajaxurl,
-                        data: newRequest,
-                        success:function(data){
-                            //$("#feedback").html(data);
-                        }
-                    });
-                    return false;
-                }
-
-                $('#form-submit').click(function(){
-                    alert('YEEEAHH!');
-                    //$('#newRequest').submit(ajaxSubmit);
-                });
 
             },
             finalize: function() {
