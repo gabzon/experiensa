@@ -52,15 +52,14 @@
                         url: sage_vars.ajaxurl,
                         data: newRequest,
                         success:function(data){
-                            //$("#feedback").html(data);
+                            $("#feedback").html(data);
                         }
                     });
                     return false;
                 }
+                $('#newRequest').submit(ajaxSubmit);
 
-                $('#form-submit').click(function(){                    
-                    $('#newRequest').submit(ajaxSubmit);
-                });
+
             },
             finalize: function() {
                 // JavaScript to be fired on all pages, after page specific JS is fired
