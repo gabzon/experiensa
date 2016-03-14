@@ -1,4 +1,9 @@
-<?php while (have_posts()) : the_post(); ?>
-  <?php get_template_part('templates/page', 'header'); ?>
-  <?php get_template_part('templates/content', 'page'); ?>
-<?php endwhile; ?>
+<br>
+<div class="ui container">
+    <?php while (have_posts()) : the_post(); ?>
+      <?php get_template_part('templates/page', 'header'); ?>
+      <?php get_template_part('templates/content', 'page'); ?>
+    <?php endwhile; ?>
+</div>
+<br>
+<br>
