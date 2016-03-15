@@ -6,13 +6,13 @@ Flow: Voyage Workflow
 */
 
 piklist('include_meta_boxes', array(
-    'product_typediv',
+    'voyage_typediv',
     'categorydiv',
     'countrydiv',
     'tagdiv-post_tag',
     'themediv',
     'postimagediv',
-    'piklist_meta_product_accommodation'
+    'piklist_meta_voyage_accommodation'
 ));
 
 ?>

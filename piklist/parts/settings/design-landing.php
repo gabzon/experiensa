@@ -29,6 +29,8 @@ piklist('field', array(
     ),
 ));
 
+
+
 $destination_color = array(
     'type'      => 'select',
     'field'     => 'destination_section_color',
@@ -106,6 +108,17 @@ $promotion_inverted = array(
         'inverted' => __('Inverted color','sage')
     )
 );
+
+piklist('field',array(
+    'type' => 'select',
+    'field' => 'display_promotions',
+    'value' => 'TRUE',
+    'label' => __('Display promotions in landing page','sage'),
+    'choices' => array(
+        'TRUE'  => __('Display promotions','sage'),
+        'FALSE' => __('Do not display promotions','sage')
+    )
+));
 
 piklist('field',array(
     'type' => 'group',

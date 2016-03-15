@@ -60,7 +60,7 @@ $flight_departure_date = array(
 );
 
 $flight_departure_time= array(
-    'type'  => 'text',
+    'type'  => 'time',
     'field' => 'voyage_flight_departure_time',
     'columns'   => 3,
     'label' => __('Departure time','sage')
@@ -75,7 +75,7 @@ $flight_arrival_date = array(
 );
 
 $flight_arrival_time = array(
-    'type'      => 'text',
+    'type'      => 'time',
     'field'     => 'voyage_flight_arrival_time',
     'columns'   => 3,
     'label'     => __('Arrival time','sage')

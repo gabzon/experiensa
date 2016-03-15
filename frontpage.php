@@ -4,6 +4,7 @@
 */
 
 get_template_part('templates/frontpage/slider');
+
 get_template_part('templates/frontpage/destinations');
 
 while (have_posts()) {

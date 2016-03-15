@@ -55,7 +55,7 @@ $voyage_host_checkin_date = array(
 );
 
 $voyage_host_checkin_time = array(
-    'type'      => 'text',
+    'type'      => 'time',
     'field'     => 'voyage_establishment_checkin_time',
     'label'     => __('Check-in time','sage'),
     'columns'   => 3
@@ -70,7 +70,7 @@ $voyage_host_checkout_date = array(
 );
 
 $voyage_host_checkout_time = array(
-    'type'      => 'text',
+    'type'      => 'time',
     'field'     => 'voyage_establishment_checkout_time',
     'label'     => __('Check-out time','sage'),
     'columns'   => 3
