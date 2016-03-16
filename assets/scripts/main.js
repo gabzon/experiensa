@@ -53,7 +53,11 @@
                         data: newRequest,
                         success:function(data){
                             $("#feedback").html(data);
-                        }
+                        },
+                        error: function(request, error) {
+                            console.log("Request: " + JSON.stringify(request)); 
+                            console.log("Error: " + JSON.stringify(error)); 
+			}
                     });
                     return false;
                 }
