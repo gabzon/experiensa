@@ -105,7 +105,7 @@ function get_timezone_array(){
 
     return $timezoneList;
 }
-$vector = get_timezone_array();
+$timezone_list = get_timezone_array();
 
 /*$tz = new Timezone();
 $vector = $tz->get_timezone_array();*/
@@ -117,7 +117,7 @@ piklist('field', array(
     'attributes' => array(
         'class' => 'text'
     ),
-    'choices' => $vector
+    'choices' => $timezone_list
 ));
 
 piklist('field', array(

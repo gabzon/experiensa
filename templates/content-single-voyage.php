@@ -1,9 +1,12 @@
-<?php date_default_timezone_set('Europe/Zurich'); ?>
-
+<?php 
+$agency_options = get_option('agency_settings');
+$timezone = $agency_options['agency_timezone'];
+date_default_timezone_set($timezone); 
+?>
 <?php while (have_posts()) : the_post(); ?>
-    <? $voyage_expiry_date = get_post_meta($post->ID, 'voyage_expiry_date', true); ?>
+    <?php $voyage_expiry_date = get_post_meta($post->ID, 'voyage_expiry_date', true); ?>
     <?php $voyage_expiry_date_formatted = DateTime::createFromFormat('d/m/Y', $voyage_expiry_date)->format('Y-m-d'); ?>
-
+    <?php $post_status = get_post_status( $post->ID );?>
     <?php if ($voyage_expiry_date_formatted >= date("Y-m-d")): ?>
         <?php $gallery = get_post_meta($post->ID, 'voyage_gallery', false); ?>
         <?php if ($gallery): ?>
@@ -49,6 +52,16 @@
         <div class="ui container">
             <div class="ui red message">
                 <?php _e('Sorry for the inconvenience. This offer is not longer available','sage'); ?>
+                <?php if($post_status=='publish'):?>
+                    <?php 
+                    $my_post = array();
+                    $my_post['ID'] = $post->ID;
+                    $my_post['post_status'] = 'draft';
+
+                    // Update the post into the database
+                    wp_update_post( $my_post );
+                    ?>
+                <?php endif; ?>
             </div>
         </div>
         <br>

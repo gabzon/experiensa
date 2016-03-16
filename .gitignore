@@ -167,4 +167,7 @@ $RECYCLE.BIN/
 ### KomodoEdit ###
 *.komodoproject
 .komodotools
-
+/.idea/copyright/profiles_settings.xml
+/.idea/encodings.xml
+/.idea/experiensa.iml
+/.idea/modules.xml
