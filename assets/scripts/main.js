@@ -19,9 +19,6 @@
         'common': {
             init: function() {
 
-                $('#slides').superslides({play:'8000'});
-                requestForm();
-
                 $('.ui.card button#modal-details').on('click', function () {
                     $(this).data('modal').modal('show');
                 }).each(function (i, b) {
@@ -44,25 +41,6 @@
                 //     var autocomplete = new google.maps.places.Autocomplete(input, options);
                 // }
                 // google.maps.event.addDomListener(window, 'load', initialize);
-
-                function ajaxSubmit(){
-                    var newRequest = $(this).serialize();
-                    $.ajax({
-                        type:"POST",
-                        url: sage_vars.ajaxurl,
-                        data: newRequest,
-                        success:function(data){
-                            $("#feedback").html(data);
-                        },
-                        error: function(request, error) {
-                            console.log("Request: " + JSON.stringify(request));
-                            console.log("Error: " + JSON.stringify(error));
-			}
-                    });
-                    return false;
-                }
-                $('#newRequest').submit(ajaxSubmit);
-
             },
             finalize: function() {
                 // JavaScript to be fired on all pages, after page specific JS is fired
@@ -71,6 +49,8 @@
         // Home page
         'home': {
             init: function() {
+
+                $('#slides').superslides({play:'8000'});
 
                 scrollMenu();
 
@@ -151,6 +131,28 @@
                         "<i class='chevron circle right icon'></i>"
                     ],
                 });
+            }
+        },
+        'page_template_request_form':{
+            init:function(){
+                requestForm();
+                function ajaxSubmit(){
+                    var newRequest = $(this).serialize();
+                    $.ajax({
+                        type:"POST",
+                        url: sage_vars.ajaxurl,
+                        data: newRequest,
+                        success:function(data){
+                            $("#feedback").html(data);
+                        },
+                        error: function(request, error) {
+                            console.log("Request: " + JSON.stringify(request));
+                            console.log("Error: " + JSON.stringify(error));
+                        }
+                    });
+                    return false;
+                }
+                $('#newRequest').submit(ajaxSubmit);
             }
         }
     };
