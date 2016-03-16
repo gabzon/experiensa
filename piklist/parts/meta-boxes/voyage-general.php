@@ -19,6 +19,7 @@ $expiry_date = array(
     'type'      => 'datepicker',
     'field'     => 'voyage_expiry_date',
     'label'     => __('Expiry date','sage'),
+    'options'   => array( 'dateFormat' => 'dd/mm/yy'),
     'columns'   => 4
 );
 
