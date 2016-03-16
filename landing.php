@@ -1,9 +1,10 @@
 <?php
 /**
-* Template Name: Front page
+* Template Name: Landing page
 */
 
 get_template_part('templates/frontpage/slider');
+askldfjéalskdjf
 
 get_template_part('templates/frontpage/destinations');
 
