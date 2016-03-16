@@ -18,8 +18,8 @@
         // All pages
         'common': {
             init: function() {
-                //menuMobile();
-                //requestATravel();
+
+                $('#slides').superslides({play:'8000'});
                 requestForm();
 
                 $('.ui.card button#modal-details').on('click', function () {
@@ -55,14 +55,13 @@
                             $("#feedback").html(data);
                         },
                         error: function(request, error) {
-                            console.log("Request: " + JSON.stringify(request)); 
-                            console.log("Error: " + JSON.stringify(error)); 
+                            console.log("Request: " + JSON.stringify(request));
+                            console.log("Error: " + JSON.stringify(error));
 			}
                     });
                     return false;
                 }
                 $('#newRequest').submit(ajaxSubmit);
-
 
             },
             finalize: function() {
@@ -72,9 +71,8 @@
         // Home page
         'home': {
             init: function() {
-                scrollMenu();
 
-                $('#slides').superslides({play:'8000'});
+                scrollMenu();
 
                 $(".owl-carousel").owlCarousel({
                     autoPlay: 5000, //Set AutoPlay to 3 seconds

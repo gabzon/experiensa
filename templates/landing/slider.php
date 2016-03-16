@@ -11,6 +11,7 @@ $args = array (
 
 // The Query
 $query = new WP_Query( $args );
+
 ?>
 
 <?php if ( $query->have_posts() ) :  ?>
