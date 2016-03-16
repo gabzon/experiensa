@@ -56,15 +56,15 @@ function requestQuote(){
 
     $info = '<strong>Nom complet: </strong>'       . $fullname     . '<br>'.
     '<strong>Email: </strong>'             . $email        . '<br>'.
-    '<strong>Téléphone: </strong>'         . $phone        . '<br><hr>'.
-    '<strong>Destination: </strong>'       . $destination  . '<br>' .
-    '<strong>Date de départ: </strong>'    . $departure    . '<br>' .
-    '<strong>Date de retour: </strong>'    . $return       . '<br><hr>' .
-    '<strong>Budget: </strong>'            . $budget       . '<br>' .
-    '<strong>Companions: </strong>'        . $companion    . '<br>' .
-    '<strong>Number of Adults: </strong>'  . $adults       . '<br>' .
-    '<strong>Number of kids: </strong>'    . $kids         . '<br><hr>' .
-    '<strong>Preferences: </strong><br>'   . $preferences  . '<br>';
+    '<strong>Téléphone: </strong>'         . $phone        . '<br><hr>';
+    $info .= ($destination==''?'':'<strong>Destination: </strong>'       . $destination  . '<br>');
+    $info .= ($departure==''?'':'<strong>Date de départ: </strong>'       . $departure  . '<br>');
+    $info .= ($return==''?'':'<strong>Date de retour: </strong>'       . $return  . '<br><hr>');
+    $info .= ($budget==''?'':'<strong>Budget: </strong>'       . $budget  . '<br>');
+    $info .= ($companion==''?'':'<strong>Companions: </strong>'       . $companion  . '<br>');
+    $info .= ($adults==''?'':'<strong>Number of Adults: </strong>'       . $adults  . '<br>');
+    $info .= ($kids==''?'':'<strong>Number of kids: </strong>'       . $kids  . '<br><hr>');
+    $info .= ($preferences==''?'':'<strong>Preferences: </strong><br>'       . $preferences  . '<br>');
 
     if(!empty($class)){
         $info .= '<strong>Classe: </strong>';
@@ -118,7 +118,7 @@ function requestQuote(){
     $info .=    '<strong>Type de transport: </strong>'  . $transport_type . '<br>' .
     '<strong>Conducteur: </strong>'         . $driver         . '<br>';
     //$to = 'gabriel@sevinci.com,jacqueline@fiestatravel.ch,'.$email;
-    $to = 'gab.zambrano@gmail.com';
+    $to = 'gabriel@sevinci.com,'.$email;
     if( wp_mail( $to,'Devis: '. $destination , $info, $headers) === FALSE){
         echo "Error Sending Email";
     } else{
