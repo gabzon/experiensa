@@ -118,9 +118,10 @@ function requestQuote(){
     $info .=    '<strong>Type de transport: </strong>'  . $transport_type . '<br>' .
     '<strong>Conducteur: </strong>'         . $driver         . '<br>';
     //$to = 'gabriel@sevinci.com,jacqueline@fiestatravel.ch,'.$email;
-    $to = 'gabriel@sevinci.com,'.$email;
+    $agency_email  = $_POST['agency_email'];
+    $to = $agency_email.','.$email;
     if( wp_mail( $to,'Devis: '. $destination , $info, $headers) === FALSE){
-        echo "Error Sending Email";
+        echo "Error Sending Email:";
     } else{
         echo '<h3 style="color:blue">Email envoyé</h3>';
     }
