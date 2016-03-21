@@ -174,7 +174,15 @@ piklist('field',array(
         $theme_inverted
     )
 ));
-
+piklist('field', array(
+    'type'      => 'checkbox',
+    'label'     => __('Display images for countries','sage'),
+    'field'     => 'setting_display_country_images',
+    'value'     => 'FALSE',
+    'choices'   => array(
+        'TRUE'  => __('Yes','sage')
+    )
+));
 // TODO: Order of apperance Slider, destinations (countries), popular cities, etc, promotions
 // TODO: Colors for different sections
 // TODO: Appears or not

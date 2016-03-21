@@ -41,7 +41,7 @@ if ( ! function_exists( 'location_taxonomy' ) ) {
 			'show_tagcloud'              => true,
 			'rewrite'                    => $rewrite,
 		);
-		register_taxonomy( 'location', array( 'post', 'voyage', 'estimate', 'service', 'host', 'partner' ), $args );
+		register_taxonomy( 'location', array( 'post', 'attachment', 'voyage', 'estimate', 'service', 'host', 'partner' ), $args );
 	}
 	add_action( 'init', 'location_taxonomy', 0 );
 }

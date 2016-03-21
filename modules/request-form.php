@@ -57,73 +57,109 @@ function requestQuote(){
     $info = '<strong>Nom complet: </strong>'       . $fullname     . '<br>'.
     '<strong>Email: </strong>'             . $email        . '<br>'.
     '<strong>Téléphone: </strong>'         . $phone        . '<br><hr>';
-    $info .= ($destination==''?'':'<strong>Destination: </strong>'       . $destination  . '<br>');
-    $info .= ($departure==''?'':'<strong>Date de départ: </strong>'       . $departure  . '<br>');
-    $info .= ($return==''?'':'<strong>Date de retour: </strong>'       . $return  . '<br><hr>');
-    $info .= ($budget==''?'':'<strong>Budget: </strong>'       . $budget  . '<br>');
-    $info .= ($companion==''?'':'<strong>Companions: </strong>'       . $companion  . '<br>');
-    $info .= ($adults==''?'':'<strong>Number of Adults: </strong>'       . $adults  . '<br>');
-    $info .= ($kids==''?'':'<strong>Number of kids: </strong>'       . $kids  . '<br><hr>');
-    $info .= ($preferences==''?'':'<strong>Preferences: </strong><br>'       . $preferences  . '<br>');
-
+    $pinfo="";
+    $pinfo .= ($destination==''?'':'<strong>Destination: </strong>'       . $destination  . '<br>');
+    $pinfo .= ($departure==''?'':'<strong>Date de départ: </strong>'       . $departure  . '<br>');
+    $pinfo .= ($return==''?'':'<strong>Date de retour: </strong>'       . $return  . '<br><hr>');
+    $pinfo .= ($budget==''?'':'<strong>Budget: </strong>'       . $budget  . '<br>');
+    $pinfo .= ($companion==''?'':'<strong>Companions: </strong>'       . $companion  . '<br>');
+    $pinfo .= ($adults==''?'':'<strong>Number of Adults: </strong>'       . $adults  . '<br>');
+    $pinfo .= ($kids==''?'':'<strong>Number of kids: </strong>'       . $kids  . '<br><hr>');
+    $pinfo .= ($preferences==''?'':'<strong>Preferences: </strong><br>'       . $preferences  . '<br>');
+    $info.=$pinfo;
     if(!empty($class)){
-        $info .= '<strong>Classe: </strong>';
+        $pinfo .= '<strong>Classe: </strong>';
         foreach ($class as $c) {
-            $info .= ucwords($c) . ', ';
+            $pinfo .= ucwords($c) . ', ';
         }
+        $info.=$pinfo;
     }
 
-    $info .= '<br><strong>Siege: </strong>'        . $seat         . '<br>';
-
+    $pinfo .= '<br><strong>Siege: </strong>'        . $seat         . '<br>';
+    $info.=$pinfo;
     if ($flight_options != "") {
-        $info .= '<strong>Flight options: </strong></ul>';
+        $pinfo .= '<strong>Flight options: </strong></ul>';
         foreach ($flight_options as $fo) {
-            $info .= '<li>' . ucwords($fo) . '</li>';
+            $pinfo .= '<li>' . ucwords($fo) . '</li>';
         }
-        $info.= '</ul>';
+        $pinfo.= '</ul>';
+        $info.=$pinfo;
     }
 
     if ($host_options != "") {
-        $info .= '<strong>Host options: </strong></ul>';
+        $pinfo .= '<strong>Host options: </strong></ul>';
         foreach ($host_options as $ho) {
-            $info .= '<li>' . ucwords($ho) . '</li>';
+            $pinfo .= '<li>' . ucwords($ho) . '</li>';
         }
-        $info.= '</ul>';
+        $pinfo.= '</ul>';
+        $info.=$pinfo;
     }
 
     if ($host_type != "") {
-        $info .= '<strong>Host type: </strong></ul>';
+        $pinfo .= '<strong>Host type: </strong></ul>';
         foreach ($host_type as $ht) {
-            $info .= '<li>' . ucwords($ht) . '</li>';
+            $pinfo .= '<li>' . ucwords($ht) . '</li>';
         }
-        $info.= '</ul>';
+        $pinfo.= '</ul>';
+        $info.=$pinfo;
     }
 
     if ($hotel != "") {
-        $info .= '<strong>Hotel stars: </strong></ul>';
+        $pinfo .= '<strong>Hotel stars: </strong></ul>';
         foreach ($hotel as $stars) {
-            $info .= '<li>' . ucwords($stars) . '</li>';
+            $pinfo .= '<li>' . ucwords($stars) . '</li>';
         }
-        $info.= '</ul>';
+        $pinfo.= '</ul>';
+        $info.=$pinfo;
     }
 
     if ($themes != "") {
-        $info .= '<strong>Themes: </strong></ul>';
+        $pinfo .= '<strong>Themes: </strong></ul>';
         foreach ($themes as $theme) {
-            $info .= '<li>' . ucwords($theme) . '</li>';
+            $pinfo .= '<li>' . ucwords($theme) . '</li>';
         }
-        $info.= '</ul>';
+        $pinfo.= '</ul>';
+        $info.=$pinfo;
     }
 
-    $info .=    '<strong>Type de transport: </strong>'  . $transport_type . '<br>' .
+    $pinfo .=    '<strong>Type de transport: </strong>'  . $transport_type . '<br>' .
     '<strong>Conducteur: </strong>'         . $driver         . '<br>';
+    $info.=$pinfo;
     //$to = 'gabriel@sevinci.com,jacqueline@fiestatravel.ch,'.$email;
     $agency_email  = $_POST['agency_email'];
     $to = $agency_email.','.$email;
+    $mail_status=array();;
     if( wp_mail( $to,'Devis: '. $destination , $info, $headers) === FALSE){
-        echo "Error Sending Email:";
+        $mail_status=["status"=>0,"msg"=>"Error Sending Email"];
     } else{
-        echo '<h3 style="color:blue">Email envoyé</h3>';
+        $mail_status=["status"=>1,"msg"=>'<h3 style="color:blue">Email envoyé</h3> '];
+    }
+    if($mail_status['status']==0){
+      echo $mail_status['msg'];
+    }else{
+      $args = array (
+        'posts_per_page' => -1,
+        'post_type'     => array( 'partner' ),
+        'post_status'   => array( 'publish', 'inherit' ),
+        'meta_key'		=> 'partner_request_form',
+        'meta_value'	=> 'TRUE'
+      );
+      $the_query = new WP_Query( $args );
+      $partners_mail="";
+      if( $the_query->have_posts() ){
+        while( $the_query->have_posts() ){
+            $the_query->the_post();
+            $mail = get_post_meta( $the_query->post->ID, 'partner_email',true);
+            $partners_mail .= $mail.", ";
+        }
+        $partners_mail = rtrim($partners_mail);
+        $partners_mail = rtrim($partners_mail,',');
+        if( wp_mail( $partners_mail,'Devis: '. $destination , $pinfo, $headers) === FALSE){
+          echo $mail_status['msg'].'and to partners too...'
+        }else{
+          echo $mail_status['msg'];
+        }
+      }
     }
     die();
 }

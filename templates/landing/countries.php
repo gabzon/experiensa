@@ -1,5 +1,6 @@
 <?php
 $design_options = get_option('experiensa_design_settings');
+$display_country_images = $design_options['setting_display_country_images'];
 $section = $design_options['promotion_color_group'];
 $color = $section['promotion_section_color'][0];
 $inverted = $section['promotion_section_inverted'][0];
