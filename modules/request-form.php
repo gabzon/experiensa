@@ -155,7 +155,7 @@ function requestQuote(){
         $partners_mail = rtrim($partners_mail);
         $partners_mail = rtrim($partners_mail,',');
         if( wp_mail( $partners_mail,'Devis: '. $destination , $pinfo, $headers) === FALSE){
-          echo $mail_status['msg'].'and to partners too...'
+          echo $mail_status['msg'].'and to partners too...';
         }else{
           echo $mail_status['msg'];
         }
