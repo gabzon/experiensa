@@ -57,7 +57,7 @@ $destination_color = array(
 
 $destination_inverted = array(
     'type' => 'checkbox',
-    'field' => 'promotion_section_inverted',
+    'field' => 'destination_section_inverted',
     'columns' => 3,
     'choices' => array(
         'inverted' => __('Inverted color','sage')
