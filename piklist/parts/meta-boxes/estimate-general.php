@@ -3,8 +3,7 @@
 Title: Voyage
 Post Type: estimate
 Meta box: true
-Tab: General
-Flow: Estimate Workflow
+order:1
 */
 
 $title = array(

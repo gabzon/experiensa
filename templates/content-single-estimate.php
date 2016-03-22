@@ -34,6 +34,10 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
                                     <span class="date"><i class="calendar icon"></i> <?= __('Expiry date: '). $expiry_date[$i]; ?></span><br>
                                 </div>
                             </div>
+                            <div class="image">
+                                <?php $gallery = get_post_meta(get_the_ID(), 'estimate_gallery'); ?>
+                                <?php Gallery::display_slider(get_the_ID(), $gallery,$i); ?>
+                            </div>
                             <div class="content">
                                 <a class="header"></a>
                                 <div class="meta">
@@ -53,10 +57,6 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
                                     /
                                     <i class="moon icon"></i><?= $number_nights[$i] . ' ' . __('nights','sage'); ?>
                                 </span>
-                            </div>
-                            <div class="image">
-                                <?php $gallery = get_post_meta(get_the_ID(), 'estimate_gallery'); ?>
-                                <?php Gallery::display_slider(get_the_ID(), $gallery,$i); ?>
                             </div>
                             <div class="content">
                                 <?php get_template_part('templates/estimate/flight'); ?>

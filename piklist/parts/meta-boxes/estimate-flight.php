@@ -2,8 +2,7 @@
 /*
 Title: Estimate Flights
 Post Type: estimate
-Tab: Flights
-Flow: Estimate Workflow
+order: 2
 */
 
 /*******************************************************************************
@@ -81,8 +80,18 @@ $flight_arrival_time = array(
     'label'     => __('Arrival time','sage')
 );
 
-$option = array(
+$comments = [
+    'type'          => 'text',
+    'field'         => 'estimate_flight_comments',
+    'label'         => __('Comments','sage'),
+    'attributes'    => ['placeholder' => __('Comments','sage')],
+    'columns'       => 12
+];
+
+piklist('field', array(
     'type'      => 'group',
+    'template'  => 'field',
+    'label'     => __('Flight Options','sage'),
     'field'     => 'estimate_flight_group',
     'add_more'  => true,
     'fields'    => array(
@@ -94,30 +103,7 @@ $option = array(
         $flight_departure_date,
         $flight_departure_time,
         $flight_arrival_date,
-        $flight_arrival_time
+        $flight_arrival_time,
+        $comments
     )
-);
-
-$prix = [
-    'type'          => 'text',
-    'label'         => __('Price','sage'),
-    'field'         => 'estimate_flight_price',
-    'attributes'    => ['placeholder' => 'Prix'],
-    'columns'       => 2
-];
-
-$comments = [
-    'type'          => 'text',
-    'field'         => 'estimate_flight_comments',
-    'label'         => __('Comments','sage'),
-    'attributes'    => ['placeholder' => 'Comments'],
-    'columns'       => 10
-];
-
-piklist('field', array(
-    'type'      => 'group',
-    'template'  => 'field',
-    'label'     => __('Options','sage'),
-    'add_more'  => true,
-    'fields'    => [$option, $prix, $comments]
 ));

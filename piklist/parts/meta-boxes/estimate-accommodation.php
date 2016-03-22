@@ -2,8 +2,7 @@
 /*
 Title: Estimate Accommodation
 Post Type: estimate
-Tab: Accommodation
-Flow: Estimate Workflow
+order: 3
 */
 
 /*******************************************************************************

@@ -25,7 +25,7 @@ for ($i=0; $i < count($flights); $i++) {
         ?>
         <br>
         <div class="meta right floated">
-            <strong><?php _e('Departure','sage'); ?></strong><br>
+            <strong><?php _e('Arrival','sage'); ?></strong><br>
             <?php echo $flights[$i]['estimate_flight_arrival_city'][$i]; ?><br>
             <?php
             echo $flights[$i]['estimate_flight_arrival_date'][$i] . '<br>';
@@ -33,7 +33,7 @@ for ($i=0; $i < count($flights); $i++) {
             ?>
         </div>
         <div class="meta">
-            <strong><?php _e('Arrival','sage'); ?></strong><br>
+            <strong><?php _e('Departure','sage'); ?></strong><br>
             <?php echo $flights[$i]['estimate_flight_departure_city'][$i]; ?><br>
             <?php
             echo $flights[$i]['estimate_flight_departure_date'][$i] . '<br>';
