@@ -13,7 +13,6 @@ $args = array (
 $query = new WP_Query( $args );
 
 ?>
-
 <?php if ( $query->have_posts() ) :  ?>
     <div id="slides">
         <ul class="slides-container">

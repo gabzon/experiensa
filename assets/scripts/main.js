@@ -55,7 +55,9 @@
                 scrollMenu();
 
                 $(".owl-carousel").owlCarousel({
-                    autoPlay: 5000, //Set AutoPlay to 3 seconds
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
                     loop:true,
                     nav:true,
                     margin: 10,

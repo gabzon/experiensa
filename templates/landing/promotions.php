@@ -1,11 +1,22 @@
-<?php $query = new WP_Query( array('post_type' => 'voyage','category_name' => 'promotions')); ?>
-<?php $design_options = get_option('experiensa_design_settings');
+<?php
+
+$design_options = get_option('experiensa_design_settings');
+/*echo('<pre>');
+print_r($design_options);
+echo('</pre>');*/
 $section = $design_options['promotion_color_group'];
+$display_promotions = $design_options['display_promotions'];
 $color = $section['promotion_section_color'][0];
 $inverted = $section['promotion_section_inverted'][0];
-?>
-
-<?php if ($design_options['display_promotions'] == 'TRUE'): ?>
+$args = array(
+          'posts_per_page' => -1,
+          'post_type'     => array( 'voyage' ),
+          'post_status'   => array( 'publish', 'inherit' ),
+          'category_name' => 'promotions'
+        );
+$query = new WP_Query($args);
+if ($design_options['display_promotions'] == 'TRUE'): ?>
+    <!-- Start Promotions section -->
     <section id="promotion" class="ui basic <?= get_the_color($color, $inverted[0]); ?> vertical segment center aligned">
         <br>
         <br>
@@ -29,10 +40,16 @@ $inverted = $section['promotion_section_inverted'][0];
                                             </div>
                                         </div>
                                     </div>
-                                    <?php if (has_post_thumbnail()) : ?>
-                                        <?php $feature_image = wp_get_attachment_image_src( get_post_thumbnail_id( $query->ID ),'full' ); ?>
-                                        <img src="<?= $feature_image[0]; ?>" alt=""/>
-                                    <?php endif; ?>
+                                    <?php
+                                    $image = get_post_meta ($post->ID,'voyage_gallery');
+                                    if($image):
+                                      $full = wp_get_attachment_url($image[0]);
+                                      $thumb = wp_get_attachment_thumb_url($image[0]);
+                                    ?>
+                                    <img src="<?= $full; ?>" alt=""/>
+                                    <?php
+                                    endif;
+                                    ?>
                                 </div>
                                 <div class="promotion-content center">
                                     <h2 class="title ui inverted header"><?php the_title(); ?></h2>
@@ -49,4 +66,5 @@ $inverted = $section['promotion_section_inverted'][0];
         <br>
         <br>
     </section>
+    <!-- End Promotions section -->
 <?php endif; ?>
