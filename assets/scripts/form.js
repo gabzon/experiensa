@@ -47,7 +47,26 @@ function requestForm(){
         }
         return true;
     }
-
+    var currency = 'CHF';
+    function get_currency(){
+      var result="";
+      jQuery.ajax({
+        type:"POST",
+        url: sage_vars.ajaxurl,
+        data: {action: "currency"},
+        dataType: "html",
+        async: false,
+        success:function(data){
+            result = data;
+        },
+        error: function() {
+            result = "CHF";
+        }
+      });
+      return result;
+    }
+    currency = get_currency();
+    currency = currency.slice(0, -1);
     // // slider call
     jQuery('#price-slider').slider({
         range: true,
@@ -56,10 +75,10 @@ function requestForm(){
         values: [ 500, 5000 ],
         step: 50,
         slide: function(event, ui) {
-            jQuery('#budget').val("CHF" + ui.values[ 0 ] + " - CHF" + ui.values[ 1 ]);
-            jQuery('.ui-slider-handle:eq(0) .price-range-min').html('CHF ' + ui.values[ 0 ]);
-            jQuery('.ui-slider-handle:eq(1) .price-range-max').html('CHF ' + ui.values[ 1 ]);
-            jQuery('.price-range-both').html('<i>CHF ' + ui.values[ 0 ] + ' - </i>CHF ' + ui.values[ 1 ] );
+            jQuery('#budget').val(currency + ui.values[ 0 ] + " - "+currency + ui.values[ 1 ]);
+            jQuery('.ui-slider-handle:eq(0) .price-range-min').html(currency+' ' + ui.values[ 0 ]);
+            jQuery('.ui-slider-handle:eq(1) .price-range-max').html(currency+' ' + ui.values[ 1 ]);
+            jQuery('.price-range-both').html('<i>'+currency+' ' + ui.values[ 0 ] + ' - </i>'+currency+' ' + ui.values[ 1 ] );
 
             if ( ui.values[0] === ui.values[1] ) {
                 jQuery('.price-range-both i').css('display', 'none');
@@ -77,12 +96,12 @@ function requestForm(){
         },
     });
 
-    jQuery( "#budget" ).val( "CHF" + jQuery( "#price-slider" ).slider( 'values', 0 ) + " - CHF" + jQuery( "#price-slider" ).slider( 'values', 1 ) );
+    jQuery( "#budget" ).val( currency + jQuery( "#price-slider" ).slider( 'values', 0 ) + " - "+ currency + jQuery( "#price-slider" ).slider( 'values', 1 ) );
 
-    jQuery('.ui-slider-range').append('<span class="price-range-both value"><i>CHF' + jQuery('#price-slider').slider('values', 0 ) + ' - </i>' + jQuery('#price-slider').slider('values', 1 ) + '</span>');
+    jQuery('.ui-slider-range').append('<span class="price-range-both value"><i>'+currency + jQuery('#price-slider').slider('values', 0 ) + ' - </i>' + jQuery('#price-slider').slider('values', 1 ) + '</span>');
 
-    jQuery('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">CHF ' + jQuery('#price-slider').slider('values', 0 ) + '</span>');
+    jQuery('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">'+currency+' ' + jQuery('#price-slider').slider('values', 0 ) + '</span>');
 
-    jQuery('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">CHF ' + jQuery('#price-slider').slider('values', 1 ) + '</span>');
+    jQuery('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">'+currency+' ' + jQuery('#price-slider').slider('values', 1 ) + '</span>');
 
 }
