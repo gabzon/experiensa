@@ -50,12 +50,8 @@
             $agency_email = ($agency_email=="" || $agency_email==null? "gabriel@sevinci.com":$agency_email);
             ?>
             <input type="hidden" name="agency_email" value="<?php echo $agency_email; ?>"/>
-            <?php
-              if( function_exists( 'gglcptch_display' ) ) {
-                echo "<input type='hidden' name='cntctfrm_contact_action' value='true' />";
-                echo gglcptch_display();
-              }
-              ?>
+            <br><br>
+            <?php if( function_exists( 'gglcptch_display' ) ) { echo gglcptch_display(); } ; ?>
             <br><br>
             <input id="form-submit" type="submit" class="ui button" value="<?php _e('Request a quote','sage'); ?>">
         </form>

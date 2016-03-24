@@ -2,7 +2,17 @@
 
 function requestQuote(){
     $headers = array('Content-Type: text/html; charset=UTF-8');
-
+  
+    if ( function_exists( 'gglcptch_check' ) ){
+		$validate = gglcptch_check();
+		if($validate['response']===false && $validate['reason']!='VERIFICATION_FAILED'){
+			echo "<h4 style=\"color:red\">Error checking captcha</h4>";
+			die();
+		}
+    }else{
+		echo "<h3 style=\"color:red\">Need to install captcha plugin</h3>";
+		die();
+	}
     $fullname       = $_POST['fullname'];
     $email          = $_POST['email'];
     $phone          = $_POST['phone'];
