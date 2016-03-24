@@ -79,6 +79,9 @@ $terms = "";
           $countries[] = $country;
         endwhile;
         Carousel::display_casousel_text($countries);
+      else:?>
+        <h3><?php _e('Sorry! Currently there are no destinations','sage'); ?></h3>
+      <?php
       endif;
     endif;
 ?>
