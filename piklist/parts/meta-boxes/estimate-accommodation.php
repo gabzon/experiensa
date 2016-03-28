@@ -8,7 +8,11 @@ order: 3
 /*******************************************************************************
 ** Accommodation Section
 *******************************************************************************/
-
+?>
+<h3 class="demo-highlight">
+  <?php _e('Each accommodation is part of a trip.','sage');?>
+</h3>
+<?php
 $estimate_host_name = [
     'type'      => 'text',
     'field'     => 'estimate_establishment_name',
@@ -54,7 +58,7 @@ $estimate_host_checkin_date = array(
 );
 
 $estimate_host_checkin_time = array(
-    'type'      => 'text',
+    'type'      => 'time',
     'field'     => 'estimate_establishment_checkin_time',
     'label'     => __('Check-in time','sage'),
     'columns'   => 3
@@ -69,7 +73,7 @@ $estimate_host_checkout_date = array(
 );
 
 $estimate_host_checkout_time = array(
-    'type'      => 'text',
+    'type'      => 'time',
     'field'     => 'estimate_establishment_checkout_time',
     'label'     => __('Check-out time','sage'),
     'columns'   => 3
@@ -87,6 +91,12 @@ $estimate_host_gallery = [
     'field'     => 'estimate_establishment_gallery',
     'label'     => __('Photo Gallery','sage'),
 ];
+/*$comments = [
+    'type'      => 'text',
+    'field'     => 'estimate_accommodation_comments',
+    'label'     => __('Comments','sage'),
+    'columns'   => 12
+];*/
 
 $accommodation_group = array(
     'type'      => 'group',
@@ -106,13 +116,8 @@ $accommodation_group = array(
     )
 );
 
-$comments = [
-    'type'      => 'text',
-    'field'     => 'estimate_accommodation_comments',
-    'label'     => __('Comments','sage'),
-    'columns'   => 12
-];
-
+piklist('field', $accommodation_group);
+/*
 piklist('field', array(
     'type'      => 'group',
     'template'  => 'field',
@@ -121,4 +126,4 @@ piklist('field', array(
         $accommodation_group,
         $comments
     )
-));
+));*/

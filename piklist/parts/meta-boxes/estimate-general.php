@@ -18,19 +18,16 @@ $price = array(
     'field'         => 'estimate_price',
     'label'         => __('Price','sage'),
     'attributes'    => array( 'step' => 'any' ),
-    'columns'       => 4
+    'columns'       => 3
 );
 
 $currency = array(
     'type'      => 'select',
     'field'     => 'estimate_currency',
     'label'     => __('Currency','sage'),
-    'choices'   => array(
-        'CHF'   =>  'CHF',
-        'USD'   =>  'USD',
-        'EUR'   =>  'EUR',
-    ),
-    'columns'   => 4
+    'value'     => Common::get_settled_currency(),
+    'choices'   => Common::currency_name_description_list(),
+    'columns'   => 5
 );
 
 $expiry_date = array(
@@ -87,7 +84,9 @@ $number_nights = array(
 
 piklist('field', array(
     'type'      => 'group',
+    'template'  => 'field',
     'label'     => __('Options','sage'),
+    'field'     => 'estimate_general_group',
     'add_more'  => true,
     'fields'    => array(
         $title,

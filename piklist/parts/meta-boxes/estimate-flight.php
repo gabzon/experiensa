@@ -8,7 +8,11 @@ order: 2
 /*******************************************************************************
 ** Flight Section
 *******************************************************************************/
-
+?>
+<h3 class="demo-highlight">
+  <?php _e('Each flight is part of a trip.','sage');?>
+</h3>
+<?php
 $flight_airline = array(
     'type'  => 'text',
     'field' => 'estimate_flight_airline',
@@ -55,14 +59,14 @@ $flight_departure_date = array(
     'field'     => 'estimate_flight_departure_date',
     'columns'   => 3,
     'label'     => __('Departure date','sage'),
-    'options'   => array( 'dateFormat' => 'd/m/yy' ),
+    'options'   => array( 'dateFormat' => 'dd/mm/yy' ),
 );
 
 $flight_departure_time= array(
-    'type'  => 'text',
-    'field' => 'estimate_flight_departure_time',
+    'type'      => 'time',
+    'field'     => 'estimate_flight_departure_time',
     'columns'   => 3,
-    'label' => __('Departure time','sage')
+    'label'     => __('Departure time','sage')
 );
 
 $flight_arrival_date = array(
@@ -70,11 +74,11 @@ $flight_arrival_date = array(
     'field'     => 'estimate_flight_arrival_date',
     'columns'   => 3,
     'label'     => __('Arrival date','sage'),
-    'options'   => array('dateFormat' => 'd/m/yy'),
+    'options'   => array('dateFormat' => 'dd/mm/yy'),
 );
 
 $flight_arrival_time = array(
-    'type'      => 'text',
+    'type'      => 'time',
     'field'     => 'estimate_flight_arrival_time',
     'columns'   => 3,
     'label'     => __('Arrival time','sage')
