@@ -4,6 +4,7 @@
             "files": [
                 "scripts/form.js",
                 "scripts/menu.js",
+                "scripts/estimate.js",
                 "scripts/main.js"
             ],
             "main": true

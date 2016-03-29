@@ -84,9 +84,20 @@ echo('</pre>');*/
                     $mailto .= '?subject=Offre:' . $titles[$i];
                     $mailto .= '&body=' . __('I\'ll like to order this offert','sage');
                   ?>
-                  <a href="mailto:<?= $mailto; ?>" class="ui bottom attached blue button">
+                  <a href="mailto:<?= $mailto; ?>" class="ui attached blue button">
                     <i class="add icon"></i><?= $prices[$i] . ' ' . $currencies[$i]; ?>
                   </a>
+                  <a href="#" class="ui bottom green button pay_stimate" data-id="<?= $i;?>">
+                      <i class="shop icon"></i>
+                      <?php _e('I want it','sage'); ?>  
+                  </a>
+                  <div class="ui modal pay-estimate<?= $i;?>">
+                    <i class="close icon"></i>
+                    <div class="header"><?= __('Payment of  \'','sage').$titles[$i]."'";?></div>
+                      <div class="content">
+                        <?php include(locate_template('templates/estimate/pay-estimate-form.php'));?>
+                      </div>
+                  </div>
                 </div>
               </div>
             <?php endfor;?>
