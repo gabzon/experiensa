@@ -12,7 +12,10 @@ $photos           = $general['estimate_gallery'];
 $peoples          = $general['estimate_people'];
 $number_days      = $general['estimate_days'];
 $number_nights    = $general['estimate_nights'];
-
+//
+$agency_options = get_option('agency_settings');
+$agency_email = $agency_options['agency_email'];
+$agency_email = ($agency_email=="" || $agency_email==null? "gabriel@sevinci.com":$agency_email);
 $flights = get_post_meta($post->ID, 'estimate_flight_group');
 /*echo('<pre>');
 var_dump($flights);

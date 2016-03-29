@@ -138,7 +138,7 @@ function requestQuote(){
     //$to = 'gabriel@sevinci.com,jacqueline@fiestatravel.ch,'.$email;
     $agency_email  = $_POST['agency_email'];
     $to = $agency_email.','.$email;
-    $mail_status=array();;
+    $mail_status=array();
     if( wp_mail( $to,'Devis: '. $destination , $info, $headers) === FALSE){
         $mail_status=["status"=>0,"msg"=>"Error Sending Email"];
     } else{

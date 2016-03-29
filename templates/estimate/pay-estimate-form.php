@@ -1,3 +1,26 @@
+<div class="ui grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui raised segment">
+            <a class="ui red ribbon label"><?= __('Estimate Information','sage');?></a>
+            <p>
+              <strong><?= $titles[$i].': ';?></strong><?= $slogans[$i];?>
+              <br>
+              <?= 'Conditions: '.$conditions[$i];?>
+              <br>
+              <?= 'Peoples by offer: '.$peoples[$i].' Days: '.$number_days[$i]." <i class=\"sun icon\"></i> Nights: ".$number_days[$i]." <i class=\"moon icon\"></i>";?>
+              <br>
+              <?= '<strong>Price: '.$prices[$i] . ' ' . $currencies[$i].'</strong>';?>
+            </p>
+            <!--<a class="ui blue ribbon label"><?= __('Flight & Accommodation','sage');?></a>
+            <p>
+              
+            </p>-->
+          </div>
+        </div>
+        
+      </div>
+    </div>
 <form action="" class="ui form" method="POST" id="payment-form<?= $i;?>">
   <div id="payment-estimate-error-msg" class="ui negative message" style="display: none;">
     <div class="header">
@@ -6,7 +29,8 @@
     <div id="payment-estimate-error<?= $i;?>">
     </div>
   </div>
-    <span class="payment-response"></span>
+    <span class="payment-response<?= $i;?>"></span>
+    
     <h4 class="ui dividing header"><?= __('Contact Information','sage');?></h4>
     <div class="fields">
       <div class="seven wide field">
@@ -32,17 +56,17 @@
     <div class="fields">
       <div class="seven wide field">
         <label>Card Number</label>
-        <input type="text" name="card[number]" maxlength="20" placeholder="Card #" data-stripe="number">
+        <input type="text" name="card-number" maxlength="20" placeholder="Card #" data-stripe="number">
       </div>
       <div class="three wide field">
         <label>CVC</label>
-        <input type="text" name="card[cvc]" maxlength="4" placeholder="CVC" data-stripe="cvc">
+        <input type="text" name="card-cvc" maxlength="4" placeholder="CVC" data-stripe="cvc">
       </div>
       <div class="six wide field">
         <label>Expiration</label>
         <div class="two fields">
           <div class="field">
-            <select class="ui fluid search dropdown" name="card[expire-month]" data-stripe="exp-month">
+            <select class="ui fluid search dropdown" name="card-expire-month" data-stripe="exp-month">
               <option value=""><?= __('Month','sage');?></option>
               <option value="1"><?= __('January','sage');?></option>
               <option value="2"><?= __('February','sage');?></option>
@@ -59,12 +83,17 @@
             </select>
           </div>
           <div class="field">
-            <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year" data-stripe="exp-year">
+            <input type="text" name="card-expire-year" maxlength="4" placeholder="Year" data-stripe="exp-year">
           </div>
         </div>
       </div>
     </div>
     <input type="hidden" name="action" value="requestEstimate"/>
+    <input type="hidden" name="estimate_voyage" value="<?= $titles[$i];?>"/>
+    <input type="hidden" name="price" value="<?= $prices[$i];?>"/>
+    <input type="hidden" name="currency" value="<?= $currencies[$i];?>"/>
+    <input type="hidden" name="estimate_url" value="<?= get_permalink($post->ID);?>"/>
+    <input type="hidden" name="agency_email" value="<?= $agency_email;?>"/>
     <button type="submit" class="ui positive right labeled icon button">
       <?= __('Pay it!','sage');?>
       <i class="checkmark icon"></i>

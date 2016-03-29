@@ -1,6 +1,7 @@
 
 function ajaxSubmitEstimate(estimate_number) {
     //console.log("se pago todo ahora vamos a validar algunas cosas");
+    var form = jQuery('#payment-form'+estimate_number);
     var estimate_form = jQuery('#payment-form'+estimate_number).serialize();
     console.log(estimate_form);
     jQuery.ajax({
@@ -8,10 +9,11 @@ function ajaxSubmitEstimate(estimate_number) {
         url: sage_vars.ajaxurl,
         data: estimate_form,
         success:function(data){
-            jQuery(".payment-response"+estimate_number).html(data);
+            form.find('.payment-response'+estimate_number).text(data);
+            //jQuery(".payment-response"+estimate_number).html(data);
         },
         error:function(){
-          jQuery(".payment-response"+estimate_number).html(data);
+          form.find('.payment-response'+estimate_number).text('Error');
         }
     });
     //return false;
