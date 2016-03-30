@@ -59,6 +59,12 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
                                 </span>
                             </div>
                             <div class="content">
+                                <?php $flights = get_post_meta($post->ID, 'estimate_flight_group'); ?>
+                                <?php piklist::pre($flights); ?>
+                                <?php Fligth::display_flights( get_the_ID(), $i); ?>
+                                <?php get_template_part('templates/estimate/flight'); ?>
+                            </div>
+                            <div class="content">
                                 <?php get_template_part('templates/estimate/flight'); ?>
                             </div>
                             <?php

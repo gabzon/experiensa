@@ -1,5 +1,5 @@
 <?php
-$flights = get_post_meta($post->ID, 'estimate_flight_group');
+
 //Piklist::pre($flights);
 //Flight
 
@@ -13,16 +13,15 @@ $flights = get_post_meta($post->ID, 'estimate_flight_group');
 // 'estimate_flight_arrival_date',
 // 'estimate_flight_arrival_time',
 
-for ($i=0; $i < count($flights); $i++) {
-    for ($j=0; $j < count($flights[$i]['estimate_flight_airline']); $j++) {
+
+class Fligth{
+    public static function display_flights( $id, $i, $tab){        
         ?>
         <div class="meta right floated">
-            <?php echo $flights[$i]['estimate_flight_number'][$i] . '<br>'; ?>
+            <?= $flights[$i]['estimate_flight_number'][$i] . '<br>'; ?>
         </div>
-        <?php
-        echo $flights[$i]['estimate_flight_airline'][$i] . '<br>';
-        echo $flights[$i]['estimate_flight_class'][$i] . '<br>';
-        ?>
+        <?= $flights[$i]['estimate_flight_airline'][$i] . '<br>'; ?>
+        <?= $flights[$i]['estimate_flight_class'][$i] . '<br>';?>
         <br>
         <div class="meta right floated">
             <strong><?php _e('Arrival','sage'); ?></strong><br>
@@ -43,4 +42,3 @@ for ($i=0; $i < count($flights); $i++) {
         <?php
     }
 }
-?>
