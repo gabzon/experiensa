@@ -64,6 +64,16 @@ $destination_inverted = array(
     )
 );
 
+piklist('field',array(
+    'type' => 'select',
+    'field' => 'display_destinations',
+    'value' => 'TRUE',
+    'label' => __('Display destinations in landing page','sage'),
+    'choices' => array(
+        'TRUE'  => __('Display destinations','sage'),
+        'FALSE' => __('Do not display destinations','sage')
+    )
+));
 
 piklist('field',array(
     'type' => 'group',
