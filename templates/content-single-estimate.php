@@ -1,16 +1,25 @@
 <?php
 // General
-$title            = get_post_meta($post->ID,'estimate_title');
-$price            = get_post_meta($post->ID,'estimate_price');
-$currency         = get_post_meta($post->ID,'estimate_currency');
-$expiry_date      = get_post_meta($post->ID,'estimate_expiry_date');
-$slogan           = get_post_meta($post->ID,'estimate_slogan');
-$conditions       = get_post_meta($post->ID,'estimate_information_conditions');
-$photos           = get_post_meta($post->ID,'estimate_gallery');
-$people           = get_post_meta($post->ID,'estimate_people');
-$number_days      = get_post_meta($post->ID,'estimate_days');
-$number_nights    = get_post_meta($post->ID,'estimate_nights');
-
+$general_group    = get_post_meta($post->ID,'estimate_general_group');
+$general          = $general_group[0];
+$titles           = $general['estimate_title'];
+$prices           = $general['estimate_price'];
+$currencies       = $general['estimate_currency'];
+$expiry_dates     = $general['estimate_expiry_date'];
+$slogans          = $general['estimate_slogan'];
+$conditions       = $general['estimate_information_conditions'];
+$photos           = $general['estimate_gallery'];
+$peoples          = $general['estimate_people'];
+$number_days      = $general['estimate_days'];
+$number_nights    = $general['estimate_nights'];
+//
+$agency_options = get_option('agency_settings');
+$agency_email = $agency_options['agency_email'];
+$agency_email = ($agency_email=="" || $agency_email==null? "gabriel@sevinci.com":$agency_email);
+$flights = get_post_meta($post->ID, 'estimate_flight_group');
+/*echo('<pre>');
+var_dump($flights);
+echo('</pre>');*/
 ?>
 <br>
 <div class="ui container" style="margin-top: 40px">
@@ -25,23 +34,35 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
             </div>
             <br><br>
             <div class="ui three column grid stackable">
-                <?php for ($i=0; $i < count($price); $i++): ?>
+
+                <?php for ($i=0; $i < count($prices); $i++): ?>
                     <div class="column">
                         <div class="ui fluid card">
                             <div class="content">
-                                <strong><?php if ($title){ echo $title[$i]; } ?></strong>
+                                <strong><?= ($titles==''?'Promotion '.$i:$titles[$i]); ?></strong>
                                 <div class="right floated meta">
-                                    <span class="date"><i class="calendar icon"></i> <?= __('Expiry date: '). $expiry_date[$i]; ?></span><br>
+                                    <span class="date">
+                                        <i class="calendar icon"></i> <?= __('Expiry date: '). $expiry_dates[$i]; ?>
+                                    </span>
+                                    <br>
                                 </div>
                             </div>
-                            <div class="image">
-                                <?php $gallery = get_post_meta(get_the_ID(), 'estimate_gallery'); ?>
-                                <?php Gallery::display_slider(get_the_ID(), $gallery,$i); ?>
-                            </div>
+                            <?php
+                            /*echo('<pre>');
+                            var_dump($photos[$i]);
+                            echo('</pre>');*/
+                            if(!empty($photos[$i])):
+                                ?>
+                                <div class="image">
+                                    <?php Gallery::show_gallery($photos[$i]); ?>
+                                </div>
+                                <?php
+                            endif;
+                            ?>
                             <div class="content">
                                 <a class="header"></a>
                                 <div class="meta">
-                                    <span class="date"><?= $slogan[$i]; ?></span>
+                                    <span class="date"><?= $slogans[$i]; ?></span>
                                 </div>
                                 <div class="description">
                                     <?= $conditions[$i]; ?>
@@ -50,7 +71,7 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
                             <div class="extra content">
                                 <a>
                                     <i class="user icon"></i>
-                                    <?= $people[$i]; ?>
+                                    <?= $peoples[$i]." person per estimated"; ?>
                                 </a>
                                 <span class="right floated">
                                     <i class="sun icon"></i><?= $number_days[$i] . ' ' . __('days','sage'); ?>
@@ -58,26 +79,32 @@ $number_nights    = get_post_meta($post->ID,'estimate_nights');
                                     <i class="moon icon"></i><?= $number_nights[$i] . ' ' . __('nights','sage'); ?>
                                 </span>
                             </div>
-                            <div class="content">
-                                <?php $flights = get_post_meta($post->ID, 'estimate_flight_group'); ?>
-                                <?php piklist::pre($flights); ?>
-                                <?php Fligth::display_flights( get_the_ID(), $i); ?>
-                                <?php get_template_part('templates/estimate/flight'); ?>
-                            </div>
-                            <div class="content">
-                                <?php get_template_part('templates/estimate/flight'); ?>
-                            </div>
                             <?php
-                                $mailto = Agency::get_email();
-                                $mailto .= '?subject=Offre:' . $title[$i];
-                                $mailto .= '&body=' . __('I\'ll like to order this offert','sage');
+                            include(locate_template('templates/estimate/flight.php'));
+                            include(locate_template('templates/estimate/accommodation.php'));
                             ?>
-                            <a href="mailto:<?= $mailto; ?>" class="ui bottom attached blue button">
-                                <i class="add icon"></i><?= $price[$i] . ' ' . $currency[$i]; ?>
+                            <?php
+                            $mailto = Agency::get_email();
+                            $mailto .= '?subject=Offre:' . $titles[$i];
+                            $mailto .= '&body=' . __('I\'ll like to order this offert','sage');
+                            ?>
+                            <a href="mailto:<?= $mailto; ?>" class="ui attached blue button">
+                                <i class="add icon"></i><?= $prices[$i] . ' ' . $currencies[$i]; ?>
                             </a>
+                            <a href="#" class="ui bottom green button pay_stimate" data-id="<?= $i;?>">
+                                <i class="shop icon"></i>
+                                <?php _e('I want it','sage'); ?>
+                            </a>
+                            <div class="ui modal pay-estimate<?= $i;?>">
+                                <i class="close icon"></i>
+                                <div class="header"><?= __('Payment of  \'','sage').$titles[$i]."'";?></div>
+                                <div class="content">
+                                    <?php include(locate_template('templates/estimate/pay-estimate-form.php'));?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                <?php endfor ?>
+                <?php endfor;?>
             </div>
             <br>
             <footer>

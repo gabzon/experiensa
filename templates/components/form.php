@@ -43,7 +43,6 @@
             <input name="transport" type="checkbox" ng-model="transport"/>&nbsp;&nbsp;<strong class="uppercase"><i class="car icon"></i><?php _e('Transport options','sage') ?></strong>
             <?php get_template_part('templates/components/transport-options'); ?>
 
-            <br><br>
             <input type="hidden" name="action" value="requestQuote"/>
             <?php 
             $agency_options = get_option('agency_settings');
@@ -51,6 +50,9 @@
             $agency_email = ($agency_email=="" || $agency_email==null? "gabriel@sevinci.com":$agency_email);
             ?>
             <input type="hidden" name="agency_email" value="<?php echo $agency_email; ?>"/>
+            <br><br>
+            <?php if( function_exists( 'gglcptch_display' ) ) { echo gglcptch_display(); } ; ?>
+            <br><br>
             <input id="form-submit" type="submit" class="ui button" value="<?php _e('Request a quote','sage'); ?>">
         </form>
         <br/><br/>

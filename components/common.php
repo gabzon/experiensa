@@ -296,6 +296,12 @@
       return $currency_symbols;
     }
     
+    public static function get_settled_currency(){
+      $settings = get_option('agency_settings');
+      $currency = ($settings['agency_currency']) ? $settings['agency_currency'] : 'CHF';
+      return $currency;
+    }
+    
     public static function get_timezone_array(){
       $timezoneIdentifiers = DateTimeZone::listIdentifiers();
       $utcTime = new DateTime('now', new DateTimeZone('UTC'));

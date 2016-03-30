@@ -2,7 +2,17 @@
 
 function requestQuote(){
     $headers = array('Content-Type: text/html; charset=UTF-8');
-
+  
+    if ( function_exists( 'gglcptch_check' ) ){
+		$validate = gglcptch_check();
+		if($validate['response']===false && $validate['reason']!='VERIFICATION_FAILED'){
+			echo "<h4 style=\"color:red\">Error checking captcha</h4>";
+			die();
+		}
+    }else{
+		echo "<h3 style=\"color:red\">Need to install captcha plugin</h3>";
+		die();
+	}
     $fullname       = $_POST['fullname'];
     $email          = $_POST['email'];
     $phone          = $_POST['phone'];
@@ -128,7 +138,7 @@ function requestQuote(){
     //$to = 'gabriel@sevinci.com,jacqueline@fiestatravel.ch,'.$email;
     $agency_email  = $_POST['agency_email'];
     $to = $agency_email.','.$email;
-    $mail_status=array();;
+    $mail_status=array();
     if( wp_mail( $to,'Devis: '. $destination , $info, $headers) === FALSE){
         $mail_status=["status"=>0,"msg"=>"Error Sending Email"];
     } else{

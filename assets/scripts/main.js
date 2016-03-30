@@ -141,6 +141,15 @@
                         "<i class='chevron circle right icon'></i>"
                     ],
                 });
+                var estimate_nbr=-1;
+                $(".pay_stimate").click(function() {
+                  var estimate_number = $(this).attr('data-id');
+                  estimate_nbr = estimate_number;
+                  var modal_name = '.ui.modal.pay-estimate'+estimate_number;
+                  $(modal_name).modal('show');
+                  estimate(estimate_nbr);
+                  return false;
+                });
             }
         },
         'page_template_request_form':{
