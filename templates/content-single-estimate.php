@@ -16,7 +16,9 @@ $number_nights    = $general['estimate_nights'];
 $agency_options = get_option('agency_settings');
 $agency_email = $agency_options['agency_email'];
 $agency_email = ($agency_email=="" || $agency_email==null? "gabriel@sevinci.com":$agency_email);
+
 $flights = get_post_meta($post->ID, 'estimate_flight_group');
+$accommodations = get_post_meta($post->ID, 'estimate_accommodation_group');
 /*echo('<pre>');
 var_dump($flights);
 echo('</pre>');*/
@@ -48,9 +50,6 @@ echo('</pre>');*/
                                 </div>
                             </div>
                             <?php
-                            /*echo('<pre>');
-                            var_dump($photos[$i]);
-                            echo('</pre>');*/
                             if(!empty($photos[$i])):
                                 ?>
                                 <div class="image">
@@ -80,8 +79,8 @@ echo('</pre>');*/
                                 </span>
                             </div>
                             <?php
-                            include(locate_template('templates/estimate/flight.php'));
-                            include(locate_template('templates/estimate/accommodation.php'));
+                            Fligth::display_flights($flights,$i);
+                            Accommodations::display_accommodations( $accommodations, $i);
                             ?>
                             <?php
                             $mailto = Agency::get_email();
