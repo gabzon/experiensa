@@ -28,7 +28,7 @@ $terms = "";
       <br>
       <br>
       <div class="ui container">
-          <h1><?php _e('Destinations'); ?></h1><br>
+          <h1><?php _e('Destinations','sage'); ?></h1><br>
     <?php
           if($display_country_images == 'TRUE' && $query->have_posts()):
             while ( $query->have_posts() ) :
