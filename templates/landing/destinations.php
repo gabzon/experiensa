@@ -1,5 +1,7 @@
 <?php
 $design_options = get_option('experiensa_design_settings');
+$asd = get_option('agency_settings');
+//print_r($asd);
 $display_country_images = $design_options['setting_display_country_images'];
 $section = $design_options['destination_options'];
 $color = $section['destination_section_color'][0];
@@ -28,7 +30,7 @@ $terms = "";
         <br>
         <br>
         <div class="ui container">
-            <h1><?php _e('Destinations'); ?></h1><br>
+             <h1><?php _e('Destinations','sage'); ?></h1><br>
             <?php
             if($display_country_images == 'TRUE' && $query->have_posts()):
                 while ( $query->have_posts() ) :
@@ -44,12 +46,7 @@ $terms = "";
                     $country['image_url'] = $post->guid;
                     $country['thumbnail_image'] = wp_get_attachment_image($post->ID,'thumbnail');
                     $countries[] = $country;
-                    ?>
-
-                    <?php
                 endwhile;
-                //Grid::display_grid($countries);
-                //Carousel::display_carousel($countries);
                 Masonry::display_masonry($countries);
             else:
                 $terms = get_terms('country', 'orderby=none&hide_empty');

@@ -22,7 +22,7 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
         <br>
         <br>
         <div class="ui container">
-            <h1><?php _e('Promotions'); ?></h1><br>
+            <h1><?php _e('Promotions','sage'); ?></h1><br>
             <!-- Set up your HTML -->
             <?php
             //echo $query->request;

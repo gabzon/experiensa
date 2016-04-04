@@ -5,43 +5,46 @@
  Tab: Partner
  Tab Order: 30
  */
-
-piklist('field', array(
-    'type' => 'group',
-    'field' => 'partner_partners',
-    'label' => __('Partners'),
-    'columns' => 12,
-    'add_more' => true,
-    'fields' => array(
-        array(
+$partner_name = array(
             'type' => 'text',
             'field' => 'partner_name',
-            'scope' => 'post_meta',
-            'label' => __('Partner Name'),
+            'label' => __('Partner Name','sage'),
             'attributes' => array(
                 'class' => 'regular-text',
-                'placeholder' => __('Enter the partner name')
+                'placeholder' => __('Enter the partner name','sage')
             )
-        ),
-        array(
+        );
+$partner_website = array(
             'type' => 'text',
             'field' => 'partner_website',
-            'scope' => 'post_meta',
-            'label' => __('Partner Website'),
+            'label' => __('Partner Website','sage'),
             'attributes' => array(
                 'class' => 'regular-text',
-                'placeholder' => __('Enter the partner website')
+                'placeholder' => __('Enter the partner website','sage')
+            ),
+            'validate' => array(
+              array(
+                'type' => 'url'
+              )
             )
-        ),
-        array(
+        );
+$partner_logo = array(
             'type' => 'file',
             'field' => 'partner_logo',
-            'scope' => 'post_meta',
-            'label' => __('Partner Logo'),
+            'label' => __('Partner Logo','sage'),
             'options' => array(
-                'modal_title' => __('Add Logo'),
-                'button' => __('Add Logo')
+                'modal_title' => __('Add Logo','sage'),
+                'button' => __('Add Logo','sage')
             )
-        )
+        );
+piklist('field', array(
+    'type' => 'group',
+    'field' => 'agency_partners',
+    'label' => __('Partners','sage'),
+    'add_more' => true,
+    'fields' => array(
+        $partner_name,
+        $partner_website,
+        $partner_logo
     )
 ));

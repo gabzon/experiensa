@@ -7,6 +7,9 @@ jQuery(function($){
     $('#request-button').on('click',function(event) {
         $('#request-form.ui.right.sidebar').sidebar('toggle');
     });
+    //ui languages floating dropdown
+    
+    $('#select-language').dropdown();
 });
 
 function scrollMenu(){
