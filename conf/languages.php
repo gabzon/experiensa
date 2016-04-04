@@ -3,7 +3,7 @@
 function display_languages_button($option,$style){
     $languages = icl_get_languages('skip_missing=0&orderby=code');
     if(!empty($languages)){
-        echo '<div class="ui languages floating dropdown labeled icon link '. $style . ' ' . $option['header_language_button_color'][0] . ' button">';
+        echo '<div id="select-language" class="ui languages floating dropdown labeled icon link '. $style . ' ' . $option['header_language_button_color'][0] . ' button">';
         echo '<i class="translate icon"></i>';
         echo '<span class="text">'. __('Languages','sage') .'</span>';
         echo '<div class="menu">';
@@ -17,6 +17,7 @@ function display_languages_button($option,$style){
         echo '</div>';
         echo '</div>';
     }
+
 }
 //------------------------------------------------------------------------------
 

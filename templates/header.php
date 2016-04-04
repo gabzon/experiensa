@@ -40,7 +40,8 @@ $phone  = $agency_options['agency_phone'];
             <?php endif; ?>
         </a>
         <div class="right menu">
-            <?php  if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
+            <?php
+            if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
                 $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
                 $menu_items = wp_get_nav_menu_items($menu->term_id);
                 foreach ( (array) $menu_items as $key => $menu_item ) :
