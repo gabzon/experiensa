@@ -3,7 +3,6 @@
  Title: Agency Information
  Setting: agency_settings
  */
-//use Roots\Sage\TZ\Timezone;
 
 piklist('field', array(
     'type'      => 'file',

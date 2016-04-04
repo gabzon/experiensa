@@ -1,5 +1,7 @@
 <?php
 $design_options = get_option('experiensa_design_settings');
+$asd = get_option('agency_settings');
+//print_r($asd);
 $display_country_images = $design_options['setting_display_country_images'];
 $section = $design_options['destination_color_group'];
 $color = $section['destination_section_color'][0];
