@@ -115,7 +115,15 @@ piklist('field', array(
 ));
 
 piklist('field', array(
+    'type'          => 'file',
+    'field'         => 'voyage_gallery',
+    'description'   => __('Photos should be 1920x1080 pixels','sage'),
+    'label'         => __('Photo Gallery','sage')
+));
+
+piklist('field', array(
     'type'  => 'file',
-    'field' => 'voyage_gallery',
-    'label' => __('Photo Gallery','sage')
+    'field' => 'brochures',
+    'description' => __('Brochures should be jpeg files, visit: <a href="https://smallpdf.com/pdf-to-jpg" target="_blank">https://smallpdf.com</a>','sage'),
+    'label' => __('Brochures','sage')
 ));
