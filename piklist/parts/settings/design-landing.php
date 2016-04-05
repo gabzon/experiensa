@@ -15,7 +15,7 @@ piklist('field',array(
     'add_more'  => true,
     'columns'   => 4,
     'choices'   => array(
-        'destination'  => __('Destination','sage'),
+        'destination'  => __('Destinations','sage'),
         'promotion' => __('Promotions','sage'),
         'theme' => __('Themes','sage'),
         'country' => __('Countries','sage'),

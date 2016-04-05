@@ -28,8 +28,8 @@ $countries = get_terms($taxonomies, $args);
             <br>
             <div id="landing-destinations" class="">
                 <?php foreach ($countries as $country): ?>
-                    <?php $country_link = get_term_link( $country ); ?>
-                    <a class="ui inverted basic button" href="<?php echo $country_link; ?>" style="font-weight:bold;">
+                    <?php $country_link = get_term_link( $country ); //inverted?>
+                    <a class="ui basic button" href="<?php echo $country_link; ?>" style="font-weight:bold;">
                         <?php echo $country->name; ?>
                     </a>
                 <?php endforeach; ?>
