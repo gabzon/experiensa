@@ -1,6 +1,11 @@
 
 <?php $voyages = array(); ?>
 <?php $voyages = Catalog::get_catalog(); ?>
+<?php
+  /*echo "<pre>";
+  print_r($voyages);
+  echo "</pre>";*/
+?>
 <br>
 <div class="ui four column grid stackable">
     <?php foreach ($voyages as $key => $value): ?>
@@ -45,3 +50,4 @@
 
     <?php endforeach; ?>
 </div>
+

@@ -16,7 +16,6 @@
 
     $agency_options = get_option('experiensa_design_settings');
     $catalog_template = $agency_options['agency_catalog_template'];
-
     switch ($catalog_template) {
         case 'isotope-grid':
             get_template_part('templates/catalog/isotop-top');
