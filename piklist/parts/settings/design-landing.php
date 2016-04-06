@@ -177,6 +177,18 @@ piklist('field',array(
     ),
 ));
 
+$promotion_type= array(
+    'type'      => 'select',
+    'field'     => 'promotion_type',
+    'value'     => 'brochure',
+    'label'     => __('What do you want to display?','sage'),
+    'columns'   => 3,
+    'choices'   => array(
+        'brochure'      => __('Brochures','sage'),
+        'promotion'     => __('Promotions','sage'),
+    ),
+);
+
 $promotion_component = array(
     'type'      => 'select',
     'field'     => 'display_promotion_component',
@@ -233,6 +245,7 @@ piklist('field',array(
     'label' => __('Promotion section color','sage'),
     'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
     'fields' => array(
+        $promotion_type,
         $promotion_component,
         $promotion_color,
         $promotion_inverted,
