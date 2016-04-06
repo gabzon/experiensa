@@ -17,7 +17,62 @@ function display_languages_button($option,$style){
         echo '</div>';
         echo '</div>';
     }
-
+}
+function display_language_menu(){
+  $menu = "";
+  $languages = icl_get_languages('skip_missing=0&orderby=code');
+  if(!empty($languages)){
+    $menu .= "<div id=\"language-menu\" class=\"ui dropdown item\">";
+    $menu .= '<i class="translate icon"></i>';
+    $menu .= "<span class=\"text\">".__('Languages','sage')."</span>";
+    $menu .= '<i class="dropdown icon"></i>';
+    $menu .= "<div  class=\"menu\">";
+    foreach($languages as $l){      
+      if(!$l['active']){
+        $menu .= '<div class="item">';
+        $menu .= "<a class=\"item\" href=\"".$l['url']."\">";
+        $menu .= icl_disp_language($l['native_name'], $l['translated_name']);
+        $menu .= '</a>';
+        $menu .= "</div>";
+      }else{
+        $menu .= '<div class="item active">';
+        $menu .= "<a class=\"item\" href=\"#\">";
+        $menu .= icl_disp_language($l['native_name'], $l['translated_name']);
+        $menu .= '</a>';
+        $menu .= "</div>";
+      }
+    }
+    $menu .= "</div>";
+    $menu .= "</div>";
+    echo $menu;
+  }
+}
+function display_language_menu_accordion(){
+  $menu = "";
+  $languages = icl_get_languages('skip_missing=0&orderby=code');
+  if(!empty($languages)){
+    $menu .= '<div class="ui inverted accordion">';
+    $menu .= '<div class="active title">';
+    $menu .= '<i class="dropdown icon"></i>';
+    $menu .= __('Languages','sage');
+    $menu .= '<i class="translate icon"></i>';
+    $menu .= '</div>';
+    $menu .= '<div class="active content">';
+    foreach($languages as $l){
+      if(!$l['active']){
+      $menu .= "<a class=\"item\" href=\"".$l['url']."\">";
+      $menu .= icl_disp_language($l['native_name'], $l['translated_name']);
+      $menu .= '</a>';
+      }else{
+        $menu .= "<a class=\"item\" href=\"#\">";
+        $menu .= icl_disp_language($l['native_name'], $l['translated_name']);
+        $menu .= '</a>';
+      }
+    }
+    $menu .= "</div>";
+    $menu .= "</div>";
+  }
+  echo $menu;
 }
 //------------------------------------------------------------------------------
 

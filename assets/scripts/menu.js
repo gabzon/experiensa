@@ -10,6 +10,8 @@ jQuery(function($){
     //ui languages floating dropdown
     
     $('#select-language').dropdown();
+    $('#language-menu').dropdown();
+    $('.ui.accordion').accordion();
 });
 
 function scrollMenu(){

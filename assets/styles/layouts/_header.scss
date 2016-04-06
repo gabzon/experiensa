@@ -3,7 +3,20 @@
     padding-bottom: 0;
 }
 
+.sidebar{
+    overflow:visible!important;
+}
+
 header.ui.menu{
     a.item{font-weight: bold; text-transform: uppercase;}
-    a.item.active {font-weight: bold; }
+    a.item.active {
+      font-weight: bold;
+    }
+}
+#language-submenu{
+  background: #2185D0;
+  div.item.active{
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 }

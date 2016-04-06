@@ -41,7 +41,7 @@ if ( ! function_exists( 'theme_taxonomy' ) ) {
             'show_tagcloud'              => true,
             'rewrite'                    => $rewrite,
         );
-        register_taxonomy( 'theme', array( 'post', ' product', ' trip', ' service', ' partner', ' host' ), $args );
+        register_taxonomy( 'theme', array( 'post', 'attachment', ' product', ' trip', ' service', ' partner', ' host' ), $args );
 
     }
     add_action( 'init', 'theme_taxonomy', 0 );
