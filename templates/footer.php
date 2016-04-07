@@ -73,34 +73,39 @@ $inverted = $section['footer_section_inverted'][0];
             <div class="column center aligned">
                 <br><br>
                 <div class="ui horizontal list">
-                    <?php if($agency_options['social_facebook']) : ?>
-                        <a class="ui circular facebook icon button" href="<?php echo $agency_options['social_facebook']; ?>">
+                    <?php if($agency_options['social_facebook'] && $agency_options['social_facebook']!='') : ?>
+                        <a class="ui circular facebook icon button" href="<?php echo $agency_options['social_facebook']; ?>" target="_blank">
                             <i class="facebook icon"></i>
                         </a>
                     <?php endif; ?>
-                    <?php if($agency_options['social_twitter']) : ?>
-                        <a class="ui circular twitter icon button" href="<?php echo $agency_options['social_twitter']; ?>">
+                    <?php if($agency_options['social_twitter'] && $agency_options['social_twitter']!='') : ?>
+                        <a class="ui circular twitter icon button" href="<?php echo $agency_options['social_twitter']; ?>" target="_blank">
                             <i class="twitter icon"></i>
                         </a>
                     <?php endif; ?>
-                    <?php if($agency_options['social_pinterest']) : ?>
-                        <a class="ui circular pinterest icon button" href="<?php echo $agency_options['social_pinterest']; ?>">
-                            <i class="pinterest icon"></i>
+                    <?php if($agency_options['social_instagram'] && $agency_options['social_instagram']!='') : ?>
+                        <a class="ui circular instagram icon button" href="<?php echo $agency_options['social_instagram']; ?>" target="_blank">
+                            <i class="instagram icon"></i>
                         </a>
                     <?php endif; ?>
-                    <?php if($agency_options['social_gplus']) : ?>
-                        <a class="ui circular google plus icon button" href="<?php echo $agency_options['social_gplus']; ?>">
+                    <?php if($agency_options['social_linkedin'] && $agency_options['social_linkedin']!='') : ?>
+                        <a class="ui circular linkedin icon button" href="<?php echo $agency_options['social_linkedin']; ?>" target="_blank">
+                            <i class="linkedin icon"></i>
+                        </a>
+                    <?php endif; ?>
+                    <?php if($agency_options['social_gplus'] && $agency_options['social_gplus']!='') : ?>
+                        <a class="ui circular google plus icon button" href="<?php echo $agency_options['social_gplus']; ?>" target="_blank">
                             <i class="google plus icon"></i>
                         </a>
                     <?php endif; ?>
-                    <?php if($agency_options['social_skype']) : ?>
-                        <a class="ui circular skype icon button" href="<?php echo $agency_options['social_skype']; ?>">
+                    <?php if($agency_options['social_skype'] && $agency_options['social_skype']!='') : ?>
+                        <a class="ui circular skype icon button" href="<?php echo $agency_options['social_skype']; ?>" target="_blank">
                             <i class="skype icon"></i>
                         </a>
                     <?php endif; ?>
-                    <?php if($agency_options['social_instagram']) : ?>
-                        <a class="ui circular instagram icon button" href="<?php echo $agency_options['social_instagram']; ?>">
-                            <i class="instagram icon"></i>
+                    <?php if($agency_options['social_pinterest'] && $agency_options['social_pinterest']!='') : ?>
+                        <a class="ui circular pinterest icon button" href="<?php echo $agency_options['social_pinterest']; ?>" target="_blank">
+                            <i class="pinterest icon"></i>
                         </a>
                     <?php endif; ?>
                 </div>
