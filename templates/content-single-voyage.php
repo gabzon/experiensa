@@ -7,10 +7,12 @@ date_default_timezone_set($timezone);
     <?php $voyage_expiry_date = get_post_meta($post->ID, 'voyage_expiry_date', true); ?>
     <?php $voyage_expiry_date_formatted = DateTime::createFromFormat('d/m/Y', $voyage_expiry_date)->format('Y-m-d'); ?>
     <?php $post_status = get_post_status( $post->ID );?>
+    <?php $countries = get_the_terms($post->ID ,'country');?>
+    <?php $locations = get_the_terms($post->ID ,'location');?>
     <?php if ($voyage_expiry_date_formatted >= date("Y-m-d")): ?>
         <?php $gallery = get_post_meta($post->ID, 'voyage_gallery', false); ?>
-        <?php if ($gallery): ?>
-            <?php $overlay = get_stylesheet_directory_uri() .  '/bower_components/vegas/dist/overlays/07.png';?>
+        <?php $overlay = get_stylesheet_directory_uri() .  '/bower_components/vegas/dist/overlays/07.png';?>
+        <?php if ($gallery && !empty($gallery[0])): ?>
             <script type="text/javascript">
             jQuery(function() {
                 jQuery('.voyage-slider').vegas({
@@ -22,7 +24,42 @@ date_default_timezone_set($timezone);
                         <?php else: ?>
                         { src: '<?= get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg'; ?>' },
                         <?php endif; ?>
-                        <?php endforeach ?>
+                        <?php endforeach; ?>
+                    ]
+                });
+            });
+            </script>
+        <?php else:
+          $terms = array();
+          if(!empty($countries)):
+            foreach($countries as $country):
+              $term['taxonomy'] = $country->taxonomy;
+              $term['term'] = $country->name;
+              $terms[] = $term;
+            endforeach;
+          endif;
+          if(!empty($locations)):
+            foreach($locations as $location):
+              $term['taxonomy'] = $location->taxonomy;
+              $term['term'] = $location->name;
+              $terms[] = $term;
+            endforeach;
+          endif;
+          
+          $gallery = RequestMedia::get_media_request('media',$terms);
+        ?>
+          <script type="text/javascript">
+            jQuery(function() {
+                jQuery('.voyage-slider').vegas({
+                    overlay: '<?= $overlay ?>',
+                    slides: [
+                      <?php if(!empty($gallery)):?>
+                        <?php foreach ($gallery as $image):?>
+                        { src: '<?= $image['full_size'] ; ?>' },
+                        <?php endforeach; ?>
+                      <?php else: ?>
+                      { src: '<?= get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg'; ?>' },
+                      <?php endif; ?>
                     ]
                 });
             });
@@ -69,3 +106,19 @@ date_default_timezone_set($timezone);
     <?php endif; ?>
 
 <?php endwhile; ?>
+<?php
+  /*$mediaapi = RequestMedia::get_media_request('media','location','peru');
+  echo "<pre>";
+  print_r($mediaapi);
+  echo "</pre>";
+  echo "<pre>";
+  print_r($countries);
+  echo "</pre>";
+  echo "<pre>";
+  print_r($locations);
+  echo "</pre>";*/
+  /*echo "<pre>";
+  print_r($gallery);
+  echo "</pre>";
+  print_r($terms);*/
+?>
