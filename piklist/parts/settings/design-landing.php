@@ -15,11 +15,11 @@ piklist('field',array(
     'add_more'  => true,
     'columns'   => 4,
     'choices'   => array(
-        'destination'  => __('Destinations','sage'),
-        'promotion' => __('Promotions','sage'),
-        'theme' => __('Themes','sage'),
-        'country' => __('Countries','sage'),
-        'content' => __('Content','sage'),
+        'destination'   => __('Destinations','sage'),
+        'promotion'     => __('Promotions','sage'),
+        'theme'         => __('Themes','sage'),
+        'country'       => __('Countries','sage'),
+        'content'       => __('Content','sage'),
     ),
 ));
 
@@ -93,12 +93,17 @@ $destination_component = array(
     'label'     => __('How to display destinations?','sage'),
     'columns'   => 3,
     'choices'   => array(
-        'carousel'  => __('Carousel','sage'),
-        'grid'      => __('Grid','sage'),
-        'button'    => __('Buttons','sage'),
+        'carousel'      => __('Carousel','sage'),
+        'grid'          => __('Grid','sage'),
+        'card'          => __('Cards','sage'),
+        'button'        => __('Buttons','sage'),
+        'masonry'       => __('Masonry','sage'),
+        'flex-layout'   => __('Flex Layout','sage'),
+        'windows'       => __('Windows','sage'),
+        'img-layout'    => __('Image layout','sage'),
+        'pinterest'     => __('Pinterest','sage'),
     ),
 );
-
 
 $destination_color = array(
     'type'      => 'select',
@@ -196,9 +201,15 @@ $promotion_component = array(
     'label'     => __('How to display promotions?','sage'),
     'columns'   => 3,
     'choices'   => array(
-        'carousel'  => __('Carousel','sage'),
-        'grid'      => __('Grid','sage'),
-        'button'    => __('Buttons','sage'),
+        'carousel'      => __('Carousel','sage'),
+        'grid'          => __('Grid','sage'),
+        'card'          => __('Cards','sage'),
+        'button'        => __('Buttons','sage'),
+        'masonry'       => __('Masonry','sage'),
+        'flex-layout'   => __('Flex Layout','sage'),
+        'windows'       => __('Windows','sage'),
+        'img-layout'    => __('Image layout','sage'),
+        'pinterest'     => __('Pinterest','sage'),
     ),
 );
 
@@ -241,7 +252,6 @@ $promotion_inverted = array(
 
 piklist('field',array(
     'type' => 'group',
-    'field' => 'promotion_options',
     'label' => __('Promotion section color','sage'),
     'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
     'fields' => array(
@@ -288,9 +298,15 @@ $theme_component = array(
     'label'     => __('How to display themes?','sage'),
     'columns'   => 3,
     'choices'   => array(
-        'carousel'  => __('Carousel','sage'),
-        'grid'      => __('Grid','sage'),
-        'button'    => __('Buttons','sage'),
+        'carousel'      => __('Carousel','sage'),
+        'grid'          => __('Grid','sage'),
+        'card'          => __('Cards','sage'),
+        'button'        => __('Buttons','sage'),
+        'masonry'       => __('Masonry','sage'),
+        'flex-layout'   => __('Flex Layout','sage'),
+        'windows'       => __('Windows','sage'),
+        'img-layout'    => __('Image layout','sage'),
+        'pinterest'     => __('Pinterest','sage'),
     ),
 );
 

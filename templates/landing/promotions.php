@@ -1,14 +1,14 @@
 <?php
 
 $design_options = get_option('experiensa_design_settings');
-/*echo('<pre>');
-print_r($design_options);
-echo('</pre>');*/
+
+//piklist::pre($design_options);
+
 $section = $design_options['promotion_options'];
 $display_promotions = $design_options['display_promotions'];
 $color = $section['promotion_section_color'][0];
 $inverted = $section['promotion_section_inverted'][0];
-if ($design_options['promotion_type'] == '') {
+if ($design_options['promotion_type'] == 'brochure') {
     $image_source = 'brochures';
     $args = array(
         'posts_per_page' => -1,
@@ -54,7 +54,40 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                     $countries[] = $country;
                 }
             endwhile;
-            Carousel::display_carousel($countries);
+            $component = $design_options['display_promotion_component'];
+
+            switch ($component) {
+                case 'carousel':
+                    Carousel::display_carousel($countries);
+                break;
+                case 'grid':
+                    echo 'Display grid';
+                break;
+                case 'card':
+                    echo 'Display cards';
+                break;
+                case 'button':
+                    echo 'Display buttons';
+                break;
+                case 'masonry':
+                    Masonry::display_masonry($countries);
+                break;
+                case 'flex-layout':
+                    echo 'Display flex layout';
+                break;
+                case 'windows':
+                    echo 'Display windows 8';
+                break;
+                case 'img-layout':
+                    echo 'Display image layout';
+                break;
+                case 'img-layout':
+                    echo 'Display pinterest';
+                break;
+                default:
+                    echo 'Display grid';
+                break;
+            }
             ?>
         </div>
     <?php else: ?>

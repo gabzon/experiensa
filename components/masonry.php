@@ -1,5 +1,5 @@
 <?php
-  
+
   Class Masonry{
     public static function display_masonry($args){
       $masonry="";
@@ -7,9 +7,9 @@
         echo $masonry;
       }else{
         $masonry .= "<div class=\"grid-masonry\">";
+        $masonry .= "<div class=\"grid-sizer\"></div>";
         foreach($args as $value){
           $masonry .= "<div class=\"grid-item\">";
-          $masonry .= "<div class=\"grid-sizer\"></div>";
           $masonry .= "<a href=\"".$value['post_link']."\">";
           $masonry .= "<div class=\"overlay\"></div>";
           $masonry .= "<div class=\"ui image\">";
@@ -17,7 +17,8 @@
           $masonry .= "<h2 class=\"ui inverted header\">".$value['title']."</h2>";
           $masonry .= "<div class=\"sub header\">".$value['subtitle']."</div>";
           $masonry .= "</div></div></div>";
-          $masonry .= $value['thumbnail_image'];
+          //$masonry .= $value['thumbnail_image'];
+          $masonry .= "<img src=\"".$value['post_link']."\">";
           $masonry .= "</div>";
           $masonry .= "</a>";
           $masonry .= "</div>";
