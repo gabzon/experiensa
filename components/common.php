@@ -531,6 +531,67 @@
       );
       return $countrylist;
     }
+    /**
+     *
+     *
+     */
+    public static function get_custom_taxonomies_by_pt($post_type,$excluded = null){
+        $taxs = get_object_taxonomies( $post_type );
+        $taxonomies = array();
+        if(!empty($taxs)){
+          if($excluded!=null || !empty($excluded)){
+            for($i=0;$i<count($taxs);$i++){
+              $sw = 0;
+              for($j=0;$j<count($excluded);$j++){
+                if($taxs[$i]==$excluded[$j]){
+                  $sw = 1;
+                  break;
+                }
+              }
+              if($sw == 0){
+                $taxonomies[]=$taxs[$i];
+              }
+            }
+            return $taxonomies;
+          }else{
+            return $taxs;
+          }
+        }else
+          return null;
+    }
+    /**
+     *
+     *
+     */
+    public static function get_terms_by_id_taxonomies($id,$taxonomies){
+      $terms = array();
+      foreach($taxonomies as $taxonomy){
+        $result = get_the_terms($id ,$taxonomy);
+        if(!empty($result)){
+          $terms = array_merge($terms,$result);
+        }
+      }
+      if(!empty($terms)){
+        $result = array();
+        foreach($terms as $term){
+          $row['taxonomy'] = $term->taxonomy;
+          $row['term'] = $term->name;
+          $result[] = $row;
+        }
+        return $result;
+      }else
+        return $terms;
+    }
+    
+    public static function get_media_terms($id,$post_type){
+      $excluded = ['category ','post_tag ','excluded ','included ','category','theme'];
+      $taxonomies = self::get_custom_taxonomies_by_pt($post_type,$excluded);
+      if($taxonomies!=null && !empty($taxonomies)){
+        $terms = self::get_terms_by_id_taxonomies($id,$taxonomies);
+        return $terms;
+      }else{
+        return array();
+      }
+    }
   }
-
 ?>

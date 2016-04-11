@@ -30,22 +30,7 @@ date_default_timezone_set($timezone);
             });
             </script>
         <?php else:
-          $terms = array();
-          if(!empty($countries)):
-            foreach($countries as $country):
-              $term['taxonomy'] = $country->taxonomy;
-              $term['term'] = $country->name;
-              $terms[] = $term;
-            endforeach;
-          endif;
-          if(!empty($locations)):
-            foreach($locations as $location):
-              $term['taxonomy'] = $location->taxonomy;
-              $term['term'] = $location->name;
-              $terms[] = $term;
-            endforeach;
-          endif;
-          
+          $terms = Common::get_media_terms($post->ID,'voyage');         
           $gallery = RequestMedia::get_media_request('media',$terms);
         ?>
           <script type="text/javascript">

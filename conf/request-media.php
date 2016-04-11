@@ -20,7 +20,7 @@ class RequestMedia{
       foreach($terms as $term){
         $row['website'] = $website;
         $row['api'] = $api;
-        $filter = '?filter['.$term['taxonomy'].']='.$term['term'];
+        $filter = '?filter[taxonomy]='.$term['taxonomy'].'&filter[term]='.$term['term'];
         $row['filter'] = $filter;
         $list[] = $row;
       }
@@ -54,7 +54,8 @@ class RequestMedia{
               'link' => $content->link,
               'full_size' => $content->media_details->sizes->full->source_url,
               'medium_size' => $content->media_details->sizes->medium->source_url,
-              'thumbnail_size' => $content->media_details->sizes->thumbnail->source_url
+              'thumbnail_size' => $content->media_details->sizes->thumbnail->source_url,
+              'api_link' => $full_url
             ];
             $media_content[] = $content;
           }
