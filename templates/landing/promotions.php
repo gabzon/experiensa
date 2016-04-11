@@ -43,13 +43,13 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                 $query->the_post();
                 $description = $query->post_content;
                 $subtitle = get_post_field('post_content', $post->ID);
-                $images = get_post_meta($post->ID, $image_source);
-                foreach ($images as $img) {
-
-                    $country['title']= __('View','sage');
+                $images = get_post_meta($post->ID, 'voyage_gallery');
+                $brochures = get_post_meta($post->ID, 'brochures');
+                for ($i = 0; $i < count($images); $i++) {
+                    $country['title']= __('More info','sage');
                     $country['subtitle'] = '';
-                    $country['post_link'] = wp_get_attachment_url($img);
-                    $country['image_url'] = wp_get_attachment_url($img);
+                    $country['post_link'] = wp_get_attachment_url($brochures[$i]);
+                    $country['image_url'] = wp_get_attachment_url($images[$i]);
                     $country['thumbnail_image'] = wp_get_attachment_image($post->ID,'thumbnail');
                     $countries[] = $country;
                 }
