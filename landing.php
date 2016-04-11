@@ -6,7 +6,6 @@
 $design_options = get_option('experiensa_design_settings');
 
 $order = $design_options['landing_order'];
-
 get_template_part('templates/landing/slider');
 
 foreach ($order as $key) {

@@ -196,6 +196,7 @@ piklist('field',array(
     'type'      => 'select',
     'field'     => 'header_menu_style',
     'label'     => __('Fixed or attached','sage'),
+    'value'     => 'fixed',
     'choices'   => array(
         'attached'  => __('Attached','sage'),
         'fixed'     => __('Fixed','sage'),

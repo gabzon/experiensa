@@ -1,8 +1,9 @@
 <?php
 use Roots\Sage\Nav;
-$menu_name = 'primary_navigation';
+$menu_name = 'primary_navigation';//ui left vertical floating very wide active sidebar menu inverted teal unselectabl
 ?>
-<div id="main-menu" class="ui sidebar inverted vertical menu">
+
+<div id="main-menu" class="ui sidebar floating oerlay inverted vertical menu">
     <br>
     <?php  if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
         $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
@@ -17,4 +18,6 @@ $menu_name = 'primary_navigation';
     endif;
     ?>
     <?php get_phone_button(); ?>
+    <?php get_quote_button(); ?>
+    <?php get_language_menu_accordion(); ?>
 </div>
