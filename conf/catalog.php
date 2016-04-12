@@ -31,8 +31,10 @@ class Catalog{
     if(!empty($partners)){
       for ($i=0; $i < count($partners); $i++) {
           /* Check if  $partners[$i]['website'] dont have '/' on last char*/
+          $api_url=$partners[$i]['website'];
           if(substr($partners[$i]['website'], -1)!='/')
-            $api_url = $partners[$i]['website'] .'/';
+            $api_url .= '/';
+
           $api_url .= 'wp-json/wp/v2/voyage';//.$lang_req;
           //Check if $api_url is a valid url
           if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
