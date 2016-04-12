@@ -48,7 +48,7 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                 for ($i = 0; $i < count($images); $i++) {
                     $country['title']= __('More info','sage');
                     $country['subtitle'] = '';
-                    $country['post_link'] = wp_get_attachment_url($brochures[$i]);
+                    $country['post_link'] = wp_get_attachment_url($images[$i]);
                     $country['image_url'] = wp_get_attachment_url($images[$i]);
                     $country['thumbnail_image'] = wp_get_attachment_image($post->ID,'thumbnail');
                     $countries[] = $country;
@@ -73,7 +73,7 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                     Masonry::display_masonry($countries);
                 break;
                 case 'flex-layout':
-                    echo 'Display flex layout';
+                    Freewall::display_flex_layout($countries);//echo 'Display flex layout';
                 break;
                 case 'windows':
                     echo 'Display windows 8';

@@ -1,6 +1,9 @@
 <?php
   
   Class Common{
+    /**
+     * @return array
+     */
     public static function currency_list(){
       $currency = array (
             'ALL' => 'Albania Lek',
@@ -121,7 +124,10 @@
         );
       return $currency;
     }
-    
+
+    /**
+     * @return array
+     */
     public static function currency_name_description_list(){
       $list = array();
       $currency = self::currency_list();
@@ -130,7 +136,10 @@
       }
       return $list;
     }
-    
+
+    /**
+     * @return array
+     */
     public static function currency_symbols(){
       $currency_symbols = array(
         'AED' => '&#1583;.&#1573;', // ?
@@ -295,13 +304,19 @@
       );
       return $currency_symbols;
     }
-    
+
+    /**
+     * @return string
+     */
     public static function get_settled_currency(){
       $settings = get_option('agency_settings');
       $currency = ($settings['agency_currency']) ? $settings['agency_currency'] : 'CHF';
       return $currency;
     }
-    
+
+    /**
+     * @return array
+     */
     public static function get_timezone_array(){
       $timezoneIdentifiers = DateTimeZone::listIdentifiers();
       $utcTime = new DateTime('now', new DateTimeZone('UTC'));
@@ -332,7 +347,10 @@
   
       return $timezoneList;
     }
-    
+
+    /**
+     * @return array
+     */
     public static function country_list(){
       $countrylist = array(
         "Afghanistan"=>"Afghanistan",
@@ -531,9 +549,11 @@
       );
       return $countrylist;
     }
+
     /**
-     *
-     *
+     * @param $post_type
+     * @param null $excluded
+     * @return array|null
      */
     public static function get_custom_taxonomies_by_pt($post_type,$excluded = null){
         $taxs = get_object_taxonomies( $post_type );
@@ -559,11 +579,18 @@
         }else
           return null;
     }
+
     /**
-     *
-     *
+     * @param $id
+     * @param $taxonomies
+     * @return array
      */
     public static function get_terms_by_id_taxonomies($id,$taxonomies){
+      global $sitepress;
+      $default_language = $sitepress->get_default_language();
+      $actual_language = ICL_LANGUAGE_CODE;
+      if($default_language != $actual_language)
+        $sitepress->switch_lang($default_language, true);
       $terms = array();
       foreach($taxonomies as $taxonomy){
         $result = get_the_terms($id ,$taxonomy);
@@ -571,18 +598,25 @@
           $terms = array_merge($terms,$result);
         }
       }
+      $sitepress->switch_lang($actual_language, true);
       if(!empty($terms)){
         $result = array();
         foreach($terms as $term){
           $row['taxonomy'] = $term->taxonomy;
           $row['term'] = $term->name;
+          $row['post_id'] = $id;
           $result[] = $row;
         }
         return $result;
       }else
         return $terms;
     }
-    
+
+    /**
+     * @param $id
+     * @param $post_type
+     * @return array
+     */
     public static function get_media_terms($id,$post_type){
       $excluded = ['category ','post_tag ','excluded ','included ','category','theme'];
       $taxonomies = self::get_custom_taxonomies_by_pt($post_type,$excluded);
@@ -592,6 +626,18 @@
       }else{
         return array();
       }
+    }
+
+    /**
+     * @param $postid
+     * @param string $posttype
+     * @return mixed
+     */
+    public static function get_original_post_id($postid,$posttype='post'){
+      global $sitepress;
+      $default_lenguaje = $sitepress->get_default_language();
+      $original_id = icl_object_id($postid,$posttype,true,$default_lenguaje);
+      return $original_id;
     }
   }
 ?>

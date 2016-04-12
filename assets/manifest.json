@@ -5,6 +5,7 @@
                 "scripts/form.js",
                 "scripts/menu.js",
                 "scripts/estimate.js",
+                "scripts/freewall.js",
                 "scripts/main.js"
             ],
             "main": true
@@ -22,6 +23,9 @@
         },
         "jquery.js": {
             "bower": ["jquery"]
+        },
+        "freewall.js": {
+            "bower": ["freewall"]
         }
     },
     "config": {

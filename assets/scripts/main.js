@@ -41,6 +41,7 @@
                 //     var autocomplete = new google.maps.places.Autocomplete(input, options);
                 // }
                 // google.maps.event.addDomListener(window, 'load', initialize);
+                freewall_flex_layout();
             },
             finalize: function() {
                 // JavaScript to be fired on all pages, after page specific JS is fired
@@ -88,6 +89,8 @@
                   percentPosition: true,
                   gutter: 10
                 });
+                freewall_flex_layout();
+
 
             },
             finalize: function() {
