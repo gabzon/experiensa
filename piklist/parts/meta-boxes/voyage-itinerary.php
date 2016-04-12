@@ -3,8 +3,7 @@
 Title: Voyage Itinerary
 Post Type: voyage
 Meta box: true
-Tab: Itinerary
-Flow: Voyage Workflow
+Order: 4
 */
 
 /*******************************************************************************

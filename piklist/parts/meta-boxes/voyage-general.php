@@ -3,8 +3,6 @@
 Title: Voyage
 Post Type: voyage
 Meta box: true
-Tab: General
-Flow: Voyage Workflow
 */
 
 $price = array(

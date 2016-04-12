@@ -2,8 +2,7 @@
 /*
 Title: Voyage Accommodation
 Post Type: voyage
-Tab: Accommodation
-Flow: Voyage Workflow
+Order: 3
 */
 
 /*******************************************************************************

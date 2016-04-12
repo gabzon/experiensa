@@ -2,8 +2,7 @@
 /*
 Title: Voyage Flights
 Post Type: voyage
-Tab: Flights
-Flow: Voyage Workflow
+Order: 2
 */
 
 /*******************************************************************************
