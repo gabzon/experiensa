@@ -1,5 +1,5 @@
 <?php
-//isotop grid
+//Semantic UI grid
 Class Grid {
   public static function display_grid($args){
     $grid = "";

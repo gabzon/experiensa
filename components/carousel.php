@@ -1,6 +1,9 @@
 <?php // carousel
 class Carousel{
-
+    /**
+     * Create and display carousel component with images from $args param
+     * @param $args
+     */
     public static function display_carousel($args){
         $carousel="";
         if(empty($args)){
@@ -26,6 +29,10 @@ class Carousel{
         }
     }
 
+    /**
+     * Create and display carousel component only with text from $args param
+     * @param $args
+     */
     public static function display_casousel_text($args){
         $carousel="";
         if(empty($args)){
@@ -37,14 +44,6 @@ class Carousel{
                 $carousel .= "<a href=\"".$value['post_link']."\">";
                 $carousel .= "<h4>".$value['title']."</h4><br>";
                 $carousel .= "<p>".$value['subtitle']."</p><br>";
-                //$carousel .= "<div class=\"overlay\"></div>";
-                /*$carousel .= "<div class=\"ui image\">";
-                $carousel .= "<div class=\"ui dimmer\"><div class=\"content\"><div class=\"center\">";
-                $carousel .= "<h2 class=\"ui inverted header\">".$value['title']."</h2>";
-                $carousel .= "<div class=\"sub header\">".$value['subtitle']."</div>";
-                $carousel .= "</div></div></div>";
-                $carousel .= "<img src=\"".$value['image_url']."\" alt=\"\"/>";
-                $carousel .= "</div>";*/
                 $carousel .= "</a>";
                 $carousel .= "</div>";
             }

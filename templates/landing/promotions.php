@@ -50,7 +50,8 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                     $country['subtitle'] = '';
                     $country['post_link'] = wp_get_attachment_url($images[$i]);
                     $country['image_url'] = wp_get_attachment_url($images[$i]);
-                    $country['thumbnail_image'] = wp_get_attachment_image($post->ID,'thumbnail');
+                    $country['thumbnail_image'] = wp_get_attachment_image($images[$i],'thumbnail');
+                    $country['thumbnail_url'] = wp_get_attachment_thumb_url( $images[$i] );
                     $countries[] = $country;
                 }
             endwhile;
@@ -73,16 +74,16 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                     Masonry::display_masonry($countries);
                 break;
                 case 'flex-layout':
-                    Freewall::display_flex_layout($countries);//echo 'Display flex layout';
+                    Freewall::display_flex_layout($countries);
                 break;
                 case 'windows':
-                    echo 'Display windows 8';
+                    Freewall::display_win8_layout($countries);
                 break;
                 case 'img-layout':
-                    echo 'Display image layout';
+                    Freewall::display_image_layout($countries);
                 break;
-                case 'img-layout':
-                    echo 'Display pinterest';
+                case 'pinterest':
+                    Freewall::display_pinterest_layout($countries);
                 break;
                 default:
                     echo 'Display grid';

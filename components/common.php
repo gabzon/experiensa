@@ -2,6 +2,7 @@
   
   Class Common{
     /**
+     *  Returns a list of common currencies
      * @return array
      */
     public static function currency_list(){
@@ -126,6 +127,9 @@
     }
 
     /**
+     * Generates and returns an associative array where
+     * key is the abbreviation of the currency and value
+     * is the combination of the abbreviation with the name of the currency
      * @return array
      */
     public static function currency_name_description_list(){
@@ -138,6 +142,7 @@
     }
 
     /**
+     * Returns an array with currency symbols
      * @return array
      */
     public static function currency_symbols(){
@@ -306,6 +311,7 @@
     }
 
     /**
+     * Get the selected currency from Agency Settigns page
      * @return string
      */
     public static function get_settled_currency(){
@@ -315,6 +321,7 @@
     }
 
     /**
+     * Get timezone list
      * @return array
      */
     public static function get_timezone_array(){
@@ -349,6 +356,7 @@
     }
 
     /**
+     * Get list with all countries
      * @return array
      */
     public static function country_list(){
@@ -551,6 +559,7 @@
     }
 
     /**
+     * Get all custom taxonomies from a post type name and exclude taxonomies on the list($excluded) param
      * @param $post_type
      * @param null $excluded
      * @return array|null
@@ -581,7 +590,8 @@
     }
 
     /**
-     * @param $id
+     * Get terms from a post id and taxonomy list. All of them on default language
+     * @param $id => Post ID
      * @param $taxonomies
      * @return array
      */
@@ -613,6 +623,7 @@
     }
 
     /**
+     * Get all media terms
      * @param $id
      * @param $post_type
      * @return array
@@ -629,6 +640,7 @@
     }
 
     /**
+     * Get the post id from a translated post id
      * @param $postid
      * @param string $posttype
      * @return mixed
