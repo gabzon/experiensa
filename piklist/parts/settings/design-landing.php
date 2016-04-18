@@ -49,16 +49,33 @@ piklist('field',array(
 piklist('field', array(
     'type'      => 'select',
     'field'     => 'setting_landing_slider_description',
-    'label'     => __('Display Slider text','sage'),
-    'columns'   => 3,
+    'label'     => __('What to show in the slider?','sage'),
+    'columns'   => 4,
     'value'     => 'TRUE',
     'choices'   => array(
-        'TRUE'      => __('Yes','sage'),
-        'FALSE'     => __('No','sage')
+        'TRUE'      => __('Show welcome message and selected images','sage'),
+        'FALSE'     => __('Selected voyages','sage')
     ),
     'conditions' => array(
         array(
             'field' => 'setting_landing_slider',
+            'value' => 'TRUE'
+        )
+    )
+));
+
+piklist('field', array(
+    'type' => 'text',
+    'field' => 'setting_landing_slider_welcome_message',
+    'label' => __('Welcome Message'),
+    'columns'   => 4,
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('Enter your welcome message','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'setting_landing_slider_description',
             'value' => 'TRUE'
         )
     )

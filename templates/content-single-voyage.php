@@ -37,7 +37,7 @@ date_default_timezone_set($timezone);
             /*print_r($terms);
             $ttt = Common::get_media_terms($postid,'voyage');
             print_r($ttt);*/
-            $gallery = RequestMedia::get_media_request('media',$terms);
+            $gallery = RequestMedia::get_media_request_api('media',$terms);
         ?>
           <script type="text/javascript">
             jQuery(function() {

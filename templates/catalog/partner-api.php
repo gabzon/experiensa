@@ -50,4 +50,7 @@
 
     <?php endforeach; ?>
 </div>
-
+<br>
+<?php
+    Card::display_card_full("hola mundo",null,"contenido","http://google.com");
+?>
