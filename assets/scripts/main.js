@@ -25,6 +25,16 @@
                     $(this).data('modal', $(this).parents('.column').children('.ui.modal').modal());
                 });
 
+                $('.ui.card button#modal-card-details').on('click', function () {
+                    $(this).data('modal').modal('show');
+                }).each(function (i, b) {
+                    $(this).data('modal', $(this).parents('.card').children('.ui.modal').modal());
+                });
+                $(".owl-carousel").owlCarousel({
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+                    loop:true,
+                    items: 1
+                });
                 // var activatingElement;
                 // $('.ui.card a#modal-details').on('click',function(){
                 //     activatingElement = this;

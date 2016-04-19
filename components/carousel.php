@@ -3,12 +3,12 @@ class Carousel{
     /**
      * Create and display carousel component with images from $args param
      * @param $args
+     * @param bool $return
+     * @return string
      */
-    public static function display_carousel($args){
+    public static function display_carousel($args,$return = false){
         $carousel="";
-        if(empty($args)){
-            echo $carousel;
-        }else{
+        if(!empty($args)){
             $carousel .= "<div class=\"owl-carousel\">";
             foreach($args as $value){
                 $carousel .= "<div class=\"item promotion-item\">";
@@ -25,8 +25,11 @@ class Carousel{
                 $carousel .= "</div>";
             }
             $carousel .= "</div>";
-            echo $carousel;
         }
+        if($return === true)
+            return $carousel;
+        else
+            echo $carousel;
     }
 
     /**
