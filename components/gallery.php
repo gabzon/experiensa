@@ -41,7 +41,33 @@ class Gallery{
       }
       echo $gallery;
     }
-    
+
+    /**
+     * @param $images images array list
+     * @param bool $return to check if $gallery will be returned or just echo
+     * @param bool $full to check if image size used will be full size
+     * @return string
+     */
+    public static function show_gallery_from_list($images,$return=false,$full=true){
+        $gallery="";
+        if(!empty($images)){
+            $gallery.="<div class=\"owl-carousel\" style=\"margin-bottom:0\">";
+            foreach($images as $image){
+                $gallery.="<div>";
+                if($full===true)
+                    $url=$image['full_size'];
+                else
+                    $url=$image['thumbnail_size'];
+                $gallery.="<img src=\"".$url."\" class=\"ui image\" alt=\"\" />";
+                $gallery.="</div>";
+            }
+            $gallery.="</div>";
+        }
+        if($return===true)
+            return $gallery;
+        else
+            echo $gallery;
+    }
     // Display owl-carousel with only one image
     public static function display_slider($id, $gallery,$i = NULL){
         ?>

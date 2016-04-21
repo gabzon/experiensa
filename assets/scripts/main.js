@@ -25,6 +25,16 @@
                     $(this).data('modal', $(this).parents('.column').children('.ui.modal').modal());
                 });
 
+                $('.ui.card button#modal-card-details').on('click', function () {
+                    $(this).data('modal').modal('show');
+                }).each(function (i, b) {
+                    $(this).data('modal', $(this).parents('.card').children('.ui.modal').modal());
+                });
+                $(".owl-carousel").owlCarousel({
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+                    loop:true,
+                    items: 1
+                });
                 // var activatingElement;
                 // $('.ui.card a#modal-details').on('click',function(){
                 //     activatingElement = this;
@@ -41,6 +51,7 @@
                 //     var autocomplete = new google.maps.places.Autocomplete(input, options);
                 // }
                 // google.maps.event.addDomListener(window, 'load', initialize);
+                //freewall_flex_layout();
             },
             finalize: function() {
                 // JavaScript to be fired on all pages, after page specific JS is fired
@@ -49,7 +60,7 @@
         // Home page
         'home': {
             init: function() {
-
+                freewall_flex_layout();
                 $('#slides').superslides({play:'8000'});
 
                 scrollMenu();

@@ -31,8 +31,10 @@ class Catalog{
     if(!empty($partners)){
       for ($i=0; $i < count($partners); $i++) {
           /* Check if  $partners[$i]['website'] dont have '/' on last char*/
+          $api_url=$partners[$i]['website'];
           if(substr($partners[$i]['website'], -1)!='/')
-            $api_url = $partners[$i]['website'] .'/';
+            $api_url .= '/';
+
           $api_url .= 'wp-json/wp/v2/voyage';//.$lang_req;
           //Check if $api_url is a valid url
           if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
@@ -76,49 +78,50 @@ class Catalog{
 }
 
 
-public static function display_trip_detail($trip){
-    ?>
-
-    <div class="ui modal">
-        <div class="header">
-            <h2><?php echo $trip['title']; ?></h2>
-        </div>
-        <div class="content">
-            <div class="ui two column grid">
-                <div class="six wide column">
-                    <b><?php _e('Price','sage') ?>:</b> <?= convertCurrency($trip['voyage_price'], $trip['voyage_currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency(); ?><br>
-                    <b><?php _e('Duration','sage') ?>:</b> 4/5 <br>
-                    <b><?php _e('Country','sage') ?>:</b> Etat Unis <br>
-                    <b><?php _e('Location','sage') ?>:</b> New York <br>
-                    <b><?php _e('Theme','sage') ?>:</b> Leisure<br>
-                    <p><?= $trip['excerpt']; ?></p>
+    public static function display_trip_detail($trip,$return=false){
+        $display =
+        "<div class=\"ui modal\">
+            <div class=\"header\">
+                <h2>".$trip['title']."</h2>
+            </div>
+            <div class=\"content\">
+                <div class=\"ui two column grid\">
+                    <div class=\"six wide column\">
+                        <b>". __('Price','sage').":</b> ".convertCurrency($trip['voyage_price'], $trip['voyage_currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency()."<br>
+                        <b>". __('Duration','sage') .":</b> 4/5 <br>
+                        <b>". __('Country','sage') .":</b> Etat Unis <br>
+                        <b>". __('Location','sage') .":</b> New York <br>
+                        <b>". __('Theme','sage') .":</b> Leisure<br>
+                        <p>". $trip['excerpt'] ."</p>
+                    </div>
+                    <div class=\"ten wide column\">
+                        <img src=\"". $trip['cover_image']."\" alt=\"\" class=\"ui image\" />
+                    </div>
                 </div>
-                <div class="ten wide column">
-                    <img src="<?= $trip['cover_image']; ?>" alt="" class="ui image" />
+            </div>
+            <div class=\"content\">
+                <div class=\"description\">
                 </div>
             </div>
-        </div>
-        <div class="content">
-            <div class="description">
+            <div class=\"content\">
+                <h3>Itinerary</h3>
+                <div class=\"description\">
+                    day 1  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                </div>
             </div>
-        </div>
-        <div class="content">
-            <h3>Itinerary</h3>
-            <div class="description">
-                day 1  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+            <div class=\"actions\">
+                <div class=\"ui black deny button\">
+                    Nope
+                </div>
+                <div class=\"ui positive right labeled icon button\">
+                    Yep, that's me
+                    <i class=\"checkmark icon\"></i>
+                </div>
             </div>
-        </div>
-        <div class="actions">
-            <div class="ui black deny button">
-                Nope
-            </div>
-            <div class="ui positive right labeled icon button">
-                Yep, that's me
-                <i class="checkmark icon"></i>
-            </div>
-        </div>
-    </div>
-
-    <?php
-}
+        </div>";
+        if(!$return)
+            echo $display;
+        else
+            return $display;
+    }
 }
