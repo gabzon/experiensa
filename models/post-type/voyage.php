@@ -29,7 +29,7 @@ if ( ! function_exists('voyage_post_type') ) {
             'pages'                 => true,
             'feeds'                 => true,
         );
-        
+
         $post_types['voyage'] = array(
             'label'                 => __( 'Voyages', 'sage' ),
             'description'           => __( 'List of travel offers (offers and packages)', 'sage' ),
