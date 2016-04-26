@@ -15,10 +15,9 @@ $inverted = $section['footer_section_inverted'][0];
                     <br>
                     <img class="ui image" src="<?php echo wp_get_attachment_url($logo);?>" width="150" />
                 <?php else: ?>
-                    <img src="//placehold.it/200x100" />
+                    <h1><?= bloginfo('name'); ?></h1>
                 <?php endif; ?>
             </div>
-
             <div class="column">
                 <br>
                 <div class="ui medium list">

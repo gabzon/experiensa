@@ -13,7 +13,7 @@ $phone  = $agency_options['agency_phone'];
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
             <?php
             if ($logo):
-                echo 'echo <img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
+                echo '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
             else:
                 bloginfo('name');
             endif;
@@ -57,7 +57,7 @@ $phone  = $agency_options['agency_phone'];
             <?php get_quote_button(); ?>
             <?php //get_language_button(); ?>
             <?php get_language_menu(); ?>
-            
+
         </div>
     </div>
 </header>

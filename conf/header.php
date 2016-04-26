@@ -10,8 +10,9 @@ function get_menu_style(){
         else { echo $opts = $options . ' '; }
     }
     $classes = get_body_class();
+    $display_slider = $design_options['setting_landing_slider'];
     $secondary = '';
-    if (in_array('home', $classes)) {
+    if (in_array('home', $classes) && ($display_slider == 'TRUE')) {
         $secondary = 'secondary';
     }
     if (in_array('single-voyage', $classes)) {
@@ -22,7 +23,9 @@ function get_menu_style(){
 
 function scroll_menu(){
     $classes = get_body_class();
-    if (in_array('home', $classes)) {
+    $design_options = get_option('experiensa_design_settings');
+    $display_slider = $design_options['setting_landing_slider'];
+    if (in_array('home', $classes) && ($display_slider == 'TRUE')) {
         return 'white-font';
     }
     if (in_array('single-voyage', $classes)) {

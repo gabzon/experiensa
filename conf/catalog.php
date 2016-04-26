@@ -11,7 +11,7 @@ class Catalog{
 
     // The Query
     $query = new WP_Query( $args );
-    
+
     $partners = [];
     // The Loop
     if ( $query->have_posts() ) {

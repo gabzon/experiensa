@@ -8,7 +8,7 @@ jQuery(function($){
         $('#request-form.ui.right.sidebar').sidebar('toggle');
     });
     //ui languages floating dropdown
-    
+
     $('#select-language').dropdown();
     $('#language-menu').dropdown();
     $('.ui.accordion').accordion();
