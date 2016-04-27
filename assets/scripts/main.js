@@ -60,7 +60,7 @@
         // Home page
         'home': {
             init: function() {
-                freewall_flex_layout();
+
                 $('#slides').superslides({play:'8000'});
 
                 scrollMenu();
@@ -89,6 +89,8 @@
                     }
                 });
 
+                $(".free-wall .brick .image").dimmer({on:'hover'});
+                $(".free-wall .brick-pinterest .image").dimmer({on:'hover'});
                 $(".owl-carousel .item.promotion-item .image").dimmer({on:'hover'});
 
                 $('.grid-masonry').masonry({
@@ -99,6 +101,7 @@
                   percentPosition: true,
                   gutter: 10
                 });
+                freewall_layout();
 
             },
             finalize: function() {

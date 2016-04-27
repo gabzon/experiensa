@@ -2,7 +2,7 @@
 <br>
 <section id="request" class="ui basic segment" >
 
-    <h1 class="ui center aligned header uppercase segment-content"><?php _e('Request','sage'); ?></h2>
+    <h1 class="ui center aligned header uppercase segment-content"><?php _e('Request','sage'); ?></h1>
         <form class="ui form" type="post" action="" id="newRequest" ng-app>
 
             <?php get_template_part('templates/components/contact'); ?>

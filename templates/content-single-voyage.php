@@ -4,7 +4,7 @@ $timezone = $agency_options['agency_timezone'];
 date_default_timezone_set($timezone); 
 ?>
 <?php while (have_posts()) : the_post(); ?>
-    <?php $voyage_expiry_date = get_post_meta($post->ID, 'voyage_expiry_date', true); $pepe = $post->ID;?>
+    <?php $voyage_expiry_date = get_post_meta($post->ID, 'voyage_expiry_date', true); /*$pepe = $post->ID;*/?>
     <?php $voyage_expiry_date_formatted = DateTime::createFromFormat('d/m/Y', $voyage_expiry_date)->format('Y-m-d'); ?>
     <?php $post_status = get_post_status( $post->ID );?>
     <?php $countries = get_the_terms($post->ID ,'country');?>

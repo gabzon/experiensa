@@ -36,7 +36,7 @@ foreach ($order as $key) {
         break;
     }
 }
-
+get_template_part('templates/landing/partners');
 
 
 

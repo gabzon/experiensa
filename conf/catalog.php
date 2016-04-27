@@ -40,7 +40,7 @@ class Catalog{
           if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
             $file_headers = @get_headers($api_url);
             //check if url have response HTTP/1.1 200 OK
-            if(!empty($file_headers) && $file_headers[0]=='HTTP/1.1 200 OK') {
+            if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
               $api_content = file_get_contents($api_url.$lang_req);
               $api_content = json_decode($api_content);
               $partner_api[$i] = $api_content;
