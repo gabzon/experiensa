@@ -22,13 +22,13 @@ piklist('field',array(
     'field' => 'travel_agency_posttypes',
     'label' => __('Travel Agency Modules','sage'),
     'choices' => array(
-        'host' => __('Hosts','sage'),
-        'estimate' => __('Estiamtes','sage'),
-        'brochure' => __('Brochure','sage'),
-        'partner' => __('Partners','sage'),
-        'feedback' => __('Feedback','sage'),
-        'voyage' => __('Voyages','sage'),
-        'service' => __('Services','sage')
+        'host'      => __('Hosts','sage'),
+        'estimate'  => __('Estimates','sage'),
+        'brochure'  => __('Brochure','sage'),
+        'partner'   => __('Partners','sage'),
+        'feedback'  => __('Feedback','sage'),
+        'voyage'    => __('Voyages','sage'),
+        'service'   => __('Services','sage')
     ),
     'conditions' => array(
         array(

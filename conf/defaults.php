@@ -42,4 +42,3 @@ function hide_custom_post_types(){
 }
 
 add_action( 'admin_menu', 'hide_custom_post_types' );
-

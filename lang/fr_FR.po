@@ -105,7 +105,7 @@ msgstr "Plus d'info"
 
 #: ../components/landing_slider.php:108
 msgid "Sorry, No voyages"
-msgstr ""
+msgstr "Désolé, pas des voyages"
 
 #: ../conf/catalog.php:90 ../piklist/parts/meta-boxes/estimate-general.php:45
 #: ../piklist/parts/meta-boxes/voyage-general.php:11
@@ -129,7 +129,7 @@ msgstr "Lieu"
 
 #: ../conf/catalog.php:94
 msgid "Theme"
-msgstr ""
+msgstr "Thème"
 
 #: ../conf/header.php:70
 msgid "Request a Trip"
@@ -141,11 +141,11 @@ msgstr "Langues"
 
 #: ../conf/require-plugins.php:7
 msgid "This theme requires you to install the "
-msgstr ""
+msgstr "Ce thème nécessite l'installation de"
 
 #: ../conf/require-plugins.php:35
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 #: ../conf/setting-menu.php:6
 msgid "General"
@@ -222,7 +222,7 @@ msgstr "Brochures"
 
 #: ../models/post-type/brochure.php:13
 msgid "Brochures Archives"
-msgstr ""
+msgstr "Archives de brochures"
 
 #: ../models/post-type/brochure.php:14
 msgid "Parent Item:"
@@ -249,19 +249,19 @@ msgstr "Ajouter brochure"
 
 #: ../models/post-type/brochure.php:19
 msgid "Edit Brochure"
-msgstr ""
+msgstr "Editer brochure"
 
 #: ../models/post-type/brochure.php:20
 msgid "Update Brochure"
-msgstr ""
+msgstr "Actualiser brochure"
 
 #: ../models/post-type/brochure.php:21
 msgid "View Brochure"
-msgstr ""
+msgstr "Voir brochure"
 
 #: ../models/post-type/brochure.php:22
 msgid "Search Brochure"
-msgstr ""
+msgstr "Chercher brochure"
 
 #: ../models/post-type/brochure.php:23 ../models/post-type/estimate.php:20
 #: ../models/post-type/feedback.php:20 ../models/post-type/host.php:20
@@ -295,7 +295,7 @@ msgstr ""
 
 #: ../models/post-type/brochure.php:29
 msgid "Insert into brochure"
-msgstr ""
+msgstr "Insérer dans la brochure"
 
 #: ../models/post-type/brochure.php:30
 msgid "Uploaded to this brochure"
@@ -303,7 +303,7 @@ msgstr ""
 
 #: ../models/post-type/brochure.php:31
 msgid "Brochure list"
-msgstr ""
+msgstr "Liste de brochures"
 
 #: ../models/post-type/brochure.php:32
 msgid "Brochures list navigation"
@@ -311,15 +311,15 @@ msgstr ""
 
 #: ../models/post-type/brochure.php:33
 msgid "Filter Brochures list"
-msgstr ""
+msgstr "Filtrer la liste de brochures"
 
 #: ../models/post-type/brochure.php:42
 msgid "Brochure"
-msgstr ""
+msgstr "Brochure"
 
 #: ../models/post-type/brochure.php:43
 msgid "List of Brochures"
-msgstr ""
+msgstr "Liste de brochures"
 
 #: ../models/post-type/estimate.php:9 ../models/post-type/estimate.php:10
 #: ../models/post-type/estimate.php:34
@@ -332,7 +332,7 @@ msgstr "Devis père:"
 
 #: ../models/post-type/estimate.php:12
 msgid "All Estimates"
-msgstr ""
+msgstr "Toutes les estimations"
 
 #: ../models/post-type/estimate.php:13
 msgid "Add New Estimate"
@@ -360,15 +360,15 @@ msgstr "Rechercher devis"
 
 #: ../models/post-type/estimate.php:22
 msgid "Estimate list"
-msgstr ""
+msgstr "Liste d'estimations"
 
 #: ../models/post-type/estimate.php:23
 msgid "Estimate list navigation"
-msgstr ""
+msgstr "Navigation de la liste d'estimations"
 
 #: ../models/post-type/estimate.php:24
 msgid "Filter Estimate list"
-msgstr ""
+msgstr "Filtre liste devis"
 
 #: ../models/post-type/estimate.php:35
 msgid "List of Estimates (quotes & estimation)"
@@ -376,11 +376,11 @@ msgstr ""
 
 #: ../models/post-type/estimate.php:55
 msgid "requested"
-msgstr ""
+msgstr "demandé"
 
 #: ../models/post-type/estimate.php:56
 msgid "estimated"
-msgstr ""
+msgstr "estimé"
 
 #: ../models/post-type/estimate.php:57
 msgid "Modified"
@@ -632,7 +632,7 @@ msgstr "Voyages"
 
 #: ../models/post-type/voyage.php:11
 msgid "Parent Voyage:"
-msgstr ""
+msgstr "Parent voyage:"
 
 #: ../models/post-type/voyage.php:12
 msgid "All Voyages"
@@ -644,7 +644,7 @@ msgstr "ajouter un nouveau voyage"
 
 #: ../models/post-type/voyage.php:15
 msgid "New Voyage"
-msgstr ""
+msgstr "Nouveau voyage"
 
 #: ../models/post-type/voyage.php:16
 msgid "Edit Voyage"
@@ -664,7 +664,7 @@ msgstr "Rechercher voyage"
 
 #: ../models/post-type/voyage.php:22
 msgid "Voyage list"
-msgstr ""
+msgstr "Liste de voyages"
 
 #: ../models/post-type/voyage.php:23
 msgid "Voyage list navigation"
@@ -672,7 +672,7 @@ msgstr ""
 
 #: ../models/post-type/voyage.php:24
 msgid "Filter Voyage list"
-msgstr ""
+msgstr "Filtre liste voyage"
 
 #: ../models/post-type/voyage.php:35
 msgid "List of travel offers (offers and packages)"
@@ -1055,15 +1055,15 @@ msgstr "Date d'expiration"
 
 #: ../piklist/parts/meta-boxes/brochure.php:19
 msgid "Brochures should be PDF files"
-msgstr ""
+msgstr "Les brochures doivent être de fichiers PDF"
 
 #: ../piklist/parts/meta-boxes/brochure.php:21
 msgid "PDF Brochures"
-msgstr ""
+msgstr "Brochures PDF"
 
 #: ../piklist/parts/meta-boxes/brochure.php:27
 msgid "Image Gallery"
-msgstr ""
+msgstr "Galerie d'images"
 
 #: ../piklist/parts/meta-boxes/brochure.php:28
 msgid ""
@@ -1075,7 +1075,7 @@ msgstr ""
 
 #: ../piklist/parts/meta-boxes/brochure.php:29
 msgid "Add Images"
-msgstr ""
+msgstr "Ajouter des images"
 
 #: ../piklist/parts/meta-boxes/estimate-accommodation.php:13
 msgid "Each accommodation is part of a trip."
@@ -1085,7 +1085,7 @@ msgstr ""
 #: ../piklist/parts/meta-boxes/estimate-general.php:196
 #: ../piklist/parts/meta-boxes/voyage-accommodation.php:15
 msgid "Establishment name"
-msgstr ""
+msgstr "Nom de l'établissement "
 
 #: ../piklist/parts/meta-boxes/estimate-accommodation.php:26
 #: ../piklist/parts/meta-boxes/estimate-general.php:203
@@ -1206,7 +1206,7 @@ msgstr "Galerie de photos"
 
 #: ../piklist/parts/meta-boxes/estimate-flight.php:13
 msgid "Each flight is part of a trip."
-msgstr ""
+msgstr "Chaque vol fait parti d'un voyage"
 
 #: ../piklist/parts/meta-boxes/estimate-flight.php:27
 #: ../piklist/parts/meta-boxes/estimate-general.php:101
@@ -1797,11 +1797,11 @@ msgstr "Défaut (Blanc)"
 
 #: ../piklist/parts/settings/design-general.php:33
 msgid "Catalog template"
-msgstr ""
+msgstr "Modèle du catalogue"
 
 #: ../piklist/parts/settings/design-general.php:37
 msgid "Simple Grid"
-msgstr ""
+msgstr "Grille simple"
 
 #: ../piklist/parts/settings/design-general.php:38
 msgid "Isotope Grid"
@@ -1938,7 +1938,7 @@ msgstr ""
 #: ../piklist/parts/settings/design-landing.php:18
 #: ../templates/landing/destinations.php:33
 msgid "Destinations"
-msgstr ""
+msgstr "Destinations"
 
 #: ../piklist/parts/settings/design-landing.php:19
 #: ../piklist/parts/settings/design-landing.php:210
@@ -1948,7 +1948,7 @@ msgstr "Promotions"
 
 #: ../piklist/parts/settings/design-landing.php:22
 msgid "Content"
-msgstr ""
+msgstr "Contenu"
 
 #: ../piklist/parts/settings/design-landing.php:34
 msgid "Slider section"
@@ -1956,7 +1956,7 @@ msgstr ""
 
 #: ../piklist/parts/settings/design-landing.php:40
 msgid "Display Slider"
-msgstr ""
+msgstr "Afficher Slider"
 
 #: ../piklist/parts/settings/design-landing.php:41
 msgid "Fullscreen image slider"
@@ -1994,7 +1994,7 @@ msgstr ""
 #: ../piklist/parts/settings/design-landing.php:198
 #: ../piklist/parts/settings/design-landing.php:307
 msgid "Non"
-msgstr ""
+msgstr "Non"
 
 #: ../piklist/parts/settings/design-landing.php:110
 msgid "How to display destinations?"
@@ -2004,37 +2004,37 @@ msgstr ""
 #: ../piklist/parts/settings/design-landing.php:221
 #: ../piklist/parts/settings/design-landing.php:318
 msgid "Carousel"
-msgstr ""
+msgstr "Carousel"
 
 #: ../piklist/parts/settings/design-landing.php:114
 #: ../piklist/parts/settings/design-landing.php:222
 #: ../piklist/parts/settings/design-landing.php:319
 msgid "Grid"
-msgstr ""
+msgstr "Grille"
 
 #: ../piklist/parts/settings/design-landing.php:115
 #: ../piklist/parts/settings/design-landing.php:223
 #: ../piklist/parts/settings/design-landing.php:320
 msgid "Cards"
-msgstr ""
+msgstr "Cartes"
 
 #: ../piklist/parts/settings/design-landing.php:116
 #: ../piklist/parts/settings/design-landing.php:224
 #: ../piklist/parts/settings/design-landing.php:321
 msgid "Buttons"
-msgstr ""
+msgstr "Boutons"
 
 #: ../piklist/parts/settings/design-landing.php:117
 #: ../piklist/parts/settings/design-landing.php:225
 #: ../piklist/parts/settings/design-landing.php:322
 msgid "Masonry"
-msgstr ""
+msgstr "Masonry"
 
 #: ../piklist/parts/settings/design-landing.php:118
 #: ../piklist/parts/settings/design-landing.php:226
 #: ../piklist/parts/settings/design-landing.php:323
 msgid "Flex Layout"
-msgstr ""
+msgstr "Flex Layout"
 
 #: ../piklist/parts/settings/design-landing.php:119
 #: ../piklist/parts/settings/design-landing.php:227
@@ -2053,7 +2053,7 @@ msgstr ""
 #: ../piklist/parts/settings/design-landing.php:235
 #: ../piklist/parts/settings/design-landing.php:332
 msgid "Color"
-msgstr ""
+msgstr "Couleur"
 
 #: ../piklist/parts/settings/design-landing.php:128
 #: ../piklist/parts/settings/design-landing.php:236
@@ -2067,11 +2067,11 @@ msgstr ""
 #: ../piklist/parts/settings/design-landing.php:262
 #: ../piklist/parts/settings/design-landing.php:358
 msgid "Background"
-msgstr ""
+msgstr "Background"
 
 #: ../piklist/parts/settings/design-landing.php:165
 msgid "Destination options"
-msgstr ""
+msgstr "Options de destination"
 
 #: ../piklist/parts/settings/design-landing.php:188
 msgid "Promotions section"
@@ -2083,7 +2083,7 @@ msgstr ""
 
 #: ../piklist/parts/settings/design-landing.php:206
 msgid "What do you want to display?"
-msgstr ""
+msgstr "Que souhaitez-vous afficher?"
 
 #: ../piklist/parts/settings/design-landing.php:218
 msgid "How to display promotions?"
@@ -2107,7 +2107,7 @@ msgstr ""
 
 #: ../piklist/parts/users/users.php:14
 msgid "Enter your Facebook"
-msgstr ""
+msgstr "Entrez votre Facebook"
 
 #: ../piklist/parts/users/users.php:30
 msgid "Enter your Twitter"
@@ -2115,7 +2115,7 @@ msgstr "Entrez votre Twitter"
 
 #: ../piklist/parts/users/users.php:46
 msgid "Enter your Google Plus"
-msgstr ""
+msgstr "Entrez votre Google Plus"
 
 #: ../piklist/parts/users/users.php:62
 msgid "Enter your LinkedIn"
@@ -2143,7 +2143,7 @@ msgstr ""
 
 #: ../piklist/parts/users/users.php:155 ../piklist/parts/users/users.php:156
 msgid "Add Picture"
-msgstr ""
+msgstr "Ajouter photo"
 
 #: ../piklist/parts/users/users.php:173
 msgid "Phone(s)"
@@ -2151,7 +2151,7 @@ msgstr ""
 
 #: ../piklist/parts/users/users.php:179
 msgid "Birthday"
-msgstr ""
+msgstr "Anniversaire"
 
 #: ../piklist/parts/users/users.php:192
 msgid "Hobbies"
@@ -2187,7 +2187,7 @@ msgstr ""
 
 #: ../piklist/parts/users/users.php:292
 msgid "Airplane preferences"
-msgstr ""
+msgstr "Preferences d'avion"
 
 #: ../piklist/parts/users/users.php:323
 msgid "Marital Status"
@@ -2243,19 +2243,19 @@ msgstr ""
 
 #: ../templates/components/destination.php:27
 msgid "+/- 3 days"
-msgstr ""
+msgstr "+/- 3 jours"
 
 #: ../templates/components/destination.php:28
 msgid "+/- 1 week"
-msgstr ""
+msgstr "+/- 1 semaine"
 
 #: ../templates/components/destination.php:29
 msgid "+/- 2 weeks"
-msgstr ""
+msgstr "+/- 2 semaines"
 
 #: ../templates/components/destination.php:30
 msgid "+/- 1 month"
-msgstr ""
+msgstr "+/- 1 mois"
 
 #: ../templates/components/destination.php:31
 msgid "Whenever"
@@ -2405,7 +2405,7 @@ msgstr "Enfants"
 
 #: ../templates/components/options.php:50
 msgid "Budget"
-msgstr ""
+msgstr "Budget"
 
 #: ../templates/components/theme-options.php:4
 msgid "Culture & History"
@@ -2501,7 +2501,7 @@ msgstr "Par"
 
 #: ../templates/estimate/pay-estimate-form.php:5
 msgid "Estimate Information"
-msgstr ""
+msgstr "Information du devis"
 
 #: ../templates/estimate/pay-estimate-form.php:15
 msgid "Flight & Accommodation"
@@ -2513,11 +2513,11 @@ msgstr ""
 
 #: ../templates/estimate/pay-estimate-form.php:34
 msgid "Contact Information"
-msgstr ""
+msgstr "Information du contact"
 
 #: ../templates/estimate/pay-estimate-form.php:55
 msgid "Billing Information"
-msgstr ""
+msgstr "Information du paiement"
 
 #: ../templates/estimate/pay-estimate-form.php:70
 msgid "Month"
@@ -2537,7 +2537,7 @@ msgstr ""
 
 #: ../templates/estimate/pay-estimate-form.php:74
 msgid "April"
-msgstr ""
+msgstr "Avril"
 
 #: ../templates/estimate/pay-estimate-form.php:75
 msgid "May"
@@ -2549,11 +2549,11 @@ msgstr "juin"
 
 #: ../templates/estimate/pay-estimate-form.php:77
 msgid "July"
-msgstr ""
+msgstr "Juillet"
 
 #: ../templates/estimate/pay-estimate-form.php:78
 msgid "August"
-msgstr ""
+msgstr "Août"
 
 #: ../templates/estimate/pay-estimate-form.php:79
 msgid "September"
@@ -2561,7 +2561,7 @@ msgstr ""
 
 #: ../templates/estimate/pay-estimate-form.php:80
 msgid "October"
-msgstr ""
+msgstr "Octobre"
 
 #: ../templates/estimate/pay-estimate-form.php:81
 msgid "November"
@@ -2569,7 +2569,7 @@ msgstr ""
 
 #: ../templates/estimate/pay-estimate-form.php:82
 msgid "December"
-msgstr ""
+msgstr "Décembre"
 
 #: ../templates/estimate/pay-estimate-form.php:98
 msgid "Pay it!"
@@ -2589,7 +2589,7 @@ msgstr "Découvrez des pays incroyables"
 
 #: ../templates/landing/destinations.php:84
 msgid "Sorry! Currently there are no destinations"
-msgstr ""
+msgstr "Désolé! Actuellement il n'y a pas de destinations"
 
 #: ../templates/landing/partners.php:22
 msgid "Our Partners"
@@ -2689,7 +2689,7 @@ msgstr "Itinéraire"
 
 #: ../templates/voyage/preview-table.php:57
 msgid "I'm interested in this this offert"
-msgstr ""
+msgstr "Je suis intéressé par cette offre"
 
 #~ msgid "Tutorials"
 #~ msgstr "Tutoriaux"
