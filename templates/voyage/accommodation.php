@@ -1,13 +1,13 @@
 <?php
-$host_name          = get_post_meta($post->ID,'voyage_establishment_name');
-$host_type          = get_post_meta($post->ID,'voyage_establishment_type');
-$host_rating        = get_post_meta($post->ID,'voyage_establishment_rating');
-$host_checkin_date  = get_post_meta($post->ID,'voyage_establishment_checkin_date');
-$host_checkin_time  = get_post_meta($post->ID,'voyage_establishment_checkin_time');
-$host_checkout_date = get_post_meta($post->ID,'voyage_establishment_checkout_date');
-$host_checkout_time = get_post_meta($post->ID,'voyage_establishment_checkout_time');
-$host_comments      = get_post_meta($post->ID,'voyage_establishment_comments');
-$host_gallery       = get_post_meta($post->ID,'voyage_establishment_gallery');
+$host_name          = get_post_meta($post->ID,'establishment_name');
+$host_type          = get_post_meta($post->ID,'establishment_type');
+$host_rating        = get_post_meta($post->ID,'establishment_rating');
+$host_checkin_date  = get_post_meta($post->ID,'establishment_checkin_date');
+$host_checkin_time  = get_post_meta($post->ID,'establishment_checkin_time');
+$host_checkout_date = get_post_meta($post->ID,'establishment_checkout_date');
+$host_checkout_time = get_post_meta($post->ID,'establishment_checkout_time');
+$host_comments      = get_post_meta($post->ID,'establishment_comments');
+$host_gallery       = get_post_meta($post->ID,'establishment_gallery');
 ?>
 <br>
 

@@ -11,35 +11,35 @@ Order: 4
 *******************************************************************************/
 $voyage_itinerary_day = array(
     'type'      => 'text',
-    'field'     => 'voyage_itinerary_day',
+    'field'     => 'itinerary_day',
     'label'     => __('Day','sage'),
     'columns'   => 2
 );
 
 $voyage_itinerary_title = array(
     'type'      => 'text',
-    'field'     => 'voyage_itinerary_title',
+    'field'     => 'itinerary_title',
     'label'     => __('Title','sage'),
     'columns'   => 4
 );
 
 $voyage_itinerary_subtitle = array(
     'type'      => 'text',
-    'field'     => 'voyage_itinerary_subtitle',
+    'field'     => 'itinerary_subtitle',
     'label'     => __('Sub title','sage'),
     'columns'   => 6
 );
 
 $voyage_itinerary_description = array(
     'type'      => 'textarea',
-    'field'     => 'voyage_itinerary_description',
+    'field'     => 'itinerary_description',
     'label'     => __('Description','sage'),
     'columns'   => 12
 );
 
 $voyage_itinerary_gallery = array(
     'type'      => 'file',
-    'field'     => 'voyage_itinerary_gallery',
+    'field'     => 'itinerary_gallery',
     'label'     => __('Gallery','sage'),
 );
 

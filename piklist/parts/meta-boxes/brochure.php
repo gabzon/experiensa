@@ -5,9 +5,6 @@ Post Type: brochure
 Meta box: true
 */
 
-
-
-
 piklist('field', array(
     'type'      => 'datepicker',
     'field'     => 'expiry_date',

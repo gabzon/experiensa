@@ -1,8 +1,8 @@
 <?php
 $included     = wp_get_post_terms(get_the_ID(), 'included', array("fields" => "all"));
 $excluded     = wp_get_post_terms(get_the_ID(), 'excluded', array("fields" => "all"));
-$voyage_conditions = get_post_meta(get_the_ID(), 'voyage_conditions');
-$voyage_info = get_post_meta(get_the_ID(), 'voyage_information_conditions', true);
+$voyage_conditions = get_post_meta(get_the_ID(), 'conditions');
+$voyage_info = get_post_meta(get_the_ID(), 'information_conditions', true);
 ?>
 <?php if ($voyage_info): ?>
     <br>

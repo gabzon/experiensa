@@ -11,14 +11,14 @@ Order: 3
 
 $voyage_host_name = array(
     'type'      => 'text',
-    'field'     => 'voyage_establishment_name',
+    'field'     => 'establishment_name',
     'label'     => __('Establishment name','sage'),
     'columns'   => 6
 );
 
 $voyage_host_type = array(
     'type'      => 'select',
-    'field'     => 'voyage_establishment_type',
+    'field'     => 'establishment_type',
     'label'     => __('Establishment type','sage'),
     'columns'   => 4,
     'choices'   => array(
@@ -33,7 +33,7 @@ $voyage_host_type = array(
 
 $voyage_host_rating = array(
     'type'      => 'select',
-    'field'     => 'voyage_establishment_rating',
+    'field'     => 'establishment_rating',
     'label'     => __('Rating','sage'),
     'columns'   => 2,
     'choices'   => array(
@@ -47,7 +47,7 @@ $voyage_host_rating = array(
 
 $voyage_host_checkin_date = array(
     'type'      => 'datepicker',
-    'field'     => 'voyage_establishment_checkin_date',
+    'field'     => 'establishment_checkin_date',
     'label'     => __('Check-in date','sage'),
     'columns'   => 3,
     'options'   => array('dateFormat' => 'd/m/yy'),
@@ -55,14 +55,14 @@ $voyage_host_checkin_date = array(
 
 $voyage_host_checkin_time = array(
     'type'      => 'time',
-    'field'     => 'voyage_establishment_checkin_time',
+    'field'     => 'establishment_checkin_time',
     'label'     => __('Check-in time','sage'),
     'columns'   => 3
 );
 
 $voyage_host_checkout_date = array(
     'type'      => 'datepicker',
-    'field'     => 'voyage_establishment_checkout_date',
+    'field'     => 'establishment_checkout_date',
     'label'     => __('Check-out date','sage'),
     'columns'   => 3,
     'options'   => array('dateFormat' => 'd/m/yy'),
@@ -70,21 +70,21 @@ $voyage_host_checkout_date = array(
 
 $voyage_host_checkout_time = array(
     'type'      => 'time',
-    'field'     => 'voyage_establishment_checkout_time',
+    'field'     => 'establishment_checkout_time',
     'label'     => __('Check-out time','sage'),
     'columns'   => 3
 );
 
 $voyage_host_comments = array(
     'type'      => 'textarea',
-    'field'     => 'voyage_establishment_comments',
+    'field'     => 'establishment_comments',
     'label'     => __('Comments & Description','sage'),
     'columns'   => 12
 );
 
 $voyage_host_gallery = array(
     'type'      => 'file',
-    'field'     => 'voyage_establishment_gallery',
+    'field'     => 'establishment_gallery',
     'label'     => __('Photo Gallery','sage'),
 );
 

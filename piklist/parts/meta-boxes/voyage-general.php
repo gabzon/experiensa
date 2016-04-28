@@ -7,7 +7,7 @@ Meta box: true
 
 $price = array(
     'type'  => 'number',
-    'field' => 'voyage_price',
+    'field' => 'price',
     'label' => __('Price','sage'),
     'attributes'    => array( 'step' => 'any' ),
     'columns'   => 4
@@ -15,7 +15,7 @@ $price = array(
 
 $expiry_date = array(
     'type'      => 'datepicker',
-    'field'     => 'voyage_expiry_date',
+    'field'     => 'expiry_date',
     'label'     => __('Expiry date','sage'),
     'options'   => array( 'dateFormat' => 'dd/mm/yy'),
     'columns'   => 4
@@ -23,7 +23,7 @@ $expiry_date = array(
 
 $from = array(
     'type'      => 'checkbox',
-    'field'     => 'voyage_display_from',
+    'field'     => 'display_from',
     'label'     => __('Display from','sage'),
     'choices'   => array( 'TRUE'  => 'Yes' ),
     'columns'   => 4
@@ -31,7 +31,7 @@ $from = array(
 
 $slogan = array(
     'type'      => 'text',
-    'field'     => 'voyage_slogan',
+    'field'     => 'slogan',
     'columns'   => 12,
     'label'     => __('Voyage slogan','sage')
 );
@@ -54,14 +54,14 @@ piklist('field', array(
     'fields' => array(
         array(
             'type'          => 'text',
-            'field'         => 'voyage_days',
+            'field'         => 'days',
             'columns'       => 2,
             'attributes'    => array( 'placeholder' => __('Days','sage')),
             'validate'      => array( array( 'type' => 'number' ))
         ),
         array(
             'type'          => 'text',
-            'field'         => 'voyage_nights',
+            'field'         => 'nights',
             'columns'       => 2,
             'attributes' => array( 'placeholder' => __('Nights')),
             'validate' => array( array( 'type' => 'number' ) )
@@ -71,7 +71,7 @@ piklist('field', array(
 
 piklist('field', array(
     'type'          => 'checkbox',
-    'field'         => 'voyage_conditions',
+    'field'         => 'conditions',
     'label'         => __('Conditions','sage'),
     'choices'       => array(
         'refundable'    => __('Refundable','sage'),
@@ -85,20 +85,20 @@ piklist('field', array(
     'fields'    => array(
         array(
             'type'      => 'checkbox',
-            'field'     => 'voyage_resell',
+            'field'     => 'resell',
             'label'     => __('Resell','sage'),
             'columns'   => 6,
             'choices'   => array( 'TRUE'  => 'Yes' )
         ),
         array(
             'type'          => 'number',
-            'field'         => 'voyage_tour_operator_margin',
+            'field'         => 'tour_operator_margin',
             'columns'       => 6,
             'label'         => __('Margin (%)','sage'),
             'attributes'    => array( 'step' => 'any' ),
             'conditions'    => array(
                 array(
-                    'field' => 'voyage_resell',
+                    'field' => 'resell',
                     'value' => 'TRUE'
                 ),
             ),
@@ -108,20 +108,13 @@ piklist('field', array(
 
 piklist('field', array(
     'type'  => 'editor',
-    'field' => 'voyage_information_conditions',
+    'field' => 'information_conditions',
     'label' => __('Additional information & Conditions','sage')
 ));
 
 piklist('field', array(
     'type'          => 'file',
-    'field'         => 'voyage_gallery',
+    'field'         => 'gallery',
     'description'   => __('Photos should be 1920x1080 pixels','sage'),
     'label'         => __('Photo Gallery','sage')
-));
-
-piklist('field', array(
-    'type'  => 'file',
-    'field' => 'brochures',
-    'description' => __('Brochures should be jpeg files, visit: <a href="https://smallpdf.com/pdf-to-jpg" target="_blank">https://smallpdf.com</a>','sage'),
-    'label' => __('Brochures','sage')
 ));

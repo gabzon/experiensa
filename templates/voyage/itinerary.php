@@ -1,9 +1,9 @@
 <?php
-$day            = get_post_meta($post->ID,'voyage_itinerary_day');
-$title          = get_post_meta($post->ID,'voyage_itinerary_title');
-$subtitle       = get_post_meta($post->ID,'voyage_itinerary_subtitle');
-$description    = get_post_meta($post->ID,'voyage_itinerary_description');
-$gallery        = get_post_meta($post->ID,'voyage_itinerary_gallery');
+$day            = get_post_meta($post->ID,'itinerary_day');
+$title          = get_post_meta($post->ID,'itinerary_title');
+$subtitle       = get_post_meta($post->ID,'itinerary_subtitle');
+$description    = get_post_meta($post->ID,'itinerary_description');
+$gallery        = get_post_meta($post->ID,'itinerary_gallery');
 ?>
 <br>
 <?php if ($day): ?>

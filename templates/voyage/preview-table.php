@@ -3,13 +3,13 @@ $location_list  = wp_get_post_terms(get_the_ID(), 'location', array("fields" => 
 $theme_list     = wp_get_post_terms(get_the_ID(), 'theme', array("fields" => "names"));
 $country_list   = wp_get_post_terms(get_the_ID(), 'country', array("fields" => "names"));
 
-$voyage_hosting = get_post_meta(get_the_ID(), 'voyage_hosting', true);
-$voyage_flights = get_post_meta(get_the_ID(), 'voyage_flights', true);
-$voyage_included = get_post_meta(get_the_ID(), 'voyage_included', true);
-$voyage_not_included = get_post_meta(get_the_ID(), 'voyage_not_included', true);
-$voyage_cancelation = get_post_meta(get_the_ID(), 'voyage_cancelation', true);
-$voyage_payment = get_post_meta(get_the_ID(), 'voyage_payment', true);
-$gallery = get_post_meta(get_the_ID(), 'voyage_gallery', false);
+$voyage_hosting = get_post_meta(get_the_ID(), 'hosting', true);
+$voyage_flights = get_post_meta(get_the_ID(), 'flights', true);
+$voyage_included = get_post_meta(get_the_ID(), 'included', true);
+$voyage_not_included = get_post_meta(get_the_ID(), 'not_included', true);
+$voyage_cancelation = get_post_meta(get_the_ID(), 'cancelation', true);
+$voyage_payment = get_post_meta(get_the_ID(), 'payment', true);
+$gallery = get_post_meta(get_the_ID(), 'gallery', false);
 
 ?>
 <br>
@@ -25,8 +25,8 @@ $gallery = get_post_meta(get_the_ID(), 'voyage_gallery', false);
         <td>
             <strong>
                 <?php
-                $number_days      = get_post_meta(get_the_ID(), 'voyage_days', true);
-                $number_nights    = get_post_meta(get_the_ID(), 'voyage_nights', true);
+                $number_days      = get_post_meta(get_the_ID(), 'days', true);
+                $number_nights    = get_post_meta(get_the_ID(), 'nights', true);
                 if($number_days){
                     echo $number_days .' '.__('Days', 'sage');
                 }
