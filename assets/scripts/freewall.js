@@ -1,6 +1,5 @@
-function freewall_flex_layout() {
+function freewall_layout() {
     var wall = new freewall('#freewall');
-    wall.fitWidth();
     wall.reset({
         selector: '.brick',
         animate: true,
@@ -10,7 +9,7 @@ function freewall_flex_layout() {
             wall.fitWidth();
         }
     });
-
+    wall.fitWidth();
     var wall_image = new freewall("#freewall-image");
     wall_image.reset({
         selector: '.freewall-cell',
@@ -44,9 +43,8 @@ function freewall_flex_layout() {
         gutterX: 20,
         gutterY: 10,
         onResize: function() {
-            wall_win8.fitZone();
+            wall_win8.fitWidth();
         }
     });
-    wall_win8.fitZone();
-    //$(window).trigger("resize");
+    wall_win8.fitWidth();
 }

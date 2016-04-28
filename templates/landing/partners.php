@@ -11,9 +11,7 @@ $inverted = $section['promotion_section_inverted'][0];
 $partner_name = $partners['partner_name'];
 $partner_website = $partners['partner_website'];
 $partner_logo = $partners['partner_logo'];
-/*echo"<pre>";
-print_r($partners);
-echo"</pre>";*/
+
 if(!empty($partners)):
 ?>
   <section id="promotion" class="ui basic <?= get_the_color($color, $inverted[0]); ?> vertical segment center aligned">
@@ -26,7 +24,8 @@ if(!empty($partners)):
         $partner['subtitle'] = '';
         $partner['post_link'] = (isset($partner_website[$i]) && !empty($partner_website[$i])?$partner_website[$i]:'#');
         $partner['image_url'] = wp_get_attachment_url($partner_logo[$i][0]);
-        $partner['thumbnail_image'] = (isset($partner_logo[$i][0]) && !empty($partner_logo[$i][0])?wp_get_attachment_image($partner_logo[$i][0],'thumbnail'):'');
+        $partner['thumbnail_url'] = (isset($partner_logo[$i][0]) && !empty($partner_logo[$i][0])?wp_get_attachment_thumb_url($partner_logo[$i][0]):'');
+        //$partner['thumbnail_image'] = (isset($partner_logo[$i][0]) && !empty($partner_logo[$i][0])?wp_get_attachment_image($partner_logo[$i][0],'thumbnail'):'');
         
         $partner_list[] = $partner;
       endfor;

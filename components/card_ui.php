@@ -7,18 +7,21 @@
  */
 class Card{
     /**
-     * @param bool $return
-     * @param null $title
-     * @param array $images
-     * @param null $excerpt
-     * @param null $price
-     * @param array $contact
-     * @param array $locations
-     * @param null $all_data
-     * @return string
+     * Display or return semantic ui card component layout
+     * @param bool $return to check if $card string will be returned or just shown
+     * @param null $title title to show
+     * @param array $images list of images to show
+     * @param null $excerpt content to show
+     * @param null $price price to show
+     * @param array $contact{
+     *      @type string $mail contact mail
+     *      @type string $modal class name to open datail modal
+     * }
+     * @param array $locations list of all locations to show
+     * @param null $all_data list all data obtained from apim this is for show detail modal data
+     * @return string $card semantic ui card component layout
      */
     public static function display_card_full($return = false,$title=null,$images=[],$excerpt=null, $price=null, $contact=[],$locations=[],$all_data=null){
-        //$card = "<div class='simple_card'>";
         $card = "<div class=\"ui card\">";
         if(!empty($images)){
             $card .=    "<div class=\"image\">";
@@ -100,7 +103,6 @@ class Card{
         if(!empty($contact) && isset($contact["modal"])){
             $card .= Catalog::display_trip_detail($all_data,true);
         }
-        //$card .= "</div>";
         if(!$return)
             echo $card;
         else

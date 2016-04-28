@@ -1,13 +1,11 @@
 <?php
 
 $design_options = get_option('experiensa_design_settings');
-
-//piklist::pre($design_options);
-
 $section = $design_options['promotion_options'];
 $display_promotions = $design_options['display_promotions'];
 $color = $section['promotion_section_color'][0];
 $inverted = $section['promotion_section_inverted'][0];
+
 if ($design_options['promotion_type'] == 'brochure') {
     $image_source = 'brochures';
     $args = array(
@@ -27,7 +25,7 @@ if ($design_options['promotion_type'] == 'brochure') {
 }
 
 $query = new WP_Query($args);
-
+//$sitepress->switch_lang($actual_language, true);
 if ($design_options['display_promotions'] == 'TRUE'): ?>
 <!-- Start Promotions section -->
 <section id="promotion" class="ui basic <?= get_the_color($color, $inverted[0]); ?> vertical segment center aligned">
@@ -40,20 +38,22 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
         //echo $query->request;
         if($query->have_posts()):
             while ( $query->have_posts() ) :
+                $post_url = get_permalink($post->ID);
                 $query->the_post();
                 $description = $query->post_content;
                 $subtitle = get_post_field('post_content', $post->ID);
-                $images = get_post_meta($post->ID, 'voyage_gallery');
-                $brochures = get_post_meta($post->ID, 'brochures');
-                for ($i = 0; $i < count($images); $i++) {
-                    $country['title']= __('More info','sage');
-                    $country['subtitle'] = '';
-                    $country['post_link'] = wp_get_attachment_url($images[$i]);
-                    $country['image_url'] = wp_get_attachment_url($images[$i]);
-                    $country['thumbnail_image'] = wp_get_attachment_image($images[$i],'thumbnail');
-                    $country['thumbnail_url'] = wp_get_attachment_thumb_url( $images[$i] );
-                    $countries[] = $country;
+                if ($design_options['promotion_type'] == 'brochure') {
+                    $images = get_post_meta($post->ID, 'brochures');
+                }else{
+                    $images = get_post_meta($post->ID, 'voyage_gallery');
                 }
+                $country['title']= get_the_title($post->ID);
+                $country['subtitle'] = '';
+                $country['post_link'] = $post_url;
+                $country['image_url'] = wp_get_attachment_url($images[0]);
+                $country['thumbnail_image'] = wp_get_attachment_image($images[0],'thumbnail');
+                $country['thumbnail_url'] = wp_get_attachment_thumb_url( $images[0] );
+                $countries[] = $country;
             endwhile;
             $component = $design_options['display_promotion_component'];
 
@@ -62,7 +62,7 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                     Carousel::display_carousel($countries);
                 break;
                 case 'grid':
-                    echo 'Display grid';
+                    Grid::display_grid($countries);
                 break;
                 case 'card':
                     echo 'Display cards';
@@ -86,7 +86,7 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                     Freewall::display_pinterest_layout($countries);
                 break;
                 default:
-                    echo 'Display grid';
+                    Grid::display_grid($countries);
                 break;
             }
             ?>
