@@ -3,7 +3,7 @@
 <?php while (have_posts()) : the_post(); ?>
     <article <?php post_class(); ?>>
         <header>
-            <h1 class="entry-title"><?php the_title(); ?></h1>
+            <h1 class="entry-title"><?= ucwords(get_the_title($post->ID)); ?></h1>
         </header>
         <br>
         <?php

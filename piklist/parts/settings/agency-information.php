@@ -4,6 +4,75 @@
  Setting: agency_settings
  */
 
+piklist('field',array(
+    'type'      => 'select',
+    'field'     => 'website_use',
+    'label'     => __('This website will be used as:','sage'),
+    'columns'   => 3,
+    'value'     => 'travel',
+    'choices'   => array(
+        'travel'         => __('Travel Agency','sage'),
+        'hotel'          => __('Hotel','sage'),
+        'tourist'        => __('Tourist Office','sage')
+    ),
+));
+//Travel Agency Post Types
+piklist('field',array(
+    'type' => 'checkbox',
+    'field' => 'travel_agency_posttypes',
+    'label' => __('Travel Agency Modules','sage'),
+    'choices' => array(
+        'host' => __('Hosts','sage'),
+        'estimate' => __('Estiamtes','sage'),
+        'brochure' => __('Brochure','sage'),
+        'partner' => __('Partners','sage'),
+        'feedback' => __('Feedback','sage'),
+        'voyage' => __('Voyages','sage'),
+        'service' => __('Services','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'website_use',
+            'value' => 'travel'
+        )
+    )
+));
+//Hotel Post Types
+piklist('field',array(
+    'type' => 'checkbox',
+    'field' => 'hotel_posttypes',
+    'label' => __('Hotel Modules','sage'),
+    'choices' => array(
+        'host' => __('Hosts','sage'),
+        'estimate' => __('Estiamtes','sage'),
+        'feedback' => __('Feedback','sage'),
+        'services' => __('Services','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'website_use',
+            'value' => 'hotel'
+        )
+    )
+));
+//Tourist Office Post Types
+piklist('field',array(
+    'type' => 'checkbox',
+    'field' => 'tourist_office_posttypes',
+    'label' => __('Tourist Office Modules','sage'),
+    'choices' => array(
+        'host' => __('Hosts','sage'),
+        'voyage' => __('Voyages','sage'),
+        'sites' => __('Sites','sage'),
+        'festivals' => __('Festivals','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'website_use',
+            'value' => 'tourist'
+        )
+    )
+));
 piklist('field', array(
     'type'      => 'file',
     'field'     => 'agency_logo',

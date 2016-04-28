@@ -58,12 +58,7 @@ class Freewall{
             $images = "";
             $height = rand(150,300);
             foreach($args as $value){
-                //$result = "";
                 $width = rand(250,500);
-                /*$div = "<div class='freewall-cell' style='width:{width}px; height: {height}px;'>";
-                $div = str_replace("{height}",$height,$div);
-                $image = "<img src='".$value['image_url']."' style='width:{width}px; height: {height}px;'>";
-                $image = str_replace("{height}",$height,$image);*/
                 $image =    "<div class='freewall-cell' style='width:".$width."px; height: ".$height."px;'>
                                 <img src='".$value['image_url']."' style='width:".$width."px; height: ".$height."px;'>
                             </div>";
