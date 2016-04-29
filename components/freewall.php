@@ -61,6 +61,9 @@ class Freewall{
                 $width = rand(250,500);
                 $image =    "<div class='freewall-cell' style='width:".$width."px; height: ".$height."px;'>
                                 <img src='".$value['image_url']."' style='width:".$width."px; height: ".$height."px;'>
+                                <div class=\"win8-title\">
+                                        <div class=\"ui black label\"><a href=\"".$value['post_link']."\">".$value['title']."</a></div>
+                                </div>
                             </div>";
                 $images .= $image;
             }

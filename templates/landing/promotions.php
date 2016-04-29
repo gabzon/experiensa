@@ -21,7 +21,7 @@ if ($design_options['promotion_type'] == 'brochure') {
         'post_status'   => array( 'publish', 'inherit' ),
         'category_name' => 'promotions',
     );
-    $image_source = 'voyage_gallery';
+    $image_source = 'gallery';
 }
 
 $query = new WP_Query($args);
@@ -39,15 +39,19 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
         if($query->have_posts()):
             while ( $query->have_posts() ) :
                 $post_url = get_permalink($post->ID);
+                //echo $post_url;
                 $query->the_post();
                 $description = $query->post_content;
+                //echo $design_options;
                 $subtitle = get_post_field('post_content', $post->ID);
                 if ($design_options['promotion_type'] == 'brochure') {
                     $images = get_post_meta($post->ID, 'brochures');
                 }else{
-                    $images = get_post_meta($post->ID, 'voyage_gallery');
+                    $images = get_post_meta($post->ID, 'gallery');
                 }
                 $country['title']= get_the_title($post->ID);
+                //echo $country['title'];
+
                 $country['subtitle'] = '';
                 $country['post_link'] = $post_url;
                 $country['image_url'] = wp_get_attachment_url($images[0]);
@@ -56,7 +60,7 @@ if ($design_options['display_promotions'] == 'TRUE'): ?>
                 $countries[] = $country;
             endwhile;
             $component = $design_options['display_promotion_component'];
-
+            //echo $component;
             switch ($component) {
                 case 'carousel':
                     Carousel::display_carousel($countries);

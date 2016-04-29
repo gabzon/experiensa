@@ -21,14 +21,16 @@ $inverted = $section['footer_section_inverted'][0];
             <div class="column">
                 <br>
                 <div class="ui medium list">
-                    <div class="item">
-                        <i class="top aligned home icon"></i>
-                        <div class="content">
-                            <?php echo $agency_options['agency_address']; ?><br/>
-                            <?php echo $agency_options['agency_postal_code']; ?> <?php echo $agency_options['agency_city']; ?><br/>
-                            <?php echo $agency_options['agency_country']; ?><br/>
+                    <?php if ($agency_options['agency_address']): ?>
+                        <div class="item">
+                            <i class="top aligned home icon"></i>
+                            <div class="content">
+                                <?php echo $agency_options['agency_address']; ?><br/>
+                                <?php echo $agency_options['agency_postal_code']; ?> <?php echo $agency_options['agency_city']; ?><br/>
+                                <?php echo $agency_options['agency_country']; ?><br/>
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
