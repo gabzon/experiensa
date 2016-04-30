@@ -19,10 +19,9 @@ function display_rating($host_rating){
     }
     echo '</span>';
 }
-
 ?>
 
-<?php if ($host_name): ?>
+<?php if ($host_name[0]): ?>
     <br>
     <hr>
     <br>
