@@ -10,7 +10,7 @@ date_default_timezone_set($timezone);
     <?php $countries = get_the_terms($post->ID ,'country');?>
     <?php $locations = get_the_terms($post->ID ,'location');?>
     <?php if ($voyage_expiry_date_formatted >= date("Y-m-d")): ?>
-        <?php $gallery = get_post_meta($post->ID, 'voyage_gallery', false); ?>
+        <?php $gallery = get_post_meta($post->ID, 'gallery', false); ?>
         <?php $overlay = get_stylesheet_directory_uri() .  '/bower_components/vegas/dist/overlays/07.png';?>
         <?php if ($gallery && !empty($gallery[0])): ?>
             <script type="text/javascript">
