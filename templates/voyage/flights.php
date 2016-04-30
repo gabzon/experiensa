@@ -9,7 +9,7 @@ $arrival_city   = get_post_meta($post->ID,'flight_arrival_city');
 $arrival_date   = get_post_meta($post->ID,'flight_arrival_date');
 $arrival_time   = get_post_meta($post->ID,'flight_arrival_time');
 ?>
-<?= 'ai:'.$airline; ?>
+<?= piklist::pre($airline); ?>
 <?php if ($airline): ?>
     <br>
     <hr>
