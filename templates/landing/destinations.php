@@ -7,7 +7,7 @@ $component = $section['display_destination_component'][0];
 $color = $section['destination_section_color'][0];
 $inverted = $section['destination_section_inverted'][0];
 
-$terms = get_terms('country', 'orderby=none&hide_empty');
+$terms = get_terms('location', 'orderby=none&hide_empty');
 $args = array (
 'posts_per_page' => -1,
 'post_type'     => array( 'attachment' ),
