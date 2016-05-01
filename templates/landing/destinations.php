@@ -14,7 +14,7 @@ $args = array (
 'post_status'   => array( 'publish', 'inherit' ),
 'tax_query' => array(
         array(
-            'taxonomy' => 'country',
+            'taxonomy' => 'location',
             'field' => 'slug',
             'terms' => wp_list_pluck($terms,'slug')//Pluck a certain field out of each object in a list
         )
@@ -35,7 +35,7 @@ $terms = "";
                 while ( $query->have_posts() ) :
                     $query->the_post();
                     $description = $query->post_content;
-                    $terms = get_the_terms($post->ID,'country');
+                    $terms = get_the_terms($post->ID,'location');
                     $term = $terms[0];
                     $title = $term->name;
                     $subtitle = get_post_field('post_content', $post->ID);
@@ -47,9 +47,7 @@ $terms = "";
                     $country['thumbnail_url'] = wp_get_attachment_thumb_url($post->ID);
                     $countries[] = $country;
                 endwhile;
-                /*echo "<pre>";
-                print_r($countries);
-                echo "</pre>";*/
+
                 switch ($component) {
                     case 'carousel':
                         Carousel::display_carousel($countries);
