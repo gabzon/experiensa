@@ -10,7 +10,7 @@ $arrival_date   = get_post_meta($post->ID,'flight_arrival_date');
 $arrival_time   = get_post_meta($post->ID,'flight_arrival_time');
 ?>
 
-<?php if ($airline): ?>
+<?php if ($airline[0]): ?>
     <br>
     <hr>
     <br>

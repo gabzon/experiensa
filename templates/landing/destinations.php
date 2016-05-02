@@ -8,9 +8,12 @@ $color = $section['destination_section_color'][0];
 $inverted = $section['destination_section_inverted'][0];
 
 $terms = get_terms('location', 'orderby=none&hide_empty');
+<<<<<<< HEAD
 /*echo "<pre>";
 print_r($terms);
 echo "</pre>";*/
+=======
+>>>>>>> a3167303768f7cdb7fe6b28bc9ad86704374b220
 $args = array (
 'posts_per_page' => -1,
 'post_type'     => array( 'voyage' ),
@@ -67,9 +70,13 @@ $terms = "";
                     }
                     
                 endwhile;
+<<<<<<< HEAD
                 /*echo "<pre>";
                 print_r($locations);
                 echo "</pre>";*/
+=======
+
+>>>>>>> a3167303768f7cdb7fe6b28bc9ad86704374b220
                 switch ($component) {
                     case 'carousel':
                         Carousel::display_carousel($locations);
