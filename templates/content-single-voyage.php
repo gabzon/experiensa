@@ -4,13 +4,18 @@ $timezone = $agency_options['agency_timezone'];
 date_default_timezone_set($timezone); 
 ?>
 <?php while (have_posts()) : the_post(); ?>
-    <?php $voyage_expiry_date = get_post_meta($post->ID, 'voyage_expiry_date', true); /*$pepe = $post->ID;*/?>
-    <?php $voyage_expiry_date_formatted = DateTime::createFromFormat('d/m/Y', $voyage_expiry_date)->format('Y-m-d'); ?>
+    <?php $voyage_expiry_date = get_post_meta($post->ID, 'expiry_date', true);?>
+    <?php
+        if($voyage_expiry_date)
+            $voyage_expiry_date_formatted = DateTime::createFromFormat('d/m/Y', $voyage_expiry_date)->format('Y-m-d');
+        else
+            $voyage_expiry_date = false;
+    ?>
     <?php $post_status = get_post_status( $post->ID );?>
     <?php $countries = get_the_terms($post->ID ,'country');?>
     <?php $locations = get_the_terms($post->ID ,'location');?>
-    <?php if ($voyage_expiry_date_formatted >= date("Y-m-d")): ?>
-        <?php $gallery = get_post_meta($post->ID, 'voyage_gallery', false); ?>
+    <?php if ($voyage_expiry_date && $voyage_expiry_date_formatted >= date("Y-m-d")): ?>
+        <?php $gallery = get_post_meta($post->ID, 'gallery', false); ?>
         <?php $overlay = get_stylesheet_directory_uri() .  '/bower_components/vegas/dist/overlays/07.png';?>
         <?php if ($gallery && !empty($gallery[0])): ?>
             <script type="text/javascript">

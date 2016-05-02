@@ -23,26 +23,26 @@ function display_language_menu(){
   $languages = icl_get_languages('skip_missing=0&orderby=code');
   if(!empty($languages)){
     $menu .= "<div id=\"language-menu\" class=\"ui dropdown item\">";
-    $menu .= '<i class="translate icon"></i>';
-    $menu .= "<span class=\"text\">".__('Languages','sage')."</span>";
-    $menu .= '<i class="dropdown icon"></i>';
-    $menu .= "<div  class=\"menu\">";
-    foreach($languages as $l){      
+    $menu .=    '<i class="translate icon"></i>';
+    $menu .=    "<div class=\"text\">".__('Languages','sage')."</div>";
+    $menu .=    '<i class="dropdown icon"></i>';
+    $menu .=    "<div class=\"menu\">";
+    foreach($languages as $l){
       if(!$l['active']){
-        $menu .= '<div class="item">';
-        $menu .= "<a class=\"item\" href=\"".$l['url']."\">";
-        $menu .= icl_disp_language($l['native_name'], $l['translated_name']);
-        $menu .= '</a>';
-        $menu .= "</div>";
+        $menu .=    '<div class="item">';
+        $menu .=        "<a class=\"item\" href=\"".$l['url']."\">";
+        $menu .=            icl_disp_language($l['native_name'], $l['translated_name']);
+        $menu .=        '</a>';
+        $menu .=    "</div>";
       }else{
-        $menu .= '<div class="item active">';
-        $menu .= "<a class=\"item\" href=\"#\">";
-        $menu .= icl_disp_language($l['native_name'], $l['translated_name']);
-        $menu .= '</a>';
-        $menu .= "</div>";
+        $menu .=    '<div class="item active">';
+        $menu .=        "<a class=\"item\" href=\"#\">";
+        $menu .=            icl_disp_language($l['native_name'], $l['translated_name']);
+        $menu .=        '</a>';
+        $menu .=    "</div>";
       }
     }
-    $menu .= "</div>";
+    $menu .=    "</div>";
     $menu .= "</div>";
     echo $menu;
   }

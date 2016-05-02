@@ -87,9 +87,9 @@ function get_language_menu(){
     global $design_options;
     $language_options = $design_options['group_language'];
     if ($language_options['header_language_display'][0] === 'TRUE'){
-        echo '<div class="item">';
+        //echo '<div class="item">';
         display_language_menu();
-        echo '</div>';
+        //echo '</div>';
     }
 }
 function get_language_menu_accordion(){
