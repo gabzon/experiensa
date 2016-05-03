@@ -109,4 +109,32 @@ class Card{
             return $card;
     }
 
+    public static function display_card_simple($args,$return=false){
+        $card = "";
+        if(!empty($args)){
+            $card .= "<div class=\"ui four stackable cards\">";
+            foreach($args as $value){
+                $card .= "<a href='".$value['post_link']."' target=\"_blank\">";
+                $card .= "<div class=\"ui card\">";
+                $card .=    "<div class=\"image\">";
+                $card .=        "<img src='".$value['image_url']."'>";
+                $card .=    "</div>";
+                $card .=    "<div class=\"content\">";
+                $card .=        "<div class=\"header\">".$value['title']."</div>";
+                $card .=    "</div>";
+                if(isset($value['subtitle']) && !empty($value['subtitle'])) {
+                    $card .= "<div class=\"extra content\">";
+                    $card .=    $value['subtitle'];
+                    $card .= "</div>";
+                }
+                $card .= "</div>";
+                $card .= "</a>";
+            }
+            $card .= "</div>";
+        }
+        if(!$return)
+            echo $card;
+        else
+            return $card;
+    }
 }

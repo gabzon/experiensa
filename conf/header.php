@@ -31,6 +31,7 @@ function scroll_menu(){
     if (in_array('single-voyage', $classes)) {
         return 'white-font';
     }
+    return "";
 }
 
 function get_button_style(){
@@ -88,7 +89,8 @@ function get_language_menu(){
     $language_options = $design_options['group_language'];
     if ($language_options['header_language_display'][0] === 'TRUE'){
         //echo '<div class="item">';
-        display_language_menu();
+        $color = $language_options['header_language_button_color'][0];
+        display_language_menu($color);
         //echo '</div>';
     }
 }

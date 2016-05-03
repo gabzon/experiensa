@@ -4,6 +4,9 @@ $menu_name = 'primary_navigation';
 
 $agency_options = get_option('agency_settings');
 $design_options = get_option('experiensa_design_settings');
+/*echo "<pre>";
+print_r($design_options);
+echo "</pre>";*/
 $logo   = $agency_options['agency_logo'];
 $phone  = $agency_options['agency_phone'];
 ?>

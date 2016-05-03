@@ -62,6 +62,9 @@ $terms = "";
                         }/*else{
 
                         }*/
+                        /*echo "<pre>";
+                        print_r($location);
+                        echo "</pre>";*/
                     }
                     
                 endwhile;
@@ -73,10 +76,10 @@ $terms = "";
                         Grid::display_grid($locations);
                         break;
                     case 'card':
-                        echo 'Display cards';
+                        Card::display_card_simple($locations);
                         break;
                     case 'button':
-                        echo 'Display buttons';
+                        Button::display_buttons($locations);
                         break;
                     case 'masonry':
                         Masonry::display_masonry($locations);

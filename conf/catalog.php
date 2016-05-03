@@ -63,8 +63,8 @@ class Catalog{
                 'title'             => $product->title->rendered,
                 'excerpt'           => $product->excerpt->rendered,
                 'cover_image'       => $product->cover_image,
-                'voyage_currency'   => $product->voyage_currency,
-                'voyage_price'      => $product->voyage_price,
+                'currency'   => $product->voyage_currency,
+                'price'      => $product->voyage_price,
                 'api_link'          => $product->link,
             ];
             $voyages[] = $tab;
@@ -87,7 +87,7 @@ class Catalog{
             <div class=\"content\">
                 <div class=\"ui two column grid\">
                     <div class=\"six wide column\">
-                        <b>". __('Price','sage').":</b> ".convertCurrency($trip['voyage_price'], $trip['voyage_currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency()."<br>
+                        <b>". __('Price','sage').":</b> ".convertCurrency($trip['price'], $trip['currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency()."<br>
                         <b>". __('Duration','sage') .":</b> 4/5 <br>
                         <b>". __('Country','sage') .":</b> Etat Unis <br>
                         <b>". __('Location','sage') .":</b> New York <br>

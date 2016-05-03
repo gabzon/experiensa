@@ -27,7 +27,7 @@ class Landing{
                 });
             });
             </script>";
-        $slider .= "<div class=\"voyage-slider\" style=\"height:100vh;\">
+        $slider .= "<div class=\"voyage-slider main-slider\" style=\"height:100vh;\">
                         <div class=\"ui container\">
                             <br><br>
                             <div id=\"preview\" class=\"ui container\">
@@ -74,7 +74,7 @@ class Landing{
     public static function display_voyages($query){
         $voyages = "";
         if ($query->have_posts()) :
-            $voyages .= "<div id=\"slides\">";
+            $voyages .= "<div id=\"slides\" class='main-slider'>";
                 $voyages .= "<ul class=\"slides-container\">";
                 while ($query->have_posts()):
                     $query->the_post();

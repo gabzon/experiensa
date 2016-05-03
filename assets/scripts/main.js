@@ -63,8 +63,9 @@
 
                 $('#slides').superslides({play:'8000'});
 
-                scrollMenu();
-
+                if (jQuery('.main-slider').length>0) {
+                    scrollMenu();
+                }
                 $(".owl-carousel").owlCarousel({
                     autoplay:true,
                     autoplayTimeout:3000,

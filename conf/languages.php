@@ -18,15 +18,16 @@ function display_languages_button($option,$style){
         echo '</div>';
     }
 }
-function display_language_menu(){
+function display_language_menu($color=null){
+    $background = (!$color || $color==''?'black':$color);
   $menu = "";
   $languages = icl_get_languages('skip_missing=0&orderby=code');
   if(!empty($languages)){
-    $menu .= "<div id=\"language-menu\" class=\"ui dropdown item\">";
+    $menu .= "<div id=\"language-menu\" class=\"ui dropdown item\" style='background:".$background.";'>";
     $menu .=    '<i class="translate icon"></i>';
     $menu .=    "<div class=\"text\">".__('Languages','sage')."</div>";
     $menu .=    '<i class="dropdown icon"></i>';
-    $menu .=    "<div class=\"menu\">";
+    $menu .=    "<div class=\"menu\" style='background:".$background.";'>";
     foreach($languages as $l){
       if(!$l['active']){
         $menu .=    '<div class="item">';

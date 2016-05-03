@@ -1,6 +1,10 @@
 
 <?php $voyages = array(); ?>
-<?php $voyages = Catalog::get_catalog(); ?>
+<?php $voyages = Catalog::get_catalog();
+/*echo "<pre>";
+print_r($voyages);
+echo "</pre>";*/
+?>
 
 <br>
 <div class="ui four stackable cards">
@@ -10,12 +14,14 @@
             $images = [["full_size"=>$value['cover_image']]];
         else
             $images = [];
-        $price = convertCurrency($value['voyage_price'], $value['voyage_currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency();
-        $title = $value['title'];
-        $excerpt = $value['excerpt'];
-        $mailto = 'mailto:' . Helpers::get_email() . '?subject= Offre '.$value['title'];
-        $contact = ["mail" => $mailto, "modal" => "modal-card-details"];
-        Card::display_card_full(false,$title,$images,$excerpt,$price,$contact,[],$value);
+        if(!empty($value['price'])) {
+            $price = convertCurrency($value['price'], $value['currency'], Helpers::get_currency()) . ' ' . Helpers::get_currency();
+            $title = $value['title'];
+            $excerpt = $value['excerpt'];
+            $mailto = 'mailto:' . Helpers::get_email() . '?subject= Offre ' . $value['title'];
+            $contact = ["mail" => $mailto, "modal" => "modal-card-details"];
+            Card::display_card_full(false, $title, $images, $excerpt, $price, $contact, [], $value);
+        }
         ?>
     <?php endforeach; ?>
 </div>
