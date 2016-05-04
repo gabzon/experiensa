@@ -60,7 +60,7 @@ if ($design_options['display_themes'] == 'TRUE'):?>
                     $description = $query->post_content;
                     $terms = get_the_terms($post->ID,'location');
                     $term = $terms[0];
-                    $title = $term->name;
+                    $title = get_the_title($post->ID);
                     $subtitle = get_post_field('post_content', $post->ID);
                     $location['title']=$title;
                     $location['subtitle'] = '';

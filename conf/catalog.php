@@ -53,7 +53,7 @@ class Catalog{
           }
       }
     }
-    $partner_api = array();
+
     $agency_api = get_site_url() . '/wp-json/wp/v2/voyage';
     $agency_content = file_get_contents($agency_api);
     $agency_content = json_decode($agency_content);
