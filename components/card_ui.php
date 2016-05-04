@@ -13,6 +13,8 @@ class Card{
      * @param array $images list of images to show
      * @param null $excerpt content to show
      * @param null $price price to show
+     * @param null $url link to website
+     * @param null $url_name website name
      * @param array $contact{
      *      @type string $mail contact mail
      *      @type string $modal class name to open datail modal
@@ -21,7 +23,7 @@ class Card{
      * @param null $all_data list all data obtained from apim this is for show detail modal data
      * @return string $card semantic ui card component layout
      */
-    public static function display_card_full($return = false,$title=null,$images=[],$excerpt=null, $price=null, $contact=[],$locations=[],$all_data=null){
+    public static function display_card_full($return = false,$title=null,$images=[],$excerpt=null, $price=null, $url=null,$url_name=null,$contact=[],$locations=[],$all_data=null){
         $card = "<div class=\"ui card\">";
         if(!empty($images)){
             $card .=    "<div class=\"image\">";
@@ -57,6 +59,13 @@ class Card{
             $card .=    "<div class=\"extra content\">
                             <p>".$excerpt."</p>
                         </div>";
+        }
+        if($url && $url_name){
+            $card .= "<div class=\"extra content\">";
+            $card .=    "<div class=\"right floated author\">";
+            $card .=        "<a href=\"".$url."\">".__('Offered by','sage').' '.$url_name."</a>";
+            $card .=    "</div>";
+            $card .= "</div>";
         }
         if(!empty($locations)){
             $card .= "<div class='content'>";

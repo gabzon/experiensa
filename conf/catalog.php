@@ -25,12 +25,17 @@ class Catalog{
             $partners[] = $partner;
         }
     }
-    $active_lang = ICL_LANGUAGE_CODE;//Active WPML language code
-    $lang_req = '?lang='.$active_lang;
+      if ( function_exists('icl_object_id') ) { //Check if WPML is installed
+          $active_lang = ICL_LANGUAGE_CODE;//Active WPML language code
+          $lang_req = '?lang='.$active_lang;
+      }else{
+          $lang_req = "";
+      }
+
     $partner_api = [];
     if(!empty($partners)){
       for ($i=0; $i < count($partners); $i++) {
-          /* Check if  $partners[$i]['website'] dont have '/' on last char*/
+          // Check if  $partners[$i]['website'] dont have '/' on last char
           $api_url=$partners[$i]['website'];
           if(substr($partners[$i]['website'], -1)!='/')
             $api_url .= '/';
@@ -48,6 +53,7 @@ class Catalog{
           }
       }
     }
+    $partner_api = array();
     $agency_api = get_site_url() . '/wp-json/wp/v2/voyage';
     $agency_content = file_get_contents($agency_api);
     $agency_content = json_decode($agency_content);
@@ -63,12 +69,13 @@ class Catalog{
                 'title'             => $product->title->rendered,
                 'excerpt'           => $product->excerpt->rendered,
                 'cover_image'       => $product->cover_image,
-                'currency'   => $product->voyage_currency,
-                'price'      => $product->voyage_price,
+                'currency'          => $product->currency,
+                'price'             => $product->price,
                 'api_link'          => $product->link,
+                'website'           => $product->website,
+                'website_name'      => $product->website_name,
             ];
             $voyages[] = $tab;
-            //piklist::pre($product);
         }
     }
     return $voyages;

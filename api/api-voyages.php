@@ -2,7 +2,7 @@
 
 add_action( 'rest_api_init', 'slug_register_voyage_price' );
 function slug_register_voyage_price() {
-    register_rest_field( 'voyage', 'voyage_price',
+    register_rest_field( 'voyage', 'price',
         array(
             'get_callback'    => 'slug_get_voyage_price',
             'update_callback' => null,
@@ -24,7 +24,7 @@ function slug_register_voyage_cover_image() {
 
 add_action( 'rest_api_init', 'slug_register_voyage_currency' );
 function slug_register_voyage_currency() {
-    register_rest_field( 'voyage', 'voyage_currency',
+    register_rest_field( 'voyage', 'currency',
         array(
             'get_callback'    => 'slug_get_voyage_currency',
             'update_callback' => null,
@@ -32,7 +32,26 @@ function slug_register_voyage_currency() {
         )
     );
 }
-
+add_action( 'rest_api_init', 'slug_register_voyage_website' );
+function slug_register_voyage_website() {
+    register_rest_field( 'voyage', 'website',
+        array(
+            'get_callback'    => 'slug_get_voyage_website',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+add_action( 'rest_api_init', 'slug_register_voyage_website_name' );
+function slug_register_voyage_website_name() {
+    register_rest_field( 'voyage', 'website_name',
+        array(
+            'get_callback'    => 'slug_get_voyage_website_name',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
 /**
  * Get the value of the "starship" field
  *
@@ -54,5 +73,11 @@ function slug_get_voyage_cover_image( $object, $field_name, $request ) {
 function slug_get_voyage_currency( $object, $field_name, $request ) {
     $agency_options = get_option('agency_settings');
     return $agency_options['agency_currency'];
+}
+function slug_get_voyage_website( $object, $field_name, $request ) {
+    return get_site_url();
+}
+function slug_get_voyage_website_name( $object, $field_name, $request ) {
+    return get_bloginfo('name');
 }
 ?>
