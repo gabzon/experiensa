@@ -6,13 +6,22 @@ $component = $section['display_themes_component'][0];
 $color = $section['theme_section_color'][0];
 $inverted = $section['theme_section_inverted'][0];
 
-$taxonomies = array('theme');
-$args = array(
-    'orderby'           => 'name',
-    'order'             => 'ASC',
-    'hide_empty'        => true
+
+$terms = get_terms('theme', 'orderby=none&hide_empty');
+$args = array (
+    'posts_per_page' => -1,
+    'post_type'     => array( 'attachment' ),
+    'post_status'   => array( 'publish', 'inherit' ),
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'theme',
+            'field' => 'slug',
+            'terms' => wp_list_pluck($terms,'slug')//Pluck a certain field out of each object in a list
+        )
+    )
 );
-$themes = get_terms($taxonomies, $args);
+$query = new WP_Query($args);
+$terms = "";
 /*echo "<pre>";
 print_r($themes);
 echo "</pre>";*/
@@ -24,97 +33,56 @@ if ($design_options['display_themes'] == 'TRUE'):?>
         <h1><?php _e('Themes','sage'); ?></h1>
         <br>
         <div id="landing-themes" class="landing-themes">
-            <div class="filters-themes">
-                <?php
-                $args = array();
-                foreach ($themes as $theme):
-                    $row['title'] = $theme->name;
-                    $row['filter-class'] = 'filter-theme';
-                    $row['filter-data'] = $theme->slug;
-                    $args[] = $row;
-                endforeach;
-                Button::display_buttons($args);
-                ?>
-            </div>
-            <br>
-            <br>
             <?php
-            $terms = get_terms('theme', 'orderby=none&hide_empty');
-            $args = array (
-                'posts_per_page' => -1,
-                'post_type'     => array( 'voyage' ),
-                'post_status'   => array( 'publish', 'inherit' ),
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'theme',
-                        'field' => 'slug',
-                        'terms' => wp_list_pluck($terms,'slug')//Pluck a certain field out of each object in a list
-                    )
-                )
-            );
-            $query = new WP_Query($args);
-            $terms = "";
             if($query->have_posts()):
                 while ( $query->have_posts() ) :
                     $query->the_post();
                     $description = $query->post_content;
-                    $terms = get_the_terms($post->ID,'location');
+                    $post_url = get_permalink($post->ID);
+                    $terms = get_the_terms($post->ID,'theme');
                     $term = $terms[0];
-                    $title = get_the_title($post->ID);
-                    $subtitle = get_post_field('post_content', $post->ID);
-                    $location['title']=$title;
-                    $location['subtitle'] = '';
-                    $location['post_link'] = get_permalink();
-                    if(has_post_thumbnail()) {
-                        $image_id = get_post_thumbnail_id($post->ID);
-                        $location['image_url'] =  wp_get_attachment_url( $image_id );
-                        $location['thumbnail_image'] = wp_get_attachment_image($image_id,'thumbnail');
-                        $location['thumbnail_url'] = wp_get_attachment_thumb_url($image_id);
-                        $locations[] = $location;
-                    }else {
-                        $search = str_replace(' ', '-', $title);
-                        $gallery = RequestMedia::get_media_request_api('media',[['taxonomy'=>'location','term'=>$search]]);
-                        if(!empty($gallery)){
-                            $location['image_url'] =  $gallery[0]['full_size'];
-                            $location['thumbnail_image'] = '<img src="'.$gallery[0]['thumbnail_size'].'">';
-                            $location['thumbnail_url'] = $gallery[0]['thumbnail_size'];
-                            $locations[] = $location;
-                        }
-                    }
-                    /*echo "<pre>";
-                    print_r($location);
-                    echo "</pre>";*/
+
+                    $theme['title'] = $term->name;
+                    $theme['subtitle'] = '';
+                    $theme['post_link'] = $post_url;
+                    $theme['image_url'] = wp_get_attachment_url($post->ID);
+                    $theme['thumbnail_image'] = wp_get_attachment_image($post->ID,'thumbnail');
+                    $theme['thumbnail_url'] = wp_get_attachment_thumb_url( $post->ID );
+                    $themes[] = $theme;
                 endwhile;
+                /*echo "<pre>";
+                print_r($themes);
+                echo "</pre>";*/
                 switch ($component) {
                     case 'carousel':
-                        Carousel::display_carousel($locations);
+                        Carousel::display_carousel($themes);
                         break;
                     case 'grid':
-                        Grid::display_grid($locations);
+                        Grid::display_grid($themes);
                         break;
                     case 'card':
-                        Card::display_card_simple($locations);
+                        Card::display_card_simple($themes);
                         break;
                     case 'button':
-                        Button::display_buttons($locations);
+                        Button::display_buttons($themes);
                         break;
                     case 'masonry':
-                        Masonry::display_masonry($locations);
+                        Masonry::display_masonry($themes);
                         break;
                     case 'flex-layout':
-                        Freewall::display_flex_layout($locations);
+                        Freewall::display_flex_layout($themes);
                         break;
                     case 'windows':
-                        Freewall::display_win8_layout($locations);
+                        Freewall::display_win8_layout($themes);
                         break;
                     case 'img-layout':
-                        Freewall::display_image_layout($locations);
+                        Freewall::display_image_layout($themes);
                         break;
                     case 'pinterest':
-                        Freewall::display_pinterest_layout($locations);
+                        Freewall::display_pinterest_layout($themes);
                         break;
                     default:
-                        Grid::display_grid($locations);
+                        Grid::display_grid($themes);
                         break;
                 }
             else:?>
@@ -122,6 +90,8 @@ if ($design_options['display_themes'] == 'TRUE'):?>
                 <?php
             endif;
             ?>
+            <br>
+            <br>
         </div>
     </div>
     <br>

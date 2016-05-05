@@ -53,7 +53,7 @@ class Catalog{
           }
       }
     }
-
+    $partner_api = array();
     $agency_api = get_site_url() . '/wp-json/wp/v2/voyage';
     $agency_content = file_get_contents($agency_api);
     $agency_content = json_decode($agency_content);
@@ -71,6 +71,9 @@ class Catalog{
                 'cover_image'       => $product->cover_image,
                 'currency'          => $product->currency,
                 'price'             => $product->price,
+                'itinerary'         => $product->itinerary,
+                'duration'         => $product->duration,
+                //'country'           => $product->country,
                 'api_link'          => $product->link,
                 'website'           => $product->website,
                 'website_name'      => $product->website_name,
@@ -95,7 +98,7 @@ class Catalog{
                 <div class=\"ui two column grid\">
                     <div class=\"six wide column\">
                         <b>". __('Price','sage').":</b> ".convertCurrency($trip['price'], $trip['currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency()."<br>
-                        <b>". __('Duration','sage') .":</b> 4/5 <br>
+                        <b>". __('Duration','sage') .":</b> ".$trip['duration']."<br>
                         <b>". __('Country','sage') .":</b> Etat Unis <br>
                         <b>". __('Location','sage') .":</b> New York <br>
                         <b>". __('Theme','sage') .":</b> Leisure<br>
@@ -113,7 +116,7 @@ class Catalog{
             <div class=\"content\">
                 <h3>Itinerary</h3>
                 <div class=\"description\">
-                    day 1  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                    ".$trip['itinerary']."
                 </div>
             </div>
             <div class=\"actions\">
