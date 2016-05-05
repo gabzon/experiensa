@@ -53,7 +53,7 @@ class Catalog{
           }
       }
     }
-    $partner_api = array();
+//    $partner_api = array();
     $agency_api = get_site_url() . '/wp-json/wp/v2/voyage';
     $agency_content = file_get_contents($agency_api);
     $agency_content = json_decode($agency_content);
@@ -99,9 +99,6 @@ class Catalog{
                     <div class=\"six wide column\">
                         <b>". __('Price','sage').":</b> ".convertCurrency($trip['price'], $trip['currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency()."<br>
                         <b>". __('Duration','sage') .":</b> ".$trip['duration']."<br>
-                        <b>". __('Country','sage') .":</b> Etat Unis <br>
-                        <b>". __('Location','sage') .":</b> New York <br>
-                        <b>". __('Theme','sage') .":</b> Leisure<br>
                         <p>". $trip['excerpt'] ."</p>
                     </div>
                     <div class=\"ten wide column\">
