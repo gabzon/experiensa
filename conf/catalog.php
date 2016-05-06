@@ -48,8 +48,9 @@ class Catalog{
             if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
                 if (!ini_get('allow_url_fopen')) {
                     ini_set('allow_url_fopen',1);
-                }
-              $api_content = file_get_contents($api_url.$lang_req);
+                    $api_content = file_get_contents($api_url.$lang_req);
+                }else
+                    $api_content = file_get_contents($api_url.$lang_req);
               $api_content = json_decode($api_content);
               $partner_api[$i] = $api_content;
             }
@@ -60,8 +61,10 @@ class Catalog{
     $agency_api = get_site_url() . '/wp-json/wp/v2/voyage';
     if (!ini_get('allow_url_fopen')) {
         ini_set('allow_url_fopen',1);
-    }
-    $agency_content = file_get_contents($agency_api);
+        $agency_content = file_get_contents($agency_api);
+    }else
+        $agency_content = file_get_contents($agency_api);
+
     $agency_content = json_decode($agency_content);
     $partner_api[] =$agency_content;
 
