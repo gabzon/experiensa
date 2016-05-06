@@ -8,9 +8,9 @@ $display_promotions = $design_options['display_promotions'];
 $color = $section['promotion_section_color'][0];
 $inverted = $section['promotion_section_inverted'][0];
 
-$partner_name = $partners['partner_name'];
-$partner_website = $partners['partner_website'];
-$partner_logo = $partners['partner_logo'];
+$partner_name = (isset($partners['partner_name'])?$partners['partner_name']:array());
+$partner_website = (isset($partners['partner_website'])?$partners['partner_website']:array());
+$partner_logo = (isset($partners['partner_logo'])?$partners['partner_logo']:array());
 
 if(!empty($partners)):
 ?>
