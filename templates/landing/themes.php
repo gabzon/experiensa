@@ -98,4 +98,4 @@ if ($design_options['display_themes'] == 'TRUE'):?>
     <br>
     <br>
 </section>
-<?php endif; echo "checking allow_url_fopen: ".ini_get('allow_url_fopen');?>
+<?php endif; ?>

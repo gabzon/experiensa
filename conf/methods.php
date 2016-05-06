@@ -5,6 +5,9 @@ function convertCurrency($amount, $from, $to){
         return ceil($amount);
     }
     $url  = "https://www.google.com/finance/converter?a=$amount&from=$from&to=$to";
+    if (!ini_get('allow_url_fopen')) {
+        ini_set('allow_url_fopen',1);
+    }
     $data = file_get_contents($url);
     preg_match("/<span class=bld>(.*)<\/span>/",$data, $converted);
     $converted = preg_replace("/[^0-9.]/", "", $converted[1]);
