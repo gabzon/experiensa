@@ -39,7 +39,25 @@ class RequestMedia{
         if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
           $filter = $api['filter'];
           $full_url = $api_url.$filter;
-          $api_content = file_get_contents($full_url);
+          if (function_exists('curl_version')) {//Using Curl
+            //  Initiate curl
+            $ch = curl_init();
+            // Disable SSL verification
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            // Will return the response, if false it print the response
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            // Set the url
+            curl_setopt($ch, CURLOPT_URL,$full_url);
+            // Execute
+            $api_content=curl_exec($ch);
+            // Closing
+            curl_close($ch);
+          }else{
+            if(ini_get('allow_url_fopen'))
+              $api_content = file_get_contents($full_url);
+            else
+              $api_content = "";
+          }
           $api_content = json_decode($api_content);
           foreach ($api_content as $content) {
             $content = [
