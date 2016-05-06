@@ -46,16 +46,46 @@ class Catalog{
             $file_headers = @get_headers($api_url);
             //check if url have response HTTP/1.1 200 OK
             if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
-              $api_content = file_get_contents($api_url.$lang_req);
-              $api_content = json_decode($api_content);
-              $partner_api[$i] = $api_content;
+                if (!ini_get('allow_url_fopen')){//Using Curl
+                    //  Initiate curl
+                    $ch = curl_init();
+                    // Disable SSL verification
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    // Will return the response, if false it print the response
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    // Set the url
+                    curl_setopt($ch, CURLOPT_URL,$api_url.$lang_req);
+                    // Execute
+                    $api_content=curl_exec($ch);
+                    // Closing
+                    curl_close($ch);
+                }else{
+                    $api_content = @file_get_contents($api_url.$lang_req);
+                }
+                $api_content = json_decode($api_content);
+                $partner_api[$i] = $api_content;
             }
           }
       }
     }
 //    $partner_api = array();
-    $agency_api = get_site_url() . '/wp-json/wp/v2/voyage';
-    $agency_content = file_get_contents($agency_api);
+      $agency_api = get_site_url() . '/wp-json/wp/v2/voyage';
+      if (!ini_get('allow_url_fopen')) {//Using Curl
+          //  Initiate curl
+          $ch = curl_init();
+          // Disable SSL verification
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+          // Will return the response, if false it print the response
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          // Set the url
+          curl_setopt($ch, CURLOPT_URL,$agency_api);
+          // Execute
+          $agency_content=curl_exec($ch);
+          // Closing
+          curl_close($ch);
+      }else{
+          $agency_content = @file_get_contents($agency_api);
+      }
     $agency_content = json_decode($agency_content);
     $partner_api[] =$agency_content;
 
