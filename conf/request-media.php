@@ -39,9 +39,6 @@ class RequestMedia{
         if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
           $filter = $api['filter'];
           $full_url = $api_url.$filter;
-          if (!ini_get('allow_url_fopen')) {
-            ini_set('allow_url_fopen',1);
-          }
           $api_content = file_get_contents($full_url);
           $api_content = json_decode($api_content);
           foreach ($api_content as $content) {
