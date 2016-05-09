@@ -24,29 +24,32 @@ class Catalog{
             ];
             $partners[] = $partner;
         }
+//        return $partners;
+    }else
+        return array();
+    if ( function_exists('icl_object_id') ) { //Check if WPML is installed
+      $active_lang = ICL_LANGUAGE_CODE;//Active WPML language code
+      $lang_req = '?lang='.$active_lang;
+    }else{
+      $lang_req = "";
     }
-      if ( function_exists('icl_object_id') ) { //Check if WPML is installed
-          $active_lang = ICL_LANGUAGE_CODE;//Active WPML language code
-          $lang_req = '?lang='.$active_lang;
-      }else{
-          $lang_req = "";
-      }
 
     $partner_api = [];
     if(!empty($partners)){
       for ($i=0; $i < count($partners); $i++) {
           // Check if  $partners[$i]['website'] dont have '/' on last char
           $api_url=$partners[$i]['website'];
-          if(substr($partners[$i]['website'], -1)!='/')
+          if(substr($partners[$i]['website'], -1)!='/') {
             $api_url .= '/';
-
-          $api_url .= 'wp-json/wp/v2/voyage';//.$lang_req;
+          }
+          $api_url .= 'wp-json/wp/v2/voyage';
           //Check if $api_url is a valid url
           if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
             $file_headers = @get_headers($api_url);
             //check if url have response HTTP/1.1 200 OK
             if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
-                if (function_exists('curl_version')){//Using Curl
+                //Using Curl
+                if (function_exists('curl_version')){
                     //  Initiate curl
                     $ch = curl_init();
                     // Disable SSL verification
@@ -54,19 +57,28 @@ class Catalog{
                     // Will return the response, if false it print the response
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     // Set the url
-                    curl_setopt($ch, CURLOPT_URL,$api_url.$lang_req);
+                    $real_url = $api_url.$lang_req;
+                    curl_setopt($ch, CURLOPT_URL,$real_url);
                     // Execute
                     $api_content=curl_exec($ch);
+                    //echo "<br>".$api_content." - ".$real_url;
+                    if(!$api_content){
+                        curl_setopt($ch, CURLOPT_URL,$api_url);
+                        $api_content=curl_exec($ch);
+                    }
                     // Closing
                     curl_close($ch);
                 }else{
-                    if(ini_get('allow_url_fopen'))
-                        $api_content = @file_get_contents($api_url.$lang_req);
-                    else
+                    if(ini_get('allow_url_fopen')) {
+                        $api_content = @file_get_contents($api_url . $lang_req);
+                        if(!$api_content)
+                            $api_content = @file_get_contents($api_url);
+                    }else
                         $api_content = "";
                 }
                 $api_content = json_decode($api_content);
                 $partner_api[$i] = $api_content;
+
             }
           }
       }
@@ -133,7 +145,7 @@ class Catalog{
             <div class=\"content\">
                 <div class=\"ui two column grid\">
                     <div class=\"six wide column\">
-                        <b>". __('Price','sage').":</b> ".convertCurrency($trip['price'], $trip['currency'], Helpers::get_currency() ) . ' ' . Helpers::get_currency()."<br>
+                        <b>". __('Price','sage').":</b> ".$trip['price']. ' ' . Helpers::get_currency()."<br>
                         <b>". __('Duration','sage') .":</b> ".$trip['duration']."<br>
                         <p>". $trip['excerpt'] ."</p>
                     </div>

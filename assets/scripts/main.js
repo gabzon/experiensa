@@ -96,6 +96,7 @@
                     loop:true,
                     nav:true,
                     margin: 10,
+					autoHeight:false,
                     navText: [
                         "<i class='chevron circle left large icon'></i>",
                         "<i class='chevron circle right large icon'></i>"
@@ -115,7 +116,7 @@
 
                 $(".free-wall .brick .image").dimmer({on:'hover'});
                 $(".free-wall .brick-pinterest .image").dimmer({on:'hover'});
-                $(".owl-carousel .item.promotion-item .image").dimmer({on:'hover'});
+                $(".owl-carousel .carousel-component .image").dimmer({on:'hover'});
 
                 $('.grid-masonry').masonry({
                   // set itemSelector so .grid-sizer is not used in layout

@@ -11,7 +11,7 @@ class Carousel{
         if(!empty($args)){
             $carousel .= "<div class=\"owl-carousel\">";
             foreach($args as $value){
-                $carousel .= "<div class=\"item promotion-item\">";
+                $carousel .= "<div class=\"carousel-component\">";
                 $carousel .=    "<a href=\"".$value['post_link']."\" target=\"_blank\">";
                 $carousel .=    "<div class=\"overlay\"></div>";
                 $carousel .=        "<div class=\"ui image\">";
