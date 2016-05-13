@@ -217,7 +217,9 @@
         'catalog':{
             init:function(){
                 $(".owl-carousel").owlCarousel({
-                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
                     loop:true,
                     items: 1
                 });
