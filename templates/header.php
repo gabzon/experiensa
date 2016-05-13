@@ -58,7 +58,7 @@ $phone  = $agency_options['agency_phone'];
             ?>
             <?php get_phone_button(); ?>
             <?php get_quote_button(); ?>
-            <?php //get_language_button(); ?>
+            <?php Menu::display_all_menus(); ?>
             <?php get_language_menu(); ?>
 
         </div>

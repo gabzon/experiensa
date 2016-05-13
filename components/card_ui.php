@@ -63,7 +63,7 @@ class Card{
         if($url && $url_name){
             $card .= "<div class=\"extra content\">";
             $card .=    "<div class=\"right floated author\">";
-            $card .=        "<a href=\"".$url."\">".__('Offered by','sage').' '.$url_name."</a>";
+            $card .=        __('Offered by','sage').' '.$url_name;
             $card .=    "</div>";
             $card .= "</div>";
         }

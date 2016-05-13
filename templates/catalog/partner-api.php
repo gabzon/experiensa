@@ -10,10 +10,17 @@ echo "</pre>";*/
 <div class="ui four stackable cards">
     <?php
 		foreach ($voyages as $key => $value):
-			if ($value['cover_image'])
-				$images = [["full_size"=>$value['cover_image']]];
-			else
-				$images = [];
+			$images = array();
+			$cover_image = $value['cover_image'];
+			if(!empty($cover_image)){
+				/*echo "<pre>";
+				print_r($cover_image);
+				echo "</pre>";*/
+				foreach($cover_image as $cimage){
+					$row['full_size'] = $cimage;
+					$images[] = $row;
+				}
+			}
 			if($value['price'])
 				$price = convertCurrency($value['price'], $value['currency'], Helpers::get_currency()) . ' ' . Helpers::get_currency();
 			else

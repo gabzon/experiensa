@@ -119,8 +119,37 @@ function slug_get_voyage_price( $object, $field_name, $request ) {
 }
 
 function slug_get_voyage_cover_image( $object, $field_name, $request ) {
-    $cover_image = wp_get_attachment_image_src( get_post_thumbnail_id($object['id']), 'full' );
-    return $cover_image[0];
+    $images = array();
+    $images_list = get_post_meta($object['id'],'gallery');
+    if(!empty($images_list[0])){
+        foreach($images_list as $img_id){
+            $img_url = wp_get_attachment_image_src($img_id,'full')[0];
+            $images[] = $img_url;
+        }
+    }else{
+        $cover_image = wp_get_attachment_image_src( get_post_thumbnail_id($object['id']), 'full' )[0];
+        if(!empty($cover_image))
+            $images[] = $cover_image;
+        else{
+            $terms = get_the_terms($object['id'],'location');
+            if(!empty($terms)){
+                $location = array();
+                foreach($terms as $term){
+                    $row['taxonomy'] = 'location';
+                    $row['term'] = $term->name;
+                    $location[] = $row;
+                }
+                $response = RequestMedia::get_media_request_api('media',$location);
+                if(!empty($response)){
+                    foreach($response as $image){
+                        $images[] = $image['full_size'];
+                    }
+                }
+            }
+        }
+    }
+
+    return $images;
 }
 
 function slug_get_voyage_currency( $object, $field_name, $request ) {

@@ -11,6 +11,7 @@ jQuery(function($){
 
     $('#select-language').dropdown();
     $('#language-menu').dropdown();
+    $('#landing-menu').dropdown({allowCategorySelection: true});
     $('.ui.accordion').accordion();
 });
 
