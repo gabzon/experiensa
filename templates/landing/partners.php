@@ -36,7 +36,3 @@ if(!empty($partners)):
     </section>
 <?php
 endif;
-
-    echo "<div class=\"ui large menu\">";
-    Menu::display_all_menus();
-    echo "</div>";
