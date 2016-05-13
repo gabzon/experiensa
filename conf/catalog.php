@@ -150,7 +150,7 @@ class Catalog{
                         <p>". $trip['excerpt'] ."</p>
                     </div>
                     <div class=\"ten wide column\">
-                        <img src=\"". $trip['cover_image']."\" alt=\"\" class=\"ui image\" />
+                        <img src=\"". (isset($trip['cover_image'][0])?$trip['cover_image'][0]:"")."\" alt=\"\" class=\"ui image\" />
                     </div>
                 </div>
             </div>

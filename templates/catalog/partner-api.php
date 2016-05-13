@@ -13,11 +13,8 @@ echo "</pre>";*/
 			$images = array();
 			$cover_image = $value['cover_image'];
 			if(!empty($cover_image)){
-				/*echo "<pre>";
-				print_r($cover_image);
-				echo "</pre>";*/
-				foreach($cover_image as $cimage){
-					$row['full_size'] = $cimage;
+				for($i = 0; $i < count($cover_image); $i++){
+					$row['full_size'] = $cover_image[$i];
 					$images[] = $row;
 				}
 			}
