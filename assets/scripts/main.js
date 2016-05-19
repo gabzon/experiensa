@@ -30,6 +30,8 @@
                 }).each(function (i, b) {
                     $(this).data('modal', $(this).parents('.card').children('.ui.modal').modal());
                 });
+
+                $('#container a:has(.someclass)').addClass('anotherclass');
                 /*$(".owl-carousel").owlCarousel({
                     autoPlay: 3000, //Set AutoPlay to 3 seconds
                     loop:true,

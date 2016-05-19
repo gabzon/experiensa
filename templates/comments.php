@@ -13,7 +13,15 @@ if (post_password_required()) {
         <h3 class="ui header"><?php printf(_nx('One response to &ldquo;%2$s&rdquo;', '%1$s responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'sage'), '<div class="ui red circular label">'.number_format_i18n(get_comments_number()).'</div>', '<span>' . get_the_title() . '</span>'); ?></h3>
 
         <ol class="comment-list">
-            <?php wp_list_comments(['style' => 'ol', 'avatar_size' => '50']); ?>
+            <?php
+                $args = ['style'       => 'ol',
+                         'type' => 'comment',
+                         'avatar_size' => '50',
+                         'echo' => false
+                        ];
+                $comments = wp_list_comments($args);
+                echo $comments;
+            ?>
         </ol>
 
         <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
