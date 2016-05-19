@@ -19,5 +19,6 @@ $menu_name = 'primary_navigation';//ui left vertical floating very wide active s
     ?>
     <?php get_phone_button(); ?>
     <?php get_quote_button(); ?>
+    <?php Menu::display_all_menus_mobile();?>
     <?php get_language_menu_accordion(); ?>
 </div>

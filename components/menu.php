@@ -1,78 +1,99 @@
 <?php
 //Semantic UI manu
 Class Menu {
-    public static function display_menu_items($menu_id){
-        $menu = "";
-        $menu_items = wp_get_nav_menu_items($menu_id);
 
-        if(!empty($menu_items)) {
-            for ($i = 0; $i < count($menu_items); $i++) {
-                for ($j = $i + 1; $j < count($menu_items) - 1; $j++) {
-                    if ($menu_items[$j]->menu_order < $menu_items[$i]->menu_order) {
-                        $aux = $menu_items[$i];
-                        $menu_items[$i] = $menu_items[$j];
-                        $menu_items[$j] = $aux;
-                    }
-                }
+    public static function check_children_menu($menu_items,$item_id){
+        foreach($menu_items as $item){
+            if($item_id == $item->menu_item_parent){
+                return true;
             }
-            $submenu = array();
-            for($i = 0; $i < count($menu_items); $i++){
-                if($menu_items[$i]->menu_item_parent != 0){
-                    $submenu[] = $menu_items[$i];
-                    unset($menu_items[$i]);
-                }
-            }
-            $menu .= "<div class=\"menu\">";
-            foreach($menu_items as $value){
-                $url = $value->url;
-                $title = $value->title;
-                $id = $value->ID;
-                $is_parent = false;
-                $childs = "";
-                for($i=0;$i<count($submenu);$i++){
-                    if($id == $submenu[$i]->menu_item_parent){
-                        $is_parent = true;
-                        $childs .= "<a class=\"item\" href='".$submenu[$i]->url."'>";
-                        $childs .= $submenu[$i]->title;
-                        $childs .= "</a>";
-                    }
-                }
-                if(!$is_parent) {
-                    $menu .= "<a class=\"item\" href='" . $url . "'>";
-                    $menu .= $title;
-                    $menu .= "</a>";
-                }else{
-                    $menu .= "<div class=\"item\">";
-                    $menu .=    "<i class=\"dropdown icon\"></i>";
-                    $menu .=    "<span class=\"text\">".$title."</span>";
-                    $menu .=    "<div class=\"menu\">";
-                    $menu .=        $childs;
-                    $menu .=    "</div>";
-                    $menu .= "</div>";
-                }
-            }
-            $menu .="</div>";
         }
-        return $menu;
+        return false;
+    }
+    public static function submenus($menu_items,$item_id){
+        $submenu = "<div class=\"menu\">";
+        foreach($menu_items as $item){
+            if($item_id == $item->menu_item_parent){
+                $submenu .= "<a class='item' href='".$item->url."'>".$item->title."</a>";
+            }
+        }
+        $submenu .= "</div>";
+        return $submenu;
     }
     public static function display_all_menus($return=false){
-        $menus = Helpers::get_all_menus_list();
-        $all_menus = "";
-        if(!empty($menus)) {
-            $all_menus .= "<div class=\"right menu\">";
-            foreach ($menus as $menu) {
-                $all_menus .= "<div id=\"landing-menu\" class=\"ui dropdown item\">";
-                $all_menus .= $menu->name."<i class=\"dropdown icon\"></i>";
-                $submenus = self::display_menu_items($menu->term_id);
-                $all_menus .= $submenus;
-                $all_menus .= "</div>";
+        $menus_list = Helpers::get_all_menus_list();
+        $menu_string = "";
+        if(!empty($menus_list)){
+            foreach($menus_list as $menu){
+                $menu_string .= "<div class=\"right menu\">";
+                $menu_items = wp_get_nav_menu_items($menu->term_id);
+                foreach($menu_items as $item){
+                    if($item->menu_item_parent == 0) {
+                        if (self::check_children_menu($menu_items, $item->ID)) {
+                            $menu_string .= "<div class=\"ui dropdown item landing-menu\">";
+                            $menu_string .=     $item->title . "<i class=\"dropdown icon\"></i>";
+                            $submenus = self::submenus($menu_items, $item->ID);
+                            $menu_string .= $submenus;
+                            $menu_string .= "</div>";
+                        } else {
+                            if ($item->menu_item_parent == 0)
+                                $menu_string .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";
+                        }
+                    }
+                }
+                $menu_string .= "</div>";
             }
-            $all_menus .= "</div>";
         }
         if($return)
-            return $all_menus;
+            return $menu_string;
         else{
-            echo $all_menus;
+            echo $menu_string;
+        }
+    }
+
+    public static function submenus_mobile($menu_items,$item_id){
+        $submenus = "";
+        foreach($menu_items as $item){
+            if($item_id == $item->menu_item_parent){
+                $submenus .= "<a class='item' href='".$item->url."'>".$item->title."</a>";
+            }
+        }
+        return $submenus;
+    }
+
+    public static function display_all_menus_mobile($return=false){
+        $menu_string = "";
+        $menus_list = Helpers::get_all_menus_list();
+        if(!empty($menus_list)){
+            foreach($menus_list as $menu) {
+                $menu_string = "<div class=\"item\">";
+                $menu_string .=     "<div class=\"header\">MENU</div>";
+                $menu_items = wp_get_nav_menu_items($menu->term_id);
+                foreach($menu_items as $item){
+                    if ($item->menu_item_parent == 0) {
+                        if (self::check_children_menu($menu_items, $item->ID)) {
+                            $menu_string .= "<div class=\"ui inverted accordion\">";
+                            $menu_string .=     "<div class=\"title active\">";
+                            $menu_string .=         "<i class=\"dropdown icon\"></i>";
+                            $menu_string .= $item->title;
+                            $menu_string .=     "</div>";
+                            $menu_string .=     "<div class=\"content active\">";
+                            $submenus     = self::submenus_mobile($menu_items, $item->ID);
+                            $menu_string .= $submenus;
+                            $menu_string .=     "</div>";
+                            $menu_string .= "</div>";
+                        }else{
+                            $menu_string .= "<a class=\"item\" href='".$item->url."'>".$item->title."</a>";
+                        }
+                    }
+                }
+                $menu_string .= "</div>";
+            }
+        }
+        if($return)
+            return $menu_string;
+        else{
+            echo $menu_string;
         }
     }
 }

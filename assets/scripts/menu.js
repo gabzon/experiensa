@@ -10,8 +10,11 @@ jQuery(function($){
     //ui languages floating dropdown
 
     $('#select-language').dropdown();
-    $('#language-menu').dropdown();
-    $('#landing-menu').dropdown({allowCategorySelection: true});
+    $('#language-menu').dropdown({on: 'hover'});
+    $('.landing-menu').dropdown({
+        allowCategorySelection: true,
+        on: 'hover'
+    });
     $('.ui.accordion').accordion();
 });
 
