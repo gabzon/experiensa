@@ -15,6 +15,9 @@ jQuery(function($){
         allowCategorySelection: true,
         on: 'hover'
     });
+    $('.mobile-menu').dropdown({
+        allowCategorySelection: true
+    });
     $('.ui.accordion').accordion();
 });
 

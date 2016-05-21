@@ -14,7 +14,17 @@ Class Menu {
         $submenu = "<div class=\"menu\">";
         foreach($menu_items as $item){
             if($item_id == $item->menu_item_parent){
-                $submenu .= "<a class='item' href='".$item->url."'>".$item->title."</a>";
+                if(self::check_children_menu($menu_items,$item->ID)){
+                    $submenu .= "<div class=\"item\">";
+                    $submenu .=    "<i class=\"dropdown icon\"></i>";
+                    $submenu .=    "<span class=\"text\">".$item->title."</span>";
+                    $other_submenu = self::submenus($menu_items,$item->ID);
+                    $submenu .= $other_submenu;
+                    $submenu .=    "</div>";
+                    $submenu .= "</div>";
+                }else {
+                    $submenu .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";
+                }
             }
         }
         $submenu .= "</div>";
@@ -55,7 +65,11 @@ Class Menu {
         $submenus = "";
         foreach($menu_items as $item){
             if($item_id == $item->menu_item_parent){
-                $submenus .= "<a class='item' href='".$item->url."'>".$item->title."</a>";
+                if(self::check_children_menu($menu_items,$item->ID)){
+
+                }else {
+                    $submenus .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";
+                }
             }
         }
         return $submenus;

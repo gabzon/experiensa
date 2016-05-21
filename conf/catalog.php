@@ -136,44 +136,44 @@ class Catalog{
 }
 
 
-    public static function display_trip_detail($trip,$return=false){
-        $display =
-        "<div class=\"ui modal\">
-            <div class=\"header\">
-                <h2>".$trip['title']."</h2>
-            </div>
-            <div class=\"content\">
-                <div class=\"ui two column grid\">
-                    <div class=\"six wide column\">
-                        <b>". __('Price','sage').":</b> ".$trip['price']. ' ' . Helpers::get_currency()."<br>
-                        <b>". __('Duration','sage') .":</b> ".$trip['duration']."<br>
-                        <p>". $trip['excerpt'] ."</p>
-                    </div>
-                    <div class=\"ten wide column\">
-                        <img src=\"". (isset($trip['cover_image'][0])?$trip['cover_image'][0]:"")."\" alt=\"\" class=\"ui image\" />
-                    </div>
-                </div>
-            </div>
-            <div class=\"content\">
-                <div class=\"description\">
-                </div>
-            </div>
-            <div class=\"content\">
-                <h3>Itinerary</h3>
-                <div class=\"description\">
-                    ".$trip['itinerary']."
-                </div>
-            </div>
-            <div class=\"actions\">
-                <div class=\"ui black deny button\">
-                    Nope
-                </div>
-                <div class=\"ui positive right labeled icon button\">
-                    Yep, that's me
-                    <i class=\"checkmark icon\"></i>
-                </div>
-            </div>
-        </div>";
+    public static function display_trip_detail($trip,$mail,$return=false){
+        $display = "<div class=\"ui modal\">";
+        $display .=     "<div class=\"header\">";
+        $display .=         "<h2>".$trip['title']."</h2>";
+        $display .=     "</div>";
+        $display .=     "<div class=\"content\">";
+        $display .=         "<div class=\"ui two column grid\">";
+        $display .=             "<div class=\"six wide column\">";
+        if(!empty($trip['price'])) 
+            $display .=            "<b>". __('Price','sage').":</b> ".$trip['price']. ' ' . Helpers::get_currency()."<br>";
+        if(!empty($trip['duration']))
+            $display .=            "<b>". __('Duration','sage') .":</b> ".$trip['duration']."<br>";
+        $display .=                 "<p>". $trip['excerpt'] ."</p>";
+        $display .=             "</div>";
+        $display .=             "<div class=\"ten wide column\">";
+        $display .=                 "<img src=\"". (isset($trip['cover_image'][0])?$trip['cover_image'][0]:"")."\" alt=\"\" class=\"ui image\" />";
+        $display .=             "</div>";
+        $display .=         "</div>";
+        $display .=     "</div>";
+        $display .=     "<div class=\"content\">";
+        $display .=         "<div class=\"description\">";
+        $display .=         "</div>";
+        $display .=     "</div>";
+        if(!empty($trip['itinerary'])) {
+            $display .= "<div class=\"content\">";
+            $display .=     "<h3>".__("Itinerary","sage")."</h3>";
+            $display .=     "<div class=\"description\">". $trip['itinerary'] ."</div>";
+            $display .= "</div>";
+        }
+        $display.="<div class=\"actions\">";
+        $display.=  "<div class=\"ui black deny button\">Nope</div>";
+        $display.=  "<a class=\"ui positive right labeled icon button\" href='".$mail."'>";
+        $display.=      __("Contact us","sage");
+        $display.=      "<i class=\"checkmark icon\"></i>";
+        $display.=  "</a>";
+        $display.="</div>";
+        //End Modal
+        $display.="</div>";
         if(!$return)
             echo $display;
         else

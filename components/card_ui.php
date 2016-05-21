@@ -60,13 +60,13 @@ class Card{
                             <p>".$excerpt."</p>
                         </div>";
         }
-        if($url && $url_name){
+        /*if($url && $url_name){
             $card .= "<div class=\"extra content\">";
             $card .=    "<div class=\"right floated author\">";
             $card .=        __('Offered by','sage').' '.$url_name;
             $card .=    "</div>";
             $card .= "</div>";
-        }
+        }*/
         if(!empty($locations)){
             $card .= "<div class='content'>";
             $card .= "<i class=\"map marker icon\"></i> <strong>".__('Locations','sage')."</strong><br>";
@@ -106,11 +106,11 @@ class Card{
             }
         }
         if(!empty($contact) && isset($contact["modal"])){
-            $card .= Catalog::display_trip_detail($all_data,true);
+            $card .= Catalog::display_trip_detail($all_data,$contact['mail'],true);
         }
         $card .= "</div>";
         if(!empty($contact) && isset($contact["modal"])){
-            $card .= Catalog::display_trip_detail($all_data,true);
+            $card .= Catalog::display_trip_detail($all_data,$contact['mail'],true);
         }
         if(!$return)
             echo $card;

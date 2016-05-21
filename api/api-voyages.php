@@ -171,7 +171,7 @@ function slug_get_voyage_itinerary( $object, $field_name, $request ) {
     if(!empty($day) && !empty($title) && !empty($subtitle)){
         $count = count($day);
         for($i=0;$i<$count;$i++){
-            if(isset($title[$i])){
+            if(isset($title[$i]) && !empty($title[$i])){
               $itinerary .= "<strong>".$day[$i]." - ".$title[$i]."</strong>";
             }else{
                 $itinerary .= "<strong>".$day[$i]."</strong>";
@@ -179,7 +179,7 @@ function slug_get_voyage_itinerary( $object, $field_name, $request ) {
             if(isset($subtitle[$i]) && !empty($subtitle[$i])){
                 $itinerary .= ": ".$subtitle[$i];
             }
-            if(isset($description[$i])){
+            if(isset($description[$i]) && !empty($description[$i])){
                 $itinerary .= "<br><p>".$description[$i]."</p>";
             }
         }
