@@ -174,7 +174,8 @@ function slug_get_voyage_itinerary( $object, $field_name, $request ) {
             if(isset($title[$i]) && !empty($title[$i])){
               $itinerary .= "<strong>".$day[$i]." - ".$title[$i]."</strong>";
             }else{
-                $itinerary .= "<strong>".$day[$i]."</strong>";
+                if(!empty($day[$i]))
+                    $itinerary .= "<strong>".$day[$i]."</strong>";
             }
             if(isset($subtitle[$i]) && !empty($subtitle[$i])){
                 $itinerary .= ": ".$subtitle[$i];

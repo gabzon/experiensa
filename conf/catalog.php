@@ -144,7 +144,7 @@ class Catalog{
         $display .=     "<div class=\"content\">";
         $display .=         "<div class=\"ui two column grid\">";
         $display .=             "<div class=\"six wide column\">";
-        if(!empty($trip['price'])) 
+        if(!empty($trip['price']))
             $display .=            "<b>". __('Price','sage').":</b> ".$trip['price']. ' ' . Helpers::get_currency()."<br>";
         if(!empty($trip['duration']))
             $display .=            "<b>". __('Duration','sage') .":</b> ".$trip['duration']."<br>";
