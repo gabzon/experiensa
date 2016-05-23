@@ -1,9 +1,30 @@
 
 <?php $voyages = array(); ?>
 <?php $voyages = Catalog::get_catalog();
-/*echo "<pre>";
-print_r($voyages);
+/*$days            = get_post_meta(128,'days');
+$nights          = get_post_meta(128,'nights');
+
+echo "<pre>";
+print_r($days);
 echo "</pre>";*/
+/*$themes = "";
+$terms = get_the_terms(133,'theme');
+if(!empty($terms)){
+    if(count($terms)<2){
+        $themes = $terms[0]->name;
+    }else {
+        foreach ($terms as $term) {
+            if (!empty($term->name)){
+                $themes .= $term->name.", ";
+            }
+        }
+    }
+}
+$themes = rtrim(rtrim($themes),',');*/
+/*echo "<pre>";
+print_r($terms);
+echo "</pre>";*/
+
 ?>
 
 <br>

@@ -35,7 +35,7 @@ class Catalog{
     }
 
     $partner_api = [];
-    if(!empty($partners)){
+    if(!empty($partners) && Helpers::check_internet_connection()){
       for ($i=0; $i < count($partners); $i++) {
           // Check if  $partners[$i]['website'] dont have '/' on last char
           $api_url=$partners[$i]['website'];
@@ -120,8 +120,10 @@ class Catalog{
                 'currency'          => $product->currency,
                 'price'             => $product->price,
                 'itinerary'         => $product->itinerary,
-                'duration'         => $product->duration,
-                //'country'           => $product->country,
+                'duration'          => $product->duration,
+                'country'           => (isset($product->country)?$product->country:""),
+                'location'          => (isset($product->location)?$product->location:""),
+                'theme'             => (isset($product->theme)?$product->theme:""),
                 'api_link'          => $product->link,
                 'website'           => $product->website,
                 'website_name'      => $product->website_name,
@@ -148,11 +150,19 @@ class Catalog{
             $display .=            "<b>". __('Price','sage').":</b> ".$trip['price']. ' ' . Helpers::get_currency()."<br>";
         if(!empty($trip['duration']))
             $display .=            "<b>". __('Duration','sage') .":</b> ".$trip['duration']."<br>";
+        if(!empty($trip['country']))
+            $display .=            "<b>". __('Country','sage') .":</b> ".$trip['country']."<br>";
+        if(!empty($trip['location']))
+            $display .=            "<b>". __('Location','sage') .":</b> ".$trip['location']."<br>";
+        if(!empty($trip['theme']))
+            $display .=            "<b>". __('Theme','sage') .":</b> ".$trip['theme']."<br>";
         $display .=                 "<p>". $trip['excerpt'] ."</p>";
         $display .=             "</div>";
-        $display .=             "<div class=\"ten wide column\">";
-        $display .=                 "<img src=\"". (isset($trip['cover_image'][0])?$trip['cover_image'][0]:"")."\" alt=\"\" class=\"ui image\" />";
-        $display .=             "</div>";
+        if(isset($trip['cover_image'][0]) && !empty($trip['cover_image'][0])) {
+            $display .=         "<div class=\"ten wide column\">";
+            $display .=             "<img src=\"".$trip['cover_image'][0]."\" alt=\"\" class=\"ui image\" />";
+            $display .=         "</div>";
+        }
         $display .=         "</div>";
         $display .=     "</div>";
         $display .=     "<div class=\"content\">";

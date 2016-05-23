@@ -88,10 +88,8 @@ function get_language_menu(){
     global $design_options;
     $language_options = $design_options['group_language'];
     if ($language_options['header_language_display'][0] === 'TRUE'){
-        //echo '<div class="item">';
         $color = $language_options['header_language_button_color'][0];
         display_language_menu($color);
-        //echo '</div>';
     }
 }
 function get_language_menu_accordion(){

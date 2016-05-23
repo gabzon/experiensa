@@ -105,7 +105,8 @@ function assets() {
   $localized_array = array(
   	'ajaxurl'=>admin_url('admin-ajax.php')
   );
-  wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');
+  if(\Helpers::check_internet_connection())
+    wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');
   wp_enqueue_script('freewall/js', Assets\asset_path('scripts/freewall.js'), ['jquery'], null, false);
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_localize_script('sage/js','sage_vars',$localized_array);

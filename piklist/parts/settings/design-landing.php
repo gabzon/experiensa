@@ -77,6 +77,10 @@ piklist('field', array(
         array(
             'field' => 'setting_landing_slider_description',
             'value' => 'TRUE'
+        ),
+        array(
+            'field' => 'setting_landing_slider',
+            'value' => 'TRUE'
         )
     )
 ));

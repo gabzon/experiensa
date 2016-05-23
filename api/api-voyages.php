@@ -72,7 +72,7 @@ function slug_register_voyage_duration() {
         )
     );
 }
-/*
+
 add_action( 'rest_api_init', 'slug_register_voyage_country' );
 function slug_register_voyage_country() {
     register_rest_field( 'voyage', 'country',
@@ -82,8 +82,8 @@ function slug_register_voyage_country() {
             'schema'          => null,
         )
     );
-}*/
-/*
+}
+
 add_action( 'rest_api_init', 'slug_register_voyage_location' );
 function slug_register_voyage_location() {
     register_rest_field( 'voyage', 'location',
@@ -93,8 +93,8 @@ function slug_register_voyage_location() {
             'schema'          => null,
         )
     );
-}*/
-/*
+}
+
 add_action( 'rest_api_init', 'slug_register_voyage_theme' );
 function slug_register_voyage_theme() {
     register_rest_field( 'voyage', 'theme',
@@ -104,7 +104,7 @@ function slug_register_voyage_theme() {
             'schema'          => null,
         )
     );
-}*/
+}
 /**
  * Get the value of the "starship" field
  *
@@ -121,16 +121,26 @@ function slug_get_voyage_price( $object, $field_name, $request ) {
 function slug_get_voyage_cover_image( $object, $field_name, $request ) {
     $images = array();
     $images_list = get_post_meta($object['id'],'gallery');
+    //get images from gallery
     if(!empty($images_list[0])){
         foreach($images_list as $img_id){
             $img_url = wp_get_attachment_image_src($img_id,'full')[0];
-            $images[] = $img_url;
+            if(strpos($img_url,'http')===0){
+                $images[] = $img_url;
+            }
         }
     }else{
-        $cover_image = wp_get_attachment_image_src( get_post_thumbnail_id($object['id']), 'full' )[0];
-        if(!empty($cover_image))
-            $images[] = $cover_image;
+        //get images from cover image
+        $cover_image = wp_get_attachment_image_src( get_post_thumbnail_id($object['id']), 'full' );
+        if(!empty($cover_image)){
+            for($i=0;$i<count($cover_image);$i++){
+                if(strpos($cover_image[$i],'http')===0){
+                    $images[] = $cover_image[$i];
+                }
+            }
+        }
         else{
+            //get images from guanaima
             $terms = get_the_terms($object['id'],'location');
             if(!empty($terms)){
                 $location = array();
@@ -142,7 +152,9 @@ function slug_get_voyage_cover_image( $object, $field_name, $request ) {
                 $response = RequestMedia::get_media_request_api('media',$location);
                 if(!empty($response)){
                     foreach($response as $image){
-                        $images[] = $image['full_size'];
+                        if(strpos($image['full_size'],'http')===0){
+                            $images[] = $image['full_size'];
+                        }
                     }
                 }
             }
@@ -192,32 +204,72 @@ function slug_get_voyage_duration( $object, $field_name, $request ) {
     $duration = "";
     $days            = get_post_meta($object[ 'id' ],'days');
     $nights          = get_post_meta($object[ 'id' ],'nights');
-    if($days){
+    if(!empty($days[0])){
         $duration.= implode($days) .' '.__('Days', 'sage');
-    }
-    if($nights){
-        $duration.= ' / ' . implode($nights) . ' ' . __('Nights', 'sage');
+        if(!empty($nights[0])){
+            $duration.= ' / ' . implode($nights) . ' ' . __('Nights', 'sage');
+        }
+    }else{
+        if(!empty($nights[0])){
+            $duration.= implode($nights) . ' ' . __('Nights', 'sage');
+        } 
     }
     return $duration;
 }
-/*
+
 function slug_get_voyage_country( $object, $field_name, $request ) {
-	$terms = get_the_terms($object[ 'id' ],'country');
-    	$country = $terms[0]->name;
-	return $country;
+    $country = "";
+    $terms = get_the_terms($object[ 'id' ],'country');
+    if(!empty($terms)){
+        if(count($terms)<2){
+            $country = $terms[0]->name;
+        }else {
+            foreach ($terms as $term) {
+                if (!empty($term->name)){
+                    $country .= $term->name.", ";
+                }
+            }
+        }
+    }
+    $country = rtrim(rtrim($country),',');
+    return $country;
 }
-*/
-/*
+
+
 function slug_get_voyage_location( $object, $field_name, $request ) {
-	$terms = get_the_terms($object[ 'id' ],'location');
-        $location = $terms[0]->name;
-	return $location;
+    $location = "";
+    $terms = get_the_terms($object[ 'id' ],'location');
+    if(!empty($terms)){
+        if(count($terms)<2){
+            $location = $terms[0]->name;
+        }else {
+            foreach ($terms as $term) {
+                if (!empty($term->name)){
+                    $location .= $term->name.", ";
+                }
+            }
+        }
+    }
+    $location = rtrim(rtrim($location),',');
+    return $location;
 }
-*/
-/*
+
+
 function slug_get_voyage_theme( $object, $field_name, $request ) {
-	$terms = get_the_terms($object[ 'id' ],'theme');
-    	$theme = $terms[0]->name;
-	return $theme;
-}*/
+    $themes = "";
+    $terms = get_the_terms($object[ 'id' ],'theme');
+    if(!empty($terms)){
+        if(count($terms)<2){
+            $themes = $terms[0]->name;
+        }else {
+            foreach ($terms as $term) {
+                if (!empty($term->name)){
+                    $themes .= $term->name.", ";
+                }
+            }
+        }
+    }
+    $themes = rtrim(rtrim($themes),',');
+	return $themes;
+}
 ?>

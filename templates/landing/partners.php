@@ -12,7 +12,7 @@ $partner_name = (isset($partners['partner_name'])?$partners['partner_name']:arra
 $partner_website = (isset($partners['partner_website'])?$partners['partner_website']:array());
 $partner_logo = (isset($partners['partner_logo'])?$partners['partner_logo']:array());
 
-if(!empty($partners)):
+if(isset($agency_settings['setting_partners_display']) && $agency_settings['setting_partners_display']=='TRUE' && !empty($partners)):
 ?>
     <section id="promotion" class="ui basic <?= get_the_color($color, $inverted[0]); ?> vertical segment center aligned">
         <br><br>
