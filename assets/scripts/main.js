@@ -216,7 +216,7 @@
                 $('#newRequest').submit(ajaxSubmit);
             }
         },
-        'catalog':{
+        'page_template_catalog':{
             init:function(){
                 $(".owl-carousel").owlCarousel({
                     autoplay:true,

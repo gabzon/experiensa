@@ -32,9 +32,6 @@ class Card{
                                 ".$price."
                             </div>";
             }
-            echo "<pre>";
-            print_r($images);
-            echo "</pre>";
             $card .= Gallery::show_gallery_from_list($images,true);
             $card .=    "</div>";
         }else{
