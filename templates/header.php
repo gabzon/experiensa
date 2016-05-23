@@ -44,17 +44,17 @@ $phone  = $agency_options['agency_phone'];
         </a>
         <div class="right menu">
             <?php
-            if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
-                $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-                $menu_items = wp_get_nav_menu_items($menu->term_id);
-                foreach ( (array) $menu_items as $key => $menu_item ) :
-                    $class = $menu_item->classes; ?>
-                    <a href="<?php echo $menu_item->url; ?>" class="item menu-link <?= scroll_menu(); ?> <?php if (get_the_ID() == $menu_item->object_id) { echo 'active'; } ?>">
+            //if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
+                // = wp_get_nav_menu_object( $locations[ $menu_name ] );
+                //$menu_items = wp_get_nav_menu_items($menu->term_id);
+                //foreach ( (array) $menu_items as $key => $menu_item ) :
+                    //$class = $menu_item->classes; ?>
+                    <!--<a href="<?php //echo $menu_item->url; ?>" class="item menu-link <?php// scroll_menu(); ?> <?php// if (get_the_ID() == $menu_item->object_id) { echo 'active'; } ?>">
                         <?php echo $menu_item->title; ?>
-                    </a>
+                    </a>-->
                     <?php
-                endforeach;
-            endif;
+                //endforeach;
+            //endif;
             ?>
             <?php get_phone_button(); ?>
             <?php get_quote_button(); ?>
