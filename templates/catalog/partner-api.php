@@ -39,9 +39,9 @@ echo "</pre>";*/
 					$images[] = $row;
 				}
 			}
-			echo "<pre>";
+			/*echo "<pre>";
 			print_r($images);
-			echo "</pre>";
+			echo "</pre>";*/
 			if($value['price'])
 				$price = convertCurrency($value['price'], $value['currency'], Helpers::get_currency()) . ' ' . Helpers::get_currency();
 			else

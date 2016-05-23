@@ -28,10 +28,13 @@ class Card{
         if(!empty($images)){
             $card .=    "<div class=\"image\">";
             if($price){
-                $card .= "<div class=\"ui blue ribbon label\">
-                            ".$price."
-                        </div>";
+                $card .=    "<div class=\"ui blue ribbon label\">
+                                ".$price."
+                            </div>";
             }
+            echo "<pre>";
+            print_r($images);
+            echo "</pre>";
             $card .= Gallery::show_gallery_from_list($images,true);
             $card .=    "</div>";
         }else{
