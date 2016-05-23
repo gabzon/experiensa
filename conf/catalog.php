@@ -93,15 +93,22 @@ class Catalog{
           // Will return the response, if false it print the response
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           // Set the url
-          curl_setopt($ch, CURLOPT_URL,$agency_api);
+          $real_url = $agency_api.$lang_req;
+          curl_setopt($ch, CURLOPT_URL,$real_url);
           // Execute
           $agency_content=curl_exec($ch);
+          if(!$agency_content){
+              curl_setopt($ch, CURLOPT_URL,$agency_api);
+              $agency_content=curl_exec($ch);
+          }
           // Closing
           curl_close($ch);
       }else{
-          if(ini_get('allow_url_fopen'))
-            $agency_content = @file_get_contents($agency_api);
-          else
+          if(ini_get('allow_url_fopen')) {
+            $agency_content = @file_get_contents($agency_api . $lang_req);
+              if(!$agency_content)
+                $agency_content = @file_get_contents($agency_api);
+          }else
               $agency_content = "";
       }
     $agency_content = json_decode($agency_content);
