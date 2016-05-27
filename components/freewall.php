@@ -14,7 +14,7 @@ class Freewall{
     public static function display_flex_layout($args,$return=false){
         $freewall="";
         if(!empty($args)){
-            $freewall .= "<div id=\"freewall\" class=\"free-wall\">";
+            $freewall .= "<div id=\"freewall\" class=\"free-wall freewall-flex\">";
             $images = "";
             foreach($args as $value){
                 $image = (isset($value['post_link'])?"<a href=\"".$value['post_link']."\">":"");
@@ -54,7 +54,7 @@ class Freewall{
     public static function display_image_layout($args,$return=false){
         $freewall="";
         if(!empty($args)){
-            $freewall .= "<div id=\"freewall-image\" class=\"free-wall\">";
+            $freewall .= "<div id=\"freewall-image\" class=\"free-wall freewall-image\">";
             $images = "";
             //$height = rand(150,300);
             foreach($args as $value){
@@ -142,56 +142,92 @@ class Freewall{
             $images = "";
             for($i=0;$i<count($args);$i++){
                 if((($i+1)%2)!=0){
-                    $image = "<div class=\"item size21 level1\">
+                    $image = (isset($args[$i]['post_link'])?"<a href=\"".$args[$i]['post_link']."\">":"");
+                    $image .= "<div class=\"item size21 level1\">
                                 <div class='win8-wallpaper'>
-                                    <img src=\"".$args[$i]['image_url']."\">
-                                    <div class=\"win8-title\">
-                                        <div class=\"ui black label\"><a href=\"".$args[$i]['post_link']."\">".$args[$i]['title']."</a></div>
+                                    <div class=\"ui image\">
+                                        <div class=\"ui dimmer\">
+                                            <div class=\"content\">
+                                                <div class=\"center\">
+                                                    <h2 class=\"ui inverted header\">".$args[$i]['title']."</h2>
+                                                    <div class=\"sub header\">".$args[$i]['subtitle']."</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src=\"".$args[$i]['image_url']."\">
                                     </div>
                                 </div>
                               </div>";
+                    $image .= (isset($args[$i]['post_link'])?"</a>":"");
                     $images .= $image;
                 }else{
                     if($i+3<count($args)){
                         $image = "<div class=\"size22 level1\" data-fixSize=0 data-nested=\".size11\" data-cellW=150 data-cellH=150 data-gutterX=10 >";
                         for($j=$i;$j<=$i+3;$j++){
+                            $image .= (isset($args[$j]['post_link'])?"<a href=\"".$args[$j]['post_link']."\">":"");
                             $image .= "<div class=\"item size11\">
                                             <div class='win8-wallpaper'>
-                                                <img src=\"".$args[$j]['thumbnail_url']."\">
-                                                <div class=\"win8-title\">
-							                        <div class=\"win8-title\">
-                                                        <div class=\"ui black label\"><a href=\"".$args[$j]['post_link']."\">".$args[$j]['title']."</a></div>
-						                            </div>
+                                                <div class=\"ui image\">
+                                                    <div class=\"ui dimmer\">
+                                                        <div class=\"content\">
+                                                            <div class=\"center\">
+                                                                <h3 class=\"ui inverted header\">".$args[$j]['title']."</h3>
+                                                                <div class=\"sub header\">".$args[$j]['subtitle']."</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <img src=\"".$args[$j]['thumbnail_url']."\">
 						                        </div>
                                             </div>
                                         </div>";
+                            $image .= (isset($args[$j]['post_link'])?"</a>":"");
                         }
                         $images .= $image."</div>";
                         $i = $j - 1;
                     }else{
                         if($i+1<count($args)){
+
                             $image = "<div class=\"size21 level1\" data-fixSize=0 data-nested=\".size11\" data-cellW=150 data-cellH=150 data-gutterX=10 >";
                             for($j=$i;$j<=$i+1;$j++){
+                                $image .= (isset($args[$j]['post_link'])?"<a href=\"".$args[$j]['post_link']."\">":"");
                                 $image .= "<div class=\"item size11\">
                                                 <div class='win8-wallpaper'>
-                                                    <img src=\"".$args[$j]['thumbnail_url']."\">
-                                                    <div class=\"win8-title\">
-                                                        <div class=\"ui black label\"><a href=\"".$args[$j]['post_link']."\">".$args[$j]['title']."</a></div>
+                                                    <div class=\"ui image\">
+                                                        <div class=\"ui dimmer\">
+                                                            <div class=\"content\">
+                                                                <div class=\"center\">
+                                                                    <h3 class=\"ui inverted header\">".$args[$j]['title']."</h3>
+                                                                    <div class=\"sub header\">".$args[$j]['subtitle']."</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <img src=\"".$args[$j]['thumbnail_url']."\">
 						                            </div>
                                                 </div>
                                             </div>";
+                                $image .= (isset($args[$j]['post_link'])?"</a>":"");
                             }
                             $images .= $image."</div>";
+
                             $i = $j - 1;
                         }else{
-                            $image = "<div class=\"item size21 level1\">
+                            $image = (isset($args[$j]['post_link'])?"<a href=\"".$args[$j]['post_link']."\">":"");
+                            $image .= "<div class=\"item size21 level1\">
                                 <div class='win8-wallpaper'>
-                                    <img src=\"".$args[$i]['image_url']."\">
-                                    <div class=\"win8-title\">
-                                        <div class=\"ui black label\"><a href=\"".$args[$i]['post_link']."\">".$args[$i]['title']."</a></div>
+                                    <div class=\"ui image\">
+                                                    <div class=\"ui dimmer\">
+                                                        <div class=\"content\">
+                                                            <div class=\"center\">
+                                                                <h2 class=\"ui inverted header\">".$args[$j]['title']."</h2>
+                                                                <div class=\"sub header\">".$args[$j]['subtitle']."</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        <img src=\"".$args[$i]['image_url']."\">
 						            </div>
                                 </div>
                               </div>";
+                            $image .= (isset($args[$j]['post_link'])?"</a>":"");
                             $images .= $image;
                         }
                     }

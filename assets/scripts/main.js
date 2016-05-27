@@ -119,6 +119,7 @@
                 $(".free-wall .brick .image").dimmer({on:'hover'});
                 $(".free-wall .brick-pinterest .image").dimmer({on:'hover'});
                 $(".free-wall .freewall-cell .image").dimmer({on:'hover'});
+                $(".free-wall .item .image").dimmer({on:'hover'});
                 $(".owl-carousel .carousel-component .image").dimmer({on:'hover'});
 
                 $('.grid-masonry').masonry({
