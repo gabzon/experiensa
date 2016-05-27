@@ -30,7 +30,7 @@ Class Menu {
         $submenu .= "</div>";
         return $submenu;
     }
-    public static function display_all_menus($return=false){
+    public static function display_all_menus($page_id=null,$return=false){
         $menus_list = Helpers::get_all_menus_list();
         $menu_string = "";
         if(!empty($menus_list)){
@@ -40,14 +40,23 @@ Class Menu {
                 foreach($menu_items as $item){
                     if($item->menu_item_parent == 0) {
                         if (self::check_children_menu($menu_items, $item->ID)) {
-                            $menu_string .= "<div class=\"ui dropdown item landing-menu\">";
+                            if ($page_id && $page_id == $item->object_id) {
+                                $menu_string .= "<div class=\"ui dropdown item active landing-menu\">";
+                            }else{
+                                $menu_string .= "<div class=\"ui dropdown item landing-menu\">";
+                            }
                             $menu_string .=     $item->title . "<i class=\"dropdown icon\"></i>";
                             $submenus = self::submenus($menu_items, $item->ID);
                             $menu_string .= $submenus;
                             $menu_string .= "</div>";
                         } else {
-                            if ($item->menu_item_parent == 0)
-                                $menu_string .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";
+                            if ($item->menu_item_parent == 0){
+                                if ($page_id && $page_id == $item->object_id) {
+                                    $menu_string .= "<a class='item active' href='" . $item->url . "'>" . $item->title . "</a>";
+                                }else{
+                                    $menu_string .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";
+                                }
+                            }
                         }
                     }
                 }

@@ -7,11 +7,9 @@
  * Time: 07:13 PM
  */
 class Button{
-    public static function display_buttons($args){
+    public static function display_buttons($args,$return=false){
         $buttons = "";
-        if(empty($args)){
-            echo $buttons;
-        }else{
+        if(!empty($args)){
             $buttons .= "<div class=\"ui centered grid\">";
             foreach($args as $value){
                 if(!isset($value['post_link']))
@@ -25,7 +23,10 @@ class Button{
                     $buttons .= "</a>";
             }
             $buttons .= "</div>";
-            echo $buttons;
         }
+        if(!$return)
+            echo $buttons;
+        else
+            return $buttons;
     }
 }

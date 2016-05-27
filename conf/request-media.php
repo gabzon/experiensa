@@ -97,4 +97,12 @@ class RequestMedia{
     $media_content = self::get_media_response($apis);
     return $media_content;
   }
+
+  public static function get_media_request_both($posttype = 'media', $terms = null){
+    $media_content = self::get_media_request_local($posttype,$terms);
+    if(empty($media_content)){
+      $media_content = self::get_media_request_api($posttype,$terms);
+    }
+    return $media_content;
+  }
 }

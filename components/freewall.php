@@ -56,16 +56,24 @@ class Freewall{
         if(!empty($args)){
             $freewall .= "<div id=\"freewall-image\" class=\"free-wall\">";
             $images = "";
-            $height = rand(150,300);
+            //$height = rand(150,300);
             foreach($args as $value){
                 $width = rand(250,500);
-                $image =    "<div class='freewall-cell' style='width:".$width."px; height: ".$height."px;'>
-                                <img src='".$value['image_url']."' style='width:".$width."px; height: ".$height."px;'>
-                                <div class=\"win8-title\">
-                                        <div class=\"ui black label\"><a href=\"".$value['post_link']."\">".$value['title']."</a></div>
-                                </div>
-                            </div>";
-                $images .= $image;
+                $images .= (isset($value['post_link'])?"<a href=\"".$value['post_link']."\">":"");
+                $images .=  "<div class='freewall-cell' style='width:".$width."px; height: 160px;'>";
+                $images .=      "<div class=\"ui image\">";
+                $images .=          "<div class=\"ui dimmer\">";
+                $images .=              "<div class=\"content\">";
+                $images .=                  "<div class=\"center\">";
+                $images .=                      "<h2 class=\"ui inverted header\">".$value['title']."</h2>";
+                $images .=                          "<div class=\"sub header\">".$value['subtitle']."</div>";
+                $images .=                  "</div>";
+                $images .=              "</div>";
+                $images .=          "</div>";
+                $images .=          "<img src='".$value['image_url']."'>";
+                $images .=      "</div>";
+                $images .= "</div>";
+                $images .= (isset($value['post_link'])?"</a>":"");
             }
             $freewall .= $images."</div>";
 

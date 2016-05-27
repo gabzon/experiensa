@@ -17,11 +17,11 @@ class Helpers {
     }
 
     /**
-     * Get all no empty menus created on wp-admin
+     * Get all no empty and unique menus created on wp-admin
      * @return mixed
      */
     public static function get_all_menus_list(){
-        return get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+        return array_unique(get_terms( 'nav_menu', array( 'hide_empty' => true ) ),SORT_REGULAR);
     }
 
     public static function check_internet_connection(){

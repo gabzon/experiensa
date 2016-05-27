@@ -26,4 +26,22 @@ function get_the_color($color,$inverted){
     return $the_color;
 }
 
+function get_the_aligment($align){
+
+    switch($align){
+        case 'center':
+            $text_align = "center aligned";
+            break;
+        case 'left':
+            $text_align = "left aligned";
+            break;
+        case 'right':
+            $text_align = "right aligned";
+            break;
+        default:
+            $text_align = "justified";
+            break;
+    }
+    return $text_align;
+}
 ?>
