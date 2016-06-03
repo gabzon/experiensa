@@ -30,12 +30,12 @@ Class Menu {
         $submenu .= "</div>";
         return $submenu;
     }
-    public static function display_all_menus($page_id=null,$return=false){
+    public static function display_all_menus($page_id=null,$position='right',$return=false){
         $menus_list = Helpers::get_all_menus_list();
         $menu_string = "";
         if(!empty($menus_list)){
             foreach($menus_list as $menu){
-                $menu_string .= "<div class=\"right menu\">";
+                $menu_string .= "<div class=\"$position menu\">";
                 $menu_items = wp_get_nav_menu_items($menu->term_id);
                 foreach($menu_items as $item){
                     if($item->menu_item_parent == 0) {

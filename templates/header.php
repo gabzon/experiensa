@@ -7,10 +7,13 @@ $design_options = get_option('experiensa_design_settings');
 /*echo "<pre>";
 print_r($design_options);
 echo "</pre>";*/
+$header_style = get_theme_mod('header_style');
 $logo   = $agency_options['agency_logo'];
 $phone  = $agency_options['agency_phone'];
+if($header_style!=null):
+    Header::get_header($header_style,get_the_ID(),true);
+else:
 ?>
-
 <header class="ui <?= get_menu_style(); ?> menu grid">
     <div class="mobile only row">
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
@@ -43,11 +46,14 @@ $phone  = $agency_options['agency_phone'];
             <?php endif; ?>
         </a>
         <div class="right menu">
-            <?php get_phone_button(); ?>
-            <?php get_quote_button(); ?>
+            <?php get_phone_button(true); ?>
+            <?php get_quote_button(true); ?>
             <?php Menu::display_all_menus(get_the_ID()); ?>
-            <?php get_language_menu(); ?>
+            <?php get_language_menu(true); ?>
 
         </div>
     </div>
 </header>
+<?php
+endif;
+?>

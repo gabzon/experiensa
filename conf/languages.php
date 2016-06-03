@@ -18,16 +18,15 @@ function display_languages_button($option,$style){
         echo '</div>';
     }
 }
-    function display_language_menu($color=null){
-        $background = (!$color || $color==''?'black':$color);
+    function display_language_menu($color=null,$display = false){
+        $background = (!$color || $color==''?'inverted':$color);
         $menu = "";
         $languages = icl_get_languages('skip_missing=0&orderby=code');
-        if(!empty($languages)){
-            $menu .= "<div class=\"menu\" style='background:".$background.";'>";
-            $menu .=    "<div class=\"ui dropdown item landing-menu\">";
+        if(!empty($languages)) {
+            $menu .= "<div class='ui dropdown language-menu ".$background." button'>";
             $menu .=        '<i class="translate icon"></i>';
             $menu .=        "<div class=\"text\">".__('Languages','sage')."</div>";
-            $menu .=        '<i class="dropdown icon"></i>';
+            //$menu .=        '<i class="dropdown icon"></i>';
             $menu .=        "<div class=\"menu\">";
             foreach($languages as $lang){
                 if($lang['active']){
@@ -37,11 +36,13 @@ function display_languages_button($option,$style){
                 }
             }
             $menu .=        "</div>";
-            $menu .=    "</div>";
             $menu .= "</div>";
-            echo $menu;
         }
+        if(!$display)
+            return $menu;
+        echo $menu;
     }
+
 function display_language_menu_accordion(){
   $menu = "";
   $languages = icl_get_languages('skip_missing=0&orderby=code');

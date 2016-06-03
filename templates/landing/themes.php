@@ -45,6 +45,7 @@ if ($design_options['display_themes'] == 'TRUE'):?>
                     $theme['title'] = $term->name;
                     $theme['subtitle'] = '';
                     $theme['post_link'] = $post_url;
+
                     $theme['image_url'] = wp_get_attachment_url($post->ID);
                     $theme['thumbnail_image'] = wp_get_attachment_image($post->ID,'thumbnail');
                     $theme['thumbnail_url'] = wp_get_attachment_thumb_url( $post->ID );

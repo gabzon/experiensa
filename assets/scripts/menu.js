@@ -11,6 +11,7 @@ jQuery(function($){
 
     $('#select-language').dropdown();
     $('#language-menu').dropdown({on: 'hover'});
+    $('.language-menu').dropdown({on: 'hover'});
     $('.landing-menu').dropdown({
         allowCategorySelection: true,
         on: 'hover'

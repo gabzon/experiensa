@@ -1,5 +1,50 @@
 <?php
 $design_options = get_option('experiensa_design_settings');
+$agency_options = get_option('agency_settings');
+
+function get_agency_logo($display = false){
+    global $design_options;
+    global $agency_options;
+    $rlogo = array();
+    $logo   = $agency_options['agency_logo'];
+    if($logo) {
+        $rlogo['url'] = wp_get_attachment_url($logo);
+        $rlogo['size'] =    (!empty(get_theme_mod('header_logo_size'))?get_theme_mod('header_logo_size'):"tiny");
+    }
+    if(!$display)
+        return $rlogo;
+    echo $rlogo;
+}
+
+function get_blog_name($display = false){
+    $name = get_bloginfo('name');
+    if(!$display)
+        return $name;
+    echo $name;
+}
+function get_blog_tagline($display = false){
+    $tagline = get_bloginfo('description');
+    if(!$display)
+        return $tagline;
+    echo $tagline;
+}
+function get_experiencia_url($display = false){
+    $url = esc_url(home_url('/'));
+    if(!$display)
+        return $url;
+    echo $url;
+}
+
+function get_sidebar_button($position='right',$display = false){
+    $button =   "<div class=\"menu $position\">";
+    $button .=      "<a class=\"item mobile-menu ui button\">";
+    $button .=          "<i class=\"sidebar icon\"></i>";
+    $button .=      "</a>";
+    $button .=  "</div>";
+    if(!$display)
+        return $button;
+    echo $button;
+}
 
 function get_menu_style(){
     global $design_options;
@@ -47,31 +92,41 @@ function get_button_style(){
     return $button_style;
 }
 
-function get_phone_button(){
+function get_phone_button($display = false){
     global $design_options;
     $phone_options  = $design_options['group_phone_options'];
     $agency_options = get_option('agency_settings');
     $phone = $agency_options['agency_phone'];
+    $phone_button = "";
     if ($phone_options['header_display_phone_number'][0]  === 'TRUE'){
         if ($phone) {
-            echo '<a href="tel:' . $phone . '" class="item menu-link '. scroll_menu() . ' ">';
-            echo '<i class="call icon"></i>';
-            echo $phone;
-            echo '</a>';
+            $phone_button .= '<a href="tel:' . $phone . '" class="item menu-link '. scroll_menu() . ' ">';
+            $phone_button .= '<i class="call icon"></i>';
+            $phone_button .= $phone;
+            $phone_button .= '</a>';
         }
     }
+    if(!$display)
+        return $phone_button;
+    echo $phone_button;
 }
 
-function get_quote_button(){
+function get_quote_button($display = false){
     global $design_options;
     $quote_options = $design_options['group_quote'];
+    $color = $quote_options['header_quote_button_color'][0];
+    $background = (!$color || $color==''?'inverted':$color);
+    $quote_button = "";
     if ($quote_options['header_quote_display'][0] === 'TRUE'){
-        echo '<div class="item">';
-        echo '<a id="request-button" href="#" class="ui ' . $quote_options['header_quote_button_color'][0] . ' ' . get_button_style() . ' button">';
-        echo '<i class="edit icon"></i> ' . __('Request a Trip','sage');
-        echo '</a>';
-        echo '</div>';
+        $quote_button .=    '<div class="item">';
+        $quote_button .=        '<a id="request-button" href="#" class="ui ' . $background . ' ' . get_button_style() . ' button">';
+        $quote_button .=            '<i class="edit icon"></i> ' . __('Request a Trip','sage');
+        $quote_button .=        '</a>';
+        $quote_button .=    '</div>';
     }
+    if(!$display)
+        return $quote_button;
+    echo $quote_button;
 }
 
 function get_language_button(){
@@ -84,13 +139,17 @@ function get_language_button(){
     }
 }
 
-function get_language_menu(){
+function get_language_menu($display = false){
     global $design_options;
     $language_options = $design_options['group_language'];
+    $language_menu = "";
     if ($language_options['header_language_display'][0] === 'TRUE'){
         $color = $language_options['header_language_button_color'][0];
-        display_language_menu($color);
+        $language_menu = display_language_menu($color);
     }
+    if(!$display)
+        return $language_menu;
+    echo $language_menu;
 }
 function get_language_menu_accordion(){
     global $design_options;
