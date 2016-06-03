@@ -20,7 +20,6 @@ Class Menu {
                     $submenu .=    "<span class=\"text\">".$item->title."</span>";
                     $other_submenu = self::submenus($menu_items,$item->ID);
                     $submenu .= $other_submenu;
-                    $submenu .=    "</div>";
                     $submenu .= "</div>";
                 }else {
                     $submenu .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";

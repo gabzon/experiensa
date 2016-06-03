@@ -26,7 +26,7 @@ Class Header{
                 $header = self::get_right_logo_menu_left($page_id);
                 break;
             default:
-                $header = self::get_left_logo_menu_left($page_id);
+                $header = self::get_left_logo_menu_right($page_id);
                 break;
         }
         if(!$display)
@@ -57,27 +57,10 @@ Class Header{
         }
         $header .=      "</div>";
         $header .=      "<div class='computer only only eight column row'>";
-        $phone = get_phone_button();
-        if(!empty($phone)){
-            $header .=          "<div class='three wide column'>";
-            $header .=              $phone;
-            $header .=          "</div>";
-        }
-        $quote = get_quote_button();
-        if(!empty($quote)){
-            $header .=          "<div class='three wide column'>";
-            $header .=              $quote;
-            $header .=          "</div>";
-        }
-        $language = get_language_menu();
-        if(!empty($language)){
-            $header .=          "<div class='column'>";
-            $header .=              $language;
-            $header .=          "</div>";
-        }
-        $header .=          "<div class='eight wide column'>";
-        $header .=              Menu::display_all_menus($page_id,'left',true);
-        $header .=          "</div>";
+        $header .=          self::get_phone_item('three wide column');
+        $header .=          self::get_quote_item('three wide column');
+        $header .=          Menu::display_all_menus($page_id,'left',true);
+        $header .=          self::get_language_item();
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
@@ -88,7 +71,7 @@ Class Header{
         $header .=  self::get_mobile_header();
         $header .=      "<div class=\"computer only eight column row\">";
         $header .=          "<div class=\"column\">";
-        $header .=              self::get_logo_header('borderless');
+        $header .=              self::get_logo_header('');
         $header .=          "</div>";
         $header .=      "</div>";
         $header .=      "<div class='computer only row'>";
@@ -108,27 +91,10 @@ Class Header{
         }
         $header .=      "</div>";
         $header .=      "<div class='computer only eight column row'>";
-        $phone = get_phone_button();
-        if(!empty($phone)){
-            $header .=          "<div class='three wide column'>";
-            $header .=              $phone;
-            $header .=          "</div>";
-        }
-        $quote = get_quote_button();
-        if(!empty($quote)){
-            $header .=          "<div class='three wide column'>";
-            $header .=              $quote;
-            $header .=          "</div>";
-        }
-        $language = get_language_menu();
-        if(!empty($language)){
-            $header .=          "<div class='column'>";
-            $header .=              $language;
-            $header .=          "</div>";
-        }
-        $header .=          "<div class='eight wide column'>";
-        $header .=              Menu::display_all_menus($page_id,'left',true);
-        $header .=          "</div>";
+        $header .=          self::get_phone_item('three wide column');
+        $header .=          self::get_quote_item('three wide column');
+        $header .=          Menu::display_all_menus($page_id,'left',true);
+        $header .=          self::get_language_item();
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
@@ -204,31 +170,14 @@ Class Header{
         }
         $header .=          "</div>";
         $header .=          "<div class='right aligned column'>";
-        $header .=              self::get_logo_header('borderless');
+        $header .=              self::get_logo_header('');
         $header .=          "</div>";
         $header .=      "</div>";
         $header .=      "<div class=\"computer only centered row\">";
-        $phone = get_phone_button();
-        if(!empty($phone)){
-            $header .=          "<div class='three wide column'>";
-            $header .=              $phone;
-            $header .=          "</div>";
-        }
-        $quote = get_quote_button();
-        if(!empty($quote)){
-            $header .=          "<div class='three wide column'>";
-            $header .=              $quote;
-            $header .=          "</div>";
-        }
-        $language = get_language_menu();
-        if(!empty($language)){
-            $header .=          "<div class='column'>";
-            $header .=              $language;
-            $header .=          "</div>";
-        }
-        $header .=          "<div class='column'>";
-        $header .=              Menu::display_all_menus($page_id,'left',true);
-        $header .=          "</div>";
+        $header .=          self::get_language_item();
+        $header .=          self::get_phone_item('three wide column');
+        $header .=          self::get_quote_item('three wide column');
+        $header .=          Menu::display_all_menus($page_id,'left',true);
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
@@ -257,27 +206,10 @@ Class Header{
         $header .=          "</div>";
         $header .=      "</div>";
         $header .=      "<div class=\"computer only centered row\">";
-        $phone = get_phone_button();
-        if(!empty($phone)){
-            $header .=          "<div class='three wide column'>";
-            $header .=              $phone;
-            $header .=          "</div>";
-        }
-        $quote = get_quote_button();
-        if(!empty($quote)){
-            $header .=          "<div class='three wide column'>";
-            $header .=              $quote;
-            $header .=          "</div>";
-        }
-        $language = get_language_menu();
-        if(!empty($language)){
-            $header .=          "<div class='column'>";
-            $header .=              $language;
-            $header .=          "</div>";
-        }
-        $header .=          "<div class='column'>";
-        $header .=              Menu::display_all_menus($page_id,'left',true);
-        $header .=          "</div>";
+        $header .=          self::get_phone_item('three wide column');
+        $header .=          self::get_quote_item('three wide column');
+        $header .=          Menu::display_all_menus($page_id,'left',true);
+        $header .=          self::get_language_item();
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
@@ -286,27 +218,10 @@ Class Header{
         $header =   "<header class=\"ui ".get_menu_style()." eight column menu grid\">";
         $header .=  self::get_mobile_header();
         $header .=      "<div class=\"computer only row\">";
-        $phone = get_phone_button();
-        if(!empty($phone)){
-            $header .=          "<div class='middle aligned column'>";
-            $header .=              $phone;
-            $header .=          "</div>";
-        }
-        $quote = get_quote_button();
-        if(!empty($quote)){
-            $header .=          "<div class='middle aligned column'>";
-            $header .=              $quote;
-            $header .=          "</div>";
-        }
-        $language = get_language_menu();
-        if(!empty($language)){
-            $header .=          "<div class='middle aligned column'>";
-            $header .=              $language;
-            $header .=          "</div>";
-        }
-        $header .=          "<div class='middle aligned column'>";
+        $header .= self::get_language_item('middle aligned column');
+        $header .= self::get_phone_item('middle aligned three wide column');
+        $header .= self::get_quote_item('middle aligned three wide column');
         $header .=              Menu::display_all_menus($page_id,'left',true);
-        $header .=          "<div class='three wide right floated column'>";
         if(self::check_display_company_name()){
             $header .=          "<div class='borderless item'>";
             $header .=              "<div class=\"content\">";
@@ -318,7 +233,7 @@ Class Header{
             }
             $header .=              "</div>";
             $header .=              "<div class='ui image'>";
-            $header .=                  self::get_logo_header('borderless');
+            $header .=                  self::get_logo_header('');
             $header .=              "</div>";
             $header .=          "</div>";
         }
@@ -329,7 +244,7 @@ Class Header{
         return $header;
     }
 
-    public static function get_left_logo_menu_left($page_id){
+    public static function get_left_logo_menu_right($page_id){
         $header =   "<header class=\"ui ".get_menu_style()." eight column menu grid\">";
         $header .=  self::get_mobile_header();
         $header .=      "<div class=\"computer only row\">";
@@ -350,29 +265,10 @@ Class Header{
             $header .=          "</div>";
             $header .=      "</div>";
         }
-        $phone = get_phone_button();
-        if(!empty($phone)){
-            $header .=          "<div class='middle aligned column'>";
-            $header .=              $phone;
-            $header .=          "</div>";
-        }
-        $quote = get_quote_button();
-        if(!empty($quote)){
-            $header .=          "<div class='middle aligned column'>";
-            $header .=              $quote;
-            $header .=          "</div>";
-        }
-        $language = get_language_menu();
-        if(!empty($language)){
-            $header .=          "<div class='middle aligned column'>";
-            $header .=              $language;
-            $header .=          "</div>";
-        }
-        $header .=          "<div class='middle aligned column'>";
-        $header .=              Menu::display_all_menus($page_id,'left',true);
-        /**/
-        $header .=          "</div>";
-
+        $header .=          self::get_phone_item('middle aligned three wide column');
+        $header .=          self::get_quote_item('middle aligned three wide column');
+        $header .=              Menu::display_all_menus($page_id,'right',true);
+        $header .=          self::get_language_item('middle aligned column');
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
@@ -387,7 +283,37 @@ Class Header{
 
         return $logo_header;
     }
+    public static function get_phone_item($class='column'){
+        $menu = "";
+        $phone = get_phone_button();
+        if(!empty($phone)){
+            $menu .=          "<div class='".$class."'>";
+            $menu .=              $phone;
+            $menu .=          "</div>";
+        }
+        return $menu;
+    }
+    public static function get_quote_item($class='column'){
+        $menu = "";
+        $quote = get_quote_button();
+        if(!empty($quote)){
+            $menu .=          "<div class='".$class."'>";
+            $menu .=              $quote;
+            $menu .=          "</div>";
+        }
+        return $menu;
+    }
 
+    public static function get_language_item($class='column'){
+        $menu = "";
+        $language = get_language_menu();
+        if(!empty($language)){
+            $menu .=          "<div class='".$class."'>";
+            $menu .=              $language;
+            $menu .=          "</div>";
+        }
+        return $menu;
+    }
     public static function get_mobile_header(){
         $agency_options = get_option('agency_settings');
         $logo = $agency_options['agency_logo'];
