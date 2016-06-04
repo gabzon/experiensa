@@ -40,7 +40,7 @@
     "jquery-ui": {
       "main": [
         "./jquery-ui.js",
-        "./themes/base/slider.css"
+        "./themes/base/jquery-ui.css"
       ]
     },
     "vegas": {

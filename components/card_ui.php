@@ -13,6 +13,8 @@ class Card{
      * @param array $images list of images to show
      * @param null $excerpt content to show
      * @param null $price price to show
+     * @param null $url link to website
+     * @param null $url_name website name
      * @param array $contact{
      *      @type string $mail contact mail
      *      @type string $modal class name to open datail modal
@@ -21,14 +23,14 @@ class Card{
      * @param null $all_data list all data obtained from apim this is for show detail modal data
      * @return string $card semantic ui card component layout
      */
-    public static function display_card_full($return = false,$title=null,$images=[],$excerpt=null, $price=null, $contact=[],$locations=[],$all_data=null){
+    public static function display_card_full($return = false,$title=null,$images=[],$excerpt=null, $price=null, $url=null,$url_name=null,$contact=[],$locations=[],$all_data=null){
         $card = "<div class=\"ui card\">";
         if(!empty($images)){
             $card .=    "<div class=\"image\">";
             if($price){
-                $card .= "<div class=\"ui blue ribbon label\">
-                            ".$price."
-                        </div>";
+                $card .=    "<div class=\"ui blue ribbon label\">
+                                ".$price."
+                            </div>";
             }
             $card .= Gallery::show_gallery_from_list($images,true);
             $card .=    "</div>";
@@ -58,6 +60,13 @@ class Card{
                             <p>".$excerpt."</p>
                         </div>";
         }
+        /*if($url && $url_name){
+            $card .= "<div class=\"extra content\">";
+            $card .=    "<div class=\"right floated author\">";
+            $card .=        __('Offered by','sage').' '.$url_name;
+            $card .=    "</div>";
+            $card .= "</div>";
+        }*/
         if(!empty($locations)){
             $card .= "<div class='content'>";
             $card .= "<i class=\"map marker icon\"></i> <strong>".__('Locations','sage')."</strong><br>";
@@ -97,11 +106,11 @@ class Card{
             }
         }
         if(!empty($contact) && isset($contact["modal"])){
-            $card .= Catalog::display_trip_detail($all_data,true);
+            $card .= Catalog::display_trip_detail($all_data,$contact['mail'],true);
         }
         $card .= "</div>";
         if(!empty($contact) && isset($contact["modal"])){
-            $card .= Catalog::display_trip_detail($all_data,true);
+            $card .= Catalog::display_trip_detail($all_data,$contact['mail'],true);
         }
         if(!$return)
             echo $card;
@@ -109,4 +118,32 @@ class Card{
             return $card;
     }
 
+    public static function display_card_simple($args,$return=false){
+        $card = "";
+        if(!empty($args)){
+            $card .= "<div class=\"ui four stackable cards\">";
+            foreach($args as $value){
+                $card .= "<a href='".$value['post_link']."' target=\"_blank\">";
+                $card .= "<div class=\"ui card\">";
+                $card .=    "<div class=\"image\">";
+                $card .=        "<img src='".$value['image_url']."'>";
+                $card .=    "</div>";
+                $card .=    "<div class=\"content\">";
+                $card .=        "<div class=\"header\">".$value['title']."</div>";
+                $card .=    "</div>";
+                if(isset($value['subtitle']) && !empty($value['subtitle'])) {
+                    $card .= "<div class=\"extra content\">";
+                    $card .=    $value['subtitle'];
+                    $card .= "</div>";
+                }
+                $card .= "</div>";
+                $card .= "</a>";
+            }
+            $card .= "</div>";
+        }
+        if(!$return)
+            echo $card;
+        else
+            return $card;
+    }
 }

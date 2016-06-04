@@ -18,35 +18,31 @@ function display_languages_button($option,$style){
         echo '</div>';
     }
 }
-function display_language_menu(){
-  $menu = "";
-  $languages = icl_get_languages('skip_missing=0&orderby=code');
-  if(!empty($languages)){
-    $menu .= "<div id=\"language-menu\" class=\"ui dropdown item\">";
-    $menu .= '<i class="translate icon"></i>';
-    $menu .= "<span class=\"text\">".__('Languages','sage')."</span>";
-    $menu .= '<i class="dropdown icon"></i>';
-    $menu .= "<div  class=\"menu\">";
-    foreach($languages as $l){      
-      if(!$l['active']){
-        $menu .= '<div class="item">';
-        $menu .= "<a class=\"item\" href=\"".$l['url']."\">";
-        $menu .= icl_disp_language($l['native_name'], $l['translated_name']);
-        $menu .= '</a>';
-        $menu .= "</div>";
-      }else{
-        $menu .= '<div class="item active">';
-        $menu .= "<a class=\"item\" href=\"#\">";
-        $menu .= icl_disp_language($l['native_name'], $l['translated_name']);
-        $menu .= '</a>';
-        $menu .= "</div>";
-      }
+    function display_language_menu($color=null,$display = false){
+        $background = (!$color || $color==''?'inverted':$color);
+        $menu = "";
+        $languages = icl_get_languages('skip_missing=0&orderby=code');
+        if(!empty($languages)) {
+            $menu .= "<div class='ui dropdown language-menu ".$background." button'>";
+            $menu .=        '<i class="translate icon"></i>';
+            $menu .=        "<div class=\"text\">".__('Languages','sage')."</div>";
+            //$menu .=        '<i class="dropdown icon"></i>';
+            $menu .=        "<div class=\"menu\">";
+            foreach($languages as $lang){
+                if($lang['active']){
+                    $menu .="<div class='item active'>".$lang['native_name']."</div>";
+                }else{
+                    $menu .="<a class='item' href='".$lang['url']."'>".icl_disp_language($lang['native_name'], $lang['translated_name'])."</a>";
+                }
+            }
+            $menu .=        "</div>";
+            $menu .= "</div>";
+        }
+        if(!$display)
+            return $menu;
+        echo $menu;
     }
-    $menu .= "</div>";
-    $menu .= "</div>";
-    echo $menu;
-  }
-}
+
 function display_language_menu_accordion(){
   $menu = "";
   $languages = icl_get_languages('skip_missing=0&orderby=code');

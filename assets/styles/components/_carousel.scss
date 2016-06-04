@@ -15,12 +15,37 @@
         color: #ffffff;
         text-shadow: 2px 1px 1px rgba(0, 0, 0, 1);
     }
-    .promotion-item img{ width: 100%; height: auto; }
+    .promotion-item img{ width: 100%; height: 100%; }
 }
 .promotion-item:hover{
     .title{display:none};
 }
-
+.owl-carousel{
+    .owl-item{
+        .carousel-component{
+            height:100%;
+            width:100%;
+            img{                
+                display: block;
+				width:100%;
+                height: 200px;
+            }
+        }
+    }
+}
+.owl-carousel{
+    .owl-item{
+        .carousel-card{
+            height:100%;
+            width:100%;
+            img{
+                display: block;
+                width:100%;
+                height: 200px;
+            }
+        }
+    }
+}
 .owl-carousel .owl-item img {
     height:auto;
     width:100%;

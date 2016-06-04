@@ -4,10 +4,16 @@ $menu_name = 'primary_navigation';
 
 $agency_options = get_option('agency_settings');
 $design_options = get_option('experiensa_design_settings');
+/*echo "<pre>";
+print_r($design_options);
+echo "</pre>";*/
+$header_style = get_theme_mod('header_style');
 $logo   = $agency_options['agency_logo'];
 $phone  = $agency_options['agency_phone'];
+if($header_style!=null):
+    Header::get_header($header_style,get_the_ID(),true);
+else:
 ?>
-
 <header class="ui <?= get_menu_style(); ?> menu grid">
     <div class="mobile only row">
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
@@ -40,24 +46,14 @@ $phone  = $agency_options['agency_phone'];
             <?php endif; ?>
         </a>
         <div class="right menu">
-            <?php
-            if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
-                $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-                $menu_items = wp_get_nav_menu_items($menu->term_id);
-                foreach ( (array) $menu_items as $key => $menu_item ) :
-                    $class = $menu_item->classes; ?>
-                    <a href="<?php echo $menu_item->url; ?>" class="item menu-link <?= scroll_menu(); ?> <?php if (get_the_ID() == $menu_item->object_id) { echo 'active'; } ?>">
-                        <?php echo $menu_item->title; ?>
-                    </a>
-                    <?php
-                endforeach;
-            endif;
-            ?>
-            <?php get_phone_button(); ?>
-            <?php get_quote_button(); ?>
-            <?php //get_language_button(); ?>
-            <?php get_language_menu(); ?>
+            <?php get_phone_button(true); ?>
+            <?php get_quote_button(true); ?>
+            <?php Menu::display_all_menus(get_the_ID()); ?>
+            <?php get_language_menu(true); ?>
 
         </div>
     </div>
 </header>
+<?php
+endif;
+?>

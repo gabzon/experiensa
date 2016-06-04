@@ -1,31 +1,15 @@
 function requestForm(){
 
     // Form
-    var frominput = jQuery('#departure').pickadate({
-        min: 1
-    });
-    var toinput = jQuery('#return').pickadate();
-
-    var frompicker = frominput.pickadate('picker');
-    var topicker = toinput.pickadate('picker');
-
-    if (frompicker.get('value')) {
-        topicker.set('min', frompicker.get('select'));
-    }
-    if (topicker.get('value')) {
-        frompicker.set('max', topicker.get('select'));
-    }
-
-    frompicker.on('set', function (event) {
-        console.log(event);
-        if (event.select) {
-            topicker.set('min', frompicker.get('select'));
+    jQuery( "#departure" ).datepicker({
+        minDate:0,
+        onClose: function( selectedDate ) {
+            jQuery( "#return" ).datepicker( "option", "minDate", selectedDate );
         }
     });
-
-    topicker.on('set', function (event) {
-        if (event.select) {
-            frompicker.set('max', topicker.get('select'));
+    jQuery( "#return" ).datepicker({
+        onClose: function( selectedDate ) {
+            jQuery( "#departure" ).datepicker( "option", "maxDate", selectedDate );
         }
     });
 

@@ -56,7 +56,7 @@ $gallery = get_post_meta(get_the_ID(), 'gallery', false);
                 $mailto .= '?subject=Offre:' . get_the_title();
                 $mailto .= '&body=' . __('I\'m interested in this this offert','sage');
             ?>
-            <a href="mailto: <?= $mailto; ?>" class="fluid ui blue button">
+            <a href="mailto: <?= $mailto; ?>" class="fluid ui inverted button">
                 <i class="shop icon"></i>
                 <?php _e('Contact us','sage'); ?>
             </a>

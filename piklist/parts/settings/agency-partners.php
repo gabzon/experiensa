@@ -5,6 +5,16 @@
  Tab: Partner
  Tab Order: 30
  */
+piklist('field',array(
+    'type'          => 'select',
+    'field'         => 'setting_partners_display',
+    'label'         => __('Display Partners Section','sage'),
+    'value'         => 'FALSE',
+    'choices'       => array(
+        'TRUE'  => __('Yes','sage'),
+        'FALSE' => __('No','sage')
+    ),
+));
 $partner_name = array(
             'type' => 'text',
             'field' => 'partner_name',

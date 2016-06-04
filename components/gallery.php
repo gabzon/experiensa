@@ -53,7 +53,7 @@ class Gallery{
         if(!empty($images)){
             $gallery.="<div class=\"owl-carousel\" style=\"margin-bottom:0\">";
             foreach($images as $image){
-                $gallery.="<div>";
+                $gallery.="<div class='carousel-card'>";
                 if($full===true)
                     $url=$image['full_size'];
                 else

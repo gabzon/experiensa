@@ -35,6 +35,9 @@ echo('</pre>');*/
                 <?php the_content(); ?>
             </div>
             <br><br>
+            <?php
+            if(count($prices)>0 && !empty($prices[0])):
+            ?>
             <div class="ui three column grid stackable">
 
                 <?php for ($i=0; $i < count($prices); $i++): ?>
@@ -49,8 +52,9 @@ echo('</pre>');*/
                                     <br>
                                 </div>
                             </div>
+                            <!-- Estimate Images -->
                             <?php
-                            if(!empty($photos[$i])):
+                            if(!empty($photos[$i]) && !empty($photos[$i][0])):
                                 ?>
                                 <div class="image">
                                     <?php Gallery::show_gallery($photos[$i]); ?>
@@ -60,9 +64,11 @@ echo('</pre>');*/
                             ?>
                             <div class="content">
                                 <a class="header"></a>
+                                <!-- Estimate Slogan -->
                                 <div class="meta">
                                     <span class="date"><?= $slogans[$i]; ?></span>
                                 </div>
+                                <!-- Estimate Information & Conditions -->
                                 <div class="description">
                                     <?= $conditions[$i]; ?>
                                 </div>
@@ -79,7 +85,10 @@ echo('</pre>');*/
                                 </span>
                             </div>
                             <?php
-                            Fligth::display_flights($flights,$i);
+                            /*echo "<pre>";
+                            print_r($flights);
+                            echo "</pre>";*/
+                            Flights::display_flights($flights[0],$i);
                             Accommodations::display_accommodations( $accommodations, $i);
                             ?>
                             <?php
@@ -105,6 +114,9 @@ echo('</pre>');*/
                     </div>
                 <?php endfor;?>
             </div>
+            <?php else:?>
+                <h3><?= __('No Voyages Avalibles','sage');?></h3>
+            <?php endif;?>
             <br>
             <footer>
                 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>

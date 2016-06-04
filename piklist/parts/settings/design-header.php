@@ -6,6 +6,19 @@ Setting: experiensa_design_settings
 Tab: Header Design
 Tab Order: 10
 */
+piklist('field', array(
+    'type'      => 'select',
+    'field'     => 'header_style',
+    'label'     => __('Header Style','sage'),
+    'columns'   => 4,
+    'value'     => 'all_horizontal',
+    'choices'   => array(
+        'all_vertical'      => __('All Vertical','sage'),
+        'all_horizontal'      => __('All Horizontal','sage'),
+        'left_logo_menu_icon'     => __('Left Logo and Menu Icon','sage'),
+        'right_logo_menu_icon'     => __('Right Logo and Menu Icon','sage')
+    ),
+));
 
 /* ****************************************************************************/
 /* Phone button ***************************************************************/

@@ -6,7 +6,7 @@ $description    = get_post_meta($post->ID,'itinerary_description');
 $gallery        = get_post_meta($post->ID,'itinerary_gallery');
 ?>
 <br>
-<?php if ($day): ?>
+<?php if (!empty($day) && !empty($day[0])): ?>
     <br>
     <hr>
     <br>

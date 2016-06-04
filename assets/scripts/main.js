@@ -30,11 +30,36 @@
                 }).each(function (i, b) {
                     $(this).data('modal', $(this).parents('.card').children('.ui.modal').modal());
                 });
-                $(".owl-carousel").owlCarousel({
+
+                $('#container a:has(.someclass)').addClass('anotherclass');
+                /*$(".owl-carousel").owlCarousel({
                     autoPlay: 3000, //Set AutoPlay to 3 seconds
                     loop:true,
                     items: 1
-                });
+                });*/
+                /*$(".owl-carousel").owlCarousel({
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
+                    loop:true,
+                    nav:true,
+                    margin: 10,
+                    navText: [
+                        "<i class='chevron circle left large icon'></i>",
+                        "<i class='chevron circle right large icon'></i>"
+                    ],
+                    responsive:{
+                        0:{
+                            items:1
+                        },
+                        600:{
+                            items:3
+                        },
+                        1920:{
+                            items:5
+                        }
+                    }
+                });*/
                 // var activatingElement;
                 // $('.ui.card a#modal-details').on('click',function(){
                 //     activatingElement = this;
@@ -63,8 +88,9 @@
 
                 $('#slides').superslides({play:'8000'});
 
-                scrollMenu();
-
+                if (jQuery('.main-slider').length>0) {
+                    scrollMenu();
+                }
                 $(".owl-carousel").owlCarousel({
                     autoplay:true,
                     autoplayTimeout:3000,
@@ -72,6 +98,7 @@
                     loop:true,
                     nav:true,
                     margin: 10,
+					autoHeight:false,
                     navText: [
                         "<i class='chevron circle left large icon'></i>",
                         "<i class='chevron circle right large icon'></i>"
@@ -91,7 +118,9 @@
 
                 $(".free-wall .brick .image").dimmer({on:'hover'});
                 $(".free-wall .brick-pinterest .image").dimmer({on:'hover'});
-                $(".owl-carousel .item.promotion-item .image").dimmer({on:'hover'});
+                $(".free-wall .freewall-cell .image").dimmer({on:'hover'});
+                $(".free-wall .item .image").dimmer({on:'hover'});
+                $(".owl-carousel .carousel-component .image").dimmer({on:'hover'});
 
                 $('.grid-masonry').masonry({
                   // set itemSelector so .grid-sizer is not used in layout
@@ -187,6 +216,17 @@
                     return false;
                 }
                 $('#newRequest').submit(ajaxSubmit);
+            }
+        },
+        'page_template_catalog':{
+            init:function(){
+                $(".owl-carousel").owlCarousel({
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
+                    loop:true,
+                    items: 1
+                });
             }
         }
     };

@@ -10,7 +10,15 @@ jQuery(function($){
     //ui languages floating dropdown
 
     $('#select-language').dropdown();
-    $('#language-menu').dropdown();
+    $('#language-menu').dropdown({on: 'hover'});
+    $('.language-menu').dropdown({on: 'hover'});
+    $('.landing-menu').dropdown({
+        allowCategorySelection: true,
+        on: 'hover'
+    });
+    $('.mobile-menu').dropdown({
+        allowCategorySelection: true
+    });
     $('.ui.accordion').accordion();
 });
 
