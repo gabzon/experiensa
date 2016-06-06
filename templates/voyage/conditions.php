@@ -56,4 +56,6 @@ $voyage_info = get_post_meta(get_the_ID(), 'information_conditions', true);
             <?php endif; ?>
         </div>
     </div>
+    <br>
+    <br>
 <?php endif; ?>
