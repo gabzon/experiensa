@@ -38,43 +38,5 @@ if($display_showcase!==false && $display_showcase=='TRUE'){
         }
     }
 }
-/*echo "<pre>";
-print_r($design_options);
-echo "</pre>";
-$showcase_options = $design_options['showcase_options'];
-if(isset($showcase_options) && !empty($showcase_options)){
-    echo "hola";
-}*/
-/*
-foreach ($order as $key) {
-    switch ($key) {
-        case 'destination':
-            get_template_part('templates/landing/destinations');
-            break;
-        case 'promotion':
-            get_template_part('templates/landing/promotions');
-            break;
-        case 'theme':
-            echo 'hola';
-            get_template_part('templates/landing/themes');
-            break;
-        case 'country':
-            get_template_part('templates/landing/countries');
-            break;
-        case 'content':
-            while (have_posts()) {
-                the_post();
-                get_template_part('templates/content', 'page');
-            }
-            break;
-        default:
-        while (have_posts()) {
-            the_post();
-            get_template_part('templates/content', 'page');
-        }
-        break;
-    }
-}*/
 get_template_part('templates/landing/partners');
 
-?>
