@@ -299,7 +299,7 @@ msgstr "Insérer dans la brochure"
 
 #: ../models/post-type/brochure.php:30
 msgid "Uploaded to this brochure"
-msgstr ""
+msgstr "Téléchargé à cette brochure"
 
 #: ../models/post-type/brochure.php:31
 msgid "Brochure list"
@@ -372,7 +372,7 @@ msgstr "Filtre liste devis"
 
 #: ../models/post-type/estimate.php:35
 msgid "List of Estimates (quotes & estimation)"
-msgstr ""
+msgstr "Liste de devis (estimations)"
 
 #: ../models/post-type/estimate.php:55
 msgid "requested"
@@ -668,7 +668,7 @@ msgstr "Liste de voyages"
 
 #: ../models/post-type/voyage.php:23
 msgid "Voyage list navigation"
-msgstr ""
+msgstr "Navigation de voyages"
 
 #: ../models/post-type/voyage.php:24
 msgid "Filter Voyage list"
@@ -1091,7 +1091,7 @@ msgstr "Nom de l'établissement "
 #: ../piklist/parts/meta-boxes/estimate-general.php:203
 #: ../piklist/parts/meta-boxes/voyage-accommodation.php:22
 msgid "Establishment type"
-msgstr ""
+msgstr "Type d'établissement"
 
 #: ../piklist/parts/meta-boxes/estimate-accommodation.php:29
 #: ../piklist/parts/meta-boxes/estimate-general.php:206
@@ -1288,7 +1288,7 @@ msgstr "Commentaires"
 #: ../piklist/parts/meta-boxes/estimate-flight.php:98
 #: ../piklist/parts/meta-boxes/estimate-general.php:172
 msgid "Flight Options"
-msgstr ""
+msgstr "Options de vol"
 
 #: ../piklist/parts/meta-boxes/estimate-general.php:12
 #: ../piklist/parts/meta-boxes/voyage-itinerary.php:22
@@ -1401,13 +1401,15 @@ msgstr "Marge(%)"
 
 #: ../piklist/parts/meta-boxes/voyage-general.php:118
 msgid "Photos should be 1920x1080 pixels"
-msgstr ""
+msgstr "Les photos devrais être 1920x1080 pixeles"
 
 #: ../piklist/parts/meta-boxes/voyage-general.php:125
 msgid ""
 "Brochures should be jpeg files, visit: <a href=\"https://smallpdf.com/pdf-to-"
 "jpg\" target=\"_blank\">https://smallpdf.com</a>"
 msgstr ""
+"Les brochures devraient être de fichiers jpeg, visitez: <a href=\"https://"
+"smallpdf.com/pdf-to-jpg\" target=\"_blank\">https://smallpdf.com</a>"
 
 #: ../piklist/parts/meta-boxes/voyage-itinerary.php:15
 msgid "Day"
@@ -1427,7 +1429,7 @@ msgstr "Galerie"
 
 #: ../piklist/parts/settings/agency-defaults.php:29
 msgid "Timezone"
-msgstr ""
+msgstr "Fuseau horaire"
 
 #: ../piklist/parts/settings/agency-information.php:11
 msgid "Logo"
@@ -1805,11 +1807,11 @@ msgstr "Grille simple"
 
 #: ../piklist/parts/settings/design-general.php:38
 msgid "Isotope Grid"
-msgstr ""
+msgstr "Grille Isotope"
 
 #: ../piklist/parts/settings/design-general.php:39
 msgid "Partners API"
-msgstr ""
+msgstr "API des partenaires"
 
 #: ../piklist/parts/settings/design-header.php:17
 msgid "Logo size"
@@ -1929,7 +1931,7 @@ msgstr "Couleur de la police"
 
 #: ../piklist/parts/settings/design-landing.php:13
 msgid "Displaying order"
-msgstr ""
+msgstr "Ordre d'affichage"
 
 #: ../piklist/parts/settings/design-landing.php:14
 msgid "Order in which the front page will be display after the slider"
@@ -1952,7 +1954,7 @@ msgstr "Contenu"
 
 #: ../piklist/parts/settings/design-landing.php:34
 msgid "Slider section"
-msgstr ""
+msgstr "Section du Slider"
 
 #: ../piklist/parts/settings/design-landing.php:40
 msgid "Display Slider"
@@ -1960,7 +1962,7 @@ msgstr "Afficher Slider"
 
 #: ../piklist/parts/settings/design-landing.php:41
 msgid "Fullscreen image slider"
-msgstr ""
+msgstr "Fullscreen image slider"
 
 #: ../piklist/parts/settings/design-landing.php:52
 msgid "What to show in the slider?"
@@ -1976,15 +1978,15 @@ msgstr ""
 
 #: ../piklist/parts/settings/design-landing.php:70
 msgid "Welcome Message"
-msgstr ""
+msgstr "Message d'accueil"
 
 #: ../piklist/parts/settings/design-landing.php:74
 msgid "Enter your welcome message"
-msgstr ""
+msgstr "Entrez votre message d'accueil"
 
 #: ../piklist/parts/settings/design-landing.php:92
 msgid "Destination section"
-msgstr ""
+msgstr "Section de destinations"
 
 #: ../piklist/parts/settings/design-landing.php:99
 msgid "Display destinations"
@@ -1998,7 +2000,7 @@ msgstr "Non"
 
 #: ../piklist/parts/settings/design-landing.php:110
 msgid "How to display destinations?"
-msgstr ""
+msgstr "Comment afficher les destinations"
 
 #: ../piklist/parts/settings/design-landing.php:113
 #: ../piklist/parts/settings/design-landing.php:221
@@ -2095,7 +2097,7 @@ msgstr "Couleur de la section promotion"
 
 #: ../piklist/parts/settings/design-landing.php:297
 msgid "Themes section"
-msgstr ""
+msgstr "Section de thèmes"
 
 #: ../piklist/parts/settings/design-landing.php:304
 msgid "Display Themes"
@@ -2131,7 +2133,7 @@ msgstr ""
 
 #: ../piklist/parts/users/users.php:110
 msgid "Enter your Skype"
-msgstr ""
+msgstr "Entrez votre Skype"
 
 #: ../piklist/parts/users/users.php:122
 msgid "Language Spoken"
@@ -2147,7 +2149,7 @@ msgstr "Ajouter photo"
 
 #: ../piklist/parts/users/users.php:173
 msgid "Phone(s)"
-msgstr ""
+msgstr "Téléphone(s)"
 
 #: ../piklist/parts/users/users.php:179
 msgid "Birthday"
@@ -2155,7 +2157,7 @@ msgstr "Anniversaire"
 
 #: ../piklist/parts/users/users.php:192
 msgid "Hobbies"
-msgstr ""
+msgstr "Hobbies"
 
 #: ../piklist/parts/users/users.php:197
 msgid "Enter your hobbies"
@@ -2521,7 +2523,7 @@ msgstr "Information du paiement"
 
 #: ../templates/estimate/pay-estimate-form.php:70
 msgid "Month"
-msgstr ""
+msgstr "Mois"
 
 #: ../templates/estimate/pay-estimate-form.php:71
 msgid "January"
@@ -2557,7 +2559,7 @@ msgstr "Août"
 
 #: ../templates/estimate/pay-estimate-form.php:79
 msgid "September"
-msgstr ""
+msgstr "Septembre"
 
 #: ../templates/estimate/pay-estimate-form.php:80
 msgid "October"
@@ -2565,7 +2567,7 @@ msgstr "Octobre"
 
 #: ../templates/estimate/pay-estimate-form.php:81
 msgid "November"
-msgstr ""
+msgstr "Novembre"
 
 #: ../templates/estimate/pay-estimate-form.php:82
 msgid "December"

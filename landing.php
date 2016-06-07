@@ -55,6 +55,7 @@ foreach ($order as $key) {
             get_template_part('templates/landing/promotions');
             break;
         case 'theme':
+            echo 'hola';
             get_template_part('templates/landing/themes');
             break;
         case 'country':
