@@ -1,17 +1,28 @@
 <?php
+
+use Configuration\Customizer\Header;
+
 function add_sections($wp_customize){
-    $wp_customize->add_section( 'experiensa_header_design' , array(
+    $header_section = [
         'title'      => __('Header Design','sage'),
         'priority'   => 30,
         'panel'     => 'experiensa_design'
-    ) );
+    ];
+    $landing_section = [
+        'title'      => __('Landing Design','sage'),
+        'priority'   => 31,
+        'panel'     => 'experiensa_design'
+    ];
+    $wp_customize->add_section( 'experiensa_header_design'  , $header_section );
+    //$wp_customize->add_section( 'experiensa_landing_design' , $landing_section );
+
 }
+
 function add_header_settings($wp_customize){
       $wp_customize->add_setting( 'header_style' , array(
           'default'     => 'all_horizontal',
           'transport'   => 'refresh',
       ) );
-
       $wp_customize->add_setting( 'header_logo_size' , array(
           'default'     => 'tiny',
           'transport'   => 'refresh',
@@ -45,7 +56,6 @@ function add_header_controls($wp_customize){
           ),
       )
   );
-
   $wp_customize->add_control(
       'header_logo_size',
       array(
@@ -85,16 +95,17 @@ function add_header_controls($wp_customize){
         )
     );
 }
+
 function experiensa_customize_register( $wp_customize ) {
-    $wp_customize->add_panel( 'experiensa_design', array(
+    $design_panel = [
         'title' => __( 'Design', 'sage' ),
         'description' => __('Theme Design Options'), // Include html tags such as <p>.
         'priority' => 160, // Mixed with top-level-section hierarchy.
-    ) );
-
+    ];
+    $wp_customize->add_panel( 'experiensa_design', $design_panel);
     add_sections($wp_customize);
+    //Header\add_header_settings($wp_customize);
     add_header_settings($wp_customize);
     add_header_controls($wp_customize);
-
 }
 add_action( 'customize_register', 'experiensa_customize_register' );

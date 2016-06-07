@@ -43,10 +43,11 @@ piklist('field',array(
     'field' => 'hotel_posttypes',
     'label' => __('Hotel Modules','sage'),
     'choices' => array(
-        'host' => __('Hosts','sage'),
-        'estimate' => __('Estiamtes','sage'),
-        'feedback' => __('Feedback','sage'),
-        'services' => __('Services','sage')
+        'host'      => __('Hosts','sage'),
+        'estimate'  => __('Estiamtes','sage'),
+        'feedback'  => __('Feedback','sage'),
+        'services'  => __('Services','sage'),
+        'room'      => __('Rooms','sage')
     ),
     'conditions' => array(
         array(
