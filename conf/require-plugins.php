@@ -27,7 +27,14 @@ function showRequirePlugins()
         'url'       => 'https://wpml.org/'
     ];
 
-    $plugins = [$piklist, $api, $wpml];
+    $jetpack = [
+        'name'      => 'JetPack',
+        'folder'    => 'jetpack',
+        'file'      => 'jetpack.php',
+        'url'       => 'https://jetpack.com/'
+    ];
+
+    $plugins = [$piklist, $api, $wpml, $jetpack];
 
     foreach ($plugins as $key => $value) {
         $plugin = $value['folder'] . '/' . $value['file'];

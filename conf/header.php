@@ -151,6 +151,7 @@ function get_language_menu($display = false){
         return $language_menu;
     echo $language_menu;
 }
+
 function get_language_menu_accordion(){
     global $design_options;
     $language_options = $design_options['group_language'];

@@ -18,7 +18,7 @@ function hide_custom_post_types(){
     $agency_options = get_option('agency_settings');
     if(isset($agency_options)) {
         $website_use = $agency_options['website_use'];
-        $all_posttypes = ["brochure", "partner", "feedback", "service", "host", "voyage", "estimate"];
+        $all_posttypes = [ "brochure", "partner", "feedback", "service", "host", "voyage", "estimate", "room" ];
         $to_hide = array();
         if (isset($website_use)) {
             $posttypes = array();
