@@ -45,3 +45,17 @@ function hide_custom_post_types(){
 }
 
 add_action( 'admin_menu', 'hide_custom_post_types' );
+
+function change_meta_box_titles() {
+    global $wp_meta_boxes; // array of defined meta boxes
+    // cycle through the array, change the titles you want
+    $wp_meta_boxes['voyage']['normal']['core']['postexcerpt']['title'] = __('Description','sage');
+    $wp_meta_boxes['partner']['normal']['core']['postexcerpt']['title'] = __('Description','sage');
+    $wp_meta_boxes['host']['normal']['core']['postexcerpt']['title'] = __('Description','sage');
+    $wp_meta_boxes['service']['normal']['core']['postexcerpt']['title'] = __('Description','sage');
+    /*echo '<pre>';
+    print_r($wp_meta_boxes);
+    echo '</pre>';
+    wp_die('');*/
+}
+add_action('add_meta_boxes', 'change_meta_box_titles');

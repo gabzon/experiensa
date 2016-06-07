@@ -117,31 +117,54 @@ piklist('field', array(
 ));
 
 piklist('field', array(
-	'type' => 'checkbox',
-	'field' => 'user_language',
-	'label' => __('Language Spoken','sage'),
-	'list' => false,
+	'type'  => 'text',
+	'field' => 'user_title',
+	'label' => __('Title'),
+	'attributes' => array(
+		'class' => 'regular-text',
+		'placeholder' => __('Enter your Title')
+	)
+));
+
+piklist('field', array(
+	'type'  => 'radio',
+	'field' => 'user_gender',
+	'label' => __('Gender'),
 	'attributes' => array(
 		'class' => 'text'
 	),
 	'choices' => array(
-		'user_language_arabic' => 'Arabic',
-		'user_language_mandarin' => 'Chinese (Mandarin)',
-		'user_language_cantonese' => 'Chinese (Cantonese)',
-		'user_language_english' => 'English',
-		'user_language_farsi' => 'Farsi (Persian)',
-		'user_language_french' => 'French',
-		'user_language_german' => 'German',
-		'user_language_hindi' => 'Hindi',
-		'user_language_italian' => 'Italian',
-		'user_language_japanese' => 'Japanese',
-		'user_language_korean' => 'Korean',
-		'user_language_polish' => 'Polish',
+		'female' => __('Female','sage'),
+		'male' => __('Male','sage')
+	)
+));
+
+piklist('field', array(
+	'type'       => 'checkbox',
+	'field'      => 'user_language',
+	'label'      => __('Language Spoken', 'sage'),
+	'list'       => false,
+	'attributes' => array(
+		'class' => 'text'
+	),
+	'choices' => array(
+		'user_language_arabic'     => 'Arabic',
+		'user_language_mandarin'   => 'Chinese (Mandarin)',
+		'user_language_cantonese'  => 'Chinese (Cantonese)',
+		'user_language_english'    => 'English',
+		'user_language_farsi'      => 'Farsi (Persian)',
+		'user_language_french'     => 'French',
+		'user_language_german'     => 'German',
+		'user_language_hindi'      => 'Hindi',
+		'user_language_italian'    => 'Italian',
+		'user_language_japanese'   => 'Japanese',
+		'user_language_korean'     => 'Korean',
+		'user_language_polish'     => 'Polish',
 		'user_language_portuguese' => 'Portuguese',
-		'user_language_russian' => 'Russian',
-		'user_language_spanish' => 'Spanish',
-		'user_language_thai' => 'Thai',
-		'user_language_turkish' => 'Turkish',
+		'user_language_russian'    => 'Russian',
+		'user_language_spanish'    => 'Spanish',
+		'user_language_thai'       => 'Thai',
+		'user_language_turkish'    => 'Turkish',
 		'user_language_vietnamese' => 'Vietnamese'
 	)
 ));
@@ -167,29 +190,29 @@ piklist('field', array(
 ));
 
 piklist('field', array(
-    'type' => 'text',
-    'field' => 'user_phone',
-    'add_more' => true,
-    'label' => __('Phone(s)','sage')
+	'type'     => 'text',
+	'field'    => 'user_phone',
+	'add_more' => true,
+	'label'    => __('Phone(s)', 'sage')
 ));	
 
 piklist('field', array(
-	'type' => 'datepicker',
-	'field' => 'user_birthday',
-	'label' => __('Birthday','sage'),
+	'type'       => 'datepicker',
+	'field'      => 'user_birthday',
+	'label'      => __('Birthday', 'sage'),
 	'attributes' => array(
 		'class' => 'text'
 	),
 	'options' => array(
 		'dateFormat' => 'd-mm-yy',
-		'firstDay' => '0'
+		'firstDay'   => '0'
 	)
 ));
 
 piklist('field', array(
-	'type' => 'textarea',
+	'type'  => 'textarea',
 	'field' => 'user_hobbies',
-	'label' => __('Hobbies','sage'),
+	'label' => __('Hobbies', 'sage'),
 	'attributes' => array(
 		'rows' => 10,
 		'cols' => 50,

@@ -1,5 +1,5 @@
 function freewall_layout() {
-    var wall = new freewall('#freewall');
+    var wall = new Freewall('#freewall');
     wall.reset({
         selector: '.brick',
         animate: true,
@@ -10,7 +10,7 @@ function freewall_layout() {
         }
     });
     wall.fitWidth();
-    var wall_image = new freewall("#freewall-image");
+    var wall_image = new Freewall("#freewall-image");
     wall_image.reset({
         selector: '.freewall-cell',
         animate: true,
@@ -22,7 +22,7 @@ function freewall_layout() {
     });
     wall_image.fitWidth();
 
-    var wall_pinterest = new freewall("#freewall-pinterest");
+    var wall_pinterest = new Freewall("#freewall-pinterest");
     wall_pinterest.reset({
         selector: '.brick-pinterest',
         animate: true,
@@ -34,7 +34,7 @@ function freewall_layout() {
     });
     wall_pinterest.fitWidth();
 
-    var wall_win8 = new freewall("#win8-freewall");
+    var wall_win8 = new Freewall("#win8-freewall");
     wall_win8.reset({
         selector: '.level1',
         cellW: 320,
