@@ -111,18 +111,18 @@ function get_phone_button($display = false){
     echo $phone_button;
 }
 
-function get_quote_button($display = false){
+function get_quote_button($icon_size="",$display = false){
     global $design_options;
     $quote_options = $design_options['group_quote'];
     $color = $quote_options['header_quote_button_color'][0];
     $background = (!$color || $color==''?'inverted':$color);
     $quote_button = "";
     if ($quote_options['header_quote_display'][0] === 'TRUE'){
-        $quote_button .=    '<div class="item">';
-        $quote_button .=        '<a id="request-button" href="#" class="ui ' . $background . ' ' . get_button_style() . ' button">';
+        //$quote_button .=    '<div class="item">';
+        $quote_button .=        '<a id="request-button" href="#" class="'.$icon_size.' ui ' . $background . ' ' . get_button_style() . ' button">';
         $quote_button .=            '<i class="edit icon"></i> ' . __('Request a Trip','sage');
         $quote_button .=        '</a>';
-        $quote_button .=    '</div>';
+        //$quote_button .=    '</div>';
     }
     if(!$display)
         return $quote_button;

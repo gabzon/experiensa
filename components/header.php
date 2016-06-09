@@ -78,7 +78,7 @@ Class Header{
         if(self::check_display_company_name()){
             $header .=      "<div class='left aligned three wide column' style='text-align: left;'>";
             $header .=          "<div class='borderless item '>";
-            $header .=              "<div class=\"ui center aligned content\">";
+            $header .=              "<div class=\"ui center aligned content\" style='text-align:center;'>";
             $header .=                  "<h5 class=\"header\">".get_blog_name()."</h5>";
             if(self::check_display_company_tagline()){
                 $header .=              "<div class=\"meta\">";
@@ -220,7 +220,7 @@ Class Header{
         $header .=      "<div class=\"computer only row\">";
         $header .= self::get_language_item('middle aligned column');
         $header .= self::get_phone_item('middle aligned three wide column');
-        $header .= self::get_quote_item('middle aligned three wide column');
+        $header .= self::get_quote_item('middle aligned two wide column','tiny');
         $header .=              Menu::display_all_menus($page_id,'left',true);
         if(self::check_display_company_name()){
             $header .=          "<div class='borderless item'>";
@@ -266,8 +266,8 @@ Class Header{
             $header .=      "</div>";
         }
         $header .=          self::get_phone_item('middle aligned three wide column');
-        $header .=          self::get_quote_item('middle aligned three wide column');
-        $header .=              Menu::display_all_menus($page_id,'right',true);
+        $header .=          self::get_quote_item('middle aligned two wide column','tiny');
+        $header .=              Menu::display_all_menus($page_id,'left',true);
         $header .=          self::get_language_item('middle aligned column');
         $header .=      "</div>";
         $header .=  "</header>";
@@ -293,9 +293,9 @@ Class Header{
         }
         return $menu;
     }
-    public static function get_quote_item($class='column'){
+    public static function get_quote_item($class='column',$icon_size=''){
         $menu = "";
-        $quote = get_quote_button();
+        $quote = get_quote_button($icon_size);
         if(!empty($quote)){
             $menu .=          "<div class='".$class."'>";
             $menu .=              $quote;
