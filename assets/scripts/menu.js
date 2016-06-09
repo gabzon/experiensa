@@ -1,8 +1,11 @@
 // Menu sidebar ----------------------------------------------------------------
 jQuery(function($){
-    $('.mobile-menu').on('click', function (event) {
+    $('#mobile-menu').on('click', function (event) {
         $('#main-menu.ui.sidebar').sidebar('toggle');
     });
+    /*$('.mobile-menu').on('click', function (event) {
+        $('#main-menu.ui.sidebar').sidebar('toggle');
+    });*/
 
     $('#request-button').on('click',function(event) {
         $('#request-form.ui.right.sidebar').sidebar('toggle');

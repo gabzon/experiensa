@@ -318,23 +318,48 @@ Class Header{
         $agency_options = get_option('agency_settings');
         $logo = $agency_options['agency_logo'];
         $url = esc_url(home_url('/'));
-        $mobile = "<div class=\"mobile only row\">";
-        $mobile .=  "<a class=\"item\" href=\"".$url."\">";
+        $mobile = "<div class=\"mobile only four column row\">";
+        $mobile .= "<div class=\"left floated column\">";
+        $mobile .=      "<a class=\"item\" href=\"".$url."\">";
         if ($logo):
-            $mobile .= '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
+            $mobile .=      '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
         else:
             $mobile .= get_blog_name();
         endif;
-        $mobile .=  "</a>";
-        $mobile .=  "<div class=\"menu right\">";
-        $mobile .=      "<a class=\"item mobile-menu ui button\">";
-        $mobile .=          "<i class=\"sidebar icon\"></i>";
         $mobile .=      "</a>";
-        $mobile .=  "</div>";
+        $mobile .=      "</div>";
+        $mobile .= "<div class=\"column\">";
+        $mobile .=      "</div>";
+        $mobile .= "<div class=\"column\">";
+        $mobile .=      "</div>";
+        $mobile .=      "<div id=\"mobile-menu\" class=\"left floated middle aligned column\">";
+        $mobile .=          "<a class=\"mobile-menu item ui button\">";
+        $mobile .=              "<i class=\"sidebar icon\"></i>";
+        $mobile .=          "</a>";
+        $mobile .=      "</div>";
         $mobile .= "</div>";
         return $mobile;
     }
-
+    public static function get_tablet_header(){
+        $agency_options = get_option('agency_settings');
+        $logo = $agency_options['agency_logo'];
+        $url = esc_url(home_url('/'));
+        $tablet = "<div class=\"tablet only row\">";
+        $tablet .=      "<a class=\"item\" href=\"".$url."\">";
+        if ($logo):
+            $tablet .=      '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
+        else:
+            $tablet .= get_blog_name();
+        endif;
+        $tablet .=      "</a>";
+        $tablet .=      "<div class=\"menu right\">";
+        $tablet .=          "<a class=\"item mobile-menu ui button\">";
+        $tablet .=              "<i class=\"sidebar icon\"></i>";
+        $tablet .=          "</a>";
+        $tablet .=      "</div>";
+        $tablet .= "</div>";
+        return $tablet;
+    }
     public static function check_display_company_name(){
         $header_company_name = get_theme_mod('header_company_name');
         $check = (empty($header_company_name)?false:true);

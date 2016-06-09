@@ -116,6 +116,11 @@
                     }
                 });
 
+                var carousel_active = $('.owl-item.active').length;
+                if(carousel_active === 1){
+                    $('.owl-nav').hide();
+                }
+
                 $(".free-wall .brick .image").dimmer({on:'hover'});
                 $(".free-wall .brick-pinterest .image").dimmer({on:'hover'});
                 $(".free-wall .freewall-cell .image").dimmer({on:'hover'});

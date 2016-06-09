@@ -10,10 +10,10 @@ function cc_mime_types($mimes) {
 add_filter('upload_mimes', 'cc_mime_types');
 
 function add_custom_body_class($classes){
-    if(is_user_logged_in()){
-        $classes[] = 'body-logged-in';
+    if(is_admin_bar_showing()){
+        $classes[] = 'displayed-admin-bar';
     } else{
-        $classes[] = 'body-logged-out';
+        $classes[] = 'not-displayed-admin-bar';
     }
     return $classes;
 }
@@ -22,7 +22,7 @@ add_filter('body_class', 'add_custom_body_class');
 function add_custom_style_wp_head(){
     echo '<style>'.PHP_EOL;
     //echo 'body{ padding-top: 100px !important; }'.PHP_EOL;
-    echo 'body.body-logged-in .ui.fixed.menu{ top: 32px !important; }'.PHP_EOL;
+    echo 'body.displayed-admin-bar .ui.fixed.menu{ top: 32px !important; }'.PHP_EOL;
     echo '</style>'.PHP_EOL;
 }
 add_action('wp_head', 'add_custom_style_wp_head');
