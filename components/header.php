@@ -333,7 +333,7 @@ Class Header{
         $mobile .="<div class='column'></div>";
         $mobile .=      "<div class=\"middle aligned left aligned column\" style='padding: 0;'>";
         $mobile .=          "<a href='#' class='ui inverted item mobile-menu'>";
-        $mobile .=              "<i class=\"large sidebar icon mobile-menu\"></i>Menu";
+        $mobile .=              "Menu<i class=\"large sidebar icon mobile-menu\"></i>";
         $mobile .=          "</a>";
         $mobile .=      "</div>";
         $mobile .= "</div>";
