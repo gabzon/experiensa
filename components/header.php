@@ -318,23 +318,23 @@ Class Header{
         $agency_options = get_option('agency_settings');
         $logo = $agency_options['agency_logo'];
         $url = esc_url(home_url('/'));
-        $mobile = "<div class=\"mobile only four column row\">";
-        $mobile .= "<div class=\"left floated column\">";
-        $mobile .=      "<a class=\"item\" href=\"".$url."\">";
+        $mobile =   "<div class=\"mobile only row\">";
+        //$mobile .=      "<div class=\"column\">";
+        $mobile .=          "<a class=\"item\" href=\"".$url."\">";
         if ($logo):
-            $mobile .=      '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
+            $mobile .=          '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
         else:
-            $mobile .= get_blog_name();
+            $mobile .=          get_blog_name();
         endif;
-        $mobile .=      "</a>";
-        $mobile .=      "</div>";
-        $mobile .= "<div class=\"column\">";
-        $mobile .=      "</div>";
-        $mobile .= "<div class=\"column\">";
-        $mobile .=      "</div>";
-        $mobile .=      "<div id=\"mobile-menu\" class=\"left floated middle aligned column\">";
-        $mobile .=          "<a class=\"mobile-menu item ui button\">";
-        $mobile .=              "<i class=\"sidebar icon\"></i>";
+        $mobile .=          "</a>";
+        //$mobile .="</div>";
+        $mobile .="<div class='six wide column'></div>";
+        $mobile .="<div class='two wide column'></div>";
+        $mobile .="<div class='column'></div>";
+        $mobile .=      "<div class=\"middle aligned left aligned column\" style='padding: 0;'>";
+        $mobile .=          "<a href='#' class='ui inverted item mobile-menu'>";
+        //$mobile .=          "<a href='#' class=\"item mobile-menu\" style='padding: 0;'>";
+        $mobile .=              "<i class=\"large sidebar icon mobile-menu\"></i>";
         $mobile .=          "</a>";
         $mobile .=      "</div>";
         $mobile .= "</div>";

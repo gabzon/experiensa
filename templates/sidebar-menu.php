@@ -5,7 +5,8 @@ $menu_name = 'primary_navigation';//ui left vertical floating very wide active s
 
 <div id="main-menu" class="ui sidebar floating inverted vertical menu">
     <br>
-    <?php  if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
+    <?php
+    /*if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) :
         $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
         $menu_items = wp_get_nav_menu_items($menu->term_id);
         foreach ( (array) $menu_items as $key => $menu_item ) :
@@ -15,7 +16,7 @@ $menu_name = 'primary_navigation';//ui left vertical floating very wide active s
             </a>
             <?php
         endforeach;
-    endif;
+    endif;*/
     ?>
     <?php get_phone_button(); ?>
     <?php get_quote_button(); ?>

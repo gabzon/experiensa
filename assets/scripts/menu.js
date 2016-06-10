@@ -1,7 +1,8 @@
 // Menu sidebar ----------------------------------------------------------------
 jQuery(function($){
-    $('#mobile-menu').on('click', function (event) {
+    $('.mobile-menu').on('click', function (event) {
         $('#main-menu.ui.sidebar').sidebar('toggle');
+        return false;
     });
     /*$('.mobile-menu').on('click', function (event) {
         $('#main-menu.ui.sidebar').sidebar('toggle');
@@ -13,11 +14,10 @@ jQuery(function($){
     //ui languages floating dropdown
 
     $('#select-language').dropdown();
-    $('#language-menu').dropdown({on: 'hover'});
-    $('.language-menu').dropdown({on: 'hover'});
+    $('#language-menu').dropdown();
+    $('.language-menu').dropdown();
     $('.landing-menu').dropdown({
-        allowCategorySelection: true,
-        on: 'hover'
+        allowCategorySelection: true
     });
     $('.mobile-menu').dropdown({
         allowCategorySelection: true
