@@ -9,6 +9,14 @@
             transform: translateY(-50%);
         }
     }
+    .slides-pagination a{
+        border:1px solid white;
+        background: white;
+    }
+    .slides-pagination a.current{
+        border:1px solid #ccc;
+        background: #ccc;
+    }
 }
 
 section#promotion{

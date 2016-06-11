@@ -99,13 +99,14 @@
                     nav:true,
                     margin: 5,
 					autoHeight:false,
+                    dots: true,
                     navText: [
-                        "<i class='chevron circle left large icon'></i>",
-                        "<i class='chevron circle right large icon'></i>"
+                        "<i class='angle left big icon'></i>",
+                        "<i class='angle right big icon'></i>"
                     ],
                     responsive:{
                         0:{
-                            items:1
+                            items:1,
                         },
                         600:{
                             items:3
