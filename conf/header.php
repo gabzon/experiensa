@@ -37,7 +37,7 @@ function get_experiencia_url($display = false){
 
 function get_sidebar_button($position='right',$display = false){
     $button =   "<div class=\"menu $position\">";
-    $button .=      "<a class=\"item mobile-menu ui button\">";
+    $button .=      "<a id=\"mobile-menu\" class=\"item mobile-menu ui button\">";
     $button .=          "<i class=\"sidebar icon\"></i>";
     $button .=      "</a>";
     $button .=  "</div>";
