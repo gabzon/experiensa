@@ -39,13 +39,13 @@ Class Header{
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\">";
         $header .=              self::get_logo_header('');
         $header .=              self::get_website_name_tagline();
         $header .=          "</div>";
         $header .=      "</div>";
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid\" style='margin-top:".$margin."px'>";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\" style='margin-top:".$margin."px'>";
         $header .=              self::get_phone_item('item');
         $header .=              self::get_quote_item('item');
         $header .=              Menu::display_all_menus($page_id,'left',true);
@@ -61,20 +61,20 @@ Class Header{
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\">";
         $header .=                  self::get_logo_header('');
         $header .=          "</div>";
         $header .=      "</div>";
         if(self::check_display_company_name()):
             $header .=      "<div class=\"computer tablet only row\">";
-            $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid\" style='margin-top:".$margin."px'>";
+            $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\" style='margin-top:".$margin."px'>";
             $header .=              self::get_website_name_tagline();
             $header .=          "</div>";
             $header .=      "</div>";
             $margin += 69;
         endif;
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid\" style='margin-top:".$margin."px'>";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\" style='margin-top:".$margin."px'>";
         $header .=              self::get_phone_item('item');
         $header .=              self::get_quote_item('item');
         $header .=              Menu::display_all_menus($page_id,'left',true);
@@ -88,7 +88,7 @@ Class Header{
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu grid\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
         $header .=              self::get_logo_header();
         $header .=              "<div class='menu right'>";
         $header .=                  "<a href=\"#\" class=\"menu item\">";
@@ -105,7 +105,7 @@ Class Header{
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu grid\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
         $header .=              "<a href=\"#\" class=\"menu item\">";
         $header .=                  "<i class=\"sidebar icon mobile-menu\"></i>";
         $header .=              "</a>";
@@ -123,7 +123,7 @@ Class Header{
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu grid\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
         $header .=              "<div class=\"right menu\">";
         $header .=                  self::get_logo_header('');
         $header .=                  self::get_website_name_tagline();
@@ -131,7 +131,7 @@ Class Header{
         $header .=          "</div>";
         $header .=      "</div>";
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu grid second-grid\" style='margin-top:".$margin."px'>";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid second-grid header-menu\" style='margin-top:".$margin."px'>";
         $header .=              self::get_phone_item('item');
         $header .=              self::get_quote_item('item');
         $header .=              Menu::display_all_menus($page_id,'left',true);
@@ -171,7 +171,7 @@ Class Header{
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu grid\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
         $header .=              self::get_language_item('item');
         $header .=              self::get_phone_item('item');
         $header .=              self::get_quote_item('item');
@@ -190,7 +190,7 @@ Class Header{
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu grid\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
         $header .=              self::get_logo_header('');
         $header .=              self::get_website_name_tagline();
         $header .=              "<div class=\"right menu\">";
