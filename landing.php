@@ -10,9 +10,6 @@ $display_showcase = (isset($design_options['display_showcase'])?$design_options[
 if($display_showcase!==false && $display_showcase=='TRUE'){
     $showcase_options = (isset($design_options['showcase_options'])?$design_options['showcase_options']:false);
     if($showcase_options !== false && !empty($showcase_options)){
-        /*echo "<pre>";
-        print_r($showcase_options);
-        echo "</pre>";*/
         $showcase_posttype = $showcase_options['showcase_posttype'];
         $showcase_category = $showcase_options['showcase_category'];
         $showcase_component = $showcase_options['showcase_component'];
@@ -31,12 +28,7 @@ if($display_showcase!==false && $display_showcase=='TRUE'){
             $showcase['subtitle'] = $showcase_subtitle[$i];
             $showcase['title_alignment'] = $showcase_title_alignment[$i];
             Showcase::display_showcase($showcase);
-            /*echo "<pre>";
-            print_r($showcase);
-            echo "</pre>";*/
-
         }
     }
 }
 get_template_part('templates/landing/partners');
-

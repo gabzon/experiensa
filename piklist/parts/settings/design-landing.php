@@ -92,15 +92,15 @@ piklist('field',array(
     ),
 ));
 
+$cpt = get_post_types();
+
 $showcase_posttype = array(
     'type'      => 'select',
     'field'     => 'showcase_posttype',
     'value'     => 'voyage',
     'label'     => __('Post Type to Show','sage'),
     'columns'   => 2,
-    'choices'   => array(
-        'voyage'      => __('Voyages','sage'),
-    ),
+    'choices'   => $cpt
 );
 $showcase_categories = array(
     'type'      => 'select',
