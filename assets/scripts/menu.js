@@ -28,12 +28,12 @@ jQuery(function($){
 function scrollMenu(){
     jQuery(window).scroll(function () {
         if (jQuery(this).scrollTop() > 1) {
-            jQuery('header').removeClass("secondary");
-            jQuery('header a').removeClass("white-font");
+            jQuery('.header-menu').removeClass("secondary");
+            jQuery('.header-menu a').removeClass("white-font");
         }
         else {
-            jQuery('header').addClass("secondary");
-            jQuery('header a.menu-link').addClass("white-font");
+            jQuery('.header-menu').addClass("secondary");
+            jQuery('.header-menu a.menu-link').addClass("white-font");
         }
     });
 }

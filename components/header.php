@@ -149,13 +149,13 @@ Class Header{
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu grid\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
         $header .=              self::get_logo_header('');
         $header .=              self::get_website_name_tagline();
         $header .=          "</div>";
         $header .=      "</div>";
         $header .=      "<div class=\"computer tablet only row\">";
-        $header .=          "<div class=\"ui ".get_menu_style()." menu grid second-grid\" style='margin-top:".$margin."px'>";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\" style='margin-top:".$margin."px'>";
         $header .=              self::get_phone_item('item');
         $header .=              self::get_quote_item('item');
         $header .=              Menu::display_all_menus($page_id,'left',true);
@@ -215,7 +215,7 @@ Class Header{
     public static function get_logo_header($border=''){
         $logo = get_agency_logo();
         if(!empty($logo)){
-            $logo_header = "<a class=\"".$border."item menu-link". scroll_menu() ."\" href=\"".get_experiencia_url()."\">";
+            $logo_header = "<a class=\"".$border." item menu-link ". scroll_menu() ."\" href=\"".get_experiencia_url()."\">";
             $logo_header .= "<img class=\"ui image ".$logo['size']." logo\" src=\"".$logo['url']."\" style='display: block;margin-left: auto;margin-right: auto;'> &nbsp;";
             $logo_header .= "</a>";
         }
