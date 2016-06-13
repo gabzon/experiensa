@@ -25,6 +25,9 @@ Class Header{
             case 'right_logo_menu_left':
                 $header = self::get_right_logo_menu_left($page_id);
                 break;
+            case 'fixed_top_nav_bar':
+                get_template_part('templates/header/fixed-top-nav-bar');
+                break;
             default:
                 $header = self::get_left_logo_menu_right($page_id);
                 break;
@@ -245,10 +248,11 @@ Class Header{
     }
 
     public static function get_left_logo_menu_right($page_id){
-        $header =   "<header class=\"ui ".get_menu_style()." eight column menu grid\">";
+        $header =   '<header class="ui ' . get_menu_style() . ' eight column menu grid">';
         $header .=  self::get_mobile_header();
         $header .=      "<div class=\"computer only row\">";
         $header .=          "<div class='left aligned column'>";
+
         $header .=              self::get_logo_header('');
         $header .=          "</div>";
         if(self::check_display_company_name()){
@@ -273,7 +277,7 @@ Class Header{
         $header .=  "</header>";
         return $header;
     }
-    public static function get_logo_header($border=''){
+    public static function get_logo_header( $border = '' ){
         $logo = get_agency_logo();
         if(!empty($logo)){
             $logo_header = "<a class=\"".$border."item menu-link". scroll_menu() ."\" href=\"".get_experiencia_url()."\">";

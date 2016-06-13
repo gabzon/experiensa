@@ -9,8 +9,8 @@ $logo   = $agency_options['agency_logo'];
 $phone  = $agency_options['agency_phone'];
 
 if($header_style!=null):
-    if ($header_style == 'fixed_top_nav_bar') {
-        get_template_part('templates/header-fixed');
+    if ($header_style == 'fixed_') {
+        echo "fixed_top_nav_bar";
     }
     Header::get_header($header_style,get_the_ID(),true);
 endif;

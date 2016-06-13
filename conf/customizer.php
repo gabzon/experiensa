@@ -84,7 +84,8 @@ function add_header_controls($wp_customize){
               'logo_above_right_menu_below' => __('Logo Above and to the Right and Below Menu', 'sage'),
               'logo_above_left_menu_below'  => __('Logo Above and to the Left and Below Menu', 'sage'),
               'right_logo_menu_left'        => __('Right Logo and Left Menu', 'sage'),
-              'left_logo_menu_right'        => __('Left Logo and Right Menu', 'sage')
+              'left_logo_menu_right'        => __('Left Logo and Right Menu', 'sage'),
+              'fixed_top_nav_bar'           => __('Fixed top nav bar','sage')
           ),
       )
   );
