@@ -1,8 +1,8 @@
 // Menu sidebar ----------------------------------------------------------------
 jQuery(function($){
-    $('a.mobile-menu').on('click', function (event) {
-        alert('ehll');
+    $('.mobile-menu').on('click', function (event) {
         $('#main-menu.ui.sidebar').sidebar('toggle');
+        return false;
     });
 
     $('#request-button').on('click',function(event) {
