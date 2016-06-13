@@ -38,209 +38,151 @@ Class Header{
     }
 
     public static function get_logo_above_menu_below($page_id){
-        $header =   "<header class=\"ui ".get_menu_style()." eight column menu centered grid\">";
-        $header .=  self::get_mobile_header();
-        $header .=      "<div class=\"computer only only eight column row\">";
-        $header .=          "<div class=\"column\">";
-        $header .=              self::get_logo_header('borderless');
+        $margin = self::get_row_topmargin(true);
+        $header =   "<header class=\"ui grid\">";
+        $header .=       self::get_mobile_header();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\">";
+        $header .=              self::get_logo_header('');
+        $header .=              self::get_website_name_tagline();
         $header .=          "</div>";
-        if(self::check_display_company_name()){
-            $header .=      "<div class='left aligned three wide column' style='text-align: left;'>";
-            $header .=          "<div class='borderless item'>";
-            $header .=              "<div class=\"content\">";
-            $header .=                  "<h5 class=\"header\">".get_blog_name()."</h5>";
-            if(self::check_display_company_tagline()){
-                $header .=              "<div class=\"meta\">";
-                $header .=                  "<span>".get_blog_tagline()."</span>";
-                $header .=              "</div>";
-            }
-            $header .=              "</div>";
-            $header .=          "</div>";
-            $header .=      "</div>";
-        }
         $header .=      "</div>";
-        $header .=      "<div class='computer only only eight column row'>";
-        $header .=          self::get_phone_item('three wide column');
-        $header .=          self::get_quote_item('three wide column');
-        $header .=          Menu::display_all_menus($page_id,'left',true);
-        $header .=          self::get_language_item();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\" style='margin-top:".$margin."px'>";
+        $header .=              self::get_phone_item('item');
+        $header .=              self::get_quote_item('item');
+        $header .=              Menu::display_all_menus($page_id,'left',true);
+        $header .=              self::get_language_item('item');
+        $header .=          "</div>";
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
     }
 
     public static function get_all_vertical($page_id){
-        $header =   "<header class=\"ui ".get_menu_style()." eight column menu centered grid\">";
-        $header .=  self::get_mobile_header();
-        $header .=      "<div class=\"computer only eight column row\">";
-        $header .=          "<div class=\"column\">";
-        $header .=              self::get_logo_header('');
+        $margin = self::get_row_topmargin();
+        $header =   "<header class=\"ui grid\">";
+        $header .=       self::get_mobile_header();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\">";
+        $header .=                  self::get_logo_header('');
         $header .=          "</div>";
         $header .=      "</div>";
-        $header .=      "<div class='computer only row'>";
-        if(self::check_display_company_name()){
-            $header .=      "<div class='left aligned three wide column' style='text-align: left;'>";
-            $header .=          "<div class='borderless item '>";
-            $header .=              "<div class=\"ui center aligned content\" style='text-align:center;'>";
-            $header .=                  "<h5 class=\"header\">".get_blog_name()."</h5>";
-            if(self::check_display_company_tagline()){
-                $header .=              "<div class=\"meta\">";
-                $header .=                  "<span>".get_blog_tagline()."</span>";
-                $header .=              "</div>";
-            }
-            $header .=              "</div>";
+        if(self::check_display_company_name()):
+            $header .=      "<div class=\"computer tablet only row\">";
+            $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\" style='margin-top:".$margin."px'>";
+            $header .=              self::get_website_name_tagline();
             $header .=          "</div>";
             $header .=      "</div>";
-        }
-        $header .=      "</div>";
-        $header .=      "<div class='computer only eight column row'>";
-        $header .=          self::get_phone_item('three wide column');
-        $header .=          self::get_quote_item('three wide column');
-        $header .=          Menu::display_all_menus($page_id,'left',true);
-        $header .=          self::get_language_item();
+            $margin += 69;
+        endif;
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu centered grid header-menu\" style='margin-top:".$margin."px'>";
+        $header .=              self::get_phone_item('item');
+        $header .=              self::get_quote_item('item');
+        $header .=              Menu::display_all_menus($page_id,'left',true);
+        $header .=              self::get_language_item('item');
+        $header .=          "</div>";
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
     }
     public static function get_left_logo_menu_icon(){
-        $header =   "<header class=\"ui ".get_menu_style()." menu grid\">";
-        $header .=  self::get_mobile_header();
-        $header .=      "<div class=\"computer only only row\">";
-        $header .=          self::get_logo_header();
-        if(self::check_display_company_name()){
-            $header .=      "<div class='item'>";
-            $header .=          "<div class=\"content\">";
-            $header .=              "<h5 class=\"header\">".get_blog_name()."</h5>";
-            if(self::check_display_company_tagline()){
-                $header .=              "<div class=\"meta\">";
-                $header .=                  "<span>".get_blog_tagline()."</span>";
-                $header .=              "</div>";
-            }
-            $header .=          "</div>";
-            $header .=      "</div>";
-        }
-        $header .=          get_sidebar_button();
+        $header =   "<header class=\"ui grid\">";
+        $header .=       self::get_mobile_header();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
+        $header .=              self::get_logo_header();
+        $header .=              "<div class='menu right'>";
+        $header .=                  "<a href=\"#\" class=\"menu item\">";
+        $header .=                      "<i class=\"sidebar icon mobile-menu\"></i>";
+        $header .=                  "</a>";
+        $header .=              "</div>";
+        $header .=          "</div>";
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
     }
 
     public static function right_logo_menu_icon(){
-        $header =   "<header class=\"ui ".get_menu_style()." menu grid\">";
-        $header .=  self::get_mobile_header();
-        $header .=      "<div class=\"computer only only row\">";
-        $header .=          get_sidebar_button('left');
-        if(self::check_display_company_name()){
-            $header .=      "<div class='item'>";
-            $header .=          "<div class=\"content\">";
-            $header .=              "<h5 class=\"header\">".get_blog_name()."</h5>";
-            if(self::check_display_company_tagline()){
-                $header .=              "<div class=\"meta\">";
-                $header .=                  "<span>".get_blog_tagline()."</span>";
-                $header .=              "</div>";
-            }
-            $header .=          "</div>";
-            $header .=      "</div>";
-        }
-        $header .=          self::get_logo_header();
+        $header =   "<header class=\"ui grid\">";
+        $header .=       self::get_mobile_header();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
+        $header .=              "<a href=\"#\" class=\"menu item\">";
+        $header .=                  "<i class=\"sidebar icon mobile-menu\"></i>";
+        $header .=              "</a>";
+        $header .=              "<div class='menu right'>";
+        $header .=                  self::get_logo_header();
+        $header .=              "</div>";
+        $header .=          "</div>";
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
     }
 
     public static function get_logo_above_right_menu_below($page_id){
-        $header =   "<header class=\"ui ".get_menu_style()." eight column menu grid\">";
-        $header .=  self::get_mobile_header();
-        $header .=      "<div class=\"computer only row\">";
-        $header .=          "<div class='column'></div>";
-        $header .=          "<div class='column'></div>";
-        $header .=          "<div class='column'></div>";
-        $header .=          "<div class='column'></div>";
-        $header .=          "<div class='column'></div>";
-        $header .=          "<div class='column'></div>";
-        $header .=          "<div class='right aligned column'>";
-        if(self::check_display_company_name()){
-            $header .=      "<div class='borderless item'>";
-            $header .=          "<div class=\"content\">";
-            $header .=              "<h5 class=\"header\">".get_blog_name()."</h5>";
-            if(self::check_display_company_tagline()){
-                $header .=              "<div class=\"meta\">";
-                $header .=                  "<span>".get_blog_tagline()."</span>";
-                $header .=              "</div>";
-            }
-            $header .=          "</div>";
-            $header .=      "</div>";
-        }
-        $header .=          "</div>";
-        $header .=          "<div class='right aligned column'>";
-        $header .=              self::get_logo_header('');
+        $margin = self::get_row_topmargin(true);
+        $header =   "<header class=\"ui grid\">";
+        $header .=       self::get_mobile_header();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
+        $header .=              "<div class=\"right menu\">";
+        $header .=                  self::get_logo_header('');
+        $header .=                  self::get_website_name_tagline();
+        $header .=              "</div>";
         $header .=          "</div>";
         $header .=      "</div>";
-        $header .=      "<div class=\"computer only centered row\">";
-        $header .=          self::get_language_item();
-        $header .=          self::get_phone_item('three wide column');
-        $header .=          self::get_quote_item('three wide column');
-        $header .=          Menu::display_all_menus($page_id,'left',true);
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid second-grid header-menu\" style='margin-top:".$margin."px'>";
+        $header .=              self::get_phone_item('item');
+        $header .=              self::get_quote_item('item');
+        $header .=              Menu::display_all_menus($page_id,'left',true);
+        $header .=              "<div class=\"right menu\">";
+        $header .=                  self::get_language_item('item');
+        $header .=              "</div>";
+        $header .=          "</div>";
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
     }
 
     public static function get_logo_above_left_menu_below($page_id){
-        $header =   "<header class=\"ui ".get_menu_style()." eight column menu grid\">";
-        $header .=  self::get_mobile_header();
-        $header .=      "<div class=\"computer only row\">";
-        $header .=          "<div class='left aligned column'>";
+        $margin = self::get_row_topmargin(true);
+        $header =   "<header class=\"ui grid\">";
+        $header .=       self::get_mobile_header();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
         $header .=              self::get_logo_header('');
-        $header .=          "</div>";
-        $header .=          "<div class='left aligned column'>";
-        if(self::check_display_company_name()){
-            $header .=          "<div class='borderless item'>";
-            $header .=              "<div class=\"content\">";
-            $header .=                  "<h5 class=\"header\">".get_blog_name()."</h5>";
-            if(self::check_display_company_tagline()){
-                $header .=                  "<div class=\"meta\">";
-                $header .=                      "<span>".get_blog_tagline()."</span>";
-                $header .=                  "</div>";
-            }
-            $header .=              "</div>";
-            $header .=          "</div>";
-        }
+        $header .=              self::get_website_name_tagline();
         $header .=          "</div>";
         $header .=      "</div>";
-        $header .=      "<div class=\"computer only centered row\">";
-        $header .=          self::get_phone_item('three wide column');
-        $header .=          self::get_quote_item('three wide column');
-        $header .=          Menu::display_all_menus($page_id,'left',true);
-        $header .=          self::get_language_item();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\" style='margin-top:".$margin."px'>";
+        $header .=              self::get_phone_item('item');
+        $header .=              self::get_quote_item('item');
+        $header .=              Menu::display_all_menus($page_id,'left',true);
+        $header .=              "<div class=\"right menu\">";
+        $header .=                  self::get_language_item('item');
+        $header .=              "</div>";
+        $header .=          "</div>";
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
     }
     public static function get_right_logo_menu_left($page_id){
-        $header =   "<header class=\"ui ".get_menu_style()." eight column menu grid\">";
-        $header .=  self::get_mobile_header();
-        $header .=      "<div class=\"computer only row\">";
-        $header .= self::get_language_item('middle aligned column');
-        $header .= self::get_phone_item('middle aligned three wide column');
-        $header .= self::get_quote_item('middle aligned two wide column','tiny');
+        $header =   "<header class=\"ui grid\">";
+        $header .=       self::get_mobile_header();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
+        $header .=              self::get_language_item('item');
+        $header .=              self::get_phone_item('item');
+        $header .=              self::get_quote_item('item');
         $header .=              Menu::display_all_menus($page_id,'left',true);
-        if(self::check_display_company_name()){
-            $header .=          "<div class='borderless item'>";
-            $header .=              "<div class=\"content\">";
-            $header .=                  "<h5 class=\"header\">".get_blog_name()."</h5>";
-            if(self::check_display_company_tagline()){
-                $header .=                  "<div class=\"meta\">";
-                $header .=                      "<span>".get_blog_tagline()."</span>";
-                $header .=                  "</div>";
-            }
-            $header .=              "</div>";
-            $header .=              "<div class='ui image'>";
-            $header .=                  self::get_logo_header('');
-            $header .=              "</div>";
-            $header .=          "</div>";
-        }
-        $header .=          "</div>";
+        $header .=              "<div class=\"right menu\">";
+        $header .=                  self::get_logo_header('');
+        $header .=                  self::get_website_name_tagline();
+        $header .=              "</div>";
         $header .=          "</div>";
         $header .=      "</div>";
         $header .=  "</header>";
@@ -248,44 +190,66 @@ Class Header{
     }
 
     public static function get_left_logo_menu_right($page_id){
+<<<<<<< HEAD
         $header =   '<header class="ui ' . get_menu_style() . ' eight column menu grid">';
         $header .=  self::get_mobile_header();
         $header .=      "<div class=\"computer only row\">";
         $header .=          "<div class='left aligned column'>";
 
+=======
+        $header =   "<header class=\"ui grid\">";
+        $header .=       self::get_mobile_header();
+        $header .=      "<div class=\"computer tablet only row\">";
+        $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
+>>>>>>> 11ae0ffe99baf75f39291b125a1720d24a7704cd
         $header .=              self::get_logo_header('');
+        $header .=              self::get_website_name_tagline();
+        $header .=              "<div class=\"right menu\">";
+        $header .=                  self::get_phone_item('item');
+        $header .=                  self::get_quote_item('item');
+        $header .=                  Menu::display_all_menus($page_id,'left',true);
+        $header .=                  self::get_language_item('item');
+        $header .=              "</div>";
         $header .=          "</div>";
-        if(self::check_display_company_name()){
-            $header .=      "<div class='left aligned column'>";
-            $header .=          "<div class='borderless item'>";
-            $header .=              "<div class=\"content\">";
-            $header .=                  "<h5 class=\"header\">".get_blog_name()."</h5>";
-            if(self::check_display_company_tagline()){
-                $header .=                  "<div class=\"meta\">";
-                $header .=                      "<span>".get_blog_tagline()."</span>";
-                $header .=                  "</div>";
-            }
-            $header .=              "</div>";
-            $header .=          "</div>";
-            $header .=      "</div>";
-        }
-        $header .=          self::get_phone_item('middle aligned three wide column');
-        $header .=          self::get_quote_item('middle aligned two wide column','tiny');
-        $header .=              Menu::display_all_menus($page_id,'left',true);
-        $header .=          self::get_language_item('middle aligned column');
         $header .=      "</div>";
         $header .=  "</header>";
         return $header;
     }
+<<<<<<< HEAD
     public static function get_logo_header( $border = '' ){
+=======
+    public static function get_agency_logo_size(){
+        $size = false;
         $logo = get_agency_logo();
         if(!empty($logo)){
-            $logo_header = "<a class=\"".$border."item menu-link". scroll_menu() ."\" href=\"".get_experiencia_url()."\">";
+            $size = $logo['size'];
+        }
+        return $size;
+    }
+    public static function get_logo_header($border=''){
+>>>>>>> 11ae0ffe99baf75f39291b125a1720d24a7704cd
+        $logo = get_agency_logo();
+        if(!empty($logo)){
+            $logo_header = "<a class=\"".$border." item menu-link ". scroll_menu() ."\" href=\"".get_experiencia_url()."\">";
             $logo_header .= "<img class=\"ui image ".$logo['size']." logo\" src=\"".$logo['url']."\" style='display: block;margin-left: auto;margin-right: auto;'> &nbsp;";
             $logo_header .= "</a>";
         }
 
         return $logo_header;
+    }
+    public static function get_website_name_tagline(){
+        $name = "";
+        if(self::check_display_company_name()) {
+            $name .= "<a href=\"".get_experiencia_url()."\" class=\"item\">";
+            $name .=    "<div class=\"content\">";
+            $name .=        "<h5 class=\"header\">".get_blog_name()."</h5>";
+            $name .=        "<div class=\"meta\">";
+            $name .=            "<span class=\"price\">".get_blog_tagline()."</span>";
+            $name .=        "</div>";
+            $name .=    "</div>";
+            $name .= "</a>";
+        }
+        return $name;
     }
     public static function get_phone_item($class='column'){
         $menu = "";
@@ -323,7 +287,7 @@ Class Header{
         $logo = $agency_options['agency_logo'];
         $url = esc_url(home_url('/'));
         $mobile =   "<div class=\"mobile only row\">";
-        //$mobile .=      "<div class=\"column\">";
+        $mobile .=      "<div class=\"ui ".get_menu_style()." menu grid\">";
         $mobile .=          "<a class=\"item\" href=\"".$url."\">";
         if ($logo):
             $mobile .=          '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
@@ -331,16 +295,13 @@ Class Header{
             $mobile .=          get_blog_name();
         endif;
         $mobile .=          "</a>";
-        //$mobile .="</div>";
-        $mobile .="<div class='six wide column'></div>";
-        $mobile .="<div class='two wide column'></div>";
-        $mobile .="<div class='column'></div>";
-        $mobile .=      "<div class=\"middle aligned left aligned column\" style='padding: 0;'>";
-        $mobile .=          "<a href='#' class='ui inverted item mobile-menu'>";
-        $mobile .=              "Menu<i class=\"large sidebar icon mobile-menu\"></i>";
-        $mobile .=          "</a>";
+        $mobile .=          "<div class='menu right'>";
+        $mobile .=              "<a href=\"\" class=\"menu item\">";
+        $mobile .=                  "<i class=\"sidebar icon mobile-menu\"></i>";
+        $mobile .=              "</a>";
+        $mobile .=          "</div>";
         $mobile .=      "</div>";
-        $mobile .= "</div>";
+        $mobile .=  "</div>";
         return $mobile;
     }
     public static function get_tablet_header(){
@@ -372,5 +333,27 @@ Class Header{
         $header_company_tagline = get_theme_mod('header_company_tagline');
         $check = (empty($header_company_tagline)?false:true);
         return $check;
+    }
+    public static function get_row_topmargin($next_name=null){
+        $size = self::get_agency_logo_size();
+        if($size !== false){
+            switch($size){
+                case 'mini':
+                    if($next_name)
+                        $margin = 69;
+                    else
+                        $margin = 55;
+                    break;
+                case 'tiny':
+                    $margin = 100;
+                    break;
+                default:
+                    $margin = 170;
+                    break;
+            }
+        }else{
+            $margin = 0;
+        }
+        return $margin;
     }
 }

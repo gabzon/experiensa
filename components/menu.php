@@ -34,7 +34,7 @@ Class Menu {
         $menu_string = "";
         if(!empty($menus_list)){
             foreach($menus_list as $menu){
-                $menu_string .= "<div class=\"$position menu\">";
+                //$menu_string .= "<div class=\"$position menu\">";
                 $menu_items = wp_get_nav_menu_items($menu->term_id);
                 foreach($menu_items as $item){
                     if($item->menu_item_parent == 0) {
@@ -59,7 +59,7 @@ Class Menu {
                         }
                     }
                 }
-                $menu_string .= "</div>";
+                //$menu_string .= "</div>";
             }
         }
         if($return)
