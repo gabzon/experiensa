@@ -275,7 +275,7 @@ Class Header{
         $mobile .=      "<div class=\"ui ".get_menu_style()." menu grid\">";
         $mobile .=          "<a class=\"item\" href=\"".$url."\">";
         if ($logo):
-            $mobile .=          '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
+            $mobile .=          '<img class="ui tiny image logo" src="' . wp_get_attachment_url($logo) . '"  />';
         else:
             $mobile .=          get_blog_name();
         endif;
