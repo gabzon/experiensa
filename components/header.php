@@ -5,35 +5,32 @@ Class Header{
         $header = "";
         switch($style){
             case 'logo_above_menu_below':
-                $header = self::get_logo_above_menu_below($page_id);
-                break;
+            $header = self::get_logo_above_menu_below($page_id);
+            break;
             case 'all_vertical':
-                $header = self::get_all_vertical($page_id);
-                break;
+            $header = self::get_all_vertical($page_id);
+            break;
             case 'left_logo_menu_icon':
-                $header = self::get_left_logo_menu_icon();
-                break;
+            $header = self::get_left_logo_menu_icon();
+            break;
             case 'right_logo_menu_icon':
-                $header = self::right_logo_menu_icon();
-                break;
+            $header = self::right_logo_menu_icon();
+            break;
             case 'logo_above_right_menu_below':
-                $header = self::get_logo_above_right_menu_below($page_id);
-                break;
+            $header = self::get_logo_above_right_menu_below($page_id);
+            break;
             case 'logo_above_left_menu_below':
-                $header = self::get_logo_above_left_menu_below($page_id);
-                break;
+            $header = self::get_logo_above_left_menu_below($page_id);
+            break;
             case 'right_logo_menu_left':
-                $header = self::get_right_logo_menu_left($page_id);
-                break;
-            case 'fixed_top_nav_bar':
-                get_template_part('templates/header/fixed-top-nav-bar');
-                break;
+            $header = self::get_right_logo_menu_left($page_id);
+            break;
             default:
-                $header = self::get_left_logo_menu_right($page_id);
-                break;
+            $header = self::get_left_logo_menu_right($page_id);
+            break;
         }
         if(!$display)
-            return $header;
+        return $header;
         echo $header;
     }
 
@@ -190,18 +187,10 @@ Class Header{
     }
 
     public static function get_left_logo_menu_right($page_id){
-<<<<<<< HEAD
-        $header =   '<header class="ui ' . get_menu_style() . ' eight column menu grid">';
-        $header .=  self::get_mobile_header();
-        $header .=      "<div class=\"computer only row\">";
-        $header .=          "<div class='left aligned column'>";
-
-=======
         $header =   "<header class=\"ui grid\">";
         $header .=       self::get_mobile_header();
         $header .=      "<div class=\"computer tablet only row\">";
         $header .=          "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
->>>>>>> 11ae0ffe99baf75f39291b125a1720d24a7704cd
         $header .=              self::get_logo_header('');
         $header .=              self::get_website_name_tagline();
         $header .=              "<div class=\"right menu\">";
@@ -215,9 +204,6 @@ Class Header{
         $header .=  "</header>";
         return $header;
     }
-<<<<<<< HEAD
-    public static function get_logo_header( $border = '' ){
-=======
     public static function get_agency_logo_size(){
         $size = false;
         $logo = get_agency_logo();
@@ -227,7 +213,6 @@ Class Header{
         return $size;
     }
     public static function get_logo_header($border=''){
->>>>>>> 11ae0ffe99baf75f39291b125a1720d24a7704cd
         $logo = get_agency_logo();
         if(!empty($logo)){
             $logo_header = "<a class=\"".$border." item menu-link ". scroll_menu() ."\" href=\"".get_experiencia_url()."\">";
@@ -339,17 +324,17 @@ Class Header{
         if($size !== false){
             switch($size){
                 case 'mini':
-                    if($next_name)
-                        $margin = 69;
-                    else
-                        $margin = 55;
-                    break;
+                if($next_name)
+                $margin = 69;
+                else
+                $margin = 55;
+                break;
                 case 'tiny':
-                    $margin = 100;
-                    break;
+                $margin = 100;
+                break;
                 default:
-                    $margin = 170;
-                    break;
+                $margin = 170;
+                break;
             }
         }else{
             $margin = 0;
