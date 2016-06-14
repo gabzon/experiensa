@@ -151,7 +151,7 @@ class Catalog{
         $display .=         "<h2>".$trip['title']."</h2>";
         $display .=     "</div>";
         $display .=     "<div class=\"content\">";
-        $display .=         "<div class=\"ui two column grid\">";
+        $display .=         "<div class=\"ui two column grid stackable\">";
         $display .=             "<div class=\"six wide column\">";
         if(!empty($trip['price']))
             $display .=            "<b>". __('Price','sage').":</b> ".$trip['price']. ' ' . Helpers::get_currency()."<br>";

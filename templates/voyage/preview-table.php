@@ -13,7 +13,7 @@ $gallery = get_post_meta(get_the_ID(), 'gallery', false);
 
 ?>
 <br>
-<table class="ui table basic" style="color:white;">
+<table class="ui table basic unstackable" style="color:white;">
     <tr>
         <td><i class="money icon"></i><strong><?php _e('Price','sage'); ?> </strong></td>
         <td>

@@ -272,7 +272,7 @@ Class Header{
         $logo = $agency_options['agency_logo'];
         $url = esc_url(home_url('/'));
         $mobile =   "<div class=\"mobile only row\">";
-        $mobile .=      "<div class=\"ui ".get_menu_style()." menu grid header-menu\">";
+        $mobile .=      "<div class=\"ui ".get_menu_style()." menu grid borderless header-menu\">";
         $mobile .=          "<a class=\"item\" href=\"".$url."\">";
         if ($logo):
             $mobile .=          '<img class="ui tiny image logo" src="' . wp_get_attachment_url($logo) . '"  />';
@@ -281,8 +281,8 @@ Class Header{
         endif;
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
-        $mobile .=              "<a href=\"\" class=\"menu item\">";
-        $mobile .=                  "<i class=\"sidebar icon mobile-menu\"></i>";
+        $mobile .=              "<a href=\"\" class=\"menu item mobile-menu\">";
+        $mobile .=                  "<b><i class=\"sidebar icon\" style=\" color:white; \"></i></b>";
         $mobile .=              "</a>";
         $mobile .=          "</div>";
         $mobile .=      "</div>";
