@@ -166,8 +166,8 @@ class Catalog{
         $display .=                 "<p>". $trip['excerpt'] ."</p>";
         $display .=             "</div>";
         if(isset($trip['cover_image'][0]) && !empty($trip['cover_image'][0])) {
-            $display .=         "<div class=\"ten wide column\">";
-            $display .=             "<img src=\"".$trip['cover_image'][0]."\" alt=\"\" class=\"ui image\" />";
+            $display .=         "<div class=\"ten wide column ui image\">";
+            $display .=             "<img src=\"".$trip['cover_image'][0]."\" alt=\"\" />";
             $display .=         "</div>";
         }
         $display .=         "</div>";
