@@ -32,9 +32,12 @@ class Card{
                                 ".$price."
                             </div>";
             }
-            $card .= Gallery::show_gallery_from_list($images,true);
+            //$card .= Gallery::show_gallery_from_list($images,true);
+            $card .= '<img src=" ' .$images[0]['full_size'] . '" alt="" />';
             $card .=    "</div>";
         }else{
+
+            $card .= '<img src="' . get_stylesheet_directory_uri().'/assets/images/travel-no-image.jpg' . '" alt="" class="ui image" />';
             if($price){
                 $card .=    "<div class=\"extra content\">
                                 ";

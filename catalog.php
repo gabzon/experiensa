@@ -5,7 +5,7 @@
 ?>
 
 <br><br>
-<div class="ui container">
+<div class="ui container" style="margin-top:40px">
     <br>
     <?php
     while (have_posts()) {

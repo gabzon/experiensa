@@ -51,8 +51,7 @@ function get_menu_style(){
     $options = $design_options['header_menu_options'];
     $opts = '';
     if ($options) {
-        if (is_array($options)) { foreach ($options as $key) { $opts .= $key . ' '; } }
-        else { echo $opts = $options . ' '; }
+        if (is_array($options)) { foreach ($options as $key) { $opts .= $key . ' '; } }        
     }
     $classes = get_body_class();
     $display_slider = $design_options['setting_landing_slider'];

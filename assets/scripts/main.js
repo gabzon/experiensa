@@ -127,7 +127,7 @@
                 $(".free-wall .brick-pinterest .image").dimmer({on:'hover'});
                 $(".free-wall .freewall-cell .image").dimmer({on:'hover'});
                 $(".free-wall .item .image").dimmer({on:'hover'});
-                $(".owl-carousel .carousel-component .image").dimmer({on:'hover'});
+                $(".owl-carousel .carousel-component .image").dimmer({on:'hover', opacity: 0.4});
 
                 $('.grid-masonry').masonry({
                   // set itemSelector so .grid-sizer is not used in layout

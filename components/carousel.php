@@ -15,10 +15,11 @@ class Carousel{
                 $carousel .=    "<a href=\"".$value['post_link']."\" target=\"_blank\">";
                 $carousel .=    "<div class=\"overlay\"></div>";
                 $carousel .=        "<div class=\"ui image\">";
+                $carousel .=            "<h2 class=\"carousel-title\">" .$value['title'] ."</h2>";
                 $carousel .=            "<div class=\"ui dimmer\">
                                             <div class=\"content\">
                                                 <div class=\"center\">";
-                $carousel .=                        "<h2 class=\"ui inverted header\">".$value['title']."</h2>";
+                //$carousel .=                        "<h2 class=\"ui inverted header\">" .$value['title'] ."</h2>";
                 $carousel .=                        "<div class=\"sub header\">".$value['subtitle']."</div>";
                 $carousel .=                    "</div>
                                             </div>
