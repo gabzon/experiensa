@@ -301,9 +301,9 @@ Class Header{
             $tablet .= get_blog_name();
         endif;
         $tablet .=      "</a>";
-        $tablet .=      "<div class=\"menu right\">";
+        $tablet .=      "<div class=\"menu right mobile-menu\">";
         $tablet .=          "<a class=\"item mobile-menu ui button\">";
-        $tablet .=              "<i class=\"sidebar icon\"></i>";
+        $tablet .=              "<i class=\"sidebar icon mobile-menu\"></i>";
         $tablet .=          "</a>";
         $tablet .=      "</div>";
         $tablet .= "</div>";
