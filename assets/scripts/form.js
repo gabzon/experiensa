@@ -1,15 +1,20 @@
 function requestForm(){
-
+    var currentDate = new Date();
     // Form
     jQuery( "#departure" ).datepicker({
-        minDate:0,
+        setDate: currentDate,
         onClose: function( selectedDate ) {
             jQuery( "#return" ).datepicker( "option", "minDate", selectedDate );
         }
     });
     jQuery( "#return" ).datepicker({
         onClose: function( selectedDate ) {
-            jQuery( "#departure" ).datepicker( "option", "maxDate", selectedDate );
+            var departure_date = jQuery( "#departure" ).val();
+            /*if(departure_date.length === 0 ) {
+                jQuery("#departure").datepicker("option", "maxDate", 0);
+            }else {*/
+                jQuery("#departure").datepicker("option", "maxDate", selectedDate);
+            //}
         }
     });
 
