@@ -10,12 +10,12 @@
     <div class="three wide field">
         <div class="ui fluid input icon field">
             <i class="calendar icon"></i>
-            <input name="departure" id="departure" type="text" placeholder="<?php _e('Departure date','sage'); ?>">
+            <input name="departure" id="departure" type="text" placeholder="<?php _e('Departure date','sage'); ?>" readonly>
         </div>
     </div>
     <div class="three wide field">
         <div class="ui fluid input icon field">
-            <input name="return" id="return" type="text" placeholder="<?php _e('Return date','sage'); ?>">
+            <input name="return" id="return" type="text" placeholder="<?php _e('Return date','sage'); ?>" readonly>
             <i class="calendar icon"></i>
         </div>
     </div>
