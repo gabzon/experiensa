@@ -5,8 +5,8 @@
             <img class="ui image <?= $logo['size']; ?> logo" src="<?= $logo['url']; ?>" style='display: block;margin-left: auto;margin-right: auto;'>
         </a>
         <div class="right menu">
-            <a href="#" class="item mobile-menu">
-                <i class="sidebar icon"></i> MENU
+            <a href="#" class="item mobile-menu ui button green">
+                <i class="sidebar icon"></i>
             </a>
         </div>
     </div>

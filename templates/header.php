@@ -13,4 +13,3 @@ if($header_style!=null):
     }
     Header::get_header($header_style,get_the_ID(),true);
 endif;
-
