@@ -26,7 +26,6 @@ function display_languages_button($option,$style){
             $menu .= "<div class='ui dropdown language-menu ".$background." button'>";
             $menu .=        '<i class="translate icon"></i>';
             $menu .=        "<div class=\"text\">".__('Languages','sage')."</div>";
-            //$menu .=        '<i class="dropdown icon"></i>';
             $menu .=        "<div class=\"menu\">";
             foreach($languages as $lang){
                 if($lang['active']){

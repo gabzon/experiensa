@@ -48,7 +48,7 @@ function get_sidebar_button($position='right',$display = false){
 
 function get_menu_style(){
     global $design_options;
-    $options = $design_options['header_menu_options'];
+    $options = get_theme_mod('header_menu_options');
     $opts = '';
     if ($options) {
             if (is_array($options)) {
@@ -123,11 +123,9 @@ function get_quote_button($icon_size="",$display = false){
     $background = (!$color || $color==''?'inverted':$color);
     $quote_button = "";
     if ($quote_options['header_quote_display'][0] === 'TRUE'){
-        //$quote_button .=    '<div class="item">';
         $quote_button .=        '<a id="request-button" href="#" class="'.$icon_size.' ui ' . $background . ' ' . get_button_style() . ' button">';
         $quote_button .=            '<i class="edit icon"></i> ' . __('Request a Trip','sage');
         $quote_button .=        '</a>';
-        //$quote_button .=    '</div>';
     }
     if(!$display)
         return $quote_button;

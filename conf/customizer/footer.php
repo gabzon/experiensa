@@ -2,8 +2,51 @@
 
 namespace Configuration\Customizer\Footer;
 
-class Footer_Customizer{
-    public function add_footer_settings($wp_customize){
+class Footer{
+    private $wp_customize;
+    function __construct($wp_customize){
+        $this->wp_customize = $wp_customize;
+    }
+    public function create_components(){
+        $this->add_section();
+        $this->add_settings();
+        $this->add_controls();
+    }
+    public function add_section(){
+        $footer_section = [
+            'title'      => __('Footer Design','sage'),
+            'priority'   => 30,
+            'panel'     => 'experiensa_design'
+        ];
+        $this->wp_customize->add_section( 'experiensa_footer_design'  , $footer_section );
+    }
+    public function add_settings(){
+        $this->wp_customize->add_setting( 'footer_layout' , array(
+            'default'     => 'left_logo_all_horizontal',
+            'transport'   => 'refresh',
+        ) );
+    }
+    public function add_controls(){
+        $layout =  [
+            'label'    => __( 'Footer layout', 'sage' ),
+            'section'  => 'experiensa_footer_design',
+            'settings' => 'footer_layout',
+            'type'     => 'select',
+            'choices'  =>
+                [
+                    'logo_above_menu_below'       => __('Logo Above and Menu Below', 'sage'),
+                    'all_vertical'                => __('All Vertical', 'sage'),
+                    'right_logo_menu_icon'        => __('Right Logo and Menu Icon', 'sage'),
+                    'left_logo_menu_icon'         => __('Left Logo and Menu Icon', 'sage'),
+                    'logo_above_right_menu_below' => __('Logo Above and to the Right and Below Menu', 'sage'),
+                    'logo_above_left_menu_below'  => __('Logo Above and to the Left and Below Menu', 'sage'),
+                    'right_logo_all_horizontal'        => __('Right Logo and All Horizontal', 'sage'),
+                    'left_logo_all_horizontal'        => __('Left Logo and All Horizontal', 'sage')
+                ]
+        ];
+        $this->wp_customize->add_control( 'footer_layout', $layout);
+    }
+/*    public function add_footer_settings($wp_customize){
         $wp_customize->add_setting( 'footer_style' , array(
             'default'     => 'all_horizontal',
             'transport'   => 'refresh',
@@ -24,11 +67,11 @@ class Footer_Customizer{
         ) );
     }
 
-    function add_footer_controls($wp_customize){
+    function add_footer_controls($wp_customize){*/
         /***************************************************************************
         ** Footer layout controls
         ***************************************************************************/
-        $layout =  [
+/*        $layout =  [
             'label'    => __( 'Footer layout', 'sage' ),
             'section'  => 'experiensa_footer_design',
             'settings' => 'footer_layout',
@@ -46,11 +89,11 @@ class Footer_Customizer{
             ]
         ];
         $wp_customize->add_control( 'footer_layout_options', $args);
-
+*/
         /***************************************************************************
         ** Footer Logo controls
         ***************************************************************************/
-        $footer_logo = [
+     /*   $footer_logo = [
             'label'    => __( 'Logo size', 'sage' ),
             'section'  => 'experiensa_footer_design',
             'settings' => 'footer_logo_size',
@@ -63,11 +106,11 @@ class Footer_Customizer{
             ]
         ];
         $wp_customize->add_control('header_logo_size', $footer_logo);
-
+*/
         /***************************************************************************
         ** Footer Company name & tagline controls
         ***************************************************************************/
-        $company_name = [
+  /*      $company_name = [
             'label'    => __( 'Display Company name next to the logo ', 'sage' ),
             'section'  => 'experiensa_header_design',
             'settings' => 'footer_company_name',
@@ -84,5 +127,5 @@ class Footer_Customizer{
             'choices'  => ['TRUE' => __('Display Company tagline next to the logo','sage') ]
         ];
         $wp_customize->add_control('footer_company_tagline', $tagline );
-    }
+    }*/
 }
