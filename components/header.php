@@ -8,7 +8,9 @@ Class Header{
         $header_style = get_theme_mod('header_style');
         return (empty($header_style)?'fodla':$header_style);
     }
-
+    public static function get_header($style){
+        get_template_part('templates/partials/header/'.$style);
+    }
     /** Create and return menu styles classes from general and header settings
      * @return string
      */
@@ -38,10 +40,11 @@ Class Header{
         $header_color_fill = get_theme_mod('header_color_fill');
         return (empty($header_color_fill)?'inverted':$header_color_fill);
     }
+    /*
+    public static function get_header_background_color(){
+        $header_background = get_theme_mod('header_background');
 
-    public static function get_header($style){
-        get_template_part('templates/partials/header/'.$style);
-    }
+    }*/
 
     public static function get_agency_logo_size(){
         $size = false;
@@ -171,7 +174,7 @@ Class Header{
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
         $mobile .=              "<a href=\"\" class=\"menu item mobile-menu\">";
-        $mobile .=                  "<b><i class=\"sidebar icon\" style=\" color:white; \"></i></b>";
+        $mobile .=                  "<i class=\"large sidebar icon\" style=\" color:white; \"></i>";
         $mobile .=              "</a>";
         $mobile .=          "</div>";
         $mobile .=      "</div>";

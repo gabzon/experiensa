@@ -152,9 +152,9 @@ class Header{
             )
         );
         /*$this->wp_customize->add_control(
-            new WP_Customize_Color_Control(
+            new \WP_Customize_Color_Control(
                 $this->wp_customize,
-                'link_color',
+                'header_background',
                 array(
                     'label'    => __( 'Header Background', 'sage' ),
                     'section'  => 'experiensa_header_design',
