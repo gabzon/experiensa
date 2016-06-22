@@ -174,8 +174,9 @@ Class Header{
         endif;
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
-        $mobile .=              "<a href=\"\" class=\"menu item mobile-menu\">";
-        $mobile .=                  "<img src='".$menu_icon."' style=\"width: 25px; height: 25px;\">";
+        $mobile .=              "<a href=\"\" class=\"item mobile-menu\">";
+        //$mobile .=                  "<img src='".$menu_icon."' style=\"width: 25px; height: 25px;\">";
+        $mobile .=                  "<i class='big sidebar link icon mobile-menu'></i>";
         $mobile .=              "</a>";
         $mobile .=          "</div>";
         $mobile .=      "</div>";
