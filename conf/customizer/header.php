@@ -20,7 +20,7 @@ class Header{
         ];
         $this->wp_customize->add_section( 'experiensa_header_design'  , $header_section );
     }
-    public function add_settings(){
+    public function add_settings(){ 
         $this->wp_customize->add_setting( 'header_style' , array(
             'default'     => 'fodla',
             'transport'   => 'refresh',
@@ -93,7 +93,7 @@ class Header{
     }
     public function add_controls(){
         $this->wp_customize->add_control(
-            'header_style_options',
+            'header_style',
             array(
                 'label'    => __( 'Header Style', 'sage' ),
                 'section'  => 'experiensa_header_design',
