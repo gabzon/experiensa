@@ -174,12 +174,15 @@ Class Header{
         endif;
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
-        $mobile .=              "<div class='item'>";
+        $mobile .=              "<a class='launch icon item mobile-menu'>";
+        $mobile .=                  "<i class='content icon'></i>";
+        $mobile .=              "</a>";
+        /*$mobile .=              "<div class='item'>";
         $mobile .=                  "<button class=\"ui inverted button mobile-menu\" style='z-index: 1000;'>";
         $mobile .=                  "<i class='sidebar link icon mobile-menu' style='margin: auto !important;'></i>";
-        //$mobile .=                      "MENU";
+        $mobile .=                      "MENU";
         $mobile .=                  "</button>";
-        $mobile .=              "</div>";
+        $mobile .=              "</div>";*/
         $mobile .=          "</div>";
         $mobile .=      "</div>";
         $mobile .=  "</div>";
