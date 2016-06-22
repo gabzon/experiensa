@@ -5,7 +5,8 @@ Class Header{
      * @return mixed
      */
     public static function get_header_layout(){
-        return get_theme_mod('header_style');
+        $header_style = get_theme_mod('header_style');
+        return (empty($header_style)?'fodla':$header_style);
     }
 
     /** Create and return menu styles classes from general and header settings
@@ -30,10 +31,12 @@ Class Header{
         return $style;
     }
     public static function get_header_menu_style(){
-        return get_theme_mod('header_menu_style');
+        $header_menu_style = get_theme_mod('header_menu_style');
+        return (empty($header_menu_style)?'fixed':$header_menu_style);
     }
     public static function get_header_color_fill(){
-        return get_theme_mod('header_color_fill');
+        $header_color_fill = get_theme_mod('header_color_fill');
+        return (empty($header_color_fill)?'inverted':$header_color_fill);
     }
 
     public static function get_header($style){
@@ -81,7 +84,11 @@ Class Header{
         $phone_button = "";
         if ($show_phone  === 'TRUE'){
             $phone_class = get_theme_mod('header_button_styles');
+            if(empty($phone_class))
+                $phone_class = 'basic';
             $color = get_theme_mod('header_phone_color_button');
+            if(empty($color))
+                $color = 'white';
             $background = (!$color || $color==''?'':$color);
             if ($phone) {
                 $phone_button .= '<a href="tel:' . $phone . '" class="ui '.$background.' '.$phone_class.' menu-link '. scroll_menu() . ' button">';

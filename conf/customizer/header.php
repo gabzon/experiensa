@@ -61,7 +61,7 @@ class Header{
             'transport'   => 'refresh',
         ) );
         $this->wp_customize->add_setting( 'header_phone_color_button' , array(
-            'default'     => '',
+            'default'     => 'white',
             'transport'   => 'refresh',
         ) );
         $this->wp_customize->add_setting( 'header_button_styles' , array(
