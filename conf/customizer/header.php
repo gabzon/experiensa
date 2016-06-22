@@ -20,7 +20,7 @@ class Header{
         ];
         $this->wp_customize->add_section( 'experiensa_header_design'  , $header_section );
     }
-    public function add_settings(){ 
+    public function add_settings(){
         $this->wp_customize->add_setting( 'header_style' , array(
             'default'     => 'fodla',
             'transport'   => 'refresh',
@@ -100,6 +100,7 @@ class Header{
                 'settings' => 'header_style',
                 'type'     => 'select',
                 'choices'  => array(
+                    'fodla'    => __('Fodla', 'sage'),
                     'aengus'   => __('Aengus', 'sage'),
                     'aine'     => __('Aine', 'sage'),
                     'banba'    => __('Banba', 'sage'),
@@ -108,8 +109,7 @@ class Header{
                     'cliodhna' => __('Cliodhna', 'sage'),
                     'dian'     => __('Dian', 'sage'),
                     'eriu'     => __('Eriu', 'sage'),
-                    'etain'    => __('Etain', 'sage'),
-                    'fodla'    => __('Fodla', 'sage')
+                    'etain'    => __('Etain', 'sage')
                 ),
             )
         );
@@ -229,20 +229,20 @@ class Header{
                 'type'     => 'select',
                 'active_callback' => 'choice_display_phonebutton_callback',
                 'choices'  => array(
-                    ''              => __('Default (White)','sage'),
-                    'red'           => __('Red','sage'),
-                    'orange'        => __('Orange','sage'),
-                    'yellow'        => __('Yellow','sage'),
-                    'olive'         => __('Olive','sage'),
-                    'green'         => __('Green','sage'),
-                    'teal'          => __('Teal','sage'),
-                    'blue'          => __('Blue','sage'),
-                    'violet'        => __('Violet','sage'),
-                    'purple'        => __('Purple','sage'),
-                    'pink'          => __('Pink','sage'),
-                    'brown'         => __('Brown','sage'),
-                    'grey'          => __('Grey','sage'),
-                    'black'         => __('Black','sage'),
+                    'white'  => __('Default (White)', 'sage'),
+                    'red'    => __('Red', 'sage'),
+                    'orange' => __('Orange', 'sage'),
+                    'yellow' => __('Yellow', 'sage'),
+                    'olive'  => __('Olive', 'sage'),
+                    'green'  => __('Green', 'sage'),
+                    'teal'   => __('Teal', 'sage'),
+                    'blue'   => __('Blue', 'sage'),
+                    'violet' => __('Violet', 'sage'),
+                    'purple' => __('Purple', 'sage'),
+                    'pink'   => __('Pink', 'sage'),
+                    'brown'  => __('Brown', 'sage'),
+                    'grey'   => __('Grey', 'sage'),
+                    'black'  => __('Black', 'sage'),
                 ),
             )
         );
