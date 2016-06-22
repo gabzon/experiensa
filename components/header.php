@@ -44,8 +44,8 @@ Class Header{
     public static function get_header_background_color(){
         $header_background = get_theme_mod('header_background');
 
-    }*/
-
+    }
+    */
     public static function get_agency_logo_size(){
         $size = false;
         $logo = get_agency_logo();
@@ -163,6 +163,7 @@ Class Header{
         $agency_options = get_option('agency_settings');
         $logo = $agency_options['agency_logo'];
         $url = esc_url(home_url('/'));
+        $menu_icon = get_stylesheet_directory_uri().'/assets/images/menuiconwhite.png';;
         $mobile =   "<div class=\"mobile only row\">";
         $mobile .=      "<div class=\"ui ".self::get_menu_style()." menu grid borderless header-menu\">";
         $mobile .=          "<a class=\"item\" href=\"".$url."\">";
@@ -174,7 +175,7 @@ Class Header{
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
         $mobile .=              "<a href=\"\" class=\"menu item mobile-menu\">";
-        $mobile .=                  "<i class=\"large sidebar icon\" style=\" color:white; \"></i>";
+        $mobile .=                  "<img src='".$menu_icon."' style=\"width: 25px; height: 25px;\">";
         $mobile .=              "</a>";
         $mobile .=          "</div>";
         $mobile .=      "</div>";
