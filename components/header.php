@@ -175,9 +175,9 @@ Class Header{
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
         $mobile .=              "<div class='item'>";
-        $mobile .=                  "<button class=\"ui inverted button mobile-menu\">";
-        //$mobile .=                  "<i class='sidebar link icon mobile-menu' style='margin: auto !important;'></i>";
-        $mobile .=                      "MENU";
+        $mobile .=                  "<button class=\"ui inverted button mobile-menu\" style='z-index: 1000;'>";
+        $mobile .=                  "<i class='sidebar link icon mobile-menu' style='margin: auto !important;'></i>";
+        //$mobile .=                      "MENU";
         $mobile .=                  "</button>";
         $mobile .=              "</div>";
         $mobile .=          "</div>";
