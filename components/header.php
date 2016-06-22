@@ -281,7 +281,7 @@ Class Header{
         endif;
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
-        $mobile .=              "<a href=\"\" class=\"menu item mobile-menu\">";
+        $mobile .=              "<a href=\"\" class=\"menu item mobile-menu ui button inverted\" style=\"padding: 0 10px\">";
         $mobile .=                  "<b><i class=\"sidebar icon\" style=\" color:white; \"></i></b>";
         $mobile .=              "</a>";
         $mobile .=          "</div>";
