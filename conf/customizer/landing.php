@@ -1,22 +1,31 @@
 <?php
+namespace Configuration\Customizer\Landing;
 
-
-    function add_landing_section($wp_customize){
+class Landing{
+    private $wp_customize;
+    function __construct($wp_customize){
+        $this->wp_customize = $wp_customize;
+    }
+    public function create_components(){
+        $this->add_section();
+        $this->add_settings();
+        $this->add_controls();
+    }
+    public function add_section(){
         $landing_section = [
             'title'      => __('Landing Design','sage'),
             'priority'   => 31,
             'panel'     => 'experiensa_design'
         ];
-        $wp_customize->add_section( 'experiensa_landing_design' , $landing_section );
+        $this->wp_customize->add_section( 'experiensa_landing_design' , $landing_section );
     }
-    /*
-    public function landing_settings(){
+    public function add_settings(){
         $this->wp_customize->add_setting( 'display_slider' , array(
             'default'     => 'no',
             'transport'   => 'refresh',
-        ) );
+        ));
     }
-    public function add_landing_controls(){
+    public function add_controls(){
         $this->wp_customize->add_control(
             'display_slider',
             array(
@@ -30,4 +39,5 @@
                 ),
             )
         );
-    }*/
+    }
+}

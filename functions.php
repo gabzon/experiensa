@@ -17,6 +17,7 @@ $sage_includes = [
   'lib/wrapper.php',            // Theme wrapper class
   'lib/customizer.php',         // Theme customizer
   'api',
+  'conf/customizer',
   'conf',                       // All configurations
   'components',                 // Reusable components
   'models/taxonomy',            // Custom taxonomies
