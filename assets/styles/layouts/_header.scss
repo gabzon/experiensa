@@ -24,3 +24,30 @@ header.ui.menu{
 .sidebar{
     overflow: visible !important;
 }
+
+#header-nav{
+
+    .mobile.row{
+        padding-top: 0px !important;
+        margin-top: 0px !important;
+    }
+
+    .mobile.row .ui.inverted.menu{ border-radius: 0px !important; }
+
+    .padding-reset{ padding: 0px !important; }
+
+    @media (max-width: 767px) {
+        .ui.grid { margin: 0 !important; }
+        .ui.vertical.menu.navbar{
+            margin-top: 0px !important;
+            padding-top:55px;
+            padding-bottom: 10px;
+        }
+    }
+
+    .ui.vertical.menu{
+        margin-top: -15px !important;
+        width: 100%;
+        display: none;
+    }
+}
