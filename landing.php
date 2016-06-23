@@ -6,7 +6,8 @@
 $design_options = get_option('experiensa_design_settings');
 get_template_part('templates/landing/slider');
 
-$display_showcase = (isset($design_options['display_showcase'])?$design_options['display_showcase']:false);
+$display_showcase = ( isset($design_options['display_showcase']) ? $design_options['display_showcase']:false );
+
 if($display_showcase!==false && $display_showcase=='TRUE'){
     $showcase_options = (isset($design_options['showcase_options'])?$design_options['showcase_options']:false);
     if($showcase_options !== false && !empty($showcase_options)){
