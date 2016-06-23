@@ -1,5 +1,4 @@
 <?php
-
 Class Header{
     /** Get selected header layout from customizer
      * @return mixed
@@ -17,9 +16,7 @@ Class Header{
     public static function get_menu_style(){
         global $design_options;
         $website_color = $design_options['website_color'];
-
         $options = get_theme_mod('header_menu_options');
-
         $classes = get_body_class();
         $display_slider = $design_options['setting_landing_slider'];
         $secondary = '';
@@ -43,7 +40,6 @@ Class Header{
     /*
     public static function get_header_background_color(){
         $header_background = get_theme_mod('header_background');
-
     }
     */
     public static function get_agency_logo_size(){
@@ -61,7 +57,6 @@ Class Header{
             $logo_header .= "<img class=\"ui image ".$logo['size']." logo\" src=\"".$logo['url']."\" style='display: block;margin-left: auto;margin-right: auto;'> &nbsp;";
             $logo_header .= "</a>";
         }
-
         return $logo_header;
     }
     public static function get_website_name_tagline(){
@@ -174,18 +169,15 @@ Class Header{
         endif;
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
-<<<<<<< HEAD
-        $mobile .=              "<a href=\"\" class=\"menu item mobile-menu ui button inverted\" style=\"padding: 0 10px\">";
-        $mobile .=                  "<b><i class=\"sidebar icon\" style=\" color:white; \"></i></b>";
-        $mobile .=              "</a>";
-=======
+        /*$mobile .=              "<a class='launch icon item mobile-menu'>";
+        $mobile .=                  "<i class='content icon'></i>";
+        $mobile .=              "</a>";*/
         $mobile .=              "<div class='item'>";
-        $mobile .=                  "<button class=\"ui inverted button mobile-menu\">";
-        //$mobile .=                  "<i class='sidebar link icon mobile-menu' style='margin: auto !important;'></i>";
-        $mobile .=                      "MENU";
+        $mobile .=                  "<button class=\"ui inverted button launch icon mobile-menu\" style='z-index: 1000;'>";
+        $mobile .=                      "MENU ";
+        $mobile .=                  "<i class='content link icon' style='margin: auto !important;'></i>";
         $mobile .=                  "</button>";
         $mobile .=              "</div>";
->>>>>>> 095df3428f1cf96a9d14678b0683ba7c4264515e
         $mobile .=          "</div>";
         $mobile .=      "</div>";
         $mobile .=  "</div>";
