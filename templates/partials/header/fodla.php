@@ -1,29 +1,29 @@
-<?php
-$agency_options = get_option('agency_settings');
-$logo = $agency_options['agency_logo'];
-?>
-
 <script type="text/javascript">
+<<<<<<< HEAD
 jQuery(document).ready(function(){
     jQuery('.right.menu.open').on("click",function(e){
         e.preventDefault();
         jQuery('.ui.vertical.menu').toggle();
+=======
+    jQuery(document).ready(function(){
+        jQuery('.right.menu.open').on("click",function(e){
+            e.preventDefault();
+            jQuery('.ui.vertical.menu').toggle();
+        });
+
+        jQuery('.ui.dropdown').dropdown();
+>>>>>>> 28370283efb57b1951e7d857a7e998eb6cbc4e6f
     });
-
-    jQuery('.ui.dropdown').dropdown();
-});
 </script>
+<<<<<<< HEAD
 
+=======
+<!-- Fodla Layout -->
+>>>>>>> 28370283efb57b1951e7d857a7e998eb6cbc4e6f
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
         <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
-            <a class="item" href="<?= esc_url(home_url('/')); ?>">
-                <?php if ($logo): ?>
-                    <img class="ui tiny image logo" src="<?= wp_get_attachment_url($logo); ?>"  />
-                <?php else: ?>
-                    <?= get_blog_name(); ?>
-                <?php endif; ?>
-            </a>
+            <?= Header::header_logo_item();?>
             <?= Header::get_website_name_tagline(); ?>
             <div class="right menu">
                 <?php

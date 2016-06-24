@@ -15,7 +15,6 @@ Class Header{
      */
     public static function get_menu_style(){
         global $design_options;
-        $website_color = $design_options['website_color'];
         $options = get_theme_mod('header_menu_options');
         $classes = get_body_class();
         $display_slider = $design_options['setting_landing_slider'];
@@ -26,7 +25,7 @@ Class Header{
         if (in_array('single-voyage', $classes)) {
             $secondary = 'secondary';
         }
-        $style = $secondary .' '. self::get_header_menu_style() . ' ' . self::get_header_color_fill() . ' ' . $website_color . ' ' . $options;
+        $style = $secondary .' '. self::get_header_menu_style() . ' ' . self::get_header_color_fill() . ' ' . $options;
         return $style;
     }
     public static function get_header_menu_style(){
@@ -37,6 +36,12 @@ Class Header{
         $header_color_fill = get_theme_mod('header_color_fill');
         return (empty($header_color_fill)?'inverted':$header_color_fill);
     }
+    public static function get_header_background(){
+        $background_color = get_theme_mod('header_background_color');
+        $background = "background-color: ".$background_color.";";
+        return $background;
+    }
+
     /*
     public static function get_header_background_color(){
         $header_background = get_theme_mod('header_background');
@@ -58,6 +63,27 @@ Class Header{
             $logo_header .= "</a>";
         }
         return $logo_header;
+    }
+
+    public static function header_logo_item(){
+        $agency_options = get_option('agency_settings');
+        $logo = $agency_options['agency_logo'];
+        $logo_url = wp_get_attachment_url($logo);
+        $logo_size = (!empty(get_theme_mod('header_logo_size'))?get_theme_mod('header_logo_size'):"tiny");
+        $home_url = get_home_url ('/');
+        //$item = "<a>Hola mundo</a>";
+        $item = "<a class='item' href='$home_url'>";
+        if($logo){
+            $item .= "<img class=\"ui ".$logo_size." image logo\" src=\"".$logo_url."\"";
+        }else{
+            $item .= self::get_blog_name();
+        }
+        $item .= "</a>";
+        return $item;
+    }
+    public static function get_blog_name(){
+        $name = get_bloginfo('name');
+        return $name;
     }
     public static function get_website_name_tagline(){
         $name = "";
@@ -83,13 +109,27 @@ Class Header{
         if ($show_phone  === 'TRUE'){
             $phone_class = get_theme_mod('header_button_styles');
             if(empty($phone_class))
-                $phone_class = 'basic';
+                $phone_class = '';
             $color = get_theme_mod('header_phone_color_button');
             if(empty($color))
-                $color = 'white';
-            $background = (!$color || $color==''?'':$color);
+                $color = '#ffffff';
+            switch($phone_class){
+                case 'inverted':
+                    $background = "background-color: transparent;box-shadow: 0 0 0 2px ".$color." inset!important;color: ".$color.";";
+                    break;
+                case 'basic':
+                    $background = "background: 0 0!important;box-shadow: 0 0 0 1px ".$color." inset!important;color: ".$color."!important;";
+                    break;
+                case 'emphasis':
+                    $background = "background-color: ".$color.";color: #fff;text-shadow: none;background-image: none;font-weight: 600;";
+                    break;
+                default:
+                    $background = "background-color: ".$color.";color: #fff;text-shadow: none;background-image: none;";
+                    break;
+            }
+            $style = $background;
             if ($phone) {
-                $phone_button .= '<a href="tel:' . $phone . '" class="ui '.$background.' '.$phone_class.' menu-link '. scroll_menu() . ' button">';
+                $phone_button .= '<a href="tel:' . $phone . '" class="ui '.$phone_class.' menu-link '. scroll_menu() . ' button" style="'.$style.'">';
                 $phone_button .= '<i class="call icon"></i>';
                 $phone_button .= $phone;
                 $phone_button .= '</a>';

@@ -87,9 +87,12 @@
             init: function() {
 
                 $('#slides').superslides({play:'8000'});
-
+                var header_menu_background = header_background_color();
                 if (jQuery('.main-slider').length>0) {
-                    scrollMenu();
+                    jQuery('.header-menu').css('background-color','');
+                    scrollMenu(header_menu_background);
+                }else{
+                    jQuery('.header-menu').css('background-color',header_menu_background);
                 }
                 $(".owl-carousel").owlCarousel({
                     /*autoplay:true,
@@ -154,7 +157,8 @@
         },
         'single_voyage':{
             init: function(){
-                scrollMenu();
+                var header_menu_background = header_background_color();
+                scrollMenu(header_menu_background);
 
                 $('#host-gallery').slick({
                     autoplay:true,
