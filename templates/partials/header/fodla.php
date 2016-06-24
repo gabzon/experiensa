@@ -4,7 +4,6 @@ $logo = $agency_options['agency_logo'];
 ?>
 
 <script type="text/javascript">
-
 jQuery(document).ready(function(){
     jQuery('.right.menu.open').on("click",function(e){
         e.preventDefault();
@@ -14,6 +13,7 @@ jQuery(document).ready(function(){
     jQuery('.ui.dropdown').dropdown();
 });
 </script>
+
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
         <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
