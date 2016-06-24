@@ -21,3 +21,17 @@ function choice_display_languagebutton_callback( $control ) {
         return false;
     }
 }
+function display_background_colorpicker_callback( $control ) {
+    if ( $control->manager->get_setting('header_background_type')->value() == 'color' ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function display_background_image_callback( $control ) {
+    if ( $control->manager->get_setting('header_background_type')->value() == 'image' ) {
+        return true;
+    } else {
+        return false;
+    }
+}

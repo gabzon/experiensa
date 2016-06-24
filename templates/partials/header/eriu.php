@@ -1,16 +1,33 @@
-<header class="ui grid">
-    <?php echo Header::get_mobile_header();?>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('.right.menu.open').on("click",function(e){
+            e.preventDefault();
+            jQuery('.ui.vertical.menu').toggle();
+        });
+        jQuery('.open-vertical-menu').on("click",function(e){
+            e.preventDefault();
+            jQuery('.ui.vertical.menu.pc').toggle();
+        });
+        jQuery('.ui.dropdown').dropdown();
+    });
+</script>
+<!-- Eriu Layout -->
+<div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style();?> menu grid header-menu">
-            <a href="#" class="menu item">
-                <i class="sidebar icon mobile-menu"></i>
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
+            <a href="" class="menu item open-vertical-menu" style="font-weight:bold">
+                <i class="content icon"></i>
             </a>
-            <div class='menu right'>
-                <?php
-                echo Header::get_logo_header('');
-                echo Header::get_website_name_tagline();
-                ?>
+
+            <div class="right menu">
+                <?= Header::header_logo_item();?>
+                <?= Header::get_website_name_tagline(); ?>
             </div>
         </div>
+        <!--mobile nav bar menu -->
+        <div class="ui vertical inverted navbar fixed menu pc">
+            <?php Menu::display_all_menus($page_id,'left',false); ?>
+        </div>
     </div>
-</header>
+    <?php get_template_part('templates/partials/header/mobile'); ?>
+</div>

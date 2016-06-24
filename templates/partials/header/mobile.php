@@ -17,7 +17,8 @@ $logo = $agency_options['agency_logo'];
             </a>
         </div>
     </div>
-    <div class="ui vertical inverted navbar menu">
+    <!--mobile nav bar menu -->
+    <div class="ui vertical inverted navbar fixed menu">
         <?php Menu::display_all_menus($page_id,'left',false); ?>
     </div>
 </div>

@@ -15,7 +15,7 @@ class Header{
     public function add_section(){
         $header_section = [
             'title'      => __('Header Design','sage'),
-            'priority'   => 30,
+            'priority'   => 10,
             'panel'     => 'experiensa_design'
         ];
         $this->wp_customize->add_section( 'experiensa_header_design'  , $header_section );
@@ -37,10 +37,26 @@ class Header{
             'default'     => 'TRUE',
             'transport'   => 'refresh',
         ) );
-        $this->wp_customize->add_setting( 'header_background' , array(
-            'default'     => 'inverted',
+        $this->wp_customize->add_setting( 'header_background_type' , array(
+            'default'     => 'color',
             'transport'   => 'refresh',
         ) );
+        $this->wp_customize->add_setting( 'header_background_color' , array(
+            'default'     => '#ffffff',
+            'transport'   => 'refresh',
+        ) );
+        $this->wp_customize->add_setting( 'header_background_image' , array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        ) );
+        /*$this->wp_customize->add_setting( 'header_font_color' , array(
+            'default'     => '#ffffff',
+            'transport'   => 'refresh',
+        ) );
+        $this->wp_customize->add_setting( 'header_font_style' , array(
+            'default'     => 'capitalize',
+            'transport'   => 'refresh',
+        ) );*/
         $this->wp_customize->add_setting( 'header_menu_style' , array(
             'default'     => 'fixed',
             'transport'   => 'refresh',
@@ -61,11 +77,11 @@ class Header{
             'transport'   => 'refresh',
         ) );
         $this->wp_customize->add_setting( 'header_phone_color_button' , array(
-            'default'     => 'white',
+            'default'     => '#ffffff',
             'transport'   => 'refresh',
         ) );
         $this->wp_customize->add_setting( 'header_button_styles' , array(
-            'default'     => 'basic',
+            'default'     => '',
             'transport'   => 'refresh',
         ) );
         /* ****************************************************************************/
@@ -151,15 +167,66 @@ class Header{
                 ),
             )
         );
+        $this->wp_customize->add_control(
+            'header_background_type',
+            array(
+                'label'    => __( 'Background Type', 'sage' ),
+                'section'  => 'experiensa_header_design',
+                'settings' => 'header_background_type',
+                'type'     => 'select',
+                'choices'  => array(
+                    'color'      => __('Background Color','sage'),
+                    'image'      => __('Background Image','sage')
+                ),
+            )
+        );
+        $this->wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $this->wp_customize,
+                'header_background_color',
+                array(
+                    'label'    => __( 'Header Background Color', 'sage' ),
+                    'section'  => 'experiensa_header_design',
+                    'settings' => 'header_background_color',
+                    'active_callback' => 'display_background_colorpicker_callback',
+                )
+            )
+        );
+        /*$this->wp_customize->add_control(
+            new \WP_Customize_Image_Control(
+                $this->wp_customize,
+                'header_background_image',
+                array(
+                    'label'    => __( 'Header Background Image', 'sage' ),
+                    'section'  => 'experiensa_header_design',
+                    'settings' => 'header_background_image',
+                    'active_callback' => 'display_background_image_callback',
+                )
+            )
+        );*/
         /*$this->wp_customize->add_control(
             new \WP_Customize_Color_Control(
                 $this->wp_customize,
-                'header_background',
+                'header_font_color',
                 array(
-                    'label'    => __( 'Header Background', 'sage' ),
+                    'label'    => __( 'Font Color', 'sage' ),
                     'section'  => 'experiensa_header_design',
-                    'settings' => 'header_background'
+                    'settings' => 'header_font_color'
                 )
+            )
+        );
+        $this->wp_customize->add_control(
+            'header_font_style',
+            array(
+                'label'    => __( 'Font Style', 'sage' ),
+                'section'  => 'experiensa_header_design',
+                'settings' => 'header_font_style',
+                'type'     => 'select',
+                'choices'  => array(
+                    'capitalize' => __('Capitalize', 'sage'),
+                    'uppercase'  => __('Uppercase', 'sage'),
+                    'lowercase'  => __('Lowercase', 'sage')
+                ),
             )
         );*/
         $this->wp_customize->add_control(
@@ -175,7 +242,6 @@ class Header{
                 ),
             )
         );
-
         $this->wp_customize->add_control(
             'header_menu_options',
             array(
@@ -220,7 +286,7 @@ class Header{
                 ),
             )
         );
-        $this->wp_customize->add_control(
+        /*$this->wp_customize->add_control(
             'header_phone_color_button',
             array(
                 'label'    => __('Phone Button Color','sage'),
@@ -245,6 +311,18 @@ class Header{
                     'black'  => __('Black', 'sage'),
                 ),
             )
+        );*/
+        $this->wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $this->wp_customize,
+                'header_phone_color_button',
+                array(
+                    'label'    => __( 'Phone Button Color', 'sage' ),
+                    'section'  => 'experiensa_header_design',
+                    'settings' => 'header_phone_color_button',
+                    'active_callback' => 'choice_display_phonebutton_callback',
+                )
+            )
         );
         $this->wp_customize->add_control(
             'header_button_styles',
@@ -255,6 +333,7 @@ class Header{
                 'type'     => 'select',
                 'active_callback' => 'choice_display_phonebutton_callback',
                 'choices'  => array(
+                    ''  => __('None','sage'),
                     'inverted'  => __('Inverted','sage'),
                     'emphasis'  => __('Emphasis','sage'),
                     'basic'     => __('Basic','sage'),
