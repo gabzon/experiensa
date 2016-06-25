@@ -85,8 +85,23 @@
         // Home page
         'home': {
             init: function() {
-
                 $('#slides').superslides({play:'8000'});
+                var header_menu = jQuery('.ui.menu.navbar.grid.header-menu.pc');
+                var headerHieght = header_menu.height();
+                //console.log('headerHieght '+headerHieght);
+                var mobile_menu_on_pc = jQuery('.ui.vertical.inverted.navbar.fixed.menu.pc');
+                //console.log(mobile_menu_on_pc);
+                var data1 = headerHieght+'px';
+                //console.log('data1 '+data1);
+                mobile_menu_on_pc.css('margin-top',data1);
+                var mobile_header = jQuery('.ui.navbar.menu.header-menu.mobile');
+                var mobileHeaderHieght = mobile_header.height();
+                //console.log('mobileHeaderHieght '+mobileHeaderHieght);
+                var mobile_menu = jQuery('.ui.vertical.navbar.menu.mobile');
+                //console.log(mobile_menu);
+                var data2 = mobileHeaderHieght+'px';
+                //console.log('data2 '+data2);
+                mobile_menu.css('margin-top',data2);
                 var header_menu_background = header_background_color();
                 if (jQuery('.main-slider').length>0) {
                     jQuery('.header-menu').css('background-color','');

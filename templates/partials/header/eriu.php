@@ -14,7 +14,7 @@
 <!-- Eriu Layout -->
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu pc">
             <a href="" class="menu item open-vertical-menu" style="font-weight:bold">
                 <i class="content icon"></i>
             </a>

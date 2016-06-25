@@ -39,20 +39,17 @@ header.ui.menu{
     @media (max-width: 767px) {
         .ui.grid { margin: 0 !important; }
         .ui.vertical.menu.navbar{
-            margin-top: 63px !important;
-            /*margin-top: 100px !important;*/
             padding-top:60px;
             padding-bottom: 10px;
             a.item:first-child{ padding-top: 10px;}
         }
     }
     .ui.vertical.menu.pc{
-        margin-top: 100px !important;
         width: 100%;
         display: none;
     }
     .ui.vertical.menu{
-        margin-top: 500px !important;
+        /*margin-top: 500px !important;*/
         width: 100%;
         display: none;
     }

@@ -41,7 +41,10 @@ Class Header{
         $background = "background-color: ".$background_color.";";
         return $background;
     }
-
+    public static function get_header_logo_size(){
+        $logo_size = (!empty(get_theme_mod('header_logo_size'))?get_theme_mod('header_logo_size'):"tiny");
+        return $logo_size;
+    }
     /*
     public static function get_header_background_color(){
         $header_background = get_theme_mod('header_background');
