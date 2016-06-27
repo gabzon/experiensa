@@ -12,6 +12,9 @@ class Header{
         $this->add_settings();
         $this->add_controls();
     }
+    /**
+     * Create Header Design Section
+     */
     public function add_section(){
         $header_section = [
             'title'      => __('Header Design','sage'),
@@ -20,6 +23,10 @@ class Header{
         ];
         $this->wp_customize->add_section( 'experiensa_header_design'  , $header_section );
     }
+
+    /**
+     * Define settings for Header
+     */
     public function add_settings(){
         $this->wp_customize->add_setting( 'header_style' , array(
             'default'     => 'fodla',
@@ -49,14 +56,7 @@ class Header{
             'default'     => '',
             'transport'   => 'refresh',
         ) );
-        /*$this->wp_customize->add_setting( 'header_font_color' , array(
-            'default'     => '#ffffff',
-            'transport'   => 'refresh',
-        ) );
-        $this->wp_customize->add_setting( 'header_font_style' , array(
-            'default'     => 'capitalize',
-            'transport'   => 'refresh',
-        ) );*/
+
         $this->wp_customize->add_setting( 'header_menu_style' , array(
             'default'     => 'fixed',
             'transport'   => 'refresh',
@@ -67,6 +67,21 @@ class Header{
         ) );
         $this->wp_customize->add_setting( 'header_color_fill' , array(
             'default'     => 'inverted',
+            'transport'   => 'refresh',
+        ) );
+        $this->wp_customize->add_setting( 'header_button_styles' , array(
+            'default'     => '',
+            'transport'   => 'refresh',
+        ) );
+        /* ****************************************************************************/
+        /* Font Options ***************************************************************/
+        /* ****************************************************************************/
+        $this->wp_customize->add_setting( 'header_font_color' , array(
+            'default'     => '#ffffff',
+            'transport'   => 'refresh',
+        ) );
+        $this->wp_customize->add_setting( 'header_font_style' , array(
+            'default'     => 'capitalize',
             'transport'   => 'refresh',
         ) );
         /* ****************************************************************************/
@@ -80,10 +95,6 @@ class Header{
             'default'     => '#ffffff',
             'transport'   => 'refresh',
         ) );
-        $this->wp_customize->add_setting( 'header_button_styles' , array(
-            'default'     => '',
-            'transport'   => 'refresh',
-        ) );
         /* ****************************************************************************/
         /* Request a quote button *****************************************************/
         /* ****************************************************************************/
@@ -92,7 +103,7 @@ class Header{
             'transport'   => 'refresh',
         ) );
         $this->wp_customize->add_setting( 'header_quote_button_color' , array(
-            'default'     => '',
+            'default'     => '#ffffff',
             'transport'   => 'refresh',
         ) );
         /* ****************************************************************************/
@@ -103,10 +114,14 @@ class Header{
             'transport'   => 'refresh',
         ) );
         $this->wp_customize->add_setting( 'header_language_button_color' , array(
-            'default'     => '',
+            'default'     => '#ffffff',
             'transport'   => 'refresh',
         ) );
     }
+
+    /**
+     * Create setting controls
+     */
     public function add_controls(){
         $this->wp_customize->add_control(
             'header_style',
@@ -146,24 +161,24 @@ class Header{
         $this->wp_customize->add_control(
             'header_company_name',
             array(
-                'label'    => __( 'Display Company name next to the logo ', 'sage' ),
+                'label'    => __( 'Display Title', 'sage' ),
                 'section'  => 'experiensa_header_design',
                 'settings' => 'header_company_name',
                 'type'     => 'checkbox',
                 'choices'  => array(
-                    'TRUE'      => __('Display Company name next to the logo','sage')
+                    'TRUE'      => __('Display Title','sage')
                 ),
             )
         );
         $this->wp_customize->add_control(
             'header_company_tagline',
             array(
-                'label'    => __( 'Display Company tagline next to the logo', 'sage' ),
+                'label'    => __( 'Display Slogan', 'sage' ),
                 'section'  => 'experiensa_header_design',
                 'settings' => 'header_company_tagline',
                 'type'     => 'checkbox',
                 'choices'  => array(
-                    'TRUE'      => __('Display Company tagline next to the logo','sage')
+                    'TRUE'      => __('Display Slogan','sage')
                 ),
             )
         );
@@ -192,7 +207,7 @@ class Header{
                 )
             )
         );
-        /*$this->wp_customize->add_control(
+        $this->wp_customize->add_control(
             new \WP_Customize_Image_Control(
                 $this->wp_customize,
                 'header_background_image',
@@ -203,32 +218,8 @@ class Header{
                     'active_callback' => 'display_background_image_callback',
                 )
             )
-        );*/
-        /*$this->wp_customize->add_control(
-            new \WP_Customize_Color_Control(
-                $this->wp_customize,
-                'header_font_color',
-                array(
-                    'label'    => __( 'Font Color', 'sage' ),
-                    'section'  => 'experiensa_header_design',
-                    'settings' => 'header_font_color'
-                )
-            )
         );
-        $this->wp_customize->add_control(
-            'header_font_style',
-            array(
-                'label'    => __( 'Font Style', 'sage' ),
-                'section'  => 'experiensa_header_design',
-                'settings' => 'header_font_style',
-                'type'     => 'select',
-                'choices'  => array(
-                    'capitalize' => __('Capitalize', 'sage'),
-                    'uppercase'  => __('Uppercase', 'sage'),
-                    'lowercase'  => __('Lowercase', 'sage')
-                ),
-            )
-        );*/
+
         $this->wp_customize->add_control(
             'header_menu_style',
             array(
@@ -270,6 +261,49 @@ class Header{
                 ),
             )
         );
+        $this->wp_customize->add_control(
+            'header_button_styles',
+            array(
+                'label'    => __('Header Buttons Style','sage'),
+                'section'  => 'experiensa_header_design',
+                'settings' => 'header_button_styles',
+                'type'     => 'select',
+                'choices'  => array(
+                    ''  => __('None','sage'),
+                    'inverted'  => __('Inverted','sage'),
+                    'emphasis'  => __('Emphasis','sage'),
+                    'basic'     => __('Basic','sage'),
+                ),
+            )
+        );
+        /* ****************************************************************************/
+        /* Select Font button *****************************************************/
+        /* ****************************************************************************/
+        $this->wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $this->wp_customize,
+                'header_font_color',
+                array(
+                    'label'    => __( 'Font Color', 'sage' ),
+                    'section'  => 'experiensa_header_design',
+                    'settings' => 'header_font_color'
+                )
+            )
+        );
+        $this->wp_customize->add_control(
+            'header_font_style',
+            array(
+                'label'    => __( 'Font Style', 'sage' ),
+                'section'  => 'experiensa_header_design',
+                'settings' => 'header_font_style',
+                'type'     => 'select',
+                'choices'  => array(
+                    'capitalize' => __('Capitalize', 'sage'),
+                    'uppercase'  => __('Uppercase', 'sage'),
+                    'lowercase'  => __('Lowercase', 'sage')
+                ),
+            )
+        );
         /* ****************************************************************************/
         /* Phone button ***************************************************************/
         /* ****************************************************************************/
@@ -286,32 +320,7 @@ class Header{
                 ),
             )
         );
-        /*$this->wp_customize->add_control(
-            'header_phone_color_button',
-            array(
-                'label'    => __('Phone Button Color','sage'),
-                'section'  => 'experiensa_header_design',
-                'settings' => 'header_phone_color_button',
-                'type'     => 'select',
-                'active_callback' => 'choice_display_phonebutton_callback',
-                'choices'  => array(
-                    'white'  => __('Default (White)', 'sage'),
-                    'red'    => __('Red', 'sage'),
-                    'orange' => __('Orange', 'sage'),
-                    'yellow' => __('Yellow', 'sage'),
-                    'olive'  => __('Olive', 'sage'),
-                    'green'  => __('Green', 'sage'),
-                    'teal'   => __('Teal', 'sage'),
-                    'blue'   => __('Blue', 'sage'),
-                    'violet' => __('Violet', 'sage'),
-                    'purple' => __('Purple', 'sage'),
-                    'pink'   => __('Pink', 'sage'),
-                    'brown'  => __('Brown', 'sage'),
-                    'grey'   => __('Grey', 'sage'),
-                    'black'  => __('Black', 'sage'),
-                ),
-            )
-        );*/
+
         $this->wp_customize->add_control(
             new \WP_Customize_Color_Control(
                 $this->wp_customize,
@@ -324,23 +333,10 @@ class Header{
                 )
             )
         );
-        $this->wp_customize->add_control(
-            'header_button_styles',
-            array(
-                'label'    => __('Phone Button Style','sage'),
-                'section'  => 'experiensa_header_design',
-                'settings' => 'header_button_styles',
-                'type'     => 'select',
-                'active_callback' => 'choice_display_phonebutton_callback',
-                'choices'  => array(
-                    ''  => __('None','sage'),
-                    'inverted'  => __('Inverted','sage'),
-                    'emphasis'  => __('Emphasis','sage'),
-                    'basic'     => __('Basic','sage'),
-                ),
-            )
-        );
 
+        /* ****************************************************************************/
+        /* Select quote button *****************************************************/
+        /* ****************************************************************************/
         $this->wp_customize->add_control(
             'header_display_quote_button',
             array(
@@ -355,29 +351,15 @@ class Header{
             )
         );
         $this->wp_customize->add_control(
-            'header_quote_button_color',
-            array(
-                'label'    => __('Request Button Color','sage'),
-                'section'  => 'experiensa_header_design',
-                'settings' => 'header_quote_button_color',
-                'type'     => 'select',
-                'active_callback' => 'choice_display_quotebutton_callback',
-                'choices'  => array(
-                    ''              => __('Default (White)','sage'),
-                    'red'           => __('Red','sage'),
-                    'orange'        => __('Orange','sage'),
-                    'yellow'        => __('Yellow','sage'),
-                    'olive'         => __('Olive','sage'),
-                    'green'         => __('Green','sage'),
-                    'teal'          => __('Teal','sage'),
-                    'blue'          => __('Blue','sage'),
-                    'violet'        => __('Violet','sage'),
-                    'purple'        => __('Purple','sage'),
-                    'pink'          => __('Pink','sage'),
-                    'brown'         => __('Brown','sage'),
-                    'grey'          => __('Grey','sage'),
-                    'black'         => __('Black','sage'),
-                ),
+            new \WP_Customize_Color_Control(
+                $this->wp_customize,
+                'header_quote_button_color',
+                array(
+                    'label'    => __( 'Request Button Color', 'sage' ),
+                    'section'  => 'experiensa_header_design',
+                    'settings' => 'header_quote_button_color',
+                    'active_callback' => 'choice_display_quotebutton_callback',
+                )
             )
         );
         /* ****************************************************************************/
@@ -397,29 +379,15 @@ class Header{
             )
         );
         $this->wp_customize->add_control(
-            'header_language_button_color',
-            array(
-                'label'    => __('Language Button Color','sage'),
-                'section'  => 'experiensa_header_design',
-                'settings' => 'header_language_button_color',
-                'type'     => 'select',
-                'active_callback' => 'choice_display_languagebutton_callback',
-                'choices'  => array(
-                    ''              => __('Default (White)','sage'),
-                    'red'           => __('Red','sage'),
-                    'orange'        => __('Orange','sage'),
-                    'yellow'        => __('Yellow','sage'),
-                    'olive'         => __('Olive','sage'),
-                    'green'         => __('Green','sage'),
-                    'teal'          => __('Teal','sage'),
-                    'blue'          => __('Blue','sage'),
-                    'violet'        => __('Violet','sage'),
-                    'purple'        => __('Purple','sage'),
-                    'pink'          => __('Pink','sage'),
-                    'brown'         => __('Brown','sage'),
-                    'grey'          => __('Grey','sage'),
-                    'black'         => __('Black','sage'),
-                ),
+            new \WP_Customize_Color_Control(
+                $this->wp_customize,
+                'header_language_button_color',
+                array(
+                    'label'    => __( 'Language Button Color', 'sage' ),
+                    'section'  => 'experiensa_header_design',
+                    'settings' => 'header_language_button_color',
+                    'active_callback' => 'choice_display_languagebutton_callback',
+                )
             )
         );
     }
