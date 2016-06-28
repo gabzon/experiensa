@@ -3,8 +3,8 @@
 /*
 Title: Header Settings
 Setting: experiensa_design_settings
-Tab: Header Design
-Tab Order: 10
+Tab: Header
+Flow: Design
 */
 piklist('field', array(
     'type'      => 'select',

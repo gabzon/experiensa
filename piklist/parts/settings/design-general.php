@@ -2,6 +2,8 @@
 /*
 Title: Website Design
 Setting: experiensa_design_settings
+Tab: Website Design
+Flow: Design
 */
 
 piklist('field',array(

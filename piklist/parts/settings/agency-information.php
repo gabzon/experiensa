@@ -2,6 +2,8 @@
 /*
  Title: Agency Information
  Setting: agency_settings
+ Tab: Information
+ Flow: Options
  */
 
 piklist('field',array(

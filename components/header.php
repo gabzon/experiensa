@@ -169,7 +169,7 @@ Class Header{
             $button_style = self::get_button_style();
             $background = self::get_button_background('header_quote_button_color',$button_style);
             $style .= $background;
-            $quote_button .=        '<a id="request-button" href="#" class="'.$icon_size.' ui ' . $button_style . ' button" style="'.$style.'">';
+            $quote_button .=        '<a id="request-button" href="#" class="'.$icon_size.' ui ' . $button_style . ' menu-link '. scroll_menu() .' button" style="'.$style.'">';
             $quote_button .=            '<i class="edit icon"></i> ' . __('Request a Trip','sage');
             $quote_button .=        '</a>';
         }
