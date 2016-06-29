@@ -25,7 +25,10 @@
         </div>
         <!--mobile nav bar menu on pc-->
         <div class="ui vertical inverted navbar fixed menu pc">
-            <?php Menu::display_all_menus($page_id,'left',false); ?>
+            <?php
+            Menu::get_menu_mobile($page_id);
+            display_language_menu_accordion()
+            ?>
         </div>
     </div>
     <?php get_template_part('templates/partials/header/mobile'); ?>

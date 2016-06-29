@@ -21,7 +21,7 @@ $logo_size = Header::get_header_logo_size();
     </div>
     <!--mobile nav bar menu -->
     <div class="ui vertical inverted navbar fixed menu mobile">
-        <?php Menu::display_all_menus_mobile(); ?>
+        <?php Menu::get_menu_mobile($page_id); ?>
         <?php display_language_menu_accordion()?>
     </div>
 </div>

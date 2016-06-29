@@ -9,7 +9,7 @@ $logo_size = Header::get_header_logo_size();
                 <img class="ui image <?= $logo_size; ?> logo" src="<?= $logo_url; ?>" style='display: block;margin-left: auto;margin-right: auto;'>
             </a>
             <div class="right menu">
-                <?= Menu::display_all_menus($page_id,'left',true); ?>
+                <?= Menu::get_menu($page_id); ?>
             </div>
         </div>
     </div>

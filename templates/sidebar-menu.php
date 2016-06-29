@@ -7,6 +7,6 @@ $menu_name = 'primary_navigation';//ui left vertical floating very wide active s
     <br>
     <?php Header::get_phone_item('item'); ?>
     <?php Header::get_quote_item('item'); ?>
-    <?php Menu::display_all_menus_mobile();?>
+    <?php Menu::get_menu_mobile($page_id);?>
     <?php Menu::get_language_menu_accordion(); ?>
 </div>

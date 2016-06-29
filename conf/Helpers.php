@@ -16,14 +16,6 @@ class Helpers {
         return $agency_options['agency_email'];
     }
 
-    /**
-     * Get all no empty and unique menus created on wp-admin
-     * @return mixed
-     */
-    public static function get_all_menus_list(){
-        return array_unique(get_terms( 'nav_menu', array( 'hide_empty' => true ) ),SORT_REGULAR);
-    }
-
     public static function check_internet_connection(){
         $connected = @fsockopen("www.google.com", 80);
         //website, port  (try 80 or 443)

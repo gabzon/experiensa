@@ -21,7 +21,7 @@ $logo = $agency_options['agency_logo'];
                 echo Header::get_language_item('item');
                 echo Header::get_phone_item('item');
                 echo Header::get_quote_item('item');
-                Menu::display_all_menus($page_id,'left',false);
+                Menu::get_menu($page_id);
                 ?>
                 <a class="item" href="<?= esc_url(home_url('/')); ?>">
                     <?php if ($logo): ?>
