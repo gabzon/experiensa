@@ -19,11 +19,10 @@ function display_languages_button($option,$style){
     }
 }
     function display_language_menu($button_style,$style,$display = false){
-        //$background = (!$color || $color==''?'inverted':$color);
         $menu = "";
         $languages = icl_get_languages('skip_missing=0&orderby=code');
         if(!empty($languages)) {
-            $menu .= "<div class='ui dropdown language-menu ".$button_style.' menu-link '. scroll_menu() ." button' style='".$style."'>";
+            $menu .= "<div class='ui dropdown language-menu ".$button_style.' menu-link '. Header::scroll_menu_class() ." button' style='".$style."'>";
             $menu .=        '<i class="translate icon"></i>';
             $menu .=        "<div class=\"text\">".__('Languages','sage')."</div>";
             $menu .=        "<div class=\"menu\">";

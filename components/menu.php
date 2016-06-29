@@ -59,7 +59,6 @@ Class Menu {
                         }
                     }
                 }
-                //$menu_string .= "</div>";
             }
         }
         if($return)
@@ -116,6 +115,15 @@ Class Menu {
             return $menu_string;
         else{
             echo $menu_string;
+        }
+    }
+    public static function get_language_menu_accordion(){
+        global $design_options;
+        $language_options = $design_options['group_language'];
+        if ($language_options['header_language_display'][0] === 'TRUE'){
+            echo '<div class="ui inverted segment">';
+            display_language_menu_accordion();
+            echo '</div>';
         }
     }
 }

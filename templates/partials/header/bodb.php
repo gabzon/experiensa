@@ -27,7 +27,7 @@ $logo = $agency_options['agency_logo'];
                     <?php if ($logo): ?>
                         <img class="ui tiny image logo" src="<?= wp_get_attachment_url($logo); ?>"  />
                     <?php else: ?>
-                        <?= get_blog_name(); ?>
+                        <?= Header::get_blog_name(); ?>
                     <?php endif; ?>
                 </a>
                 <?= Header::get_website_name_tagline(); ?>

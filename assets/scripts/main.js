@@ -98,6 +98,7 @@
                 mobile_menu.css('margin-top',menu_height_mobile);
                 var header_menu_background = header_background_color();
                 if (jQuery('.main-slider').length>0) {
+                    jQuery('.header-menu').addClass("secondary");
                     jQuery('.header-menu').css('background-color','');
                     scrollMenu(header_menu_background);
                 }else{

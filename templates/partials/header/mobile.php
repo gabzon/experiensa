@@ -10,7 +10,7 @@ $logo_size = Header::get_header_logo_size();
             if ($logo):?>
                 <img class="ui <?= $logo_size;?> image logo" src="<?= wp_get_attachment_url($logo); ?>"  />
             <?php else: ?>
-                <?= get_blog_name(); ?>
+                <?= Header::get_blog_name(); ?>
             <?php endif; ?>
         </a>
         <div class="right menu open">
@@ -21,6 +21,7 @@ $logo_size = Header::get_header_logo_size();
     </div>
     <!--mobile nav bar menu -->
     <div class="ui vertical inverted navbar fixed menu mobile">
-        <?php Menu::display_all_menus($page_id,'left',false); ?>
+        <?php Menu::display_all_menus_mobile(); ?>
+        <?php display_language_menu_accordion()?>
     </div>
 </div>
