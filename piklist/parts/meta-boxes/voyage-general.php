@@ -53,31 +53,29 @@ piklist('field', array(
     'label' => __('Number of Days'),
     'fields' => array(
         array(
-            'type'          => 'text',
+            'type'          => 'number',
             'field'         => 'days',
             'columns'       => 2,
-            'attributes'    => array( 'placeholder' => __('Days','sage')),
-            'validate'      => array( array( 'type' => 'number' ))
+            'attributes'    => ['placeholder' => __('Days','sage')],
         ),
         array(
-            'type'          => 'text',
+            'type'          => 'number',
             'field'         => 'nights',
             'columns'       => 2,
             'attributes' => array( 'placeholder' => __('Nights')),
-            'validate' => array( array( 'type' => 'number' ) )
         ),
     ),
 ));
 
-piklist('field', array(
-    'type'          => 'checkbox',
-    'field'         => 'conditions',
-    'label'         => __('Conditions','sage'),
-    'choices'       => array(
-        'refundable'    => __('Refundable','sage'),
-        'flexible'      => __('Flexible','sage')
-    ),
-));
+// piklist('field', array(
+//     'type'          => 'checkbox',
+//     'field'         => 'conditions',
+//     'label'         => __('Conditions','sage'),
+//     'choices'       => array(
+//         'refundable'    => __('Refundable','sage'),
+//         'flexible'      => __('Flexible','sage')
+//     ),
+// ));
 
 piklist('field', array(
     'type'      => 'group',

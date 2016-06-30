@@ -154,7 +154,7 @@ piklist('field', array(
 ));
 
 piklist('field', array(
-    'type' => 'text',
+    'type' => 'tel',
     'field' => 'agency_phone',
     'scope' => 'post_meta',
     'label' => __('Phone'),
@@ -165,7 +165,7 @@ piklist('field', array(
 ));
 
 piklist('field', array(
-    'type' => 'text',
+    'type' => 'tel',
     'field' => 'agency_fax',
     'scope' => 'post_meta',
     'label' => __('Fax','sage'),

@@ -3,7 +3,7 @@ $agency_options = get_option('agency_settings');
 $logo = $agency_options['agency_logo'];
 ?>
 <div class="mobile only row">
-    <div class="ui <?= Header::get_menu_style(); ?> navbar menu borderless header-menu">
+    <div class="ui <?= Header::get_menu_style(); ?> inverted navbar menu borderless header-menu">
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
             <?php if ($logo): ?>
                 <img class="ui tiny image logo" src="<?= wp_get_attachment_url($logo); ?>"  />
