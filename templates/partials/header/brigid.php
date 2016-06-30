@@ -21,7 +21,7 @@ $margin = Header::get_row_topmargin(true);
                 <?php if ($logo): ?>
                     <img class="ui tiny image logo" src="<?= wp_get_attachment_url($logo); ?>"  />
                 <?php else: ?>
-                    <?= get_blog_name(); ?>
+                    <?= Header::get_blog_name(); ?>
                 <?php endif; ?>
             </a>
             <?= Header::get_website_name_tagline(); ?>
@@ -32,7 +32,7 @@ $margin = Header::get_row_topmargin(true);
             <?php
             echo Header::get_phone_item('item');
             echo Header::get_quote_item('item');
-            Menu::display_all_menus($page_id,'left',false);
+            Menu::get_menu($page_id);
             echo Header::get_language_item('item');
             ?>
         </div>

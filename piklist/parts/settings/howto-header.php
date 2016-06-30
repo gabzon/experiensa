@@ -4,7 +4,7 @@
 Title: Howto's Phone
 Setting: experiensa_tutorials
 Tab: Phone
-Tab Order: 20
+Flow: Howto
 */
 
 /* ****************************************************************************/

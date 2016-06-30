@@ -3,6 +3,8 @@
 /*
 Title: Tutorials Section
 Setting: experiensa_tutorials
+Tab: Tutorial
+Flow: Howto
 */
 piklist('field', array(
     'type' => 'group',

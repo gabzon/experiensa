@@ -32,6 +32,18 @@ Class Header{
         $header_menu_style = get_theme_mod('header_menu_style');
         return (empty($header_menu_style)?'fixed':$header_menu_style);
     }
+    public static function scroll_menu_class(){
+        $classes = get_body_class();
+        $design_options = get_option('experiensa_design_settings');
+        $display_slider = $design_options['setting_landing_slider'];
+        if (in_array('home', $classes) && ($display_slider == 'TRUE')) {
+            return 'white-font';
+        }
+        if (in_array('single-voyage', $classes)) {
+            return 'white-font';
+        }
+        return "";
+    }
     public static function get_header_color_fill(){
         $header_color_fill = get_theme_mod('header_color_fill');
         return (empty($header_color_fill)?'inverted':$header_color_fill);
@@ -41,25 +53,26 @@ Class Header{
         $background = "background-color: ".$background_color.";";
         return $background;
     }
-
-    /*
-    public static function get_header_background_color(){
-        $header_background = get_theme_mod('header_background');
-    }
-    */
-    public static function get_agency_logo_size(){
-        $size = false;
-        $logo = get_agency_logo();
-        if(!empty($logo)){
-            $size = $logo['size'];
+    public static  function get_header_logo_url(){
+        global $agency_options;
+        $logo   = $agency_options['agency_logo'];
+        $url = false;
+        if($logo) {
+            $url = wp_get_attachment_url($logo);
         }
-        return $size;
+        return $url;
     }
+    public static function get_header_logo_size(){
+        $logo_size = (!empty(get_theme_mod('header_logo_size'))?get_theme_mod('header_logo_size'):"tiny");
+        return $logo_size;
+    }
+
     public static function get_logo_header($border=''){
-        $logo = get_agency_logo();
+        $logo_url = self::get_header_logo_url();
+        $logo_size = self::get_header_logo_size();
         if(!empty($logo)){
-            $logo_header = "<a class=\"".$border." item menu-link ". scroll_menu() ."\" href=\"".get_experiencia_url()."\">";
-            $logo_header .= "<img class=\"ui image ".$logo['size']." logo\" src=\"".$logo['url']."\" style='display: block;margin-left: auto;margin-right: auto;'> &nbsp;";
+            $logo_header = "<a class=\"".$border." item menu-link ". self::scroll_menu_class() ."\" href=\"".self::get_experiencia_url()."\">";
+            $logo_header .= "<img class=\"ui image ".$logo_size." logo\" src=\"".$logo_url."\" style='display: block;margin-left: auto;margin-right: auto;'> &nbsp;";
             $logo_header .= "</a>";
         }
         return $logo_header;
@@ -71,7 +84,6 @@ Class Header{
         $logo_url = wp_get_attachment_url($logo);
         $logo_size = (!empty(get_theme_mod('header_logo_size'))?get_theme_mod('header_logo_size'):"tiny");
         $home_url = get_home_url ('/');
-        //$item = "<a>Hola mundo</a>";
         $item = "<a class='item' href='$home_url'>";
         if($logo){
             $item .= "<img class=\"ui ".$logo_size." image logo\" src=\"".$logo_url."\"";
@@ -85,15 +97,23 @@ Class Header{
         $name = get_bloginfo('name');
         return $name;
     }
+    public static function get_blog_tagline(){
+        $tagline = get_bloginfo('description');
+        return $tagline;
+    }
+    public static function get_experiencia_url(){
+        $url = esc_url(home_url('/'));
+        return $url;
+    }
     public static function get_website_name_tagline(){
         $name = "";
         if(self::check_display_company_name()) {
-            $name .= "<a href=\"".get_experiencia_url()."\" class=\"item\">";
+            $name .= "<a href=\"".self::get_experiencia_url()."\" class=\"item\">";
             $name .=    "<div class=\"content\">";
-            $name .=        "<h5 class=\"header\">".get_blog_name()."</h5>";
+            $name .=        "<h5 class=\"header\">".self::get_blog_name()."</h5>";
             if(self::check_display_company_tagline()) {
                 $name .= "<div class=\"meta\">";
-                $name .=    "<span class=\"price\">" . get_blog_tagline() . "</span>";
+                $name .=    "<span class=\"price\">" . self::get_blog_tagline() . "</span>";
                 $name .= "</div>";
             }
             $name .=    "</div>";
@@ -101,35 +121,44 @@ Class Header{
         }
         return $name;
     }
+    public static function get_button_style(){
+        $button_styles = get_theme_mod('header_button_styles');
+        if(empty($button_styles))
+            return '';
+        return $button_styles;
+    }
+    public static function get_button_background($param,$button_style){
+        $color = get_theme_mod($param);
+        if(empty($color))
+            $color = '#ffffff';
+        switch($button_style){
+            case 'inverted':
+                $background = "background-color: transparent;box-shadow: 0 0 0 2px ".$color." inset!important;color: ".$color.";";
+                break;
+            case 'basic':
+                $background = "background: 0 0!important;box-shadow: 0 0 0 1px ".$color." inset!important;color: ".$color."!important;";
+                break;
+            case 'emphasis':
+                $background = "background-color: ".$color.";color: #fff;text-shadow: none;background-image: none;font-weight: 600;";
+                break;
+            default:
+                $background = "background-color: ".$color.";color: #fff;text-shadow: none;background-image: none;";
+                break;
+        }
+        return $background;
+    }
     public static function get_phone_button($display = false){
         $show_phone = get_theme_mod('header_display_phone_number');
         $agency_options = get_option('agency_settings');
         $phone = $agency_options['agency_phone'];
         $phone_button = "";
         if ($show_phone  === 'TRUE'){
-            $phone_class = get_theme_mod('header_button_styles');
-            if(empty($phone_class))
-                $phone_class = '';
-            $color = get_theme_mod('header_phone_color_button');
-            if(empty($color))
-                $color = '#ffffff';
-            switch($phone_class){
-                case 'inverted':
-                    $background = "background-color: transparent;box-shadow: 0 0 0 2px ".$color." inset!important;color: ".$color.";";
-                    break;
-                case 'basic':
-                    $background = "background: 0 0!important;box-shadow: 0 0 0 1px ".$color." inset!important;color: ".$color."!important;";
-                    break;
-                case 'emphasis':
-                    $background = "background-color: ".$color.";color: #fff;text-shadow: none;background-image: none;font-weight: 600;";
-                    break;
-                default:
-                    $background = "background-color: ".$color.";color: #fff;text-shadow: none;background-image: none;";
-                    break;
-            }
-            $style = $background;
+            $style = '';
+            $button_style = self::get_button_style();
+            $background = self::get_button_background('header_phone_color_button',$button_style);
+            $style .= $background;
             if ($phone) {
-                $phone_button .= '<a href="tel:' . $phone . '" class="ui '.$phone_class.' menu-link '. scroll_menu() . ' button" style="'.$style.'">';
+                $phone_button .= '<a href="tel:' . $phone . '" class="ui '.$button_style.' menu-link '. self::scroll_menu_class() . ' button" style="'.$style.'">';
                 $phone_button .= '<i class="call icon"></i>';
                 $phone_button .= $phone;
                 $phone_button .= '</a>';
@@ -151,11 +180,13 @@ Class Header{
     }
     public static function get_quote_button($icon_size="",$display = false){
         $show_quote = get_theme_mod('header_display_quote_button');
-        $color = get_theme_mod('header_quote_button_color');
-        $background = (!$color || $color==''?'inverted':$color);
         $quote_button = "";
         if ($show_quote === 'TRUE'){
-            $quote_button .=        '<a id="request-button" href="#" class="'.$icon_size.' ui ' . $background . ' ' . get_button_style() . ' button">';
+            $style = '';
+            $button_style = self::get_button_style();
+            $background = self::get_button_background('header_quote_button_color',$button_style);
+            $style .= $background;
+            $quote_button .=        '<a id="request-button" href="#" class="'.$icon_size.' ui ' . $button_style . ' menu-link '. self::scroll_menu_class() .' button" style="'.$style.'">';
             $quote_button .=            '<i class="edit icon"></i> ' . __('Request a Trip','sage');
             $quote_button .=        '</a>';
         }
@@ -177,8 +208,11 @@ Class Header{
         $show_language = get_theme_mod('header_language_display');
         $language_menu = "";
         if ($show_language === 'TRUE'){
-            $color = get_theme_mod('header_language_button_color');
-            $language_menu = display_language_menu($color);
+            $style = '';
+            $button_style = self::get_button_style();
+            $background = self::get_button_background('header_language_button_color',$button_style);
+            $style .= $background;
+            $language_menu = display_language_menu($button_style,$style);
         }
         if(!$display)
             return $language_menu;
@@ -205,13 +239,10 @@ Class Header{
         if ($logo):
             $mobile .=          '<img class="ui tiny image logo" src="' . wp_get_attachment_url($logo) . '"  />';
         else:
-            $mobile .=          get_blog_name();
+            $mobile .=          self::get_blog_name();
         endif;
         $mobile .=          "</a>";
         $mobile .=          "<div class='menu right'>";
-        /*$mobile .=              "<a class='launch icon item mobile-menu'>";
-        $mobile .=                  "<i class='content icon'></i>";
-        $mobile .=              "</a>";*/
         $mobile .=              "<div class='item'>";
         $mobile .=                  "<button class=\"ui inverted button launch icon mobile-menu\" style='z-index: 1000;'>";
         $mobile .=                      "MENU ";
@@ -232,7 +263,7 @@ Class Header{
         if ($logo):
             $tablet .=      '<img class="ui mini image logo" src="' . wp_get_attachment_url($logo) . '"  />';
         else:
-            $tablet .= get_blog_name();
+            $tablet .= self::get_blog_name();
         endif;
         $tablet .=      "</a>";
         $tablet .=      "<div class=\"menu right mobile-menu\">";
@@ -254,7 +285,7 @@ Class Header{
         return $check;
     }
     public static function get_row_topmargin($next_name=null){
-        $size = self::get_agency_logo_size();
+        $size = self::get_header_logo_size();
         if($size !== false){
             switch($size){
                 case 'mini':

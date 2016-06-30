@@ -3,8 +3,8 @@
 /*
 Title: Landing Page Settings
 Setting: experiensa_design_settings
-Tab: Landing Page
-Tab Order: 20
+Tab: Landing
+Flow: Design
 */
 /* ************************************************************************** */
 /* ******************************* Slider *********************************** */

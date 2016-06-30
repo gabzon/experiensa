@@ -51,7 +51,6 @@ function design_experiensa_setting_page($pages){
 
     return $pages;
 }
-
 /*
 * This page concerns the service improvements tutorials
 */

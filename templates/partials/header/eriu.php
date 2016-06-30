@@ -14,7 +14,7 @@
 <!-- Eriu Layout -->
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu pc">
             <a href="" class="menu item open-vertical-menu" style="font-weight:bold">
                 <i class="content icon"></i>
             </a>
@@ -26,7 +26,10 @@
         </div>
         <!--mobile nav bar menu -->
         <div class="ui vertical inverted navbar fixed menu pc">
-            <?php Menu::display_all_menus($page_id,'left',false); ?>
+            <?php
+            Menu::get_menu_mobile($page_id);
+            display_language_menu_accordion()
+            ?>
         </div>
     </div>
     <?php get_template_part('templates/partials/header/mobile'); ?>

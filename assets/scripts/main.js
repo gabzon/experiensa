@@ -85,10 +85,20 @@
         // Home page
         'home': {
             init: function() {
-
                 $('#slides').superslides({play:'8000'});
+                var header_menu = jQuery('.ui.menu.navbar.grid.header-menu.pc');
+                var headerHieght = header_menu.height();
+                var mobile_menu_on_pc = jQuery('.ui.vertical.inverted.navbar.fixed.menu.pc');
+                var menu_height_pc = headerHieght+'px';
+                mobile_menu_on_pc.css('margin-top',menu_height_pc);
+                var mobile_header = jQuery('.ui.navbar.menu.header-menu.mobile');
+                var mobileHeaderHieght = mobile_header.height();
+                var mobile_menu = jQuery('.ui.vertical.navbar.menu.mobile');
+                var menu_height_mobile = mobileHeaderHieght+'px';
+                mobile_menu.css('margin-top',menu_height_mobile);
                 var header_menu_background = header_background_color();
                 if (jQuery('.main-slider').length>0) {
+                    jQuery('.header-menu').addClass("secondary");
                     jQuery('.header-menu').css('background-color','');
                     scrollMenu(header_menu_background);
                 }else{

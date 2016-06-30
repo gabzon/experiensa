@@ -2,8 +2,8 @@
 /*
  Title: Agency Partners
  Setting: agency_settings
- Tab: Partner
- Tab Order: 30
+ Tab: Partners
+ Flow: Options
  */
 piklist('field',array(
     'type'          => 'select',

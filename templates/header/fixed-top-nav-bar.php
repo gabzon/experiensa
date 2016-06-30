@@ -1,12 +1,15 @@
-<?php $logo = get_agency_logo(); ?>
+<?php
+$logo_url = Header::get_header_logo_url();
+$logo_size = Header::get_header_logo_size();
+?>
 <header class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= get_menu_style(); ?> fixed menu navbar">
-            <a href="" class="brand item menu-link borderless <?= scroll_menu(); ?>" href="<?= bloginfo('url'); ?>">
-                <img class="ui image <?= $logo['size']; ?> logo" src="<?= $logo['url']; ?>" style='display: block;margin-left: auto;margin-right: auto;'>
+        <div class="ui <?= Header::get_menu_style(); ?> fixed menu navbar">
+            <a href="" class="brand item menu-link borderless <?= Header::scroll_menu_class(); ?>" href="<?= bloginfo('url'); ?>">
+                <img class="ui image <?= $logo_size; ?> logo" src="<?= $logo_url; ?>" style='display: block;margin-left: auto;margin-right: auto;'>
             </a>
             <div class="right menu">
-                <?= Menu::display_all_menus($page_id,'left',true); ?>
+                <?= Menu::get_menu($page_id); ?>
             </div>
         </div>
     </div>

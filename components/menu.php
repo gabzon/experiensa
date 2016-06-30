@@ -1,7 +1,53 @@
 <?php
-//Semantic UI manu
+//Semantic UI Menu
 Class Menu {
+    /**
+     * Get menu template for big screens like PC
+     * @param null $page_id
+     */
+    public static function get_menu($page_id=null){
+        get_template_part('templates/partials/menu/menu');
+    }
 
+    /**
+     * Get submenu template when a menu item have children items
+     * @param $menu_items
+     * @param $item_id
+     */
+    public static function get_submenu($menu_items,$item_id){
+        include(locate_template('templates/partials/menu/submenu.php'));
+    }
+
+    /**
+     * Get menu template for small screens like cellphones
+     * @param null $page_id
+     */
+    public static function get_menu_mobile($page_id=null){
+        get_template_part('templates/partials/menu/mobile');
+    }
+
+    /**
+     * Get submenu template when a menu item have children items, It's shown only on small screens
+     * @param $menu_items
+     * @param $item_id
+     */
+    public static function get_submenu_mobile($menu_items,$item_id){
+        include(locate_template('templates/partials/menu/mobile-submenu.php'));
+    }
+    /**
+     * Get all no empty and unique menus created on wp-admin
+     * @return mixed
+     */
+    public static function get_all_menus_list(){
+        return array_unique(get_terms( 'nav_menu', array( 'hide_empty' => true ) ),SORT_REGULAR);
+    }
+
+    /**
+     * Check if a menu item have children items from $menu_items list
+     * @param $menu_items
+     * @param $item_id
+     * @return bool
+     */
     public static function check_children_menu($menu_items,$item_id){
         foreach($menu_items as $item){
             if($item_id == $item->menu_item_parent){
@@ -10,112 +56,13 @@ Class Menu {
         }
         return false;
     }
-    public static function submenus($menu_items,$item_id){
-        $submenu = "<div class=\"menu\">";
-        foreach($menu_items as $item){
-            if($item_id == $item->menu_item_parent){
-                if(self::check_children_menu($menu_items,$item->ID)){
-                    $submenu .= "<div class=\"item\">";
-                    $submenu .=    "<i class=\"dropdown icon\"></i>";
-                    $submenu .=    "<span class=\"text\">".$item->title."</span>";
-                    $other_submenu = self::submenus($menu_items,$item->ID);
-                    $submenu .= $other_submenu;
-                    $submenu .= "</div>";
-                }else {
-                    $submenu .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";
-                }
-            }
-        }
-        $submenu .= "</div>";
-        return $submenu;
-    }
-    public static function display_all_menus($page_id=null,$position='right',$return=false){
-        $menus_list = Helpers::get_all_menus_list();
-        $menu_string = "";
-        if(!empty($menus_list)){
-            foreach($menus_list as $menu){
-                //$menu_string .= "<div class=\"$position menu\">";
-                $menu_items = wp_get_nav_menu_items($menu->term_id);
-                foreach($menu_items as $item){
-                    if($item->menu_item_parent == 0) {
-                        if (self::check_children_menu($menu_items, $item->ID)) {
-                            if ($page_id && $page_id == $item->object_id) {
-                                $menu_string .= "<div class=\"ui dropdown item active landing-menu\">";
-                            }else{
-                                $menu_string .= "<div class=\"ui dropdown item landing-menu\">";
-                            }
-                            $menu_string .=     $item->title . "<i class=\"dropdown icon\"></i>";
-                            $submenus = self::submenus($menu_items, $item->ID);
-                            $menu_string .= $submenus;
-                            $menu_string .= "</div>";
-                        } else {
-                            if ($item->menu_item_parent == 0){
-                                if ($page_id && $page_id == $item->object_id) {
-                                    $menu_string .= "<a class='item active' href='" . $item->url . "'>" . $item->title . "</a>";
-                                }else{
-                                    $menu_string .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";
-                                }
-                            }
-                        }
-                    }
-                }
-                //$menu_string .= "</div>";
-            }
-        }
-        if($return)
-            return $menu_string;
-        else{
-            echo $menu_string;
-        }
-    }
-
-    public static function submenus_mobile($menu_items,$item_id){
-        $submenus = "";
-        foreach($menu_items as $item){
-            if($item_id == $item->menu_item_parent){
-                if(self::check_children_menu($menu_items,$item->ID)){
-
-                }else {
-                    $submenus .= "<a class='item' href='" . $item->url . "'>" . $item->title . "</a>";
-                }
-            }
-        }
-        return $submenus;
-    }
-
-    public static function display_all_menus_mobile($return=false){
-        $menu_string = "";
-        $menus_list = Helpers::get_all_menus_list();
-        if(!empty($menus_list)){
-            foreach($menus_list as $menu) {
-                $menu_string = "<div class=\"item\">";
-                $menu_string .=     "<div class=\"header\">MENU</div>";
-                $menu_items = wp_get_nav_menu_items($menu->term_id);
-                foreach($menu_items as $item){
-                    if ($item->menu_item_parent == 0) {
-                        if (self::check_children_menu($menu_items, $item->ID)) {
-                            $menu_string .= "<div class=\"ui inverted accordion\">";
-                            $menu_string .=     "<div class=\"title active\">";
-                            $menu_string .=         "<i class=\"dropdown icon\"></i>";
-                            $menu_string .= $item->title;
-                            $menu_string .=     "</div>";
-                            $menu_string .=     "<div class=\"content active\">";
-                            $submenus     = self::submenus_mobile($menu_items, $item->ID);
-                            $menu_string .= $submenus;
-                            $menu_string .=     "</div>";
-                            $menu_string .= "</div>";
-                        }else{
-                            $menu_string .= "<a class=\"item\" href='".$item->url."'>".$item->title."</a>";
-                        }
-                    }
-                }
-                $menu_string .= "</div>";
-            }
-        }
-        if($return)
-            return $menu_string;
-        else{
-            echo $menu_string;
+    public static function get_language_menu_accordion(){
+        global $design_options;
+        $language_options = $design_options['group_language'];
+        if ($language_options['header_language_display'][0] === 'TRUE'){
+            echo '<div class="ui inverted segment">';
+            display_language_menu_accordion();
+            echo '</div>';
         }
     }
 }
