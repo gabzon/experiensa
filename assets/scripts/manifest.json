@@ -2,6 +2,7 @@
     "dependencies": {
         "main.js": {
             "files": [
+                "scripts/header.js",
                 "scripts/form.js",
                 "scripts/menu.js",
                 "scripts/estimate.js",

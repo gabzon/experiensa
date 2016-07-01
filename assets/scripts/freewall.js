@@ -1,4 +1,5 @@
 function freewall_layout() {
+    var Freewall = freewall;
     var wall = new Freewall('#freewall');
     wall.reset({
         selector: '.brick',
