@@ -26,4 +26,3 @@
     </div>
     <?php get_template_part('templates/partials/header/mobile'); ?>
 </div>
->>>>>>> be556f9ca4d4d310fdab5e1e04fc0701e81690b7
