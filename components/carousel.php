@@ -1,5 +1,8 @@
 <?php // carousel
 class Carousel{
+    public static function display_carousel2($args){
+        get_template_part('templates/partials/showcase/carousel/carousel');
+    }
     /**
      * Create and display carousel component with images from $args param
      * @param $args

@@ -21,23 +21,7 @@ jQuery(function($){
     });
     $('.ui.accordion').accordion();
 });
-function header_background_color(){
-    var result="";
-    jQuery.ajax({
-        type:"POST",
-        url: sage_vars.ajaxurl,
-        data: {action: "header_background"},
-        dataType: "html",
-        async: false,
-        success:function(data){
-            result = data;
-        },
-        error: function() {
-            result = "#FFFFFF";
-        }
-    });
-    return result;
-}
+
 function scrollMenu(header_menu_background){
     jQuery(window).scroll(function () {
         if (jQuery(this).scrollTop() > 1) {

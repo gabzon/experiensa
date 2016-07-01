@@ -21,10 +21,7 @@ if($display_showcase!==false && $display_showcase=='TRUE'){
             $showcase['title'] = $option['showcase_title'];
             $showcase['subtitle'] = $option['showcase_subtitle'];
             $showcase['title_alignment'] = $option['showcase_title_alignment'];
-            /*echo "<pre>";
-            print_r($showcase);
-            echo "</pre>";*/
-            Showcase::display_showcase($showcase);
+            Showcase::displayShowcase($showcase);
         }
     }
 }
