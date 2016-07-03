@@ -1,7 +1,6 @@
 <?php
 $display_logo = \Components\Footer\Footer::getIfDisplayLogo();
-$agency_options = get_option('agency_settings');
-$logo = $agency_options['agency_logo'];
+$logo = Helpers::getWebsiteLogo();
 
 if($logo && $display_logo == 'true'):?>
 <div class="item">

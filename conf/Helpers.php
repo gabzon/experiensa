@@ -27,4 +27,13 @@ class Helpers {
         }
         return $is_conn;
     }
+    public static function getWebsiteLogo(){
+        $agency_options = get_option('agency_settings');
+        $agency_logo = $agency_options['agency_logo'];
+        if(empty($agency_logo))
+            return false;
+        if(empty($agency_logo[0]))
+            return false;
+        return $agency_logo[0];
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 $agency_options = get_option('agency_settings');
-$logo = $agency_options['agency_logo'];
+$logo = Helpers::getWebsiteLogo();
 $margin = Header::get_row_topmargin(true);
 ?>
 <script type="text/javascript">
