@@ -15,7 +15,7 @@ $logo = Helpers::getWebsiteLogo();
 <!-- Bodb Layout -->
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu pc">
             <?php
             echo Header::get_language_item('item');
             echo Header::get_phone_item('item');

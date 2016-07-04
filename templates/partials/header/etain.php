@@ -15,7 +15,7 @@ $logo = Helpers::getWebsiteLogo();
 <!-- Etain Layout -->
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu pc">
             <div class="right menu">
                 <?php
                 echo Header::get_language_item('item');

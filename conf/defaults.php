@@ -18,14 +18,14 @@ function add_custom_body_class($classes){
     return $classes;
 }
 add_filter('body_class', 'add_custom_body_class');
-
+/*
 function add_custom_style_wp_head(){
     echo '<style>'.PHP_EOL;
     //echo 'body{ padding-top: 100px !important; }'.PHP_EOL;
     echo 'body.displayed-admin-bar .ui.fixed.menu{ top: 32px !important; }'.PHP_EOL;
     echo '</style>'.PHP_EOL;
 }
-add_action('wp_head', 'add_custom_style_wp_head');
+add_action('wp_head', 'add_custom_style_wp_head');*/
 
 function set_default_admin_color_schema($user_id) {
     if(!WP_DEBUG){

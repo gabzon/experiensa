@@ -15,6 +15,38 @@ function header_background_color(){
     });
     return result;
 }
+function headerMarginTop(){
+    var admin_bar = jQuery("#wpadminbar");
+    var headerArray = [];
+    var menu_height = 0;
+    var i;
+    if(admin_bar.length>0){
+        var admin_bar_height = admin_bar.height();
+        jQuery( ".ui.menu.navbar.grid.header-menu.pc" ).each(function( index ) {
+            headerArray.push(jQuery(this));
+        });
+        for(i=0;i<headerArray.length;i++){
+            if(i < 1){
+                menu_height = admin_bar_height;
+            }else{
+                menu_height = menu_height + headerArray[i-1].height();
+            }
+            headerArray[i].css('margin-top',menu_height+'px');
+        }
+        var mobileHeader = jQuery('.ui.navbar.menu.header-menu.mobile');
+        mobileHeader.css('margin-top',admin_bar_height+'px');
+    }else{
+        jQuery( ".ui.menu.navbar.grid.header-menu.pc" ).each(function( index ) {
+            headerArray.push(jQuery(this));
+        });
+        for(i=0;i<headerArray.length;i++){
+            if(i>0){
+                menu_height = menu_height + headerArray[i-1].height();
+                headerArray[i].css('margin-top',menu_height+'px');
+            }
+        }
+    }
+}
 function headerDefaultConfig(){
   var header_menu_background = header_background_color();
   //jQuery header on pc display selector
