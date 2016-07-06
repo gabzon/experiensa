@@ -33,12 +33,28 @@ if (get_query_var('term') && get_query_var('tax')):
         <div id="search-results" class="search-results">
         <?php
             $query = new WP_Query($args);
+            $data = array();
             if($query->have_posts()):
                 while ( $query->have_posts() ) :
                     $query->the_post();
                     $id = $query->post->ID;
-                    echo "Encontrado:".$id;
+                    $title = get_the_title($id);
+                    $post_link = get_permalink($id);
+                    $images = Voyage::get_voyage_images($id);
+                    /*echo "Encontrado:".$title;
+                    echo"<pre>";
+                    print_r($images);
+                    echo"</pre>";*/
+                    $info['post_link'] = $post_link;
+                    $info['image_url'] = $images['image_url'];
+                    $info['title'] = $title;
+                    $data[] = $info;
                 endwhile;
+                /*echo"<pre>";
+                print_r($data);
+                echo"</pre>";*/
+                Card::display_card_simple($data);
+                //Showcase::get_component('card',$data);
         ?>
 
         <?php else:?>
