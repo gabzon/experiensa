@@ -20,8 +20,15 @@ function headerMarginTop(){
     var headerArray = [];
     var menu_height = 0;
     var i;
+    /*var mainHeader = jQuery("#header-nav");
+    var mainHeaderHeight = mainHeader.height();*/
+    var acum;
+    var homeClass = jQuery(".home.page");
+    var voyageClass = jQuery(".single.single-voyage");
+    var mainContent = jQuery("#main-content");
     if(admin_bar.length>0){
         var admin_bar_height = admin_bar.height();
+        acum = admin_bar_height;
         jQuery( ".ui.menu.navbar.grid.header-menu.pc" ).each(function( index ) {
             headerArray.push(jQuery(this));
         });
@@ -30,22 +37,37 @@ function headerMarginTop(){
                 menu_height = admin_bar_height;
             }else{
                 menu_height = menu_height + headerArray[i-1].height();
+                acum = acum + menu_height;
             }
             headerArray[i].css('margin-top',menu_height+'px');
         }
         var mobileHeader = jQuery('.ui.navbar.menu.header-menu.mobile');
         mobileHeader.css('margin-top',admin_bar_height+'px');
+        if(homeClass.length <= 0 && voyageClass.length <= 0) {
+            mainContent.css('margin-top',  acum+ 'px');
+        }
     }else{
         jQuery( ".ui.menu.navbar.grid.header-menu.pc" ).each(function( index ) {
             headerArray.push(jQuery(this));
         });
+        acum = 0;
         for(i=0;i<headerArray.length;i++){
             if(i>0){
                 menu_height = menu_height + headerArray[i-1].height();
+                acum = acum + menu_height;
                 headerArray[i].css('margin-top',menu_height+'px');
             }
         }
+        if(acum === 0) {
+            acum = jQuery(".ui.menu.navbar.grid.header-menu.pc").height();
+        }
+        console.log('valor de acum '+acum);
+        if(homeClass.length <= 0 && voyageClass.length <= 0) {
+            console.log('entro por aqui');
+            mainContent.css('margin-top', acum + 'px');
+        }
     }
+
 }
 function setHeaderBackground(){
     var header_menu_background = header_background_color();

@@ -15,21 +15,40 @@ if(!empty($args)):
                     <div class="sub header"><?= $args['subtitle']?></div>
                 </div>
             </h1>
-            <?php $query = Showcase::showcase_query( $args['posttype'] , $args['category']);?>
-            <?php if($query && $query->have_posts()):?>
-            <div id="landing-showcase" class="landing-showcase">
-            <?php while ( $query->have_posts() ) :
-                    $query->the_post();
-                    $id = $query->post->ID;
-                    $info = Showcase::get_post_data( $args['posttype'], $args['category'], $id );
-                    if ( !empty( $info ) ): $data[] = $info; else: $data = array(); endif;
+            <?php
+            $data = array();
+            if($args['posttype']=='none'):
+                $terms = Showcase::getTermByTaxonomy($args['category']);
+                $info = array();
+                foreach($terms as $term):
+                    $query = Showcase::byTermsQueryLimitOneTerm('attachment',$args['category'],$term);
+                    if($query && $query->have_posts()):
+                        while ( $query->have_posts() ) :
+                            $query->the_post();
+                            $id = $query->post->ID;
+                            $info = Showcase::getPostdataNoPosttype($args['category'],$id);
+                            if ( !empty( $info ) )
+                                $data[] = $info;
+                        endwhile;
+                    endif;
+                endforeach;
             ?>
-            <?php endwhile;?>
-                <?php if(!empty($data)):
-                        Showcase::displayComponent($args['component'],$data);
-                      else:?>
-                    <h3>Sorry! Currently there are no <?=__(ucfirst($args['category']),'sage');?></h3>
-                <?php endif;?>
+            <?php else:
+                $query = Showcase::showcase_query( $args['posttype'] , $args['category']);
+                if($query && $query->have_posts()):
+                    while ( $query->have_posts() ) :
+                        $query->the_post();
+                        $id = $query->post->ID;
+                        $info = Showcase::get_post_data( $args['posttype'], $args['category'], $id );
+                        if ( !empty( $info ) ):
+                            $data[] = $info;
+                        endif;
+                    endwhile;
+                endif;
+            endif;?>
+            <?php if(!empty($data)):// echo"<pre>";print_r($data);echo"</pre>";?>
+            <div id="landing-showcase" class="landing-showcase">
+                <?php Showcase::displayComponent($args['component'],$data); ?>
             </div>
             <?php else:?>
                 <h3>Sorry! Currently there are no <?=__(ucfirst($args['category']),'sage');?></h3>
