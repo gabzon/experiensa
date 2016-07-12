@@ -19,13 +19,6 @@ function add_custom_body_class($classes){
 }
 add_filter('body_class', 'add_custom_body_class');
 
-function add_custom_style_wp_head(){
-    echo '<style>'.PHP_EOL;
-    //echo 'body{ padding-top: 100px !important; }'.PHP_EOL;
-    echo 'body.displayed-admin-bar .ui.fixed.menu{ top: 32px !important; }'.PHP_EOL;
-    echo '</style>'.PHP_EOL;
-}
-add_action('wp_head', 'add_custom_style_wp_head');
 
 function set_default_admin_color_schema($user_id) {
     if(!WP_DEBUG){
@@ -88,9 +81,34 @@ function change_meta_box_titles() {
     $wp_meta_boxes['partner']['normal']['core']['postexcerpt']['title'] = __('Description','sage');
     $wp_meta_boxes['host']['normal']['core']['postexcerpt']['title'] = __('Description','sage');
     $wp_meta_boxes['service']['normal']['core']['postexcerpt']['title'] = __('Description','sage');
-    /*echo '<pre>';
-    print_r($wp_meta_boxes);
-    echo '</pre>';
-    wp_die('');*/
 }
 add_action('add_meta_boxes', 'change_meta_box_titles');
+
+function create_custom_page(){
+    $pages = get_pages(
+        array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'postlist-result.php'
+        )
+    );
+    if(empty($pages)):
+        //create a new page and automatically assign the page template
+        $post = array(
+            'post_title' => "Search Post By Term",
+            'post_content' => "",
+            'post_status' => "publish",
+            'post_type' => 'page',
+        );
+        $postID = wp_insert_post($post);
+        update_post_meta($postID, "_wp_page_template", "postlist-result.php");
+    endif;
+}
+add_action('admin_menu', 'create_custom_page');
+
+function add_query_vars_filter( $vars ){
+    $vars[] = "cpt";
+    $vars[] = "term";
+    $vars[] = "tax";
+    return $vars;
+}
+add_filter( 'query_vars', 'add_query_vars_filter' );

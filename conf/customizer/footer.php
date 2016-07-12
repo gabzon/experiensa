@@ -22,110 +22,130 @@ class Footer{
     }
     public function add_settings(){
         $this->wp_customize->add_setting( 'footer_layout' , array(
-            'default'     => 'left_logo_all_horizontal',
+            'default'     => 'odin',
             'transport'   => 'refresh',
         ) );
-    }
-    public function add_controls(){
-        $layout =  [
-            'label'    => __( 'Footer layout', 'sage' ),
-            'section'  => 'experiensa_footer_design',
-            'settings' => 'footer_layout',
-            'type'     => 'select',
-            'choices'  =>
-                [
-                    'logo_above_menu_below'       => __('Logo Above and Menu Below', 'sage'),
-                    'all_vertical'                => __('All Vertical', 'sage'),
-                    'right_logo_menu_icon'        => __('Right Logo and Menu Icon', 'sage'),
-                    'left_logo_menu_icon'         => __('Left Logo and Menu Icon', 'sage'),
-                    'logo_above_right_menu_below' => __('Logo Above and to the Right and Below Menu', 'sage'),
-                    'logo_above_left_menu_below'  => __('Logo Above and to the Left and Below Menu', 'sage'),
-                    'right_logo_all_horizontal'        => __('Right Logo and All Horizontal', 'sage'),
-                    'left_logo_all_horizontal'        => __('Left Logo and All Horizontal', 'sage')
-                ]
-        ];
-        $this->wp_customize->add_control( 'footer_layout', $layout);
-    }
-/*    public function add_footer_settings($wp_customize){
-        $wp_customize->add_setting( 'footer_style' , array(
-            'default'     => 'all_horizontal',
+        $this->wp_customize->add_setting( 'display_footer_logo' , array(
+            'default'     => 'true',
             'transport'   => 'refresh',
         ) );
-
-        $wp_customize->add_setting( 'footer_logo_size' ,
-        [
+        $this->wp_customize->add_setting( 'footer_logo_size' , array(
             'default'     => 'tiny',
-            'transport'   => 'refresh'
-        ]);
-        $wp_customize->add_setting( 'header_company_name' , array(
-            'default'     => 'TRUE',
             'transport'   => 'refresh',
         ) );
-        $wp_customize->add_setting( 'header_company_tagline' , array(
-            'default'     => 'TRUE',
+        $this->wp_customize->add_setting( 'footer_company_tagline' , array(
+            'default'     => 'true',
+            'transport'   => 'refresh',
+        ) );
+        $this->wp_customize->add_setting( 'footer_container' , array(
+            'default'     => 'container',
+            'transport'   => 'refresh',
+        ) );
+        $this->wp_customize->add_setting( 'footer_background_color' , array(
+            'default'     => '#1B1C1D',
+            'transport'   => 'refresh',
+        ) );
+        $this->wp_customize->add_setting( 'footer_font_color' , array(
+            'default'     => '#ffffff',
             'transport'   => 'refresh',
         ) );
     }
-
-    function add_footer_controls($wp_customize){*/
-        /***************************************************************************
-        ** Footer layout controls
-        ***************************************************************************/
-/*        $layout =  [
-            'label'    => __( 'Footer layout', 'sage' ),
-            'section'  => 'experiensa_footer_design',
-            'settings' => 'footer_layout',
-            'type'     => 'select',
-            'choices'  =>
-            [
-                'logo_above_menu_below'       => __('Logo Above and Menu Below', 'sage'),
-                'all_vertical'                 => __('All Vertical', 'sage'),
-                'right_logo_menu_icon'         => __('Right Logo and Menu Icon', 'sage'),
-                'left_logo_menu_icon'          => __('Left Logo and Menu Icon', 'sage'),
-                'logo_above_right_menu_below' => __('Logo Above and to the Right and Below Menu', 'sage'),
-                'logo_above_left_menu_below'  => __('Logo Above and to the Left and Below Menu', 'sage'),
-                'right_logo_menu_left'         => __('Right Logo and Left Menu', 'sage'),
-                'left_logo_menu_right'         => __('Left Logo and Right Menu', 'sage')
-            ]
-        ];
-        $wp_customize->add_control( 'footer_layout_options', $args);
-*/
-        /***************************************************************************
-        ** Footer Logo controls
-        ***************************************************************************/
-     /*   $footer_logo = [
-            'label'    => __( 'Logo size', 'sage' ),
-            'section'  => 'experiensa_footer_design',
-            'settings' => 'footer_logo_size',
-            'type'     => 'select',
-            'choices'  =>
-            [
-                'mini'      => __('Mini (35px)','sage'),
-                'tiny'      => __('Tiny (80px)','sage'),
-                'small'     => __('Small (150px)','sage')
-            ]
-        ];
-        $wp_customize->add_control('header_logo_size', $footer_logo);
-*/
-        /***************************************************************************
-        ** Footer Company name & tagline controls
-        ***************************************************************************/
-  /*      $company_name = [
-            'label'    => __( 'Display Company name next to the logo ', 'sage' ),
-            'section'  => 'experiensa_header_design',
-            'settings' => 'footer_company_name',
-            'type'     => 'checkbox',
-            'choices'  => [ 'TRUE' => __('Display Company name next to the logo','sage') ]
-        ];
-        $wp_customize->add_control('footer_company_name',$company_name );
-
-        $tagline = [
-            'label'    => __( 'Display Company tagline next to the logo', 'sage' ),
-            'section'  => 'experiensa_header_design',
-            'settings' => 'header_company_tagline',
-            'type'     => 'checkbox',
-            'choices'  => ['TRUE' => __('Display Company tagline next to the logo','sage') ]
-        ];
-        $wp_customize->add_control('footer_company_tagline', $tagline );
-    }*/
+    public function add_controls()
+    {
+        $this->wp_customize->add_control(
+            'footer_layout',
+            array(
+                'label'    => __('Footer Layout', 'sage'),
+                'section'  => 'experiensa_footer_design',
+                'settings' => 'footer_layout',
+                'type'     => 'select',
+                'choices'  => array(
+                    'baldur'    => __('Baldur', 'sage'),
+                    'borr'      => __('Borr', 'sage'),
+                    'freyja'    => __('Freyja', 'sage'),
+                    'lofn'      => __('Lofn', 'sage'),
+                    'loki'      => __('Loki', 'sage'),
+                    'odin'      => __('Odin', 'sage'),
+                    'thor'      => __('Thor', 'sage'),
+                    'yggdrasil' => __('Yggdrasil', 'sage')
+                )
+            )
+        );
+        $this->wp_customize->add_control(
+            'display_footer_logo',
+            array(
+                'label'    => __('Display Website Logo', 'sage'),
+                'section'  => 'experiensa_footer_design',
+                'settings' => 'display_footer_logo',
+                'type'     => 'select',
+                'choices'  => array(
+                    'true'  => __('Yes', 'sage'),
+                    'false' => __('No', 'sage')
+                )
+            )
+        );
+        $this->wp_customize->add_control(
+            'footer_logo_size',
+            array(
+                'label'           => __('Logo size', 'sage'),
+                'section'         => 'experiensa_footer_design',
+                'settings'        => 'footer_logo_size',
+                'type'            => 'select',
+                'active_callback' => 'display_footer_logo_callback',
+                'choices'         => array(
+                    'mini'  => __('Mini (35px)', 'sage'),
+                    'tiny'  => __('Tiny (80px)', 'sage'),
+                    'small' => __('Small (150px)', 'sage')
+                ),
+            )
+        );
+        $this->wp_customize->add_control(
+            'footer_company_tagline',
+            array(
+                'label'           => __('Display Slogan', 'sage'),
+                'section'         => 'experiensa_footer_design',
+                'settings'        => 'footer_company_tagline',
+                'type'            => 'checkbox',
+                'active_callback' => 'display_footer_logo_callback',
+                'choices'         => array(
+                    'true' => __('Display Slogan', 'sage')
+                ),
+            )
+        );
+        $this->wp_customize->add_control(
+            'footer_container',
+            array(
+                'label'    => __('Footer Container', 'sage'),
+                'section'  => 'experiensa_footer_design',
+                'settings' => 'footer_container',
+                'type'     => 'select',
+                'choices'  => array(
+                    'container' => __('Contained', 'sage'),
+                    'full'      => __('Full Width', 'sage')
+                )
+            )
+        );
+        $this->wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $this->wp_customize,
+                'footer_background_color',
+                array(
+                    'label'    => __('Background Color', 'sage'),
+                    'section'  => 'experiensa_footer_design',
+                    'settings' => 'footer_background_color'
+                )
+            )
+        );
+        $this->wp_customize->add_control(
+            new \WP_Customize_Color_Control(
+                $this->wp_customize,
+                'footer_font_color',
+                array(
+                    'label'    => __('Font Color', 'sage'),
+                    'section'  => 'experiensa_footer_design',
+                    'settings' => 'footer_font_color'
+                )
+            )
+        );
+    }
 }

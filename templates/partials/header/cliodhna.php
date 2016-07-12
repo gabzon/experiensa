@@ -1,7 +1,6 @@
 <?php
 $agency_options = get_option('agency_settings');
-$logo = $agency_options['agency_logo'];
-$margin = Header::get_row_topmargin(true);
+$logo = Helpers::getWebsiteLogo();
 ?>
 <script type="text/javascript">
     jQuery(document).ready(function(){
@@ -16,7 +15,7 @@ $margin = Header::get_row_topmargin(true);
 <!-- Cliodhna Layout -->
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu pc">
             <div class="right menu">
                 <a class="item" href="<?= esc_url(home_url('/')); ?>">
                     <?php if ($logo): ?>
@@ -30,7 +29,7 @@ $margin = Header::get_row_topmargin(true);
         </div>
     </div>
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu" style="margin-top: <?=$margin;?>px">
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu pc">
             <?php
             echo Header::get_phone_item('item');
             echo Header::get_quote_item('item');

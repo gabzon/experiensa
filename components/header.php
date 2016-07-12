@@ -54,8 +54,7 @@ Class Header{
         return $background;
     }
     public static  function get_header_logo_url(){
-        global $agency_options;
-        $logo   = $agency_options['agency_logo'];
+        $logo   = Helpers::getWebsiteLogo();
         $url = false;
         if($logo) {
             $url = wp_get_attachment_url($logo);
@@ -79,8 +78,7 @@ Class Header{
     }
 
     public static function header_logo_item(){
-        $agency_options = get_option('agency_settings');
-        $logo = $agency_options['agency_logo'];
+        $logo = Helpers::getWebsiteLogo();
         $logo_url = wp_get_attachment_url($logo);
         $logo_size = (!empty(get_theme_mod('header_logo_size'))?get_theme_mod('header_logo_size'):"tiny");
         $home_url = get_home_url ('/');
@@ -230,7 +228,7 @@ Class Header{
     }
     public static function get_mobile_header(){
         $agency_options = get_option('agency_settings');
-        $logo = $agency_options['agency_logo'];
+        $logo = Helpers::getWebsiteLogo();
         $url = esc_url(home_url('/'));
         $menu_icon = get_stylesheet_directory_uri().'/assets/images/menuiconwhite.png';;
         $mobile =   "<div class=\"mobile only row\">";
@@ -255,8 +253,7 @@ Class Header{
         return $mobile;
     }
     public static function get_tablet_header(){
-        $agency_options = get_option('agency_settings');
-        $logo = $agency_options['agency_logo'];
+        $logo = Helpers::getWebsiteLogo();
         $url = esc_url(home_url('/'));
         $tablet = "<div class=\"tablet only row\">";
         $tablet .=      "<a class=\"item\" href=\"".$url."\">";

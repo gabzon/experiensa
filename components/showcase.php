@@ -87,22 +87,23 @@ class Showcase{
         }
     }
     public static function showcase_query($posttype,$category){
-        switch($category){
+        $query = null;
+        switch ($category) {
             case 'promotions':
-            $query = self::general_query($posttype,$category);
-            break;
+                $query = self::general_query($posttype, $category);
+                break;
             case 'brochures':
-            $query = self::general_query($posttype,$category);
-            break;
+                $query = self::general_query($posttype, $category);
+                break;
             case 'theme':
-            $query = self::by_terms_query('attachment',$category);
-            break;
+                $query = self::by_terms_query($posttype, $category);
+                break;
             case 'location':
-            $query = self::by_terms_query($posttype,$category);
-            break;
+                $query = self::by_terms_query($posttype, $category);
+                break;
             default:
-            $query = null;
-            break;
+                $query = null;
+                break;
         }
         return $query;
     }
@@ -121,15 +122,39 @@ class Showcase{
     public static function by_terms_query($posttype,$category){
         $terms = get_terms($category, 'orderby=none&hide_empty');
         $args = array (
-        'posts_per_page' => -1,
-        'post_type'     => array( $posttype ),
-        'post_status'   => array( 'publish', 'inherit' ),
-        'tax_query' => array(
-            array(
-                'taxonomy' => $category,
-                'field' => 'slug',
-                'terms' => wp_list_pluck($terms,'slug')//Pluck a certain field out of each object in a list
+            'posts_per_page' => -1,
+            'post_type'      => array($posttype),
+            'post_status'    => array('publish', 'inherit'),
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => $category,
+                    'field'    => 'slug',
+                    'terms'    => wp_list_pluck($terms, 'slug')
+                )
             )
+        );
+        $query = new WP_Query($args);
+        return $query;
+    }
+    public static function getTermByTaxonomy($category){
+        $terms = get_terms( array(
+            'taxonomy' => $category,
+            'orderby'=> 'name',
+            'hide_empty' => true,
+        ) );
+        return $terms;
+    }
+    public static function byTermsQueryLimitOneTerm($posttype,$category,$term){
+        $args = array (
+            'posts_per_page' => 1,
+            'post_type'      => array($posttype),
+            'post_status'    => array('publish', 'inherit'),
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => $category,
+                    'field'    => 'slug',
+                    'terms'    => $term->slug
+                )
             )
         );
         $query = new WP_Query($args);
@@ -140,14 +165,15 @@ class Showcase{
         $post_link = get_permalink($id);
         $images = array();
         if($component=='theme'){
+            $images = Voyage::get_voyage_images($id);
             $terms = get_the_terms($id,'theme');
             $term = $terms[0];
             $info['post_link'] = $post_link;
-            $info['title'] = $term->name;
-            $info['subtitle'] = '';
-            $info['image_url'] = wp_get_attachment_url($id);
-            $info['thumbnail_image'] = wp_get_attachment_image($id,'thumbnail');
-            $info['thumbnail_url'] = wp_get_attachment_thumb_url( $id );
+            $info['title'] = ucwords(get_the_title($id));
+            $info['subtitle'] = $term->name;
+            $info['image_url'] = $images['image_url'];
+            $info['thumbnail_image'] = $images['thumbnail_image'];
+            $info['thumbnail_url'] = $images['thumbnail_url'];
         }
         if($component=='promotions'){
             $images = Voyage::get_voyage_images($id);
@@ -177,12 +203,31 @@ class Showcase{
                 $terms = get_the_terms($id,'location');
                 $term = $terms[0];
                 $info['post_link'] = $post_link;
-                $info['title'] = $term->name;
-                $info['subtitle'] = '';
+                $info['title'] = ucwords(get_the_title($id));
+                $info['subtitle'] = $term->name;
                 $info['image_url'] = $images['image_url'];
                 $info['thumbnail_image'] = $images['thumbnail_image'];
                 $info['thumbnail_url'] = $images['thumbnail_url'];
             }
+        }
+        return $info;
+    }
+    public static function getPostdataNoPosttype($category,$id){
+        $info = array();
+        $page = get_page_by_title( 'Search Post By Term' );
+        $img_url = wp_get_attachment_url($id);
+        $thumb = wp_get_attachment_thumb_url($id);
+        $thumb_image = wp_get_attachment_image($id,'thumbnail');
+        if(!empty($page)) {
+            $terms = get_the_terms($id, $category);
+            $term = $terms[0];
+            $page_link = get_permalink($page->ID).'?term='.$term->slug.'&tax='.$category;
+            $info['post_link'] = $page_link;
+            $info['title'] = $term->name;
+            $info['subtitle'] = '';
+            $info['image_url'] = $img_url;
+            $info['thumbnail_image'] = $thumb_image;
+            $info['thumbnail_url'] = $thumb;
         }
         return $info;
     }

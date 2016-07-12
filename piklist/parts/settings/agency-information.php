@@ -84,6 +84,15 @@ piklist('field', array(
     'options'   => array(
         'modal_title'   => __('Add Logo','sage'),
         'button'        => __('Add Logo','sage')
+    ),
+    'validate' => array(
+        array(
+            'type' => 'limit',
+            'options' => array(
+                'min' => 0,
+                   'max' => 1
+            )
+        )
     )
 ));
 

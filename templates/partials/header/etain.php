@@ -1,6 +1,6 @@
 <?php
 $agency_options = get_option('agency_settings');
-$logo = $agency_options['agency_logo'];
+$logo = Helpers::getWebsiteLogo();
 ?>
 <script type="text/javascript">
     jQuery(document).ready(function(){
@@ -15,7 +15,7 @@ $logo = $agency_options['agency_logo'];
 <!-- Etain Layout -->
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu pc">
             <div class="right menu">
                 <?php
                 echo Header::get_language_item('item');

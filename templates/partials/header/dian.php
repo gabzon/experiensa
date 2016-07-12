@@ -11,7 +11,7 @@
 <!-- Dian Layout -->
 <div id="header-nav" class="ui grid">
     <div class="computer tablet only row">
-        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu">
+        <div class="ui <?= Header::get_menu_style(); ?> menu navbar grid borderless header-menu pc">
             <?= Header::header_logo_item();?>
             <?= Header::get_website_name_tagline(); ?>
             <?php
