@@ -91,6 +91,7 @@ Order: 3
  piklist('field', array(
      'type'      => 'group',
      'template'  => 'field',
+     'field' => 'accommodations_options',
      'add_more'  => true,
      'fields'    => array(
          $voyage_host_name,

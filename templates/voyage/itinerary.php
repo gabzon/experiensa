@@ -1,12 +1,8 @@
 <?php
-$day            = get_post_meta($post->ID,'itinerary_day');
-$title          = get_post_meta($post->ID,'itinerary_title');
-$subtitle       = get_post_meta($post->ID,'itinerary_subtitle');
-$description    = get_post_meta($post->ID,'itinerary_description');
-$gallery        = get_post_meta($post->ID,'itinerary_gallery');
+$itinerary_options =  get_post_meta($post->ID,'itinerary_options',true);
 ?>
 <br>
-<?php if (!empty($day) && !empty($day[0])): ?>
+<?php if (isset($itinerary_options[0]) && !empty($itinerary_options[0]) && !empty($itinerary_options[0]['itinerary_day'])): ?>
     <br>
     <hr>
     <br>
@@ -22,20 +18,22 @@ $gallery        = get_post_meta($post->ID,'itinerary_gallery');
             </div>
             <div class="eleven wide column">
                 <div class="ui grid">
-                    <?php for ($i = 0; $i < count($day); $i++): ?>
-                        <div class="two wide column">
-                            <h4 class="ui header"><?= $day[$i]; ?></h4>
-                        </div>
-                        <div class="fourteen wide column">
-                            <h1 class="ui header">
-                                <?= $title[$i]; ?>
-                                <div class="sub header">
-                                    <?= $subtitle[$i]; ?>
-                                </div>
-                            </h1>
-                            <p><?= $description[$i]; ?></p>
-                        </div>
-                    <?php endfor; ?>
+                    <?php foreach($itinerary_options as $option):?>
+                    <?php if(!empty($option['itinerary_day']) && !empty($option['itinerary_description'])):?>
+                    <div class="two wide column">
+                        <h4 class="ui header"><?= $option['itinerary_day']; ?></h4>
+                    </div>
+                    <div class="fourteen wide column">
+                        <h1 class="ui header">
+                            <?= $option['itinerary_title']; ?>
+                            <div class="sub header">
+                                <?= $option['itinerary_subtitle']; ?>
+                            </div>
+                        </h1>
+                        <p><?= $option['itinerary_description']; ?></p>
+                    </div>
+                    <?php endif;?>
+                    <?php endforeach;?>
                 </div>
             </div>
         </div>

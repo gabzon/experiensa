@@ -6,11 +6,11 @@ class Voyage{
         $reseller       = get_post_meta($id, 'resell', false);
         $display_from   = get_post_meta($id, 'display_from', false);
         $price          = get_post_meta($id, 'price', true);
-        //piklist::pre($display_from);
-        $currency = ($settings['agency_currency']) ? ' ' . $settings['agency_currency'] : '';
-        $from = ($display_from[0][0] === 'TRUE') ? __('From','sage') . ' ' : '';
+        $agency_currency = $settings['agency_currency'];
+        $currency = ($agency_currency) ? ' ' . $agency_currency : '';
+        $from = (!empty($display_from[0]) && $display_from[0] === 'TRUE') ? __('From','sage') . ' ' : '';
 
-        if ( $reseller[0][0] === 'TRUE' ) {
+        if ( !empty($reseller[0]) && $reseller[0] === 'TRUE' ) {
             $margin     = get_post_meta($id,'tour_operator_margin',true);
             return $from . ceil($price + (($margin * $price)/100)) . $currency;
         } else {
@@ -18,10 +18,47 @@ class Voyage{
         }
     }
 
+    public static function host_rating_stars($host_rating){
+      $stars = '<span style="margin:0;padding:0;">';
+      for ($i=0; $i < $host_rating; $i++) {
+        $stars .= '<i class="star icon"></i>';
+      }
+      $stars .= '</span>';
+      return $stars;
+    }
     public static function display_detail_table( $trip = ['price' =>'']){
 
     }
-
+    public static function get_voyage_images_list($postID){
+        $images = array();
+        $gallery = get_post_meta($postID, 'gallery', false);
+        //Post Gallery
+        if(!empty($gallery) && !empty($gallery[0])){
+            foreach($gallery as $image){
+                $images[] = wp_get_attachment_url($image);
+            }
+        }else{
+            //Feature Image
+            $feat_image = wp_get_attachment_url( get_post_thumbnail_id($postID) );
+            if(!empty($feat_image)){
+                $images[] = $feat_image;
+            }else{
+                //Guanaima Gallery
+                $id = Common::get_original_post_id($postID,'voyage');
+                $terms = Common::get_media_terms($id,'voyage');
+                $gallery = RequestMedia::get_media_request_api('media',$terms);
+                if(!empty($gallery)){
+                    foreach($gallery as $image){
+                        $images[] = $image['full_size'];
+                    }
+                }else{
+                    //Default Image
+                    $images[] = get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg';
+                }
+            }
+        }
+        return $images;
+    }
     public static function get_voyage_images($postID){
         $images = array();
         $gallery = get_post_meta($postID, 'gallery');

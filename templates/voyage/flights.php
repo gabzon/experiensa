@@ -1,16 +1,8 @@
 <?php
-$airline        = get_post_meta($post->ID,'flight_airline');
-$flight_number  = get_post_meta($post->ID,'flight_number');
-$flight_class   = get_post_meta($post->ID,'flight_class');
-$departure_city = get_post_meta($post->ID,'flight_departure_city');
-$departure_date = get_post_meta($post->ID,'flight_departure_date');
-$departure_time = get_post_meta($post->ID,'flight_departure_time');
-$arrival_city   = get_post_meta($post->ID,'flight_arrival_city');
-$arrival_date   = get_post_meta($post->ID,'flight_arrival_date');
-$arrival_time   = get_post_meta($post->ID,'flight_arrival_time');
-?>
+$flight_options = get_post_meta($post->ID,'flight_options',true);
 
-<?php if ($airline[0]): ?>
+?>
+<?php if (isset($flight_options[0]) && !empty($flight_options[0]) && !empty($flight_options[0]['flight_airline'])): ?>
     <br>
     <hr>
     <br>
@@ -26,26 +18,28 @@ $arrival_time   = get_post_meta($post->ID,'flight_arrival_time');
             </div>
             <div class="eleven wide column">
                 <table class="ui table fluid">
-                    <?php for ($i = 0; $i < count($departure_city); $i++) : ?>
-                        <tr>
-                            <td width="15%">
-                                <strong style="text-transform:uppercase"><?= $departure_city[$i]; ?></strong><br>
-                                <?= $departure_date[$i]. '<br>'.$departure_time[$i];?>
-                            </td>
-                            <td width="70%" style="text-align:center">
-                                <?= $airline[$i] . ' ' . $flight_number[$i];  ?>
-                                <hr>
-                            </td>
-                            <td width="2%">
-                                <br>
-                                <i class="plane icon big"></i>
-                            </td>
-                            <td width="13%">
-                                <strong style="text-transform:uppercase"><?= $arrival_city[$i]; ?></strong><br>
-                                <?= $arrival_date[$i] . '<br>' . $arrival_time[$i];  ?>
-                            </td>
-                        </tr>
-                    <?php endfor ?>
+                <?php foreach($flight_options as $option):?>
+                <?php if(!empty($option['flight_airline']) && !empty($option['flight_departure_city'])):?>
+                  <tr>
+                    <td width="15%">
+                      <strong style="text-transform:uppercase"><?= $option['flight_departure_city']; ?></strong><br>
+                      <?= $option['flight_departure_date']. '<br>'.$option['flight_departure_time'];?>
+                    </td>
+                    <td width="70%" style="text-align:center">
+                      <?= $option['flight_airline'] . ' ' . $option['flight_arrival_time'];  ?>
+                      <hr>
+                    </td>
+                    <td width="2%">
+                        <br>
+                        <i class="plane icon big"></i>
+                    </td>
+                    <td width="13%">
+                      <strong style="text-transform:uppercase"><?= $option['flight_arrival_city']; ?></strong><br>
+                      <?= $option['flight_arrival_date'] . '<br>' . $option['flight_airline'];  ?>
+                    </td>
+                  </tr>
+                <?php endif;?>
+                <?php endforeach;?>
                 </table>
             </div>
         </div>

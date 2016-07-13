@@ -15,50 +15,20 @@ date_default_timezone_set($timezone);
     <?php $countries = get_the_terms($post->ID ,'country');?>
     <?php $locations = get_the_terms($post->ID ,'location');?>
     <?php if ($voyage_expiry_date && $voyage_expiry_date_formatted >= date("Y-m-d")): ?>
-        <?php $gallery = get_post_meta($post->ID, 'gallery', false); ?>
+        <?php $gallery = Voyage::get_voyage_images_list($post->ID);?>
         <?php $overlay = get_stylesheet_directory_uri() .  '/bower_components/vegas/dist/overlays/07.png';?>
-        <?php if ($gallery && !empty($gallery[0])): ?>
-            <script type="text/javascript">
+        <script type="text/javascript">
             jQuery(function() {
                 jQuery('.voyage-slider').vegas({
                     overlay: '<?= $overlay ?>',
                     slides: [
                         <?php foreach ($gallery as $image): ?>
-                        <?php if ($image): ?>
-                        { src: '<?= wp_get_attachment_url( $image ); ?>' },
-                        <?php else: ?>
-                        { src: '<?= get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg'; ?>' },
-                        <?php endif; ?>
+                        { src: '<?= $image; ?>' },
                         <?php endforeach; ?>
                     ]
                 });
             });
-            </script>
-        <?php else:
-            $postid = Common::get_original_post_id($post->ID,'voyage');
-
-            $terms = Common::get_media_terms($postid,'voyage');
-
-            $gallery = RequestMedia::get_media_request_api('media',$terms);
-        ?>
-          <script type="text/javascript">
-            jQuery(function() {
-                jQuery('.voyage-slider').vegas({
-                    overlay: '<?= $overlay ?>',
-                    slides: [
-                      <?php if(!empty($gallery)):?>
-                        <?php foreach ($gallery as $image):?>
-                        { src: '<?= $image['full_size'] ; ?>' },
-                        <?php endforeach; ?>
-                      <?php else: ?>
-                      { src: '<?= get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg'; ?>' },
-                      <?php endif; ?>
-                    ]
-                });
-            });
-            </script>
-        <?php endif; ?>
-
+        </script>
         <div class="voyage-slider" style="height:100vh;">
             <div class="ui container">
                 <br><br>

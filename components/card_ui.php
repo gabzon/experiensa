@@ -32,11 +32,22 @@ class Card{
                                 ".$price."
                             </div>";
             }
-            //$card .= Gallery::show_gallery_from_list($images,true);
-            $card .= '<img src=" ' .$images[0]['full_size'] . '" alt="" />';
+            if(!$images['feature_image'] && empty($images['gallery'])){
+                $card .= '<img src="' . get_stylesheet_directory_uri().'/assets/images/travel-no-image.jpg' . '" alt="" class="ui image" />';
+            }else{
+                if($images['feature_image']){
+                    $card .= '<img src=" ' .$images['feature_image'] . '" alt="" />';
+                }else{
+                    $image_list = array();
+                    foreach($images['gallery'] as $img){
+                        $row['full_size'] = $img;
+                        $image_list[] = $row;
+                    }
+                    $card .= Gallery::show_gallery_from_list($image_list,true);
+                }
+            }
             $card .=    "</div>";
         }else{
-
             $card .= '<img src="' . get_stylesheet_directory_uri().'/assets/images/travel-no-image.jpg' . '" alt="" class="ui image" />';
             if($price){
                 $card .=    "<div class=\"extra content\">

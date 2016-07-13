@@ -45,6 +45,7 @@ Order: 4
 
  piklist('field', array(
      'type'      => 'group',
+     'field'     => 'itinerary_options',
      'template'  => 'field',
      'add_more'  => true,
      'fields'    => array(

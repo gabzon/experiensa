@@ -1,27 +1,9 @@
 <?php
-$host_name          = get_post_meta($post->ID,'establishment_name');
-$host_type          = get_post_meta($post->ID,'establishment_type');
-$host_rating        = get_post_meta($post->ID,'establishment_rating');
-$host_checkin_date  = get_post_meta($post->ID,'establishment_checkin_date');
-$host_checkin_time  = get_post_meta($post->ID,'establishment_checkin_time');
-$host_checkout_date = get_post_meta($post->ID,'establishment_checkout_date');
-$host_checkout_time = get_post_meta($post->ID,'establishment_checkout_time');
-$host_comments      = get_post_meta($post->ID,'establishment_comments');
-$host_gallery       = get_post_meta($post->ID,'establishment_gallery');
+$host_options =  get_post_meta($post->ID,'accommodations_options',true);
 ?>
 <br>
 
-<?php
-function display_rating($host_rating){
-    echo '<span style="margin:0;padding:0;">';
-    for ($i=0; $i < $host_rating; $i++) {
-        echo '<i class="star icon"></i>';
-    }
-    echo '</span>';
-}
-?>
-
-<?php if ($host_name[0]): ?>
+<?php if (isset($host_options[0]) && !empty($host_options[0]) && !empty($host_options[0]['establishment_name'])): ?>
     <br>
     <hr>
     <br>
@@ -36,32 +18,33 @@ function display_rating($host_rating){
                 <h2><?php _e('Accommodation','sage'); ?></h2>
             </div>
             <div class="eleven wide column">
-                <?php for ($i = 0; $i < count($host_name); $i++): ?>
-                    <h3 class="ui header">
-                        <?= $host_name[$i]; ?>
-                        <div class="sub header">
-                            <?php display_rating($host_rating[$i]); ?>
-                        </div>
-                    </h3>
-                    <?php if ($host_gallery): ?>
-                        <div id="host-gallery">
-                            <?php foreach ($host_gallery[$i] as $image): ?>
-                                <div>
-                                    <img src="<?php echo wp_get_attachment_url($image); ?>" class="ui image" />
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                    <br>
-                    <?= $host_comments[$i]; ?>
-                    <br><br>
-                    <strong><?php _e('Check-in: ','sage'); ?></strong>
-                    <?= $host_checkin_date[$i] . ' (' . $host_checkin_time[$i] . ')'; ?><br>
-                    <strong><?php _e('Check-in: ','sage'); ?></strong>
-                    <?= $host_checkout_date[$i] . ' (' . $host_checkout_time[$i] . ')'; ?><br>
-                <?php endfor; ?>
+            <?php foreach($host_options as $option):?>
+            <?php if(!empty($option['establishment_name'])):?>
+              <h3 class="ui header">
+                  <?= $option['establishment_name']; ?>
+                  <div class="sub header">
+                      <?= Voyage::host_rating_stars($option['establishment_rating']); ?>
+                  </div>
+              </h3>
+            <?php if (!empty($option['establishment_gallery']) && !empty($option['establishment_gallery'][0])): ?>
+              <div id="host-gallery">
+                <?php foreach ($option['establishment_gallery'] as $image): ?>
+                <div>
+                  <img src="<?php echo wp_get_attachment_url($image); ?>" class="ui image" />
+                </div>
+                <?php endforeach;?>
+              </div>
+            <?php endif;?>
+              <br>
+                <?= $option['establishment_comments']; ?>
+              <br><br>
+              <strong><?php _e('Check-in: ','sage'); ?></strong>
+              <?= $option['establishment_checkin_date'] . ' (' . $option['establishment_checkin_time'] . ')'; ?><br>
+              <strong><?php _e('Check-in: ','sage'); ?></strong>
+              <?= $option['establishment_checkout_date'] . ' (' . $option['establishment_checkout_time'] . ')'; ?><br>
+            <?php endif;?>
+            <?php endforeach;?>
             </div>
         </div>
     </div>
-
 <?php endif; ?>

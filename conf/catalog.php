@@ -165,11 +165,17 @@ class Catalog{
             $display .=            "<b>". __('Theme','sage') .":</b> ".$trip['theme']."<br>";
         $display .=                 "<p>". $trip['excerpt'] ."</p>";
         $display .=             "</div>";
-        if(isset($trip['cover_image'][0]) && !empty($trip['cover_image'][0])) {
-            $display .=         "<div class=\"ten wide column ui image\">";
-            $display .=             "<img src=\"".$trip['cover_image'][0]."\" alt=\"\" />";
-            $display .=         "</div>";
+        $display .=             "<div class=\"ten wide column ui image\">";
+        if(!$trip['cover_image']->feature_image && empty($trip['cover_image']->gallery)){
+            $display .=             "<img src=\"".get_stylesheet_directory_uri().'/assets/images/travel-no-image.jpg'."\" alt=\"\" />";
+        }else{
+            if($trip['cover_image']->feature_image){
+                $display .=         "<img src=\"".$trip['cover_image']->feature_image."\" alt=\"\" />";
+            }else{
+                $display .=         "<img src=\"".$trip['cover_image']->gallery[0]."\" alt=\"\" />";
+            }
         }
+        $display .=             "</div>";
         $display .=         "</div>";
         $display .=     "</div>";
         $display .=     "<div class=\"content\">";

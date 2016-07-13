@@ -646,10 +646,12 @@
      * @return mixed
      */
     public static function get_original_post_id($postid,$posttype='post'){
-      global $sitepress;
-      $default_lenguaje = $sitepress->get_default_language();
-      $original_id = icl_object_id($postid,$posttype,true,$default_lenguaje);
+      $original_id = $postid;
+      if ( function_exists('icl_object_id') ) {
+        global $sitepress;
+        $default_lenguaje = $sitepress->get_default_language();
+        $original_id = icl_object_id($postid,$posttype,true,$default_lenguaje);
+      }
       return $original_id;
     }
   }
-?>

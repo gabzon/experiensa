@@ -11,16 +11,13 @@
 			$images = array();
 			$cover_image = $value['cover_image'];
 			if(!empty($cover_image)){
-				for($i = 0; $i < count($cover_image); $i++){
-					$row['full_size'] = $cover_image[$i];
-					$images[] = $row;
-				}
+				$images['feature_image'] = $cover_image->feature_image;
+				$images['gallery'] = $cover_image->gallery;
 			}
 			if($value['price'])
 				$price = convertCurrency($value['price'], $value['currency'], Helpers::get_currency()) . ' ' . Helpers::get_currency();
 			else
-
-            $price = __('Not available','sage');
+            	$price = __('Not available','sage');
 			$title = $value['title'];
 			$excerpt = $value['excerpt'];
 			$mailto = 'mailto:' . Helpers::get_email() . '?subject= Offre ' . $value['title'];

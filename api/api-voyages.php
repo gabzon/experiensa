@@ -120,47 +120,49 @@ function slug_get_voyage_price( $object, $field_name, $request ) {
 
 function slug_get_voyage_cover_image( $object, $field_name, $request ) {
     $images = array();
+    //get images from feature image
+    $cover_image = wp_get_attachment_image_src( get_post_thumbnail_id($object['id']), 'full' );
+    if(!empty($cover_image)){
+        for($i=0;$i<count($cover_image);$i++){
+            if(strpos($cover_image[$i],'http')===0){
+                $images['feature_image'] = $cover_image[$i];
+            }
+        }
+    }else{
+        $images['feature_image'] = false;
+    }
+    $gallery = array();
     $images_list = get_post_meta($object['id'],'gallery');
     //get images from gallery
     if(!empty($images_list[0])){
         foreach($images_list as $img_id){
             $img_url = wp_get_attachment_image_src($img_id,'full')[0];
             if(strpos($img_url,'http')===0){
-                $images[] = $img_url;
+                $gallery[] = $img_url;
             }
         }
+        $images['gallery'] = $gallery;
     }else{
-        //get images from cover image
-        $cover_image = wp_get_attachment_image_src( get_post_thumbnail_id($object['id']), 'full' );
-        if(!empty($cover_image)){
-            for($i=0;$i<count($cover_image);$i++){
-                if(strpos($cover_image[$i],'http')===0){
-                    $images[] = $cover_image[$i];
-                }
+        //get images from guanaima
+        $terms = get_the_terms($object['id'],'location');
+        if(!empty($terms)){
+            $location = array();
+            foreach($terms as $term){
+                $row['taxonomy'] = 'location';
+                $row['term'] = $term->name;
+                $location[] = $row;
             }
-        }
-        else{
-            //get images from guanaima
-            $terms = get_the_terms($object['id'],'location');
-            if(!empty($terms)){
-                $location = array();
-                foreach($terms as $term){
-                    $row['taxonomy'] = 'location';
-                    $row['term'] = $term->name;
-                    $location[] = $row;
-                }
-                $response = RequestMedia::get_media_request_api('media',$location);
-                if(!empty($response)){
-                    foreach($response as $image){
-                        if(strpos($image['full_size'],'http')===0){
-                            $images[] = $image['full_size'];
-                        }
+            $response = RequestMedia::get_media_request_api('media',$location);
+            if(!empty($response)){
+                foreach($response as $image){
+                    if(strpos($image['full_size'],'http')===0){
+                        $gallery[] = $image['full_size'];
                     }
                 }
             }
         }
+        $images['gallery'] = $gallery;
     }
-
     return $images;
 }
 

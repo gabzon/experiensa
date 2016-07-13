@@ -82,6 +82,7 @@ $flight_arrival_time = array(
 
 piklist('field', array(
     'type'      => 'group',
+    'field'     => 'flight_options',
     'template'  => 'field',
     'add_more'  => true,
     'fields'    => array(
