@@ -36,4 +36,18 @@ class Helpers {
             return false;
         return $agency_logo[0];
     }
+
+    /**
+     * If WPML plugin is active get active language code
+     * @return bool
+     */
+    public static function getActiveLanguageCode(){
+        $code = false;
+        //Check if WPML is installed
+        if ( function_exists('icl_object_id') ) {
+            //Active WPML language code
+            $code = ICL_LANGUAGE_CODE;
+        }
+        return $code;
+    }
 }

@@ -1,7 +1,6 @@
 
 <?php $voyages = array(); ?>
 <?php $voyages = Catalog::get_catalog();
-
 ?>
 
 <br>
