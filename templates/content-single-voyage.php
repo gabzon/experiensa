@@ -42,15 +42,20 @@ date_default_timezone_set($timezone);
                 <br>
                 <?php
                 $terms = Common::get_terms_by_id_taxonomies($id,['theme']);
+                echo "<h1>Terms</h1>";
                 echo "<pre>";
                 print_r($terms);
                 echo "</pre>";
+                echo "<h1>APIS</h1>";
                 echo "<pre>";
-                print_r(RequestMedia::get_media_api_list('http://guanaima.ch','media',$terms, 'rand'));
+                $apis = RequestMedia::get_media_api_list('http://guanaima.ch','media',$terms, 'rand');
+                print_r($apis);
                 echo "</pre>";
-                $gallery = RequestMedia::get_media_request_api('media',$terms,'rand');
+                $responses = RequestMedia::get_media_response($apis);
+                echo "<h1>respuestas</h1>";
+
                 echo "<pre>";
-                print_r($gallery);
+                print_r($responses);
                 echo "</pre>";
                 ?>
                 <?php the_content(); ?>
