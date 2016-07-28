@@ -29,6 +29,7 @@ class Voyage{
     public static function display_detail_table( $trip = ['price' =>'']){
 
     }
+
     public static function get_voyage_images_list($postID){
         $images = array();
         $gallery = get_post_meta($postID, 'gallery', false);
@@ -43,17 +44,26 @@ class Voyage{
             if(!empty($feat_image)){
                 $images[] = $feat_image;
             }else{
-                //Guanaima Gallery
                 $id = Common::get_original_post_id($postID,'voyage');
-                $terms = Common::get_media_terms($id,'voyage');
+                //Guanaima Gallery by Theme Taxonomy
+                $terms = Common::get_terms_by_id_taxonomies($id,['theme']);
                 $gallery = RequestMedia::get_media_request_api('media',$terms);
                 if(!empty($gallery)){
                     foreach($gallery as $image){
                         $images[] = $image['full_size'];
                     }
-                }else{
-                    //Default Image
-                    $images[] = get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg';
+                }else {
+                    //Guanaima Gallery
+                    $terms = Common::get_media_terms($id, 'voyage');
+                    $gallery = RequestMedia::get_media_request_api('media', $terms);
+                    if (!empty($gallery)) {
+                        foreach ($gallery as $image) {
+                            $images[] = $image['full_size'];
+                        }
+                    } else {
+                        //Default Image
+                        $images[] = get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg';
+                    }
                 }
             }
         }

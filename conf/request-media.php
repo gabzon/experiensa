@@ -5,8 +5,6 @@
 class RequestMedia{
   public static function get_media_api_list($website='http://guanaima.ch',$posttype, $terms=null){
     $list = array();
-    //$website = 'http://guanaima.ch';
-    //$row['website'] = 'guanaima.ch';
     if(substr($website, -1)!='/')
       $api = '/wp-json/wp/v2/'.$posttype;
     else
