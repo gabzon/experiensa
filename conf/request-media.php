@@ -36,7 +36,7 @@ class RequestMedia{
       echo "url del api: ".$api_url;
       if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
         echo " <br>entro1";
-        $file_headers = @get_headers($api_url);
+        $file_headers = @get_headers($api['website']);
         echo "<h2>cabeceras del api</h2>";
         echo "<pre>";
         print_r($file_headers);
