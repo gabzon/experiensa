@@ -41,7 +41,7 @@ date_default_timezone_set($timezone);
                 <br>
                 <br>
                 <?php
-                $terms = Common::get_terms_by_id_taxonomies($id,['theme']);
+                /*$terms = Common::get_terms_by_id_taxonomies($id,['theme']);
                 echo "<h1>Terms</h1>";
                 echo "<pre>";
                 print_r($terms);
@@ -56,7 +56,7 @@ date_default_timezone_set($timezone);
 
                 echo "<pre>";
                 print_r($responses);
-                echo "</pre>";
+                echo "</pre>";*/
                 ?>
                 <?php the_content(); ?>
                 <br>
