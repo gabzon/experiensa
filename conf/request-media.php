@@ -33,8 +33,9 @@ class RequestMedia{
     foreach($apis as $api){
       //Check if $api_url is a valid url
       $api_url = $api['website'].$api['api'];
+      echo "url del api: ".$api_url;
       if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
-        echo " entro1";
+        echo " <br>entro1";
         $file_headers = @get_headers($api_url);
         echo "<h2>cabeceras del api</h2>";
         echo "<pre>";
