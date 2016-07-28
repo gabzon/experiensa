@@ -40,6 +40,19 @@ date_default_timezone_set($timezone);
             <article <?php post_class(); ?>>
                 <br>
                 <br>
+                <?php
+                $terms = Common::get_terms_by_id_taxonomies($id,['theme']);
+                echo "<pre>";
+                print_r($terms);
+                echo "</pre>";
+                echo "<pre>";
+                print_r(RequestMedia::get_media_api_list('http://guanaima.ch','media',$terms, 'rand'));
+                echo "</pre>";
+                $gallery = RequestMedia::get_media_request_api('media',$terms,'rand');
+                echo "<pre>";
+                print_r($gallery);
+                echo "</pre>";
+                ?>
                 <?php the_content(); ?>
                 <br>
                 <?php get_template_part('templates/voyage/flights'); ?>
