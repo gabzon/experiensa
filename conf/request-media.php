@@ -36,6 +36,10 @@ class RequestMedia{
       if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
         echo " entro1";
         $file_headers = @get_headers($api_url);
+        echo "<h2>cabeceras del api</h2>";
+        echo "<pre>";
+        print_r($file_headers);
+        echo "</pre>";
         //check if url have response HTTP/1.1 200 OK
         if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
           echo " entro2";
