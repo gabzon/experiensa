@@ -3,7 +3,7 @@
  *
  **/
 class RequestMedia{
-  public static function get_media_api_list($website='http://guanaima.ch',$posttype, $terms=null){
+  public static function get_media_api_list($website='http://guanaima.ch',$posttype, $terms=null,$order=null){
     $list = array();
     if(substr($website, -1)!='/')
       $api = '/wp-json/wp/v2/'.$posttype;
@@ -19,6 +19,8 @@ class RequestMedia{
         $row['website'] = $website;
         $row['api'] = $api;
         $filter = '?filter[taxonomy]='.$term['taxonomy'].'&filter[term]='.$term['term'];
+        if($order)
+            $filter .= "&filter[orderby]=".$order;
         $row['filter'] = $filter;
         $list[] = $row;
       }
@@ -76,9 +78,9 @@ class RequestMedia{
     return $media_content;
   }
 
-  public static function get_media_request_api($posttype = 'media', $terms = null){
+  public static function get_media_request_api($posttype = 'media', $terms = null, $order = null){
     if($terms !=null){
-      $apis = self::get_media_api_list('http://guanaima.ch',$posttype,$terms);
+      $apis = self::get_media_api_list('http://guanaima.ch',$posttype,$terms, $order);
     }else{
       $apis = self::get_media_api_list('http://guanaima.ch',$posttype);
     }

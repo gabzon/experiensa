@@ -47,7 +47,7 @@ class Voyage{
                 $id = Common::get_original_post_id($postID,'voyage');
                 //Guanaima Gallery by Theme Taxonomy
                 $terms = Common::get_terms_by_id_taxonomies($id,['theme']);
-                $gallery = RequestMedia::get_media_request_api('media',$terms);
+                $gallery = RequestMedia::get_media_request_api('media',$terms,'rand');
                 if(!empty($gallery)){
                     foreach($gallery as $image){
                         $images[] = $image['full_size'];
