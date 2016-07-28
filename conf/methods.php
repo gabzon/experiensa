@@ -44,4 +44,39 @@ function get_the_aligment($align){
     }
     return $text_align;
 }
+function getUrlHeader($url){
+    $headers = array();
+    if (function_exists('curl_version')) {
+        $curl = curl_init();
+        curl_setopt_array( $curl, array(
+            CURLOPT_HEADER => true,
+            CURLOPT_NOBODY => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_URL => $url ) );
+        $headers = explode( "\n", curl_exec( $curl ) );
+        curl_close( $curl );
+    }else{
+        $headers = @get_headers($url);
+    }
+    return $headers;
+}
+
+function get_headers_from_curl_response($response)
+{
+    $headers = array();
+
+    $header_text = substr($response, 0, strpos($response, "\r\n\r\n"));
+
+    foreach (explode("\r\n", $header_text) as $i => $line)
+        if ($i === 0)
+            $headers['http_code'] = $line;
+        else
+        {
+            list ($key, $value) = explode(': ', $line);
+
+            $headers[$key] = $value;
+        }
+
+    return $headers;
+}
 ?>
