@@ -50,4 +50,14 @@ class Helpers {
         }
         return $code;
     }
+
+    public static function getPageTemplateNames(){
+        $templates = get_page_templates();
+        $templates_names = array();
+        foreach ($templates as $key => $value){
+            if($value !== 'landing.php' )
+                $templates_names[$key] = $key;
+        }
+        return $templates_names;
+    }
 }

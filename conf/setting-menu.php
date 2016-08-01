@@ -51,6 +51,22 @@ function design_experiensa_setting_page($pages){
 
     return $pages;
 }
+
+add_filter('piklist_admin_pages', 'design_experiensa_segment_page');
+function design_experiensa_segment_page($pages){
+    $pages[] = array(
+        'page_title'    => __('Segment Settings'),
+        'menu_title'    => __('Segment', 'sage'),
+        'capability'    => 'manage_options',
+        'sub_menu'      => 'themes.php',
+        'menu_slug'     => 'experiensa-segment-settings',
+        'setting'       => 'experiensa-segment-settings',
+        'single_line'   => false,
+        'save_text'     => __('Save Segment Settings','sage'),
+    );
+
+    return $pages;
+}
 /*
 * This page concerns the service improvements tutorials
 */
