@@ -17,6 +17,7 @@ if(!empty($args)):
             </h1>
             <?php
             $data = array();
+            //Check if have showcase options dont have posttype
             if($args['posttype']=='none'):
                 $terms = Showcase::getTermByTaxonomy($args['category']);
                 $info = array();
@@ -33,16 +34,28 @@ if(!empty($args)):
                     endif;
                 endforeach;
             ?>
-            <?php else:
+            <?php
+            //Show case have posttype
+            else:
                 $query = Showcase::showcase_query( $args['posttype'] , $args['category']);
                 if($query && $query->have_posts()):
                     while ( $query->have_posts() ) :
                         $query->the_post();
                         $id = $query->post->ID;
-                        $info = Showcase::get_post_data( $args['posttype'], $args['category'], $id );
-                        if ( !empty( $info ) ):
-                            $data[] = $info;
-                        endif;
+                        if($args['posttype'] == 'brochure'){
+                            $brochures = Brochure::getBrochuresByPost($id);
+                            foreach ($brochures as $brochure){
+                                $info = Brochure::getInfo($brochure,$id);
+                                if (!empty($info)):
+                                    $data[] = $info;
+                                endif;
+                            }
+                        }else {
+                            $info = Showcase::get_post_data($args['posttype'], $args['category'], $id);
+                            if (!empty($info)):
+                                $data[] = $info;
+                            endif;
+                        }
                     endwhile;
                 endif;
             endif;?>
