@@ -25,4 +25,8 @@ if($display_showcase!==false && $display_showcase=='TRUE'){
         }
     }
 }
+/*$brochures = get_post_meta(338, 'brochures');
+echo "<pre>";
+print_r($brochures);
+echo "</pre>";*/
 get_template_part('templates/landing/partners');

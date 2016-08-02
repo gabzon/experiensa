@@ -39,9 +39,17 @@ class Brochure
         }
         return $images;
     }
+    public static  function getFiles($brochure){
+        $files = array();
+        foreach ($brochure['brochure_file'] as $file){
+            $files[] = wp_get_attachment_url($file);
+        }
+        return $files;
+    }
     public static function getInfo($brochure,$postID){
-        $post_link = get_permalink($postID);
-        $info['post_link'] = $post_link;
+//        $post_link = get_permalink($postID);
+        $files_url = self::getFiles($brochure);
+        $info['post_link'] = $files_url[0];
         $info['title'] = ucwords(get_the_title($postID));
         $info['subtitle'] = $brochure['title'];
         $images = self::getImages($brochure);

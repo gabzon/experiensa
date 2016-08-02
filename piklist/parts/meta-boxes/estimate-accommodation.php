@@ -117,13 +117,3 @@ $accommodation_group = array(
 );
 
 piklist('field', $accommodation_group);
-/*
-piklist('field', array(
-    'type'      => 'group',
-    'template'  => 'field',
-    'add_more'  => true,
-    'fields'    => array(
-        $accommodation_group,
-        $comments
-    )
-));*/
