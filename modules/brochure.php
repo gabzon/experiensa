@@ -50,8 +50,8 @@ class Brochure
 //        $post_link = get_permalink($postID);
         $files_url = self::getFiles($brochure);
         $info['post_link'] = $files_url[0];
-        $info['title'] = ucwords(get_the_title($postID));
-        $info['subtitle'] = $brochure['title'];
+        $info['title'] = $brochure['title'];//ucwords(get_the_title($postID));
+        $info['subtitle'] = '';
         $images = self::getImages($brochure);
         $info['image_url'] = $images[0]['image_url'];
         $info['thumbnail_image'] = $images[0]['thumbnail_image'];
