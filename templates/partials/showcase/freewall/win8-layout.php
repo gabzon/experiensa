@@ -11,13 +11,10 @@ if(!empty($data)):
             <!-- two columns and one row -->
             <div class="item size21 level1">
                 <div class="win8-wallpaper">
-                    <div class="ui image">
-                        <?php
-                        $textimage_option->setInfo($data[$i]['title'], $data[$i]['subtitle']);
-                        $textimage_option->displayTextimage();
-                        ?>
-                        <img src="<?=$data[$i]['image_url'];?>" width="100%">
-                    </div>
+                    <?php
+                    $textimage_option->setInfo($data[$i]['title'], $data[$i]['subtitle'],$data[$i]['image_url']);
+                    $textimage_option->displayTextimage();
+                    ?>
                 </div>
             </div>
             <?php if(isset($data[$i]['post_link'])):?></a><?php endif;?>
@@ -30,13 +27,10 @@ if(!empty($data)):
                 <?php if(isset($data[$j]['post_link'])):?><a href="<?=$data[$j]['post_link'];?>"><?php endif; ?>
                 <div class="item size11">
                     <div class="win8-wallpaper">
-                        <div class="ui image">
-                            <?php
-                            $textimage_option->setInfo($data[$j]['title'], $data[$j]['subtitle']);
-                            $textimage_option->displayTextimage();
-                            ?>
-                            <img src="<?=$data[$j]['thumbnail_url'];?>">
-                        </div>
+                        <?php
+                        $textimage_option->setInfo($data[$j]['title'], $data[$j]['subtitle'], $data[$j]['thumbnail_url']);
+                        $textimage_option->displayTextimage();
+                        ?>
                     </div>
                 </div>
                 <?php if(isset($data[$j]['post_link'])):?></a><?php endif;?>
@@ -52,13 +46,10 @@ if(!empty($data)):
                 <?php endif; ?>
                     <div class="item size11">
                         <div class="win8-wallpaper">
-                            <div class="ui image">
-                                <?php
-                                $textimage_option->setInfo($data[$j]['title'], $data[$j]['subtitle']);
-                                $textimage_option->displayTextimage();
-                                ?>
-                                <img src="<?=$data[$j]['thumbnail_url'];?>">
-                            </div>
+                            <?php
+                            $textimage_option->setInfo($data[$j]['title'], $data[$j]['subtitle'], $data[$j]['thumbnail_url']);
+                            $textimage_option->displayTextimage();
+                            ?>
                         </div>
                     </div>
                 <?php if(isset($data[$j]['post_link'])):?>
@@ -73,13 +64,10 @@ if(!empty($data)):
                 <?php endif; ?>
                 <div class="item size21 level1">
                     <div class="win8-wallpaper">
-                        <div class="ui image">
-                            <?php
-                            $textimage_option->setInfo($data[$i]['title'], $data[$i]['subtitle']);
-                            $textimage_option->displayTextimage();
-                            ?>
-                            <img src="<?=$data[$i]['image_url'];?>">
-                        </div>
+                        <?php
+                        $textimage_option->setInfo($data[$i]['title'], $data[$i]['subtitle'], $data[$i]['image_url']);
+                        $textimage_option->displayTextimage();
+                        ?>
                     </div>
                 </div>
                 <?php if(isset($data[$i]['post_link'])):?>

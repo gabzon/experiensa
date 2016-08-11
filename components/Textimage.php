@@ -16,11 +16,12 @@ class Textimage
 
     private $text_style;
     private $vertical_style;
+    private $vertical_simple_style;
     private $horizontal_style;
 
     private $title;
     private $subtitle;
-
+    private $image;
 
     function __construct($options)
     {
@@ -35,6 +36,7 @@ class Textimage
 
         $this->setTextStyle();
         $this->setVerticalAlignment();
+        $this->setVerticalSimpleAligment();
         $this->setHorizontalAlignment();
     }
 
@@ -54,10 +56,22 @@ class Textimage
             else
                 $this->vertical_style = 'middle aligned ';
         }
-
+    }
+    private function setVerticalSimpleAligment(){
+        if(strpos($this->text_position,'top') !== false)
+            $this->vertical_simple_style = 'padding-top: 0%;';
+        else{
+            if(strpos($this->text_position,'bottom') !== false)
+                $this->vertical_simple_style = 'padding-top: 50%;';
+            else
+                $this->vertical_simple_style = 'padding-top: 25%;';
+        }
     }
     public function getVerticalAlignment(){
         return $this->vertical_style;
+    }
+    public function getVerticalSimpleAlignment(){
+        return $this->vertical_simple_style;
     }
     private function setHorizontalAlignment(){
         if(strpos($this->text_position,'left') !== false)
@@ -75,7 +89,8 @@ class Textimage
     public function getTextStyle(){
         return $this->text_style;
     }
-    public function setInfo($title,$subtitle){
+    public function setInfo($title,$subtitle, $image){
+        $this->image = $image;
         $title = ( isset($title) && !empty($title)?$title:'');
         $subtitle = ( isset($subtitle) && !empty($subtitle)?$subtitle:'');
         if( $this->text_order === 'title_first'){
@@ -95,6 +110,9 @@ class Textimage
     }
     public function getSubtitle(){
         return $this->subtitle;
+    }
+    public function getImage(){
+        return $this->image;
     }
     public function getDisplayOverlay(){
         return $this->display_overlay;

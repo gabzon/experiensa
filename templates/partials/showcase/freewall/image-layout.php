@@ -5,30 +5,16 @@ if(!empty($data)):
     <div id="freewall-image" class="free-wall freewall-image">
         <?php
         foreach($data as $value):
-            $textimage_option->setInfo($value['title'], $value['subtitle']);
+            $textimage_option->setInfo($value['title'], $value['subtitle'], $value['image_url']);
             $width = rand(250,500);
-            if(isset($value['post_link'])):
-                ?>
+            if(isset($value['post_link'])):?>
                 <a href="<?=$value['post_link'];?>">
-            <?php
-            endif;
-            ?>
+            <?php endif; ?>
             <div class="freewall-cell" style="width:<?= $width; ?>px;height: 160px;">
-                <div class="ui image">
-                    <?php $textimage_option->displayTextimage();?>
-                    <img src="<?=$value['image_url'];?>" width="100%">
-                </div>
+                <?php $textimage_option->displayTextimage();?>
             </div>
-            <?php
-            if(isset($value['post_link'])):
-            ?>
-                </a>
-            <?php
-            endif;
-            ?>
-            <?php
-        endforeach;
-        ?>
+            <?php if(isset($value['post_link'])):?></a><?php endif; ?>
+        <?php endforeach; ?>
     </div>
 <?php
 endif;

@@ -145,12 +145,6 @@
                     $('.owl-nav').hide();
                 }
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.4});
-                $(".image .dimmer.simple").dimmer('toggle');
-                // $(".free-wall .brick .image .dimmer").dimmer({on:'hover', opacity: 0.4});
-                // $(".free-wall .brick-pinterest .image .dimmer").dimmer({on:'hover', opacity: 0.4});
-                // $(".free-wall .freewall-cell .image .dimmer").dimmer({on:'hover', opacity: 0.4});
-                // $(".free-wall .item .image .dimmer").dimmer({on:'hover', opacity: 0.4});
-                // $(".owl-carousel .carousel-component .image .dimmer").dimmer({on:'hover', opacity: 0.4});
 
                 $('.grid-masonry').masonry({
                   // set itemSelector so .grid-sizer is not used in layout

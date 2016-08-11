@@ -5,7 +5,7 @@ if(!empty($data)):
 <div id="freewall" class="free-wall freewall-flex">
     <?php
     foreach($data as $value):
-        $textimage_option->setInfo($value['title'], $value['subtitle']);
+        $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url']);
         $width = rand(250,500);
         if(isset($value['post_link'])):
     ?>
@@ -14,10 +14,7 @@ if(!empty($data)):
         endif;
         ?>
         <div class="brick" style="width:<?= $width; ?>px;">
-            <div class="ui image">
-                <?php $textimage_option->displayTextimage();?>
-                <img src="<?=$value['image_url'];?>" width="100%">
-            </div>
+            <?php $textimage_option->displayTextimage();?>
         </div>
         <?php
         if(isset($value['post_link'])):

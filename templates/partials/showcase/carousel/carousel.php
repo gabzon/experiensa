@@ -5,15 +5,11 @@ if(!empty($data)):
     <div class="owl-carousel">
     <?php
     foreach($data as $value):
-        $textimage_option->setInfo($value['title'], $value['subtitle']);
+        $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url']);
     ?>
         <div class="carousel-component">
             <a href="<?=$value['post_link'];?>" target="_blank">
-<!--                <div class="overlay"></div>-->
-                <div class="ui image">
-                    <?php $textimage_option->displayTextimage();?>
-                    <img src="<?=$value['image_url'];?>" alt=""/>
-                </div>
+                <?php $textimage_option->displayTextimage();?>
             </a>
         </div>
     <?php
