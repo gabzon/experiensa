@@ -21,12 +21,9 @@ if($display_showcase!==false && $display_showcase=='TRUE'){
             $showcase['title'] = $option['showcase_title'];
             $showcase['subtitle'] = $option['showcase_subtitle'];
             $showcase['title_alignment'] = $option['showcase_title_alignment'];
+            $showcase['textimage_options'] = new Experiensa\Component\Textimage($option['textimage_options']);
             Showcase::displayShowcase($showcase);
         }
     }
 }
-/*$brochures = get_post_meta(338, 'brochures');
-echo "<pre>";
-print_r($brochures);
-echo "</pre>";*/
 get_template_part('templates/landing/partners');

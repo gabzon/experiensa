@@ -4,7 +4,6 @@
 class Showcase{
     public static function displayShowcase($args){
         include(locate_template('templates/partials/showcase/showcase.php'));
-        //get_template_part('templates/partials/showcase/showcase');
     }
     public static function display_showcase( $args, $return = false){
         $display = "";
@@ -52,7 +51,7 @@ class Showcase{
             return $display;
         }
     }
-    public static function displayComponent($component,$data){
+    public static function displayComponent($component,$data,$textimage_option){
         switch($component){
             case 'carousel':
                 include(locate_template('templates/partials/showcase/carousel/carousel.php'));

@@ -99,7 +99,7 @@ $showcase_posttype = array(
     'field'     => 'showcase_posttype',
     'value'     => 'none',
     'label'     => __('Post Type to Show','sage'),
-    'columns'   => 2,
+    'columns'   => 3,
     'choices'   => $cpt
 );
 $showcase_categories = array(
@@ -163,7 +163,7 @@ $showcase_inverted = array(
     'label' => __('Background','sage'),
     'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
     'field' => 'showcase_inverted',
-    'columns' => 3,
+    'columns' => 2,
     'value' => '',
     'choices' => array(
         '' => __('Simple','sage'),
@@ -202,6 +202,117 @@ $showcase_title_alignment = array(
         'right'        => __('Right','sage')
     ),
 );
+/**
+ * TextImages settings
+ */
+$ti_font_size = array(
+    'type'      => 'number',
+    'label' => __('Text Size','sage'),
+    'help'  => __('em font size type','sage'),
+    'field'     => 'font_size',
+    'columns'   => 2,
+    'value'     => '1'
+);
+$ti_text_color = array(
+    'type' => 'colorpicker',
+    'field' => 'text_color',
+    'label' => __('Text Color', 'sage'),
+    'help'  => __('Default font color is white','sage'),
+    'default' => '#FFFFFF',
+    'columns'   => 3,
+    'attributes' => array(
+        'class' => 'small-text'
+    )
+);
+$ti_text_transformation = array(
+    'type'      => 'select',
+    'label' => __('Text Transtransform','sage'),
+    'field'     => 'text_transform',
+    'columns'   => 3,
+    'value'     => 'capitalize',
+    'choices'   => array(
+        'uppercase'              => __('Uppercase','sage'),
+        'lowercase'           => __('Lowercase','sage'),
+        'capitalize'        => __('Capitalize','sage')
+    )
+);
+$ti_text_order = array(
+    'type'      => 'select',
+    'label' => __('Text Order','sage'),
+    'field'     => 'text_order',
+    'columns'   => 3,
+    'value'     => 'title_first',
+    'choices'   => array(
+        'title_first'              => __('Title First','sage'),
+        'subtitle_first'           => __('Subtitle First','sage')
+    )
+);
+$ti_text_position = array(
+    'type'      => 'select',
+    'label' => __('Text Position','sage'),
+    'field'     => 'text_position',
+    'columns'   => 4,
+    'value'     => 'center_middle',
+    'choices'   => array(
+        'top_left'           => __('Top & Left','sage'),
+        'center_left'           => __('Center & Left','sage'),
+        'bottom_left'           => __('Bottom & Left','sage'),
+        'top_middle'              => __('Top & Middle','sage'),
+        'center_middle'           => __('Center & Middle','sage'),
+        'bottom_middle'           => __('Bottom & Middle','sage'),
+        'top_right'           => __('Top & Right','sage'),
+        'center_right'           => __('Center & Right','sage'),
+        'bottom_right'           => __('Bottom & Right','sage')
+    )
+);
+$ti_display_title = array(
+    'type'      => 'select',
+    'label' => __('Display Title?','sage'),
+    'field'     => 'display_title',
+    'columns'   => 3,
+    'value'     => 'yes',
+    'choices'   => array(
+        'yes'           => __('Yes','sage'),
+        'no'           => __('No','sage'),
+    )
+);
+$ti_display_subtitle = array(
+    'type'      => 'select',
+    'label' => __('Display Subtitle?','sage'),
+    'field'     => 'display_subtitle',
+    'columns'   => 3,
+    'value'     => 'yes',
+    'choices'   => array(
+        'yes'           => __('Yes','sage'),
+        'no'           => __('No','sage'),
+    )
+);
+$ti_display_overlay = array(
+    'type'      => 'select',
+    'label' => __('Display Overlay?','sage'),
+    'field'     => 'display_overlay',
+    'columns'   => 2,
+    'value'     => 'yes',
+    'choices'   => array(
+        'yes'           => __('Yes','sage'),
+        'no'           => __('No','sage'),
+    )
+);
+$showcase_textimage_settings = array(
+    'type' => 'group',
+    'field' => 'textimage_options',
+    'label' => __('Textimage options','sage'),
+    'fields' => array(
+        $ti_font_size,
+        $ti_text_color,
+        $ti_text_transformation,
+        $ti_text_order,
+        $ti_text_position,
+        $ti_display_title,
+        $ti_display_subtitle,
+        $ti_display_overlay
+    )
+);
 piklist('field',array(
     'type' => 'group',
     'field' => 'showcase_options',
@@ -216,7 +327,8 @@ piklist('field',array(
         $showcase_inverted,
         $showcase_title,
         $showcase_subtitle,
-        $showcase_title_alignment
+        $showcase_title_alignment,
+        $showcase_textimage_settings
     ),
     'conditions' => array(
         array(
@@ -225,321 +337,4 @@ piklist('field',array(
         )
     )
 ));
-/*
-piklist('field',array(
-    'type'      => 'select',
-    'field'     => 'landing_order',
-    'label'     => __('Displaying order','sage'),
-    'help'      => __('Order in which the front page will be display after the slider'),
-    'add_more'  => true,
-    'columns'   => 4,
-    'choices'   => array(
-        'destination'   => __('Destinations','sage'),
-        'promotion'     => __('Promotions','sage'),
-        'theme'         => __('Themes','sage'),
-        'country'       => __('Countries','sage'),
-        'content'       => __('Content','sage'),
-    ),
-));*/
-/* ************************************************************************** */
-/* *************************** Destinations  ******************************** */
-/* ************************************************************************** */
-/*
-piklist('field', array(
-    'type' => 'html',
-    'template'  => 'field',
-    'field' => 'destination_section', // 'field' is only required for a settings page.
-    'value' => '<h3>'.__('Destination section','sage').'</h3><hr>'
-));
 
-piklist('field',array(
-    'type' => 'select',
-    'field' => 'display_destinations',
-    'value' => 'TRUE',
-    'label' => __('Display destinations','sage'),
-    'choices' => array(
-        'TRUE'  => __('Yes','sage'),
-        'FALSE' => __('Non','sage'),
-    ),
-));
-
-$destination_component = array(
-    'type'      => 'select',
-    'field'     => 'display_destination_component',
-    'value'     => 'carousel',
-    'label'     => __('How to display destinations?','sage'),
-    'columns'   => 3,
-    'choices'   => array(
-        'carousel'      => __('Carousel','sage'),
-        'grid'          => __('Grid','sage'),
-        'card'          => __('Cards','sage'),
-        'button'        => __('Buttons','sage'),
-        'masonry'       => __('Masonry','sage'),
-        'flex-layout'   => __('Flex Layout','sage'),
-        'windows'       => __('Windows','sage'),
-        'img-layout'    => __('Image layout','sage'),
-        'pinterest'     => __('Pinterest','sage'),
-    ),
-);
-
-$destination_color = array(
-    'type'      => 'select',
-    'label' => __('Color','sage'),
-    'help'  => __('Only the top border will be colored, check inverse color if you want to color the background instead','sage'),
-    'field'     => 'destination_section_color',
-    'columns'   => 3,
-    'value'     => '',
-    'choices'   => array(
-        ''              => __('No Color','sage'),
-        'red'           => __('Red','sage'),
-        'orange'        => __('Orange','sage'),
-        'yellow'        => __('Yellow','sage'),
-        'olive'         => __('Olive','sage'),
-        'green'         => __('Green','sage'),
-        'teal'          => __('Teal','sage'),
-        'blue'          => __('Blue','sage'),
-        'violet'        => __('Violet','sage'),
-        'purple'        => __('Purple','sage'),
-        'pink'          => __('Pink','sage'),
-        'brown'         => __('Brown','sage'),
-        'grey'          => __('Grey','sage'),
-        'black'         => __('Black','sage'),
-        'website'       => __('Default website','sage'),
-    ),
-);
-
-$destination_inverted = array(
-    'type' => 'checkbox',
-    'label' => __('Background','sage'),
-    'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
-    'field' => 'destination_section_inverted',
-    'columns' => 3,
-    'choices' => array(
-        'inverted' => __('Inverted color','sage')
-    ),
-);
-
-piklist('field',array(
-    'type' => 'group',
-    'field' => 'destination_options',
-    'label' => __('Destination options','sage'),
-    'fields' => array(
-        $destination_component,
-        $destination_color,
-        $destination_inverted
-    ),
-    'conditions' => array(
-        array(
-            'field' => 'display_destinations',
-            'value' => 'TRUE'
-        )
-    ),
-));
-/*
-
-/* ************************************************************************** */
-/* ***************************** Promotions  ******************************** */
-/* ************************************************************************** */
-/*
-piklist('field', array(
-    'type' => 'html',
-    'template'  => 'field',
-    'field' => 'promotions_section', // 'field' is only required for a settings page.
-    'value' => '<h3>'.__('Promotions section','sage').'</h3><hr>'
-));
-
-piklist('field',array(
-    'type' => 'select',
-    'field' => 'display_promotions',
-    'value' => 'TRUE',
-    'label' => __('Display promotions','sage'),
-    'choices' => array(
-        'TRUE'  => __('Yes','sage'),
-        'FALSE' => __('Non','sage'),
-    ),
-));
-
-$promotion_type= array(
-    'type'      => 'select',
-    'field'     => 'promotion_type',
-    'value'     => 'brochure',
-    'label'     => __('What do you want to display?','sage'),
-    'columns'   => 3,
-    'choices'   => array(
-        'brochure'      => __('Brochures','sage'),
-        'promotion'     => __('Promotions','sage'),
-    ),
-);
-
-$promotion_component = array(
-    'type'      => 'select',
-    'field'     => 'display_promotion_component',
-    'value'     => 'carousel',
-    'label'     => __('How to display promotions?','sage'),
-    'columns'   => 3,
-    'choices'   => array(
-        'carousel'      => __('Carousel','sage'),
-        'grid'          => __('Grid','sage'),
-        'card'          => __('Cards','sage'),
-        'button'        => __('Buttons','sage'),
-        'masonry'       => __('Masonry','sage'),
-        'flex-layout'   => __('Flex Layout','sage'),
-        'windows'       => __('Windows','sage'),
-        'img-layout'    => __('Image layout','sage'),
-        'pinterest'     => __('Pinterest','sage'),
-    ),
-);
-
-$promotion_color = array(
-    'type'      => 'select',
-    'label' => __('Color','sage'),
-    'help'  => __('Only the top border will be colored, check inverse color if you want to color the background instead','sage'),
-    'field'     => 'promotion_section_color',
-    'columns'   => 3,
-    'value'     => '',
-    'choices'   => array(
-        ''              => __('No Color','sage'),
-        'red'           => __('Red','sage'),
-        'orange'        => __('Orange','sage'),
-        'yellow'        => __('Yellow','sage'),
-        'olive'         => __('Olive','sage'),
-        'green'         => __('Green','sage'),
-        'teal'          => __('Teal','sage'),
-        'blue'          => __('Blue','sage'),
-        'violet'        => __('Violet','sage'),
-        'purple'        => __('Purple','sage'),
-        'pink'          => __('Pink','sage'),
-        'brown'         => __('Brown','sage'),
-        'grey'          => __('Grey','sage'),
-        'black'         => __('Black','sage'),
-        'website'       => __('Default website','sage'),
-    ),
-);
-
-$promotion_inverted = array(
-    'type' => 'checkbox',
-    'field' => 'promotion_section_inverted',
-    'label' => __('Background','sage'),
-    'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
-    'columns' => 3,
-    'choices' => array(
-        'inverted' => __('Inverted color','sage')
-    ),
-);
-
-piklist('field',array(
-    'type' => 'group',
-    'label' => __('Promotion section color','sage'),
-    'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
-    'fields' => array(
-        $promotion_type,
-        $promotion_component,
-        $promotion_color,
-        $promotion_inverted,
-    ),
-    'conditions' => array(
-        array(
-            'field' => 'display_promotions',
-            'value' => 'TRUE'
-        )
-    ),
-));
-
-*/
-/* ************************************************************************** */
-/* ******************************** Themes ********************************** */
-/* ************************************************************************** */
-/*
-piklist('field', array(
-    'type'      => 'html',
-    'template'  => 'field',
-    'field'     => 'theme_section', // 'field' is only required for a settings page.
-    'value'     => '<h3>'.__('Themes section','sage').'</h3><hr>'
-));
-
-piklist('field',array(
-    'type' => 'select',
-    'field' => 'display_themes',
-    'value' => 'TRUE',
-    'label' => __('Display Themes','sage'),
-    'choices' => array(
-        'TRUE'  => __('Yes','sage'),
-        'FALSE' => __('Non','sage'),
-    ),
-));
-
-$theme_component = array(
-    'type'      => 'select',
-    'field'     => 'display_themes_component',
-    'value'     => 'carousel',
-    'label'     => __('How to display themes?','sage'),
-    'columns'   => 3,
-    'choices'   => array(
-        'carousel'      => __('Carousel','sage'),
-        'grid'          => __('Grid','sage'),
-        'card'          => __('Cards','sage'),
-        'button'        => __('Buttons','sage'),
-        'masonry'       => __('Masonry','sage'),
-        'flex-layout'   => __('Flex Layout','sage'),
-        'windows'       => __('Windows','sage'),
-        'img-layout'    => __('Image layout','sage'),
-        'pinterest'     => __('Pinterest','sage'),
-    ),
-);
-
-$theme_color = array(
-    'type'      => 'select',
-    'label' => __('Color','sage'),
-    'help'  => __('Only the top border will be colored, check inverse color if you want to color the background instead','sage'),
-    'field'     => 'theme_section_color',
-    'columns'   => 3,
-    'value'     => '',
-    'choices'   => array(
-        ''              => __('No Color','sage'),
-        'red'           => __('Red','sage'),
-        'orange'        => __('Orange','sage'),
-        'yellow'        => __('Yellow','sage'),
-        'olive'         => __('Olive','sage'),
-        'green'         => __('Green','sage'),
-        'teal'          => __('Teal','sage'),
-        'blue'          => __('Blue','sage'),
-        'violet'        => __('Violet','sage'),
-        'purple'        => __('Purple','sage'),
-        'pink'          => __('Pink','sage'),
-        'brown'         => __('Brown','sage'),
-        'grey'          => __('Grey','sage'),
-        'black'         => __('Black','sage'),
-        'website'       => __('Default website','sage'),
-    ),
-);
-
-$theme_inverted = array(
-    'type' => 'checkbox',
-    'label' => __('Background','sage'),
-    'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
-    'field' => 'theme_section_inverted',
-    'columns' => 3,
-    'choices' => array(
-        'inverted' => __('Inverted color','sage')
-    )
-);
-
-piklist('field',array(
-    'type' => 'group',
-    'field' => 'theme_options',
-    'label' => __('Theme section color','sage'),
-    'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
-    'fields' => array(
-        $theme_component,
-        $theme_color,
-        $theme_inverted
-    ),
-    'conditions' => array(
-        array(
-            'field' => 'display_themes',
-            'value' => 'TRUE'
-        )
-    )
-));
-*/
-?>

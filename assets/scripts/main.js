@@ -159,6 +159,7 @@
                   percentPosition: true,
                   gutter: 10
                 });
+                $('.grid-masonry .grid-item .image').dimmer({on:'hover', opacity: 0.4});
                 freewall_layout();
 
             },

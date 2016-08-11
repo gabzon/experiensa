@@ -26,7 +26,21 @@ class Brochure
         return false;
     }
     public static function getBrochuresByPost($postID){
-        $brochures = get_post_meta($postID, 'brochures')[0];
+        $brochures = get_post_meta($postID,'brochures')[0];
+//        $brochures = array();
+//        $titles = get_post_meta($postID,'title');
+//        $expiry_date = get_post_meta($postID,'expiry_date');
+//        $brochure_files = get_post_meta($postID,'brochure_file');
+//        $image_galleries = get_post_meta($postID,'image_gallery');
+//        for($i = 0; $i < count($titles);$i++){
+//            $brochure['title'] = $titles[$i];
+//            $brochure['expiry_date'] = $expiry_date[$i];
+//            foreach($brochure_files[$i] as $brochure){}
+//            $brochure['brochure_file'] = $brochure_files[$i];
+//            $brochure['image_gallery'] = $image_galleries[$i];
+//            $brochures[] = $brochure;
+//        }
+
         return $brochures;
     }
     public static function getImages($brochure){
@@ -41,6 +55,9 @@ class Brochure
     }
     public static  function getFiles($brochure){
         $files = array();
+//        echo"<pre>";
+//        print_r($brochure);
+//        echo"</pre>";
         foreach ($brochure['brochure_file'] as $file){
             $files[] = wp_get_attachment_url($file);
         }

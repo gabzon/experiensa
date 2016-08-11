@@ -112,3 +112,9 @@ function add_query_vars_filter( $vars ){
     return $vars;
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
+
+
+//function prevent_double_serialization_by_em_and_piklist($event) {
+//    unset( $event->event_attributes['slides'] );
+//}
+//add_action('em_event_save_meta_pre', 'prevent_double_serialization_by_em_and_piklist');

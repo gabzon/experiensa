@@ -1,5 +1,6 @@
 <?php
 if(!empty($args)):
+    $textimage_option = $args['textimage_options'];
 ?>
     <!-- Showcase Section -->
     <section id="<?=$args['category'];?>" class="ui basic <?=get_the_color($args['color'], $args['inverted']);?> vertical segment center aligned">
@@ -35,15 +36,19 @@ if(!empty($args)):
                 endforeach;
             ?>
             <?php
-            //Show case have posttype
+            //Showcase have any posttype
             else:
                 $query = Showcase::showcase_query( $args['posttype'] , $args['category']);
                 if($query && $query->have_posts()):
                     while ( $query->have_posts() ) :
                         $query->the_post();
                         $id = $query->post->ID;
+                        //If postype is brochure
                         if($args['posttype'] == 'brochure'){
                             $brochures = Brochure::getBrochuresByPost($id);
+//                            echo"<pre>";
+//                            print_r($brochures);
+//                            echo"</pre>";
                             foreach ($brochures as $brochure){
                                 $info = Brochure::getInfo($brochure,$id);
                                 if (!empty($info)):
@@ -61,7 +66,7 @@ if(!empty($args)):
             endif;?>
             <?php if(!empty($data)):// echo"<pre>";print_r($data);echo"</pre>";?>
             <div id="landing-showcase" class="landing-showcase">
-                <?php Showcase::displayComponent($args['component'],$data); ?>
+                <?php Showcase::displayComponent($args['component'],$data,$textimage_option); ?>
             </div>
             <?php else:?>
                 <h3>Sorry! Currently there are no <?=__(ucfirst($args['category']),'sage');?></h3>

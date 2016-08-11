@@ -9,7 +9,8 @@ $brochure_title = array(
     'type'      => 'text',
     'label'     => __('Title','sage'),
     'field'     => 'title',
-    'columns'   => 4
+    'columns'   => 4,
+    'required' => true
 );
 
 $brochure_expiry_date = array(
@@ -24,9 +25,19 @@ $brochures_files = array(
     'type'          => 'file',
     'field'         => 'brochure_file',
     'help'          => __( 'Brochures should be PDF files','sage'),
-    'label'         => __( 'Brochures','sage' ),
+    'label'         => __( 'Brochure File','sage' ),
     'columns'       => 3,
     'options'       => ['button' => __('PDF Brochures','sage')],
+    'required' => true,
+    'validate' => array(
+        array(
+            'type' => 'limit',
+            'options' => array(
+                'min' => 0,
+                'max' => 1
+            )
+        )
+    )
 );
 
 $brochure_gallery = array(
@@ -34,7 +45,17 @@ $brochure_gallery = array(
     'field'         => 'image_gallery',
     'label'         => __('Image Gallery','sage'),
     'columns'       => 3,
-    'options'       => [ 'button' => __('Add Images','sage') ],
+    'options'       => [ 'button' => __('Add Images','sage')],
+    'required' => true,
+    'validate' => array(
+        array(
+            'type' => 'limit',
+            'options' => array(
+                'min' => 0,
+                'max' => 1
+            )
+        )
+    )
 );
 
 piklist('field',array(
