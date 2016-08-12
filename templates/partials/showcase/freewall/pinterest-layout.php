@@ -5,7 +5,7 @@ if(!empty($data)):
     <div id="freewall-pinterest" class="free-wall">
         <?php
         foreach($data as $value):
-            $textimage_option->setInfo($value['title'], $value['subtitle']);
+            $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url']);
             $width = rand(250,500);
             if(isset($value['post_link'])):
         ?>
@@ -14,10 +14,7 @@ if(!empty($data)):
             endif;
             ?>
             <div class="brick-pinterest">
-                <div class="ui image">
                     <?php $textimage_option->displayTextimage();?>
-                    <img src="<?=$value['image_url'];?>" width="100%">
-                </div>
                 <div class="info-pinterest">
                     <h5><?= $value['title']; ?></h5>
                     <h7><?= $value['subtitle']; ?></h7>
