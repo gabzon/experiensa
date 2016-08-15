@@ -45,7 +45,7 @@ add_action('user_register', 'set_default_admin_color_schema');
 function hide_custom_post_types(){
     $agency_options = get_option('agency_settings');
     if(isset($agency_options)) {
-        $website_use = $agency_options['website_use'];
+        $website_use = (isset($agency_options['website_use'])?$agency_options['website_use']:null);
         $all_posttypes = [ "brochure", "partner", "feedback", "service", "host", "voyage", "estimate", "room" ];
         $to_hide = array();
         if (isset($website_use)) {
@@ -84,7 +84,69 @@ add_action( 'admin_menu', 'hide_custom_post_types' );
 //}
 //add_action('add_meta_boxes', 'change_meta_box_titles');
 
-function create_custom_page(){
+function create_custom_landing_page(){
+    $pages = get_pages(
+        array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'landing.php'
+        )
+    );
+    if(empty($pages)):
+        //create a new page and automatically assign the page template
+        $post = array(
+            'post_title' => "Home",
+            'post_content' => "",
+            'post_status' => "publish",
+            'post_type' => 'page',
+        );
+        $postID = wp_insert_post($post);
+        update_post_meta($postID, "_wp_page_template", "landing.php");
+    endif;
+}
+add_action('admin_menu', 'create_custom_landing_page');
+
+function create_custom_request_page(){
+    $pages = get_pages(
+        array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'request-form.php'
+        )
+    );
+    if(empty($pages)):
+        //create a new page and automatically assign the page template
+        $post = array(
+            'post_title' => "Request",
+            'post_content' => "",
+            'post_status' => "publish",
+            'post_type' => 'page',
+        );
+        $postID = wp_insert_post($post);
+        update_post_meta($postID, "_wp_page_template", "request-form.php");
+    endif;
+}
+add_action('admin_menu', 'create_custom_request_page');
+
+function create_custom_catalog_page(){
+    $pages = get_pages(
+        array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'catalog.php'
+        )
+    );
+    if(empty($pages)):
+        //create a new page and automatically assign the page template
+        $post = array(
+            'post_title' => "Catalog",
+            'post_content' => "",
+            'post_status' => "publish",
+            'post_type' => 'page',
+        );
+        $postID = wp_insert_post($post);
+        update_post_meta($postID, "_wp_page_template", "catalog.php");
+    endif;
+}
+add_action('admin_menu', 'create_custom_catalog_page');
+function create_custom_search_result_page(){
     $pages = get_pages(
         array(
             'meta_key' => '_wp_page_template',
@@ -103,7 +165,7 @@ function create_custom_page(){
         update_post_meta($postID, "_wp_page_template", "postlist-result.php");
     endif;
 }
-add_action('admin_menu', 'create_custom_page');
+add_action('admin_menu', 'create_custom_search_result_page');
 
 function add_query_vars_filter( $vars ){
     $vars[] = "cpt";
@@ -112,9 +174,3 @@ function add_query_vars_filter( $vars ){
     return $vars;
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
-
-
-//function prevent_double_serialization_by_em_and_piklist($event) {
-//    unset( $event->event_attributes['slides'] );
-//}
-//add_action('em_event_save_meta_pre', 'prevent_double_serialization_by_em_and_piklist');

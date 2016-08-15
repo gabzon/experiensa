@@ -93,13 +93,13 @@ class Footer
     public static function getSocialNetwork(){
         $agency_options = get_option('agency_settings');
         $info = array();
-        $info['facebook'] = ($agency_options['social_facebook']?$agency_options['social_facebook']:false);
-        $info['twitter'] = ($agency_options['social_twitter']?$agency_options['social_twitter']:false);
-        $info['instagram'] = ($agency_options['social_instagram']?$agency_options['social_instagram']:false);
-        $info['linkedin'] = ($agency_options['social_linkedin']?$agency_options['social_linkedin']:false);
-        $info['gplus'] = ($agency_options['social_gplus']?$agency_options['social_gplus']:false);
-        $info['skype'] = ($agency_options['social_skype']?$agency_options['social_skype']:false);
-        $info['pinterest'] = ($agency_options['social_pinterest']?$agency_options['social_pinterest']:false);
+        $info['facebook'] = (isset($agency_options['social_facebook'])?$agency_options['social_facebook']:false);
+        $info['twitter'] = (isset($agency_options['social_twitter'])?$agency_options['social_twitter']:false);
+        $info['instagram'] = (isset($agency_options['social_instagram'])?$agency_options['social_instagram']:false);
+        $info['linkedin'] = (isset($agency_options['social_linkedin'])?$agency_options['social_linkedin']:false);
+        $info['gplus'] = (isset($agency_options['social_gplus'])?$agency_options['social_gplus']:false);
+        $info['skype'] = (isset($agency_options['social_skype'])?$agency_options['social_skype']:false);
+        $info['pinterest'] = (isset($agency_options['social_pinterest'])?$agency_options['social_pinterest']:false);
         return $info;
     }
 }
