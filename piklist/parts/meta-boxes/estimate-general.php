@@ -6,6 +6,9 @@ Meta box: true
 order:1
 */
 
+/**
+ * Estimate Voyage General Information
+ */
 $title = array(
     'type'          => 'text',
     'field'         => 'estimate_title',
@@ -84,7 +87,7 @@ $photos = array(
 
 
 /*******************************************************************************
- ** Flight Section
+ ** Voyage Flight Section
  *******************************************************************************/
 
 $flight_airline = array(
@@ -158,7 +161,7 @@ $flight_arrival_time = array(
     'label'     => __('Arrival time','sage')
 );
 
-$comments = [
+$flight_comments = [
     'type'          => 'text',
     'field'         => 'flight_comments',
     'label'         => __('Comments','sage'),
@@ -168,7 +171,7 @@ $comments = [
 
 $flights = array(
     'type' => 'group',
-    'field' => 'flights _group',
+    'field' => 'flights_group',
     'label' => __('Flights','sage'),
     'add_more' => true,
     'fields' => array(
@@ -181,11 +184,11 @@ $flights = array(
         $flight_departure_time,
         $flight_arrival_date,
         $flight_arrival_time,
-        $comments
+        $flight_comments
     )
 );
 /*******************************************************************************
- ** Accommodation Section
+ ** Voyage Accommodation Section
  *******************************************************************************/
 $host_name = [
     'type'      => 'text',
@@ -268,7 +271,7 @@ $host_comments = array(
 
 $accomodations = array(
     'type' => 'group',
-    'field' => 'accomodations _group',
+    'field' => 'accomodations_group',
     'label' => __('Accomodations','sage'),
     'add_more' => true,
     'fields' => array(
@@ -279,11 +282,13 @@ $accomodations = array(
         $host_checkin_time,
         $host_checkout_date,
         $host_checkout_time,
-        $host_comments,
+        $host_gallery,
         $host_comments
     )
 );
-
+/**
+ * Estimate Group
+ */
 piklist('field', array(
     'type'      => 'group',
     'field'     => 'estimate_voyages',
@@ -303,7 +308,5 @@ piklist('field', array(
         $photos,
         $flights,
         $accomodations
-//        $flight,
-//        $accommodation_group
     )
 ));
