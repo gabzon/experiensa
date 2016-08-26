@@ -25,7 +25,7 @@ class Gallery{
 
         <?php
     }
-    public static function show_gallery($photos){
+    public static function show_gallery($photos,$get=false){
       $gallery="";
       if(!empty($photos)){
         $gallery.="<div class=\"owl-carousel\" style=\"margin-bottom:0\">";
@@ -39,6 +39,8 @@ class Gallery{
         }
         $gallery.="</div>";
       }
+      if($get)
+          return $gallery;
       echo $gallery;
     }
 

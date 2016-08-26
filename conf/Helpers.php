@@ -60,4 +60,26 @@ class Helpers {
         }
         return $templates_names;
     }
+
+    /**
+     * @return array
+     */
+    public static function getPagesFromCurrentLanguage(){
+        $page_ids=get_all_page_ids();
+        $pages = array();
+        foreach($page_ids as $id) {
+            //Check if WPML is installed and activated
+            if(function_exists('icl_object_id')) {
+                //Get page id from de current language and translations
+                $current_lang_page_id = icl_object_id($id, 'page', true,ICL_LANGUAGE_CODE);
+                //Check if $current_lang_page_id is original page (not a tranlated page) and status publish
+                if($id == $current_lang_page_id && get_post_status( $id ) == 'publish')
+                    $pages[$id] = get_the_title($id);
+            } else {
+                $pages[$id] = get_the_title($id);
+            }
+
+        }
+        return $pages;
+    }
 }

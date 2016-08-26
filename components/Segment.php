@@ -12,26 +12,32 @@ class Segment
     private $align;
     private $background;
 
-    function __construct()
+    function __construct($settings)
     {
-        $settings = get_option('experiensa-segment-settings');
+//        $settings = get_option('experiensa-segment-settings');
         if(!empty($settings)) {
-            $this->segment_settings = $settings['segment_page_options'];
+            $this->segment_settings = $settings['segment_options'];
         }else {
             $this->segment_settings = array();
         }
     }
-
-    public function setData($templateName){
+    public function setDataFromSegmentOptions($segment_options){
+        $this->have_option = true;
+        $this->options = $segment_options;
+        $this->setContainer($this->options['container']);
+        $this->setAlignment($this->options['title_alignment']);
+        $this->setBackground();
+    }
+    public function setDataFromTemplateName($templateName){
         $this->have_option = false;
         if(!empty($this->segment_settings)){
             $segment_settings = $this->segment_settings;
             foreach( $segment_settings as $setting ){
-                if($setting['segment_page_templates'] == $templateName){
+                if($setting['templates'] == $templateName){
                     $this->have_option = true;
                     $this->options = $setting;
-                    $this->setContainer($this->options['segment_page_container']);
-                    $this->setAlignment($this->options['segment_page_title_alignment']);
+                    $this->setContainer($this->options['container']);
+                    $this->setAlignment($this->options['title_alignment']);
                     $this->setBackground();
                     break;
                 }
@@ -65,17 +71,17 @@ class Segment
 
     private function setBackground(){
         if($this->have_option) {
-            $bg_type = $this->options['segment_page_background_type'];
+            $bg_type = $this->options['background_type'];
             if ($bg_type == 'color') {
                 $this->background['style'] = '';
-                $this->background['class'] = get_the_color($this->options['segment_page_color'], $this->options['segment_page_inverted']);
+                $this->background['class'] = get_the_color($this->options['background_color'], $this->options['color_inverted']);
             } else {
                 if ($bg_type == 'texture') {
-                    $texture_image = $this->getBackgroundImage($this->options['segment_page_texture']);
+                    $texture_image = $this->getBackgroundImage($this->options['bg_texture']);
                     $this->background['style'] = ($texture_image ? "background-image: url(" . $texture_image . "); background-repeat:repeat;" : "");
                     $this->background['class'] = '';
                 } else {
-                    $image = $this->getBackgroundImage($this->options['segment_page_bg_image']);
+                    $image = $this->getBackgroundImage($this->options['bg_image']);
                     $this->background['style'] = ($image ? "background-image:url('" . $image . "');background-repeat:no-repeat;background-size:100%;background-position:center;" : "");
                     $this->background['class'] = '';
                 }

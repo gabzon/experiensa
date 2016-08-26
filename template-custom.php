@@ -3,8 +3,8 @@
  * Template Name: Custom Template
  */
 $settings = get_option('experiensa-segment-settings');
-$segment = new Experiensa\Component\Segment();
-$segment->setData('Custom Template');
+$segment = new Experiensa\Component\Segment($settings);
+$segment->setDataFromTemplateName('Custom Template');
 $segment_container = $segment->getContainer();
 $segment_align = $segment->getAlignment();
 $segment_background = $segment->getBackground();
