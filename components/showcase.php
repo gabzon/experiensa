@@ -267,4 +267,50 @@ class Showcase{
         }
         return $display;
     }
+
+    public static function getData($args){
+        $data = array();
+        //Check if have showcase options dont have posttype
+        if($args['posttype']=='none'):
+            $terms = self::getTermByTaxonomy($args['category']);
+            $info = array();
+            foreach($terms as $term):
+                $query = self::byTermsQueryLimitOneTerm('attachment',$args['category'],$term);
+                if($query && $query->have_posts()):
+                    while ( $query->have_posts() ) :
+                        $query->the_post();
+                        $id = $query->post->ID;
+                        $info = self::getPostdataNoPosttype($args['category'],$id);
+                        if ( !empty( $info ) )
+                            $data[] = $info;
+                    endwhile;
+                endif;
+            endforeach;
+        //Showcase have any posttype
+        else:
+            $query = self::showcase_query( $args['posttype'] , $args['category']);
+            if($query && $query->have_posts()):
+                while ( $query->have_posts() ) :
+                    $query->the_post();
+                    $id = $query->post->ID;
+                    //If postype is brochure
+                    if($args['posttype'] == 'brochure'){
+                        $brochures = Brochure::getBrochuresByPost($id);
+                        foreach ($brochures as $brochure){
+                            $info = Brochure::getInfo($brochure,$id);
+                            if (!empty($info)):
+                                $data[] = $info;
+                            endif;
+                        }
+                    }else {
+                        $info = self::get_post_data($args['posttype'], $args['category'], $id);
+                        if (!empty($info)):
+                            $data[] = $info;
+                        endif;
+                    }
+                endwhile;
+            endif;
+        endif;
+        return $data;
+    }
 }

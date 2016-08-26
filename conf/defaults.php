@@ -84,7 +84,7 @@ add_action( 'admin_menu', 'hide_custom_post_types' );
 //}
 //add_action('add_meta_boxes', 'change_meta_box_titles');
 
-function create_custom_landing_page(){
+/*function create_custom_landing_page(){
     $pages = get_pages(
         array(
             'meta_key' => '_wp_page_template',
@@ -146,6 +146,7 @@ function create_custom_catalog_page(){
     endif;
 }
 add_action('admin_menu', 'create_custom_catalog_page');
+
 function create_custom_search_result_page(){
     $pages = get_pages(
         array(
@@ -165,7 +166,7 @@ function create_custom_search_result_page(){
         update_post_meta($postID, "_wp_page_template", "postlist-result.php");
     endif;
 }
-add_action('admin_menu', 'create_custom_search_result_page');
+add_action('admin_menu', 'create_custom_search_result_page');*/
 
 function add_query_vars_filter( $vars ){
     $vars[] = "cpt";

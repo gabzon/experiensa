@@ -10,7 +10,7 @@ $template_names = Helpers::getPageTemplateNames();
 
 $segment_page_templates = array(
     'type'      => 'select',
-    'field'     => 'segment_page_templates',
+    'field'     => 'templates',
     'label'     => __('Page Template','sage'),
     'columns'   => 4,
     'choices'   => $template_names
@@ -20,7 +20,7 @@ $segment_page_container = array(
     'type'      => 'select',
     'label' => __('Container','sage'),
     'help'  => __('The content can be set in a container or not','sage'),
-    'field'     => 'segment_page_container',
+    'field'     => 'container',
     'columns'   => 2,
     'value'     => '',
     'choices'   => array(
@@ -32,7 +32,7 @@ $segment_page_container = array(
 $segment_page_title_alignment = array(
     'type'      => 'select',
     'label' => __('Title & Tagline Alignment','sage'),
-    'field'     => 'segment_page_title_alignment',
+    'field'     => 'title_alignment',
     'columns'   => 3,
     'value'     => 'center',
     'choices'   => array(
@@ -46,7 +46,7 @@ $segment_page_background_type = array(
     'type'      => 'select',
     'label' => __('Background Type','sage'),
     'help'  => __('Background customization types','sage'),
-    'field'     => 'segment_page_background_type',
+    'field'     => 'background_type',
     'columns'   => 3,
     'value'     => 'color',
     'choices'   => array(
@@ -60,7 +60,7 @@ $segment_page_color = array(
     'type'      => 'select',
     'label' => __('Color','sage'),
     'help'  => __('Only the top border will be colored, check inverse color if you want to color the background instead','sage'),
-    'field'     => 'segment_page_color',
+    'field'     => 'background_color',
     'columns'   => 2,
     'value'     => '',
     'choices'   => array(
@@ -82,7 +82,7 @@ $segment_page_color = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'segment_page_options:segment_page_background_type',
+            'field' => 'segment_options:background_type',
             'value' => 'color'
         )
     )
@@ -92,7 +92,7 @@ $segment_page_inverted = array(
     'type' => 'select',
     'label' => __('Background','sage'),
     'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
-    'field' => 'segment_page_inverted',
+    'field' => 'color_inverted',
     'columns' => 3,
     'value' => '',
     'choices' => array(
@@ -101,7 +101,7 @@ $segment_page_inverted = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'segment_page_options:segment_page_background_type',
+            'field' => 'segment_options:background_type',
             'value' => 'color'
         )
     )
@@ -109,7 +109,7 @@ $segment_page_inverted = array(
 
 $segment_page_texture = array(
     'type'      => 'file',
-    'field'     => 'segment_page_texture',
+    'field'     => 'bg_texture',
     //'scope'     => 'post_meta',
     'label'     => __('Texture image','sage'),
     'options'   => array(
@@ -127,7 +127,7 @@ $segment_page_texture = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'segment_page_options:segment_page_background_type',
+            'field' => 'segment_options:background_type',
             'value' => 'texture'
         )
     )
@@ -135,8 +135,7 @@ $segment_page_texture = array(
 
 $segment_page_bg_image = array(
     'type'      => 'file',
-    'field'     => 'segment_page_bg_image',
-    //'scope'     => 'post_meta',
+    'field'     => 'bg_image',
     'label'     => __('Background image','sage'),
     'options'   => array(
         'modal_title'   => __('Add Image','sage'),
@@ -153,7 +152,7 @@ $segment_page_bg_image = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'segment_page_options:segment_page_background_type',
+            'field' => 'segment_options:background_type',
             'value' => 'image'
         )
     )
@@ -161,7 +160,7 @@ $segment_page_bg_image = array(
 
 piklist('field',array(
     'type' => 'group',
-    'field' => 'segment_page_options',
+    'field' => 'segment_options',
     'label' => __('Segment page options','sage'),
     'help'      => __('You can set the style of custom pages'),
     'add_more' => true,
