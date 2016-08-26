@@ -2,11 +2,13 @@
 /**
  * Template Name: Section Template
  */
-$settings = get_option('experiensa-section-settings');
+$page_object = get_queried_object();
+$page_id     = get_queried_object_id();
+$settings = get_option('experiensa_design_settings');
 //    echo "<pre>";
 //    print_r($settings);
 //    echo "</pre>";
-$sections = new Experiensa\Component\Section('Section Template',$settings);
+$sections = new Experiensa\Component\Section($page_id,$settings);
 if($sections->checkExistSectionOptions()):
     $segments = $sections->getSegmentList();
 //        echo "<pre>";

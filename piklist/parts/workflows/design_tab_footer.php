@@ -1,6 +1,6 @@
 <?php
 /*
 Title: Footer
-Order: 40
+Order: 50
 Flow: Design
 */

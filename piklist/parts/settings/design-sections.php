@@ -1,9 +1,9 @@
 <?php
 /*
-Title: General Settings
-Setting: experiensa-section-settings
-Tab: General
-Flow: Section
+Title: Section Settings
+Setting: experiensa_design_settings
+Tab: Sections
+Flow: Design
 */
 
 /**
@@ -449,13 +449,15 @@ $segment_options = array(
 //
 //  Segment Template Field
 //
-$template_names = Helpers::getPageTemplateNames();
-$templates = array(
+$pages_template = Helpers::getPagesByTemplate('section.php');
+//$template_names = Helpers::getPageTemplateNames();
+$pages = array(
     'type'      => 'select',
-    'field'     => 'templates',
-    'label'     => __('Page Template','sage'),
+    'field'     => 'pages',
+    'label'     => __('Page Name','sage'),
+    'help'      => __('You can select the page to which you will add segments','sage'),
     'columns'   => 4,
-    'choices'   => $template_names
+    'choices'   => $pages_template
 );
 
 /**
@@ -465,12 +467,10 @@ piklist('field',array(
     'type' => 'group',
     'field' => 'section_options',
     'label' => __('Section options','sage'),
-    'help'      => __('You can set the style to your custom template'),
+    'help'      => __('You can set the style to your custom template','sage'),
     'add_more' => true,
     'fields' => array(
-        $templates,
+        $pages,
         $segment_options
     )
 ));
-
-Helpers::getPagesFromCurrentLanguage();

@@ -82,4 +82,20 @@ class Helpers {
         }
         return $pages;
     }
+
+    /**
+     * @param $template
+     * @return array
+     */
+    public static function getPagesByTemplate($template){
+        $pages = get_pages(array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => $template
+        ));
+        $page_list = array();
+        foreach($pages as $page){
+            $page_list[$page->ID] = $page->post_title;
+        }
+        return $page_list;
+    }
 }

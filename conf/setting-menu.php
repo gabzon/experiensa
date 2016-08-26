@@ -67,21 +67,21 @@ function design_experiensa_segment_page($pages){
 
     return $pages;
 }
-add_filter('piklist_admin_pages', 'design_experiensa_section_page');
-function design_experiensa_section_page($pages){
-    $pages[] = array(
-        'page_title'    => __('Section Settings'),
-        'menu_title'    => __('Sections', 'sage'),
-        'capability'    => 'manage_options',
-        'sub_menu'      => 'themes.php',
-        'menu_slug'     => 'experiensa-section-settings',
-        'setting'       => 'experiensa-section-settings',
-        'single_line'   => false,
-        'save_text'     => __('Save Section Settings','sage'),
-    );
-
-    return $pages;
-}
+//add_filter('piklist_admin_pages', 'design_experiensa_section_page');
+//function design_experiensa_section_page($pages){
+//    $pages[] = array(
+//        'page_title'    => __('Section Settings'),
+//        'menu_title'    => __('Sections', 'sage'),
+//        'capability'    => 'manage_options',
+//        'sub_menu'      => 'themes.php',
+//        'menu_slug'     => 'experiensa-section-settings',
+//        'setting'       => 'experiensa-section-settings',
+//        'single_line'   => false,
+//        'save_text'     => __('Save Section Settings','sage'),
+//    );
+//
+//    return $pages;
+//}
 /*
 * This page concerns the service improvements tutorials
 */
