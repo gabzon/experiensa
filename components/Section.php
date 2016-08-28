@@ -1,6 +1,8 @@
 <?php namespace Experiensa\Component;
 
 use \Experiensa\Component\Textimage;
+use \Experiensa\Component\Slider;
+
 class Section
 {
     private $section_options;
@@ -107,5 +109,22 @@ class Section
             $textimage = $textimage_options;
         $textimage_object = new Textimage($textimage);
         \Showcase::displayComponent($component,$data,$textimage_object);
+    }
+    public function displaySegmentSlider($segment){
+        $slider_options = $segment['content_source_options']['slider_options'];
+        $slider_terms = explode(',',$slider_options['terms']);
+        if($slider_options['slider_type'] == 'message') {
+            $slider_type = 'vegas';
+            $post_type = ['attachment'];
+            $taxonomy = $slider_options['taxonomy'];
+            $message = $slider_options['message'];
+        }else {
+            $slider_type = 'superslides';
+            $post_type = [$slider_options['post_type']];
+            $taxonomy = $slider_options['taxonomy'];
+            $message = '';
+        }
+        $slider = new Slider($slider_type,$post_type,$taxonomy,$slider_terms,$message);
+        $slider->showSlider();
     }
 }

@@ -4,14 +4,15 @@
  */
 //echo"<br><br><br><br><br><br><br>";
 
-$slider = new Experiensa\Component\Slider("vegcccas",['voyage'],'category',['landing-slider']);
-$slider->showSlider();
+//$slider = new Experiensa\Component\Slider("vegas",['voyage'],'category',['landing-slider']);
+//$slider->showSlider();
 
 $page_object = get_queried_object();
 $page_id     = get_queried_object_id();
 $settings = get_option('experiensa_design_settings');
+//$taxs = \Experiensa\Modules\QueryBuilder::getTaxonomies();
 //    echo "<pre>";
-//    print_r($settings);
+//    print_r($taxs);
 //    echo "</pre>";
 $sections = new Experiensa\Component\Section($page_id,$settings);
 if($sections->checkExistSectionOptions()):
@@ -47,7 +48,11 @@ if($sections->checkExistSectionOptions()):
             <p><?= $content;?></p>
 <?php
         else:
-            $sections->displaySegmentShowcase($segment);
+            if($source_type === 'showcase'):
+                $sections->displaySegmentShowcase($segment);
+            else:
+                $sections->displaySegmentSlider($segment);
+            endif;
         endif;
         ?>
     </div>

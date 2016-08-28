@@ -92,8 +92,7 @@ piklist('field',array(
     ),
 ));
 
-$cpt = get_post_types();
-$cpt['none'] = __('None','sage');
+$cpt =  \Experiensa\Modules\QueryBuilder::getPostTypes();
 $showcase_posttype = array(
     'type'      => 'select',
     'field'     => 'showcase_posttype',

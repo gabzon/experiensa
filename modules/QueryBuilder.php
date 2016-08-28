@@ -4,8 +4,13 @@ use WP_Query;
 
 class QueryBuilder
 {
-    public static function getTaxonomiesByCustomPostType($post_type){
-        $taxonomies = array();
+    public static function getPostTypes(){
+        $cpt = get_post_types();
+        $cpt['none'] = __('None','sage');
+        return $cpt;
+    }
+    public static function getTaxonomies($args=[],$output='names'){
+        $taxonomies = get_taxonomies($args,$output);
         return $taxonomies;
     }
     public static function getPostByPostTypeAndCategoryName($post_type,$category)

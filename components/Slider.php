@@ -9,13 +9,15 @@ class Slider
     private $post_type;
     private $taxonomy;
     private $terms;
+    private $message;
     private $images;
-    function __construct($component,$post_type=['media'],$taxonomy='media_category',$terms=['landing'])
+    function __construct($component,$post_type=['media'],$taxonomy='media_category',$terms=['landing'],$message=false)
     {
         $this->component = $component;
         $this->post_type = $post_type;
         $this->taxonomy = $taxonomy;
         $this->terms = $terms;
+        $this->message = $message;
         $this->setImages();
     }
 
@@ -43,6 +45,7 @@ class Slider
             $images[] = get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg';
         }
         if($this->component=='vegas'){
+            $message = $this->message;
             $overlay = get_stylesheet_directory_uri() .  '/bower_components/vegas/dist/overlays/07.png';
             include(locate_template('templates/partials/slider/vegas.php'));
         }else{

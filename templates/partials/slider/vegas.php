@@ -25,9 +25,9 @@
             <div class="ui grid stackable">
                 <div class="computer only row">
                     <div class="ui grid">
-                        <div class="ten wide column">
+                        <div class="five wide column">
                             <div>
-                                <h1 class="font-white">adasdsaas</h1>
+                                <h1 class="font-white"><?=$message;?></h1>
                             </div>
                         </div>
                     </div>
