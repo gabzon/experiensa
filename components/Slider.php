@@ -1,6 +1,7 @@
 <?php namespace Experiensa\Component;
 
 use Experiensa\Config\RequestMedia;
+use Experiensa\Modules\QueryBuilder;
 
 class Slider
 {
@@ -9,28 +10,20 @@ class Slider
     private $taxonomy;
     private $terms;
     private $images;
-    function __construct($component,$post_type='media',$taxonomy='media_category',$terms=['landing'])
+    function __construct($component,$post_type=['media'],$taxonomy='media_category',$terms=['landing'])
     {
         $this->component = $component;
         $this->post_type = $post_type;
         $this->taxonomy = $taxonomy;
         $this->terms = $terms;
-        $this->getImages();
+        $this->setImages();
     }
 
-    private function getImages(){
+    private function setImages(){
+        $post_type = $this->post_type;
         $taxonomy = $this->taxonomy;
         $terms = $this->terms;
-        $term_list = array();
-        foreach ($terms as $term){
-            $row['taxonomy'] = $taxonomy;
-            $row['term'] = $term;
-            $term_list[] = $row;
-        }
-        $images = array();
-        if(!empty($term_list)){
-            $images = RequestMedia::get_media_request_local($this->post_type,$term_list);
-        }
+        $images = QueryBuilder::getImagesByPostType($post_type,$taxonomy,$terms);
         $this->images = $images;
     }
 
@@ -40,7 +33,20 @@ class Slider
             $exist = true;
         return $exist;
     }
-    public function getImagenes(){
+    public function getImages(){
         return $this->images;
+    }
+    public function showSlider(){
+        if($this->checkExistImages())
+            $images = $this->images;
+        else{
+            $images[] = get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg';
+        }
+        if($this->component=='vegas'){
+            $overlay = get_stylesheet_directory_uri() .  '/bower_components/vegas/dist/overlays/07.png';
+            include(locate_template('templates/partials/slider/vegas.php'));
+        }else{
+            include(locate_template('templates/partials/slider/superslides.php'));
+        }
     }
 }

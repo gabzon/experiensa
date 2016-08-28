@@ -2,11 +2,11 @@
 /**
  * Template Name: Section Template
  */
-$slider = new Experiensa\Component\Slider(132,'voyage','category');
-$imagenes = $slider->getImagenes();
-    echo "<pre>";
-    print_r($imagenes);
-    echo "</pre>";
+//echo"<br><br><br><br><br><br><br>";
+
+$slider = new Experiensa\Component\Slider("vegcccas",['voyage'],'category',['landing-slider']);
+$slider->showSlider();
+
 $page_object = get_queried_object();
 $page_id     = get_queried_object_id();
 $settings = get_option('experiensa_design_settings');
