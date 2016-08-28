@@ -1,4 +1,4 @@
-<?php
+<?php namespace Experiensa\Config;
 /**
  *
  **/
@@ -33,23 +33,13 @@ class RequestMedia{
     foreach($apis as $api){
       //Check if $api_url is a valid url
       $api_url = $api['website'].$api['api'];
-//      echo "url del api: ".$api_url;
       if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
-//        echo " <br>entro1";
-//        $file_headers = @get_headers($api['website']);
         $file_headers = getUrlHeader($api_url);
-//        echo "<h2>cabeceras del api</h2>";
-//        echo $file_headers;
-//        echo "<pre>";
-//        print_r($file_headers);
-//        echo "</pre>";
         //check if url have response HTTP/1.1 200 OK
         if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
-//          echo " entro2";
           $filter = $api['filter'];
           $full_url = $api_url.$filter;
           if (function_exists('curl_version')) {//Using Curl
-//            echo " entro3.1";
             //  Initiate curl
             $ch = curl_init();
             // Disable SSL verification
@@ -63,7 +53,6 @@ class RequestMedia{
             // Closing
             curl_close($ch);
           }else{
-//            echo " entro3.2";
             if(ini_get('allow_url_fopen'))
               $api_content = file_get_contents($full_url);
             else
