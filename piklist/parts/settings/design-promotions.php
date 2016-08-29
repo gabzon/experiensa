@@ -124,7 +124,7 @@ $showcase_textimage_settings = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:source_type',
             'value' => 'showcase'
         )
     )
@@ -205,7 +205,7 @@ $showcase_options = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:source_type',
             'value' => 'showcase'
         )
     )
@@ -302,7 +302,7 @@ $segment_bg_color = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:background_type',
+            'field' => 'promotions_section_options:segment_options:background_type',
             'value' => 'color'
         )
     )
@@ -321,7 +321,7 @@ $segment_color_inverted = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:background_type',
+            'field' => 'promotions_section_options:segment_options:background_type',
             'value' => 'color'
         )
     )
@@ -346,7 +346,7 @@ $segment_bg_texture = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:background_type',
+            'field' => 'promotions_section_options:segment_options:background_type',
             'value' => 'texture'
         )
     )
@@ -371,7 +371,7 @@ $segment_bg_image = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:background_type',
+            'field' => 'promotions_section_options:segment_options:background_type',
             'value' => 'image'
         )
     )
@@ -388,7 +388,7 @@ $pages = array(
     'choices'   => Helpers::getPagesFromCurrentLanguage(),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:source_type',
             'value' => 'page'
         )
     )
@@ -404,11 +404,11 @@ $slider_post = array(
     'choices'   => \Experiensa\Modules\QueryBuilder::getPostTypes(),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:source_type',
             'value' => 'slider'
         ),
         array(
-            'field' => 'section_options:segment_options:content_source_options:slider_options:slider_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:slider_options:slider_type',
             'value' => 'posts'
         )
     )
@@ -421,7 +421,7 @@ $slider_category = array(
     'choices'   => \Experiensa\Modules\QueryBuilder::getTaxonomies(),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:source_type',
             'value' => 'slider'
         ),
     )
@@ -437,7 +437,7 @@ $slider_terms = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:source_type',
             'value' => 'slider'
         )
     )
@@ -453,11 +453,11 @@ $slider_message = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:source_type',
             'value' => 'slider'
         ),
         array(
-            'field' => 'section_options:segment_options:content_source_options:slider_options:slider_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:slider_options:slider_type',
             'value' => 'message'
         )
     )
@@ -485,7 +485,7 @@ $slider_options = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'field' => 'promotions_section_options:segment_options:content_source_options:source_type',
             'value' => 'slider'
         )
     )

@@ -8,16 +8,23 @@ class Section
     private $section_options;
     private $options;
     private $segment_options;
-    function __construct($page_id,$settings)
+    function __construct($page_id,$settings, $segment_options_name = 'section_options')
     {
+
         if(!empty($settings)) {
-            if(isset($settings['section_options'])) {
-                $section_options = $settings['section_options'];
-                $this->section_options = $this->getPageSectionOptions($page_id, $section_options);
-                if (!empty($this->section_options))
+            if(isset($settings[$segment_options_name])) {
+                $section_options = $settings[$segment_options_name];
+                if($segment_options_name === 'section_options') {
+                    $this->section_options = $this->getPageSectionOptions($page_id, $section_options);
+                    if (!empty($this->section_options))
+                        $this->segment_options = $this->section_options['segment_options'];
+                    else
+                        $this->segment_options = array();
+                }else {
+                    $this->section_options = $section_options;
                     $this->segment_options = $this->section_options['segment_options'];
-                else
-                    $this->segment_options = array();
+                }
+
             }else{
                 $this->section_options = array();
                 $this->segment_options = array();
@@ -30,6 +37,7 @@ class Section
     public function checkExistSectionOptions(){
         return (!empty($this->section_options)?true:false);
     }
+
     public function getPageSectionOptions($page_id,$settings){
         $options = array();
 //        $section_options = $settings['section_options'];

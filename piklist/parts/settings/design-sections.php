@@ -3,7 +3,7 @@
 Title: Section Settings
 Setting: experiensa_design_settings
 Tab: Custom Sections
-Flow: Design
+Flow: Layout
 */
 
 /**
