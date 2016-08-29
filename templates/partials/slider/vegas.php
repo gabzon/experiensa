@@ -1,17 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: victor
- * Date: 26/08/16
- * Time: 11:13 AM
- */
-?>
 <script type="text/javascript">
     jQuery(function() {
         jQuery('.voyage-slider').vegas({
             overlay: '<?= $overlay;?>',
             slides: [
-                <?php foreach($images as $img):?>
+                <?php foreach($data as $img):?>
                 { src: '<?=$img;?>' },
                 <?php endforeach;?>
             ]
@@ -23,13 +15,29 @@
         <br><br>
         <div id="preview" class="ui container">
             <div class="ui grid stackable">
+                <div class="mobile only row">
+                    <div class="sixteen wide column">
+<!--                        <h1 class="font-white"></h1>-->
+                        <p class="font-white"><?=$message;?></p>
+                    </div>
+                </div>
+                <div class="tablet only row">
+                    <div class="ui grid">
+                        <div class="ten wide column">
+                            <h1 class="font-white"></h1>
+                            <p class="font-white">"<?=$message;?></p>
+                        </div>
+                    </div>
+                </div>
                 <div class="computer only row">
                     <div class="ui grid">
-                        <div class="five wide column">
+                        <div class="ten wide column">
                             <div>
                                 <h1 class="font-white"><?=$message;?></h1>
                             </div>
                         </div>
+                        <div class="one wide column"></div>
+                        <div class="five wide column"></div>
                     </div>
                 </div>
             </div>

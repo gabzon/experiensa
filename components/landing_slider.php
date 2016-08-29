@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: victor
- * Date: 17-04-2016
- * Time: 08:33 AM
- */
+
 class Landing{
 
     public static function display_welcome_msg($welcome_msg,$images){
