@@ -26,7 +26,7 @@ $flight_options = get_post_meta($post->ID,'flight_options',true);
                       <?= $option['flight_departure_date']. '<br>'.$option['flight_departure_time'];?>
                     </td>
                     <td width="70%" style="text-align:center">
-                      <?= $option['flight_airline'] . ' ' . $option['flight_arrival_time'];  ?>
+                      <?= $option['flight_airline'] . ' ' . $option['flight_number'];  ?>
                       <hr>
                     </td>
                     <td width="2%">
