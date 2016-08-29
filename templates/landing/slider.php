@@ -2,6 +2,7 @@
 
 use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
+use \Experiensa\Config\RequestMedia;
 $design_options = get_option('experiensa_design_settings');
 $display_slider = $design_options['setting_landing_slider'];
 
