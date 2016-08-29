@@ -35,7 +35,7 @@ $flight_options = get_post_meta($post->ID,'flight_options',true);
                     </td>
                     <td width="13%">
                       <strong style="text-transform:uppercase"><?= $option['flight_arrival_city']; ?></strong><br>
-                      <?= $option['flight_arrival_date'] . '<br>' . $option['flight_airline'];  ?>
+                      <?= $option['flight_arrival_date'] . '<br>' . $option['flight_arrival_time'];  ?>
                     </td>
                   </tr>
                 <?php endif;?>

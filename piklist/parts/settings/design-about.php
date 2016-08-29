@@ -1,9 +1,9 @@
 <?php
 /*
-Title: Section Settings
+Title: About Settings
 Setting: experiensa_design_settings
-Tab: Custom Sections
-Flow: Design
+Tab: About
+Flow: Layout
 */
 
 /**
@@ -545,12 +545,12 @@ $segment_options = array(
 //
 //  Segment Template Field
 //
-$pages_template = Helpers::getPagesByTemplate('section.php');
+$pages_template = Helpers::getPagesByTemplate('about-section.php');
 $pages = array(
     'type'      => 'select',
     'field'     => 'pages',
-    'label'     => __('Page Name','sage'),
-    'help'      => __('You can select the page to which you will add segments','sage'),
+    'label'     => __('About Page Name','sage'),
+    'help'      => __('You can select the page to which you will add segments, if you can not see any option you need to create a page with the corresponding template','sage'),
     'columns'   => 4,
     'choices'   => $pages_template
 );
@@ -560,10 +560,9 @@ $pages = array(
  */
 piklist('field',array(
     'type' => 'group',
-    'field' => 'section_options',
+    'field' => 'about_section_options',
     'label' => __('Section options','sage'),
     'help'      => __('You can set the style to your custom template','sage'),
-    'add_more' => true,
     'fields' => array(
         $pages,
         $segment_options

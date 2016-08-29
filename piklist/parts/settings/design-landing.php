@@ -1,10 +1,9 @@
 <?php
-
 /*
 Title: Landing Page Settings
 Setting: experiensa_design_settings
 Tab: Landing
-Flow: Design
+Flow: Layout
 */
 /* ************************************************************************** */
 /* ******************************* Slider *********************************** */

@@ -39,8 +39,8 @@ function default_experiensa_setting_pages($pages){
 add_filter('piklist_admin_pages', 'design_experiensa_setting_page');
 function design_experiensa_setting_page($pages){
     $pages[] = array(
-        'page_title'    => __('Design Settings'),
-        'menu_title'    => __('Design', 'sage'),
+        'page_title'    => __('Layout Settings'),
+        'menu_title'    => __('Layout', 'sage'),
         'capability'    => 'manage_options',
         'sub_menu'      => 'themes.php',
         'menu_slug'     => 'experiensa-design-settings',

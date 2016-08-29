@@ -1,6 +1,6 @@
 <?php
 /*
-Title: Sections
-Order: 40
-Flow: Design
+Title: Custom Sections
+Order: 60
+Flow: Layout
 */
