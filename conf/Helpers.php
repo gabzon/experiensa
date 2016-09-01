@@ -98,4 +98,20 @@ class Helpers {
         }
         return $page_list;
     }
+
+    public static function getComponentList(){
+        $components = [
+            'button'        => __('Buttons','sage'),
+            'carousel'      => __('Carousel','sage'),
+            'card'          => __('Cards','sage'),
+            'flex-layout'   => __('Flex Layout','sage'),
+            'grid'          => __('Grid','sage'),
+            'img-layout'    => __('Image layout','sage'),
+            'masonry'       => __('Masonry','sage'),
+            'pinterest'     => __('Pinterest','sage'),
+            'slider'        => __('Photo Slider'),
+            'windows'       => __('Windows','sage'),
+        ];
+        return $components;
+    }
 }

@@ -5,12 +5,21 @@ use WP_Query;
 class QueryBuilder
 {
     public static function getPostTypes(){
-        $cpt = get_post_types();
-        $cpt['none'] = __('None','sage');
-        return $cpt;
+        $cpt_list = get_post_types();
+        $post_types = array();
+        foreach ($cpt_list as $cpt){
+            $post_types[$cpt] = ucwords(str_replace('_',' ',$cpt));
+        }
+        $post_types['none'] = __('None','sage');
+        return $post_types;
     }
     public static function getTaxonomies($args=[],$output='names'){
-        $taxonomies = get_taxonomies($args,$output);
+        $taxonomies_list = get_taxonomies($args,$output);
+        $taxonomies = array();
+        foreach ($taxonomies_list as $taxonomy){
+            $taxonomies[$taxonomy] = ucwords(str_replace('_',' ',$taxonomy));
+        }
+        $taxonomies['location'] = __('Destinations','sage');
         return $taxonomies;
     }
     public static function getPostByPostTypeAndCategoryName($post_type,$category)
