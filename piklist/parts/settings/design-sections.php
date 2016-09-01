@@ -1,9 +1,9 @@
 <?php
 /*
-Title: General Settings
-Setting: experiensa-section-settings
-Tab: General
-Flow: Section
+Title: Section Settings
+Setting: experiensa_design_settings
+Tab: Custom Sections
+Flow: Layout
 */
 
 /**
@@ -385,7 +385,6 @@ $pages = array(
     'label' => __('Page to show','sage'),
     'field'     => 'pages',
     'columns'   => 3,
-//    'value'     => 'page',
     'choices'   => Helpers::getPagesFromCurrentLanguage(),
     'conditions' => array(
         array(
@@ -394,8 +393,103 @@ $pages = array(
         )
     )
 );
+/**
+ *  Slider Options
+ */
+$slider_post = array(
+    'type'      => 'select',
+    'label' => __('Post to show','sage'),
+    'field'     => 'post_type',
+    'columns'   => 3,
+    'choices'   => \Experiensa\Modules\QueryBuilder::getPostTypes(),
+    'conditions' => array(
+        array(
+            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'value' => 'slider'
+        ),
+        array(
+            'field' => 'section_options:segment_options:content_source_options:slider_options:slider_type',
+            'value' => 'posts'
+        )
+    )
+);
+$slider_category = array(
+    'type'      => 'select',
+    'label' => __('Categories to show','sage'),
+    'field'     => 'taxonomy',
+    'columns'   => 3,
+    'choices'   => \Experiensa\Modules\QueryBuilder::getTaxonomies(),
+    'conditions' => array(
+        array(
+            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'value' => 'slider'
+        ),
+    )
+);
+$slider_terms = array(
+    'type' => 'text',
+    'field' => 'terms',
+    'label' => __('Categories to search','sage'),
+    'columns'   => 6,
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('You can enter here the categories separated by commas','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'value' => 'slider'
+        )
+    )
+);
+$slider_message = array(
+    'type' => 'text',
+    'field' => 'message',
+    'label' => __('Slider Message','sage'),
+    'columns'   => 5,
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('Enter your message here','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'value' => 'slider'
+        ),
+        array(
+            'field' => 'section_options:segment_options:content_source_options:slider_options:slider_type',
+            'value' => 'message'
+        )
+    )
+);
+$slider_type = array(
+    'type'      => 'select',
+    'label' => __('Slider type to show','sage'),
+    'field'     => 'slider_type',
+    'columns'   => 5,
+    'choices'   => array(
+        'message'   =>  __('Message and categorized images','sage'),
+        'posts'     =>  __('Posts','sage')
+    ),
+);
 
-
+$slider_options = array(
+    'type' => 'group',
+    'field' => 'slider_options',
+    'fields' => array(
+        $slider_type,
+        $slider_message,
+        $slider_post,
+        $slider_category,
+        $slider_terms
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'section_options:segment_options:content_source_options:source_type',
+            'value' => 'slider'
+        )
+    )
+);
 $source_type = array(
     'type'      => 'select',
     'label' => __('Content Source Type','sage'),
@@ -405,7 +499,8 @@ $source_type = array(
     'value'     => 'page',
     'choices'   => array(
         'page'              => __('Page','sage'),
-        'showcase'           => __('Showcase','sage')
+        'showcase'           => __('Showcase','sage'),
+        'slider'    => __('Slider','sage')
     )
 );
 
@@ -415,7 +510,8 @@ $segment_content_source = array(
     'fields' => array(
         $source_type,
         $pages,
-        $showcase_options
+        $showcase_options,
+        $slider_options
     )
 );
 $segment_html_title = array(
@@ -449,13 +545,14 @@ $segment_options = array(
 //
 //  Segment Template Field
 //
-$template_names = Helpers::getPageTemplateNames();
-$templates = array(
+$pages_template = Helpers::getPagesByTemplate('section.php');
+$pages = array(
     'type'      => 'select',
-    'field'     => 'templates',
-    'label'     => __('Page Template','sage'),
+    'field'     => 'pages',
+    'label'     => __('Page Name','sage'),
+    'help'      => __('You can select the page to which you will add segments','sage'),
     'columns'   => 4,
-    'choices'   => $template_names
+    'choices'   => $pages_template
 );
 
 /**
@@ -465,12 +562,10 @@ piklist('field',array(
     'type' => 'group',
     'field' => 'section_options',
     'label' => __('Section options','sage'),
-    'help'      => __('You can set the style to your custom template'),
+    'help'      => __('You can set the style to your custom template','sage'),
     'add_more' => true,
     'fields' => array(
-        $templates,
+        $pages,
         $segment_options
     )
 ));
-
-Helpers::getPagesFromCurrentLanguage();

@@ -3,7 +3,7 @@
 Title: Website Design
 Setting: experiensa_design_settings
 Tab: Website Design
-Flow: Design
+Flow: Layout
 */
 
 piklist('field',array(

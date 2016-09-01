@@ -167,7 +167,10 @@ function create_custom_search_result_page(){
     endif;
 }
 add_action('admin_menu', 'create_custom_search_result_page');*/
-
+/**
+ * @param $vars
+ * @return array
+ */
 function add_query_vars_filter( $vars ){
     $vars[] = "cpt";
     $vars[] = "term";

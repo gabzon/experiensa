@@ -1,6 +1,6 @@
 <?php
 /*
 Title: Landing
-Order: 30
-Flow: Design
+Order: 20
+Flow: Layout
 */

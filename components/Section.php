@@ -1,19 +1,34 @@
 <?php namespace Experiensa\Component;
 
 use \Experiensa\Component\Textimage;
+use \Experiensa\Component\Slider;
+
 class Section
 {
     private $section_options;
     private $options;
     private $segment_options;
-    function __construct($template,$settings)
+    function __construct($page_id,$settings, $segment_options_name = 'section_options')
     {
-//        $settings = get_option('experiensa-section-settings');
+
         if(!empty($settings)) {
-            $section_options = $settings['section_options'];
-            $this->section_options = $this->getTemplateSectionOptions($template,$section_options);
-            $this->segment_options = $this->section_options['segment_options'];
-//            $this->checkExistSectionOptions($template,$section_options);
+            if(isset($settings[$segment_options_name])) {
+                $section_options = $settings[$segment_options_name];
+                if($segment_options_name === 'section_options') {
+                    $this->section_options = $this->getPageSectionOptions($page_id, $section_options);
+                    if (!empty($this->section_options))
+                        $this->segment_options = $this->section_options['segment_options'];
+                    else
+                        $this->segment_options = array();
+                }else {
+                    $this->section_options = $section_options;
+                    $this->segment_options = $this->section_options['segment_options'];
+                }
+
+            }else{
+                $this->section_options = array();
+                $this->segment_options = array();
+            }
         }else {
             $this->section_options = array();
             $this->segment_options = array();
@@ -22,11 +37,12 @@ class Section
     public function checkExistSectionOptions(){
         return (!empty($this->section_options)?true:false);
     }
-    public function getTemplateSectionOptions($template,$settings){
+
+    public function getPageSectionOptions($page_id,$settings){
         $options = array();
 //        $section_options = $settings['section_options'];
         foreach ($settings as $option){
-            if($option['templates'] === $template){
+            if($option['pages'] == $page_id){
                 $options = $option;
                 break;
             }
@@ -101,5 +117,22 @@ class Section
             $textimage = $textimage_options;
         $textimage_object = new Textimage($textimage);
         \Showcase::displayComponent($component,$data,$textimage_object);
+    }
+    public function displaySegmentSlider($segment){
+        $slider_options = $segment['content_source_options']['slider_options'];
+        $slider_terms = explode(',',$slider_options['terms']);
+        if($slider_options['slider_type'] == 'message') {
+            $slider_type = 'vegas';
+            $post_type = ['attachment'];
+            $taxonomy = $slider_options['taxonomy'];
+            $message = $slider_options['message'];
+        }else {
+            $slider_type = 'superslides';
+            $post_type = [$slider_options['post_type']];
+            $taxonomy = $slider_options['taxonomy'];
+            $message = '';
+        }
+        $slider = new Slider($slider_type,$post_type,$taxonomy,$slider_terms,$message);
+        $slider->showSlider();
     }
 }

@@ -82,4 +82,36 @@ class Helpers {
         }
         return $pages;
     }
+
+    /**
+     * @param $template
+     * @return array
+     */
+    public static function getPagesByTemplate($template){
+        $pages = get_pages(array(
+            'meta_key' => '_wp_page_template',
+            'meta_value' => $template
+        ));
+        $page_list = array();
+        foreach($pages as $page){
+            $page_list[$page->ID] = $page->post_title;
+        }
+        return $page_list;
+    }
+
+    public static function getComponentList(){
+        $components = [
+            'button'        => __('Buttons','sage'),
+            'carousel'      => __('Carousel','sage'),
+            'card'          => __('Cards','sage'),
+            'flex-layout'   => __('Flex Layout','sage'),
+            'grid'          => __('Grid','sage'),
+            'img-layout'    => __('Image layout','sage'),
+            'masonry'       => __('Masonry','sage'),
+            'pinterest'     => __('Pinterest','sage'),
+            'slider'        => __('Photo Slider'),
+            'windows'       => __('Windows','sage'),
+        ];
+        return $components;
+    }
 }
