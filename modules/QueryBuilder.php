@@ -129,6 +129,31 @@ class QueryBuilder
     public static function getTermsByTaxonomy($taxonomy){
         return get_terms($taxonomy, 'orderby=none&hide_empty');
     }
+    public static function getTermsByPostTypeAndTaxonomy($post_types,$taxonomies){
+        global $wpdb;
+
+        $query = $wpdb->prepare(
+        "SELECT 
+        t.*, COUNT(*) from $wpdb->terms AS t
+        INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id
+        INNER JOIN $wpdb->term_relationships AS r ON r.term_taxonomy_id = tt.term_taxonomy_id
+        INNER JOIN $wpdb->posts AS p ON p.ID = r.object_id
+        WHERE p.post_type IN('%s') AND tt.taxonomy IN('%s')
+        GROUP BY t.term_id",
+            join( "', '", $post_types ),
+            join( "', '", $taxonomies )
+        );
+        $results = $wpdb->get_results( $query );
+        return $results;
+    }
+    public static function getTermsSlugByPTAndTaxonomy($post_types,$taxonomies){
+        $slug_list = self::getTermsByPostTypeAndTaxonomy($post_types,$taxonomies);
+        $slugs = array();
+        foreach ($slug_list as $slug){
+            $slugs[$slug->slug] = ucwords(str_replace('_',' ',$slug->name));
+        }
+        return $slugs;
+    }
     public static function checkMetaFieldExist($id,$key,$single=true){
         $meta = get_post_meta($id,$key,$single);
         if($single){
