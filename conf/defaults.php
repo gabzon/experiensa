@@ -178,3 +178,19 @@ function add_query_vars_filter( $vars ){
     return $vars;
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
+
+function bg_options_field_template($templates){
+    $templates['bg_options'] = array(
+        'name' => __('Post Meta Custom', 'piklist'),
+        'description' => __('My template for Post Meta', 'piklist'),
+        'template' =>   '[field_wrapper]
+                            <div class="%1$s my-custom-css-class">
+                                <h3>'.__('Background Options','sage').'</h3>
+                                <hr>
+                                <div class="piklist-field">[field]</div>
+                            </div>
+                         [/field_wrapper]'
+    );
+    return $templates;
+}
+add_filter('piklist_field_templates', 'bg_options_field_template');
