@@ -2,38 +2,69 @@
 
 use \Experiensa\Component\Textimage;
 use \Experiensa\Component\Slider;
-
+use Experiensa\Modules\QueryBuilder;
+use \Experiensa\Component\SectionLayout;
 class Section
 {
+    private $sections;
+    private $content_settings;
+    private $background_settings;
+    //
     private $section_options;
     private $options;
     private $segment_options;
-    function __construct($page_id,$settings, $segment_options_name = 'section_options')
+    function __construct($page_id,$design_settings, $section_options_name = 'section_options')
     {
-
-        if(!empty($settings)) {
-            if(isset($settings[$segment_options_name])) {
-                $section_options = $settings[$segment_options_name];
-                if($segment_options_name === 'section_options') {
-                    $this->section_options = $this->getPageSectionOptions($page_id, $section_options);
-                    if (!empty($this->section_options))
-                        $this->segment_options = $this->section_options['segment_options'];
-                    else
-                        $this->segment_options = array();
+        $this->sections = array();
+        $this->content_settings = array();
+        $this->background_settings = array();
+        if(!empty($design_settings)) {
+//            echo"existe ";
+            if(isset($design_settings[$section_options_name])) {
+//                echo"existe landing_section_options ";
+//                $section_options = $settings[$section_options_name];
+                if($section_options_name === 'section_options') {
+                    echo "es general ";
+////                    $this->section_options = $this->getPageSectionOptions($page_id, $section_options);
+////                    if (!empty($this->section_options))
+////                        $this->segment_options = $this->section_options['segment_options'];
+////                    else
+////                        $this->segment_options = array();
                 }else {
-                    $this->section_options = $section_options;
-                    $this->segment_options = $this->section_options['segment_options'];
+                    $this->sections = $design_settings[$section_options_name];
+////                    $this->section_options = $section_options;
+////                    $this->segment_options = $this->section_options['segment_options'];
                 }
-
-            }else{
-                $this->section_options = array();
-                $this->segment_options = array();
             }
-        }else {
-            $this->section_options = array();
-            $this->segment_options = array();
         }
     }
+    public function checkExistSections(){
+        return (!empty($this->sections)?true:false);
+    }
+    public function getSections(){
+        return $this->sections;
+    }
+
+
+
+    public function showSection($section){
+        $content_settings = (isset($section['content_settings'])?$section['content_settings']:array());
+        $background_settings = $section['background_settings'];
+        $section_layout = new SectionLayout($content_settings,$background_settings);
+        $section_layout->displaySectionLayout();
+    }
+    public function setSectionBackground($background_settings){
+
+    }
+    public function getSectionBackground($background_settings, $source = 'page'){
+        $background['style'] = '';
+        $background['class'] = '';
+
+    }
+    public function getSectionContent(){
+
+    }
+
     public function checkExistSectionOptions(){
         return (!empty($this->section_options)?true:false);
     }

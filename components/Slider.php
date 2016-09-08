@@ -25,10 +25,11 @@ class Slider
         $post_type = $this->post_type;
         $taxonomy = $this->taxonomy;
         $terms = $this->terms;
-        if($this->component=='vegas')
-            $data = QueryBuilder::getImagesByPostType($post_type,$taxonomy,$terms);
-        else
-            $data = QueryBuilder::getPostBasicInfo($post_type,$taxonomy,$terms);
+        if($this->component=='vegas') {
+            $data = QueryBuilder::getImagesByPostType($post_type, $taxonomy, $terms);
+        }else {
+            $data = QueryBuilder::getPostBasicInfo($post_type, $taxonomy, $terms);
+        }
         $this->data = $data;
     }
 

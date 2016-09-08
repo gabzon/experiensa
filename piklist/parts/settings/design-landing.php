@@ -558,7 +558,7 @@ $source_type = array(
     'label' => __('Source Content Type','sage'),
     'help'  => __('Here you can select what type of content displayed in the segment','sage'),
     'field'     => 'source_type',
-    'columns'   => 12,
+    'columns'   => 6,
     'value'     => 'page',
     'choices'   => array(
         'page'              => __('Page','sage'),
@@ -569,7 +569,7 @@ $pages = array(
     'type'      => 'select',
     'label' => __('Page to show','sage'),
     'field'     => 'pages',
-    'columns'   => 4,
+    'columns'   => 6,
     'choices'   => Helpers::getPagesFromCurrentLanguage(),
     'conditions' => array(
         array(
@@ -582,7 +582,13 @@ $pages = array(
 /**
  * Background Options
  */
-
+$bg_html_line = $bg_html_title = array(
+    'type'      => 'html',
+    'template'  => 'field',
+    'columns'   => 12,
+    'field'     => 'bg_html_line', // 'field' is only required for a settings page.
+    'value'     => '<hr>',
+);
 $bg_html_title = array(
     'type'      => 'html',
     'template'  => 'field',
@@ -1000,6 +1006,7 @@ $background_settings = array(
     'type' => 'group',
     'field' => 'background_settings',
     'fields' => array(
+        $bg_html_line,
         $show_background,
         $bg_html_title,
         $background_type_page,
@@ -1018,8 +1025,8 @@ $background_settings = array(
 
 $dummy_field =array(
     'type'=>'hidden',
-    'field'=>'latLng',
-    'value' => 'hello'
+    'field'=>'dummy_field',
+    'value' => 'dummy'
 );
 
 
