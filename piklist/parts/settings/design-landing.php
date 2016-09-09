@@ -294,22 +294,7 @@ $showcase_component = array(
     )
 );
 
-$showcase_terms = array(
-    'type' => 'text',
-    'field' => 'terms',
-    'label' => __('Categories','sage'),
-    'columns'   => 12,
-    'attributes' => array(
-        'class' => 'regular-text',
-        'placeholder' => __('You can enter here the categories separated by commas','sage')
-    ),
-    'conditions' => array(
-        array(
-            'field' => 'landing_section_options:content_settings:source_type',
-            'value' => 'showcase'
-        )
-    )
-);
+
 /**
  *  Photo Slider Options
  */
@@ -335,7 +320,7 @@ $slider_type = array(
     'type'      => 'select',
     'label'     => __('Slider type','sage'),
     'field'     => 'slider_type',
-    'columns'   => 5,
+    'columns'   => 4,
     'choices'   => array(
         'message'   =>  __('Message and categorized images','sage'),
         'posts'     =>  __('Posts','sage')
@@ -382,7 +367,30 @@ $slider_message = array(
 //        )
 //    )
 );
-
+$showcase_terms = array(
+    'type' => 'text',
+    'field' => 'terms',
+    'label' => __('Categories','sage'),
+    'columns'   => 7,
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('You can enter here the categories separated by commas','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section_options:content_settings:source_type',
+            'value' => 'showcase'
+        ),
+        array(
+            'field' => 'landing_section_options:content_settings:component',
+            'value' => 'slider'
+        ),
+        array(
+            'field' => 'landing_section_options:content_settings:slider_type',
+            'value' => 'posts'
+        )
+    )
+);
 /**
  * Content Layout Options
  */
@@ -974,11 +982,11 @@ $content_settings = array(
         $showcase_component,
         $showcase_posttype,
         $showcase_categories,
-        $showcase_terms,
         //Slider Options
         $slider_html_title,
         $slider_type,
         $slider_message,
+        $showcase_terms,
         //TextImage Options
         $show_textimage,
         $ti_html_title,

@@ -20,7 +20,18 @@ class QueryBuilder
             $taxonomies[$taxonomy] = ucwords(str_replace('_',' ',$taxonomy));
         }
         $taxonomies['location'] = __('Destinations','sage');
+        $taxonomies['all'] = __('All Posts','sage');
         return $taxonomies;
+    }
+    public static function getPostByPostType($post_type){
+        $args = array(
+            'posts_per_page' => -1,
+            'post_type'      => array($post_type),
+            'post_status'    => array('publish', 'inherit'),
+            'order' => 'DESC',
+        );
+        $query = new WP_Query($args);
+        return $query;
     }
     public static function getPostByPostTypeAndCategoryName($post_type,$category)
     {

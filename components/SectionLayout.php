@@ -154,7 +154,7 @@ class SectionLayout
             $slider['post_type'] = ['attachment'];
             $slider['taxonomy'] = $this->content_settings['category'];
             $slider['terms'] = explode(',',$this->content_settings['terms']);
-            $slider['message'] = (!empty($this->content_settings['message'])?$this->content_settings['message']:ucwords($slider['taxonomy'] ));
+            $slider['message'] = (!empty($this->content_settings['message'])?$this->content_settings['message']:ucwords(str_replace('_',' ',$slider['taxonomy'])));
             $this->slider = $slider;
         }
     }

@@ -1,4 +1,5 @@
 <?php
+use Experiensa\Config\RequestMedia;
 class Voyage{
 
     public static function price($id){
@@ -45,24 +46,33 @@ class Voyage{
                 $images[] = $feat_image;
             }else{
                 $id = Common::get_original_post_id($postID,'voyage');
-                //Guanaima Gallery by Theme Taxonomy
-                $terms = Common::get_terms_by_id_taxonomies($id,['theme']);
+                //Guanaima Gallery by Location Taxonomy
+                $terms = Common::get_terms_by_id_taxonomies($id,['location']);
                 $gallery = RequestMedia::get_media_request_api('media',$terms,'rand');
                 if(!empty($gallery)){
                     foreach($gallery as $image){
                         $images[] = $image['full_size'];
                     }
                 }else {
-                    //Guanaima Gallery
-                    $terms = Common::get_media_terms($id, 'voyage');
-                    $gallery = RequestMedia::get_media_request_api('media', $terms);
+                    //Guanaima Gallery by Theme Taxonomy
+                    $terms = Common::get_terms_by_id_taxonomies($id, ['theme']);
+                    $gallery = RequestMedia::get_media_request_api('media', $terms, 'rand');
                     if (!empty($gallery)) {
                         foreach ($gallery as $image) {
                             $images[] = $image['full_size'];
                         }
                     } else {
-                        //Default Image
-                        $images[] = get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg';
+                        //Guanaima Gallery
+                        $terms = Common::get_media_terms($id, 'voyage');
+                        $gallery = RequestMedia::get_media_request_api('media', $terms);
+                        if (!empty($gallery)) {
+                            foreach ($gallery as $image) {
+                                $images[] = $image['full_size'];
+                            }
+                        } else {
+                            //Default Image
+                            $images[] = get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg';
+                        }
                     }
                 }
             }

@@ -1,5 +1,6 @@
 <?php
 
+use \Experiensa\Modules\QueryBuilder;
 
 class Showcase{
     public static function displayShowcase($args){
@@ -100,6 +101,9 @@ class Showcase{
             case 'location':
                 $query = self::by_terms_query($posttype, $category);
                 break;
+            case 'all':
+                $query = QueryBuilder::getPostByPostType($posttype);
+                break;
             default:
                 $query = null;
                 break;
@@ -188,9 +192,34 @@ class Showcase{
         if($component=='brochures'){
             $images = Voyage::get_voyage_images($id);
             if(!empty($images)) {
-                $info['post_link'] = $images['image_url'];;
+                $info['post_link'] = $images['image_url'];
                 $info['title'] = ucwords(get_the_title($id));
                 $info['subtitle'] = get_post_meta($id, 'slogan')[0];
+                $info['image_url'] = $images['image_url'];
+                $info['thumbnail_image'] = $images['thumbnail_image'];
+                $info['thumbnail_url'] = $images['thumbnail_url'];
+            }
+        }
+        if($component=='all' && $posttype!='team'){
+            $images = Voyage::get_voyage_images($id);
+            if(!empty($images)) {
+                $info['post_link'] = $post_link;
+                $info['title'] = ucwords(get_the_title($id));
+                $info['subtitle'] = '';
+                $info['image_url'] = $images['image_url'];
+                $info['thumbnail_image'] = $images['thumbnail_image'];
+                $info['thumbnail_url'] = $images['thumbnail_url'];
+            }
+        }
+        if($posttype == 'team'){
+            $images = Voyage::get_voyage_images($id);
+            if(!empty($images)) {
+                $info['post_link'] = $post_link;
+                $info['title'] = ucwords(get_the_title($id));
+                $job_title = \Experiensa\Modules\Team::getMemberJobTitle($id);
+                $contact = \Experiensa\Modules\Team::getMemberSocialData($id);
+                $subtitle = $job_title;
+                $info['subtitle'] = $subtitle;
                 $info['image_url'] = $images['image_url'];
                 $info['thumbnail_image'] = $images['thumbnail_image'];
                 $info['thumbnail_url'] = $images['thumbnail_url'];

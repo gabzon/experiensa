@@ -12,10 +12,10 @@ if(!empty($data)):
                   <img src="<?=$value['image_url'];?>">
               </div>
               <div class="content">
-                  <div class="header"><?=$value['title'];?></div>
+                  <div class="center aligned header"><?=$value['title'];?></div>
               </div>
               <?php if(isset($value['subtitle']) && !empty($value['subtitle'])):?>
-              <div class="extra content"><?=$value['subtitle'];?></div>
+              <div class="center aligned extra content"><?=$value['subtitle'];?></div>
               <?php endif; ?>
           </div>
       </a>
@@ -23,5 +23,6 @@ if(!empty($data)):
       endforeach;
       ?>
     </div>
+    <br>
 <?php
 endif;

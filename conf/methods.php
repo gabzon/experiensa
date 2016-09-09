@@ -79,4 +79,4 @@ function get_headers_from_curl_response($response)
 
     return $headers;
 }
-?>
+
