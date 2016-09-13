@@ -17,7 +17,8 @@
     "masonry": "^4.0.0",
     "freewall": "^1.0.5",
     "vide": "^0.5.0",
-    "jquery-ui-touch-punch": "*"
+    "jquery-ui-touch-punch": "*",
+    "wickedpicker": "^0.4.1"
   },
   "overrides": {
     "semantic": {
@@ -43,6 +44,13 @@
       "main": [
         "./jquery-ui.js",
         "./themes/base/jquery-ui.css"
+      ]
+    },
+    "wickedpicker": {
+      "main": [
+        "./fonts/*",
+        "./stylesheets/wickedpicker.css",
+        "./src/wickedpicker.js"
       ]
     },
     "vegas": {

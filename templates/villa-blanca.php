@@ -40,18 +40,10 @@ $args = 'background-size: cover; height:100vh;';
     <br>
     <h1 class="text-center">About</h1>
 </div>
-<div class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/comedor.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
-    <br>
-    <br>
-    <br>
-    <h1 class="text-center">Pricing</h1>
-</div>
-<div class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/living-room.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
-    <br>
-    <br>
-    <br>
-    <h1 class="text-center" >Reservation</h1>
-</div>
+<?php
+  get_template_part('templates/villa_blanca/pricing');
+  get_template_part('templates/villa_blanca/reservations');
+?>
 <div class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/chairs.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
     <br>
     <br>

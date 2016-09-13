@@ -70,18 +70,22 @@ class SectionLayout
     public function setSectionBackground($background_settings, $source = 'page'){
         $background['style'] = '';
         $background['class'] = '';
+        $background['type'] = 'none';
         if($background_settings['show_background'] == 'TRUE' && ( $source == 'showcase' || ($source == 'page' && $background_settings['background_type_page'] != 'slider')) ){
             $type = $this->getBackgroundType($background_settings,$source);
             if($type == 'color'){
                 $background['style'] = '';
                 $background['class'] = $this->getBgColor($background_settings,$source);
+                $background['type'] = 'color';
             }else{
                 if($type == 'texture'){
                     $background['style'] = $this->getBgTexture($background_settings,$source);
                     $background['class'] = '';
+                    $background['type'] = 'texture';
                 }else{
                     $background['style'] = $this->getBgImage($background_settings,$source);
                     $background['class'] = '';
+                    $background['type'] = 'image';
                 }
             }
         }
@@ -113,7 +117,7 @@ class SectionLayout
         }else{
             $image = $this->getBackgroundImage($background_settings['bg_image_showcase']);
         }
-        return ($image ? "background-image:url('" . $image . "');background-repeat:no-repeat;background-size:100%;background-position:center;" : "");
+        return ($image ? "background:url('" . $image . "') no-repeat center center fixed; background-size: cover; height:100vh;" : "");
     }
     private function getBackgroundImage($images){
         $bg_img = false;
@@ -161,8 +165,15 @@ class SectionLayout
     private function setSectionLayout(){
         $layout['container_class'] = '';
         $layout['container_style'] = 'padding: 0px 15px 0 15px;';
-        $layout['content_color'] = 'color:#FFFFFF;';
-        $layout['title_color'] = 'color:#000000;';
+        
+        if($this->background['type'] == 'color' || $this->background['type'] == 'none'){
+          $layout['content_color'] = 'color:#000000;';
+          $layout['title_color'] = 'color:#000000;';
+        }
+        else{
+          $layout['content_color'] = 'color:#FFFFFF;';
+          $layout['title_color'] = 'color:#FFFFFF;';
+        }
         $layout['title_alignment'] = 'left aligned';
         $layout['title'] = ucwords(str_replace('_',' ',$this->content_settings['category']));
         $layout['subtitle'] = '';

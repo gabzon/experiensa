@@ -61,8 +61,6 @@ function hide_custom_post_types(){
                     $posttypes = $agency_options['tourist_office_posttypes'];
                     break;
             }
-            if (count($posttypes) == 1)
-                $posttypes = array($posttypes);
             $to_hide = array_diff($all_posttypes, $posttypes);
         }
         foreach ($to_hide as $value) {

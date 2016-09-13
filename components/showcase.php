@@ -214,15 +214,15 @@ class Showcase{
         if($posttype == 'team'){
             $images = Voyage::get_voyage_images($id);
             if(!empty($images)) {
-                $info['post_link'] = $post_link;
-                $info['title'] = ucwords(get_the_title($id));
-                $job_title = \Experiensa\Modules\Team::getMemberJobTitle($id);
-                $contact = \Experiensa\Modules\Team::getMemberSocialData($id);
-                $subtitle = $job_title;
-                $info['subtitle'] = $subtitle;
-                $info['image_url'] = $images['image_url'];
-                $info['thumbnail_image'] = $images['thumbnail_image'];
-                $info['thumbnail_url'] = $images['thumbnail_url'];
+                //$info['post_link'] = $post_link;
+                //$info['title'] = ucwords(get_the_title($id));
+                //$job_title = \Experiensa\Modules\Team::getMemberJobTitle($id);
+                //$contact = \Experiensa\Modules\Team::getMemberSocialData($id);
+                //$subtitle = $job_title;
+                //$info['subtitle'] = $subtitle;
+                //$info['image_url'] = $images['image_url'];
+                //$info['thumbnail_image'] = $images['thumbnail_image'];
+                //$info['thumbnail_url'] = $images['thumbnail_url'];
             }
         }
         if($component=='location'){
