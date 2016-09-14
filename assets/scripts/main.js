@@ -111,10 +111,17 @@
             init: function() {
                 $('#slides').superslides({play:'8000'});
                 var header_menu_background = header_background_color();
-                if (jQuery('.main-slider').length>0) {
-                    jQuery('.header-menu').addClass("secondary");
-                    scrollMenu(header_menu_background);
+                var first_section = jQuery('.ui.vertical.segment:first');
+                if(first_section.length>0){
+                    var title_first_section = first_section.find('.page-header');
+                    if(title_first_section.length>0){
+                        title_first_section.prepend( "<br><br><br>" );
+                    }
                 }
+                //if (jQuery('.main-slider').length>0) {
+                jQuery('.header-menu').addClass("secondary");
+                scrollMenu(header_menu_background);
+                //}
                 $(".owl-carousel").owlCarousel({
                     /*autoplay:true,
                     autoplayTimeout:3000,*/
