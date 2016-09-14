@@ -3,56 +3,20 @@
 * Template Name: Villa Blanca Template
 */
 
-$overlay = '-webkit-linear-gradient(); -o-linear-gradient(); linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5))';
-$args = 'background-size: cover; height:100vh;';
+use Experiensa\Modules\QueryBuilder;
+$design_settings = get_option('experiensa_design_settings');
+$page_object = get_queried_object();
+$page_id     = get_queried_object_id();
+$section_obj = new Experiensa\Component\Section($page_id,$design_settings,'landing_section_options');
+if($section_obj->checkExistSections()):
+    $sections = $section_obj->getSections();
+    foreach($sections as $section):
+        $section_obj->showSection($section);
+    endforeach;
+endif;
 ?>
-<div class="ui inverted segment vertical bg-img" style="background: url(<?= get_stylesheet_directory_uri() . '/assets/images/portada.jpg'; ?>) no-repeat center center fixed; <?= $args ?>">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1 class="text-center" style="font-size:6em">Villa Blanca</h1>
-    <br>
-    <div class="ui grid centered">
-        <div class="ten wide column">
-            <p class="text-center" style="font-size: 2em">
-                At the heart of the beautiful Catalonia. Enjoy the charms of Barcelona
-                and the summer weather and beaches of Costa Brava
-            </p>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="text-center">
-        <a class="ui icon button circular pink massive"><i class="play icon"></i></a>
-    </div>
-</div>
-<div class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/beach-view.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
-    <br>
-    <br>
-    <br>
-    <h2 class="text-center" style="font-size:4em">Facilities</h2>
-</div>
-<div class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/comedor.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
-    <br>
-    <br>
-    <br>
-    <h1 class="text-center">About</h1>
-</div>
 <?php
-  get_template_part('templates/villa_blanca/pricing');
-  get_template_part('templates/villa_blanca/reservations');
+    get_template_part('templates/villa_blanca/pricing');
+    get_template_part('templates/villa_blanca/reservations');
+//    get_template_part('templates/villa_blanca/references');
 ?>
-<div class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/chairs.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
-    <br>
-    <br>
-    <br>
-    <h1 class="text-center">Contact</h1>
-</div>
-<div class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/comedor.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
-    <br>
-    <br>
-    <br>
-    <h1 class="text-center">References</h1>
-</div>

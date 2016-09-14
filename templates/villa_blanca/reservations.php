@@ -2,7 +2,7 @@
     <br>
     <br>
     <br>
-    <h1 class="text-center">Reservation</h1>
+    <h1 class="text-center"><?= __('Reservation','sage');?></h1>
     <br>
     <div class="ui grid centered">
       <div class="five wide column">
