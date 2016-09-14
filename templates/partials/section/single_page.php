@@ -5,6 +5,9 @@
                 <h1><?= $page['title'];?></h1>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
         <?= $page['content'];?>
     </div>
 </div>
