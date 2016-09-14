@@ -174,7 +174,7 @@ class SectionLayout
           $layout['content_color'] = 'color:#FFFFFF;';
           $layout['title_color'] = 'color:#FFFFFF;';
         }
-        $layout['title_alignment'] = 'left aligned';
+        $layout['title_alignment'] = 'center aligned';
         $layout['title'] = ucwords(str_replace('_',' ',$this->content_settings['category']));
         $layout['subtitle'] = '';
         if($this->source == 'showcase' && $this->content_settings['show_layout'] == 'TRUE'){
