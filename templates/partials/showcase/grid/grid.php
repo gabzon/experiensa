@@ -7,14 +7,26 @@ if(!empty($data)):
     foreach($data as $value):
     ?>
         <div class="four wide column">
-            <a href="<?=$value['post_link'];?>" target="_blank">
-                <div class="ui raised segments">
-                    <div class="ui segment"><?=$value['title'];?></div>
-                    <div class="ui secondary segment">
-                        <img src="<?=$value['thumbnail_url'];?>">
+            <div class="ui raised segments">
+                <div class="ui center aligned segment">
+                    <div class="content">
+                        <div class="header" style="color:#000;">
+                            <?=$value['title'];?>
+                        </div>
                     </div>
                 </div>
-            </a>
+                <div class="ui secondary segment">
+                    <a href="<?=$value['post_link'];?>" class="image" target="_blank">
+                        <img src="<?=$value['thumbnail_url'];?>" style="width: 100%;height: 100%;">
+                    </a>
+                </div>
+                <div class="ui secondary center aligned segment">
+                    <div class="content">
+                        <?=$value['subtitle'];?>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     <?php
     endforeach;

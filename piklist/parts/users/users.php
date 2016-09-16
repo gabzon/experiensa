@@ -67,7 +67,21 @@ piklist('field', array(
         )
     )
 ));
-
+piklist('field', array(
+    'type' => 'text',
+    'field' => 'user_github',
+    
+    'label' => __('Github'),
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('Enter your Github')
+    ),
+    'validate' => array(
+        array(
+            'type' => 'url'
+        )
+    )
+));
 piklist('field', array(
     'type' => 'text',
     'field' => 'user_instagram',

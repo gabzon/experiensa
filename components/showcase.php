@@ -1,5 +1,6 @@
 <?php
 
+use Experiensa\Modules\Users;
 use \Experiensa\Modules\QueryBuilder;
 
 class Showcase{
@@ -163,9 +164,12 @@ class Showcase{
         $query = new WP_Query($args);
         return $query;
     }
-    public static function get_post_data($posttype,$component,$id){
+    public static function get_post_data($posttype,$component,$id = false){
         $info = array();
-        $post_link = get_permalink($id);
+        if($id !== false)
+            $post_link = get_permalink($id);
+        else
+            $post_link = '#';
         $images = array();
         if($component=='theme'){
             $images = Voyage::get_voyage_images($id);
@@ -200,7 +204,7 @@ class Showcase{
                 $info['thumbnail_url'] = $images['thumbnail_url'];
             }
         }
-        if($component=='all' && $posttype!='team'){
+        if($component=='all' && $posttype != 'team'){
             $images = Voyage::get_voyage_images($id);
             if(!empty($images)) {
                 $info['post_link'] = $post_link;
@@ -212,17 +216,30 @@ class Showcase{
             }
         }
         if($posttype == 'team'){
-            $images = Voyage::get_voyage_images($id);
-            if(!empty($images)) {
-                //$info['post_link'] = $post_link;
-                //$info['title'] = ucwords(get_the_title($id));
-                //$job_title = \Experiensa\Modules\Team::getMemberJobTitle($id);
-                //$contact = \Experiensa\Modules\Team::getMemberSocialData($id);
-                //$subtitle = $job_title;
-                //$info['subtitle'] = $subtitle;
-                //$info['image_url'] = $images['image_url'];
-                //$info['thumbnail_image'] = $images['thumbnail_image'];
-                //$info['thumbnail_url'] = $images['thumbnail_url'];
+            $users = Users::getUserList(['administrator'],true);
+            foreach($users as $user){
+                $user_id = $user['ID'];
+                $row['post_link'] = $post_link;
+                $row['title'] = Users::getFullName($user_id);
+                $row['image_url'] = Users::getProfilePicture($user_id);
+                $row['thumbnail_image'] = Users::getProfilePicture($user_id,'thumbnail_image');
+                $row['thumbnail_url'] = Users::getProfilePicture($user_id,'thumbnail_url');
+                $job_title = Users::getJobTitle($user_id);
+                $social = Users::getContactButtons($user);
+                $subtitle = '';
+                if(!empty($job_title)){
+                    if(!empty($social))
+                        $subtitle = $job_title.'<br><br>'.$social;
+                    else
+                        $subtitle = $job_title;
+                }else{
+                    if(!empty($social))
+                        $subtitle = $social;
+                }
+
+                $row['subtitle'] = $subtitle;
+                $info[] = $row;
+                $row = array();
             }
         }
         if($component=='location'){
@@ -317,27 +334,31 @@ class Showcase{
             endforeach;
         //Showcase have any posttype
         else:
-            $query = self::showcase_query( $args['posttype'] , $args['category']);
-            if($query && $query->have_posts()):
-                while ( $query->have_posts() ) :
-                    $query->the_post();
-                    $id = $query->post->ID;
-                    //If postype is brochure
-                    if($args['posttype'] == 'brochure'){
-                        $brochures = Brochure::getBrochuresByPost($id);
-                        foreach ($brochures as $brochure){
-                            $info = Brochure::getInfo($brochure,$id);
+            if($args['posttype']=='team'):
+                $data = self::get_post_data($args['posttype'], $args['category']);
+            else:
+                $query = self::showcase_query( $args['posttype'] , $args['category']);
+                if($query && $query->have_posts()):
+                    while ( $query->have_posts() ) :
+                        $query->the_post();
+                        $id = $query->post->ID;
+                        //If postype is brochure
+                        if($args['posttype'] == 'brochure'){
+                            $brochures = Brochure::getBrochuresByPost($id);
+                            foreach ($brochures as $brochure){
+                                $info = Brochure::getInfo($brochure,$id);
+                                if (!empty($info)):
+                                    $data[] = $info;
+                                endif;
+                            }
+                        }else {
+                            $info = self::get_post_data($args['posttype'], $args['category'], $id);
                             if (!empty($info)):
                                 $data[] = $info;
                             endif;
                         }
-                    }else {
-                        $info = self::get_post_data($args['posttype'], $args['category'], $id);
-                        if (!empty($info)):
-                            $data[] = $info;
-                        endif;
-                    }
-                endwhile;
+                    endwhile;
+                endif;
             endif;
         endif;
         return $data;

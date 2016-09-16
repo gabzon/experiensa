@@ -11,6 +11,7 @@ class QueryBuilder
             $post_types[$cpt] = ucwords(str_replace('_',' ',$cpt));
         }
         $post_types['none'] = __('None','sage');
+        $post_types['team'] = __('Team','sage');
         return $post_types;
     }
     public static function getTaxonomies($args=[],$output='names'){
