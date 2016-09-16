@@ -16,8 +16,8 @@ echo "</pre>";
 }*/
 class Users
 {
-    public static function getUserList($role = ['administrator']){
-        $users = QueryBuilder::getUsersByRoles($role);
+    public static function getUserList($roles = ['administrator']){
+        $users = QueryBuilder::getUsersByRoles($roles);
         return $users;
     }
     //public static function getMemberJobTitle($member_id){

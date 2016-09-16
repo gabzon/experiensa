@@ -1,6 +1,6 @@
 <?php
 /*
-Title: Section Settings
+Title: Custom Section Settings
 Setting: experiensa_design_settings
 Tab: Custom Sections
 Flow: Layout
@@ -9,7 +9,7 @@ Flow: Layout
 /**
  * TextImages settings
  */
-$ti_font_size = array(
+/*$ti_font_size = array(
     'type'      => 'number',
     'label' => __('Text Size','sage'),
     'help'  => __('em font size type','sage'),
@@ -129,16 +129,11 @@ $showcase_textimage_settings = array(
         )
     )
 );
-
+*/
 /**
  *  Showcase Options
  */
-//$showcase_title_html = array(
-//    'type'      => 'html',
-//    'template'  => 'field',
-//    'field'     => 'showcase_title_html', // 'field' is only required for a settings page.
-//    'value'     => '<h4>'.__('Showcase Options','sage').'</h4><hr>'
-//);
+/*
 
 $cpt = get_post_types();
 $cpt['none'] = __('None','sage');
@@ -189,10 +184,11 @@ $showcase_html_title = array(
     'template'  => 'field',
     'field'     => 'showcase_html_title', // 'field' is only required for a settings page.
     'value'     => '<h4>'.__('Showcase Options','sage').'</h4><hr>',
-);
+);*/
 //
 //  Showcase Options Group Field
 //
+/*
 $showcase_options = array(
     'type' => 'group',
     'field' => 'showcase_options',
@@ -210,10 +206,11 @@ $showcase_options = array(
         )
     )
 );
-
+*/
 /**
  *  Segment Options
  */
+ /*
 $segment_container = array(
     'type'      => 'select',
     'label' => __('Container','sage'),
@@ -258,11 +255,11 @@ $segment_subtitle = array(
         'class' => 'regular-text',
         'placeholder' => __('Enter your segment subtitle','sage')
     )
-);
+);*/
 /**
  *  Segment Background Options
  */
-$segment_background_type = array(
+/*$segment_background_type = array(
     'type'      => 'select',
     'label' => __('Background Type','sage'),
     'help'  => __('Background customization types','sage'),
@@ -376,10 +373,11 @@ $segment_bg_image = array(
         )
     )
 );
-
+*/
 /**
  *  Content Source Options
  */
+ /*
 $pages = array(
     'type'      => 'select',
     'label' => __('Page to show','sage'),
@@ -392,10 +390,10 @@ $pages = array(
             'value' => 'page'
         )
     )
-);
+);*/
 /**
  *  Slider Options
- */
+ *//*
 $slider_post = array(
     'type'      => 'select',
     'label' => __('Post to show','sage'),
@@ -519,10 +517,11 @@ $segment_html_title = array(
     'template'  => 'field',
     'field'     => 'segment_html_title', // 'field' is only required for a settings page.
     'value'     => '<h4>'.__('Segment Options','sage').'</h4><hr>',
-);
+);*/
 //
 //  Segment Options Group Field
 //
+/*
 $segment_options = array(
     'type' => 'group',
     'field' => 'segment_options',
@@ -541,10 +540,11 @@ $segment_options = array(
         $segment_bg_image
     )
 );
-
+*/
 //
 //  Segment Template Field
 //
+/*
 $pages_template = Helpers::getPagesByTemplate('section.php');
 $pages = array(
     'type'      => 'select',
@@ -554,10 +554,11 @@ $pages = array(
     'columns'   => 4,
     'choices'   => $pages_template
 );
-
+*/
 /**
  *  Main Section Option Field Group
  */
+ /*
 piklist('field',array(
     'type' => 'group',
     'field' => 'section_options',
@@ -568,4 +569,4 @@ piklist('field',array(
         $pages,
         $segment_options
     )
-));
+));*/

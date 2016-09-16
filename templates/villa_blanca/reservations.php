@@ -6,7 +6,7 @@
     <br>
     <div class="ui grid centered">
       <div class="five wide column">
-        <div id="reservation_datepicker" class="ll-skin-latoja"></div>
+        <div id="reservation_datepicker"></div>
       </div>
       <div class="five wide column">
         <?php get_template_part('templates/components/reservation','form'); ?>

@@ -19,7 +19,8 @@
     "vide": "^0.5.0",
     "jquery-ui-touch-punch": "*",
     "wickedpicker": "^0.4.1",
-    "moment": "^2.15.0"
+    "moment": "^2.15.0",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.42"
   },
   "overrides": {
     "semantic": {
@@ -79,6 +80,17 @@
         "./dist/jquery.vide.js"
       ],
       "dependencies": {}
+    },
+    "moment": {
+      "main": [
+        "./min/moment-with-locales.js"
+      ]
+    },
+    "eonasdan-bootstrap-datetimepicker": {
+      "main": [
+        "./build/css/bootstrap-datetimepicker.css",
+        "./build/js/bootstrap-datetimepicker.min.js"
+      ]
     }
   }
 }

@@ -170,3 +170,6 @@ $RECYCLE.BIN/
 /.idea/encodings.xml
 /.idea/experiensa.iml
 /.idea/modules.xml
+
+### VisualStudio Code ###
+.vscode/

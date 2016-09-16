@@ -1,0 +1,35 @@
+.bt-datepicker{
+    background: #F9FAFB;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 0.285714rem;
+    box-shadow: 0 0 0 0 transparent inset;
+}
+.picker-switch{
+    background: #E0E1E2 none;
+    color: rgba(0, 0, 0, 0.6);
+}
+.picker-switch.accordion-toggle{
+    background: transparent;
+}
+.decade.active,.year.active,.month.active,.day.active{
+    background: #e61a8d !important;
+}
+.decade,.year,.month,.day{
+    color: rgba(0, 0, 0, 0.87);
+}
+.day.old, .day.new{
+    cursor: default;
+    opacity: 0.45 !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+}
+.day.old:hover{
+    background: #CACBCD;
+}
+.bootstrap-datetimepicker-widget table td.today:before{
+    border-bottom-color: #e61a8d !important;
+}
+table.table-condensed .prev,.next{
+    background: #e61a8d !important;
+}
