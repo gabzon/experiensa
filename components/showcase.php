@@ -219,7 +219,7 @@ class Showcase{
             }
         }
         if($posttype == 'team'){
-            $users = Users::getUserList(['administrator'],true);
+            $users = Users::getUserList(['contributor'],true);
             foreach($users as $user){
                 $user_id = $user['ID'];
                 $row['post_link'] = $post_link;
