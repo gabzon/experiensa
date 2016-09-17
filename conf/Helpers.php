@@ -105,6 +105,7 @@ class Helpers {
             'carousel'      => __('Carousel','sage'),
             'card'          => __('Cards','sage'),
             'flex-layout'   => __('Flex Layout','sage'),
+            'circular_grid'          => __('Circular Grid','sage'),
             'grid'          => __('Grid','sage'),
             'img-layout'    => __('Image layout','sage'),
             'masonry'       => __('Masonry','sage'),

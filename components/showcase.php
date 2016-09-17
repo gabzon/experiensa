@@ -58,6 +58,9 @@ class Showcase{
             case 'carousel':
                 include(locate_template('templates/partials/showcase/carousel/carousel.php'));
                 break;
+            case 'circular_grid':
+                include(locate_template('templates/partials/showcase/grid/circular-grid.php'));
+                break;
             case 'grid':
                 include(locate_template('templates/partials/showcase/grid/grid.php'));
                 break;
