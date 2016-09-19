@@ -42,7 +42,13 @@ class Slider
     public function getImages(){
         return $this->data;
     }
-    public function showSlider(){
+    public function showSlider($id = false){
+        if($id === false){
+            if($this->component=='vegas')
+                $id = 'vegas';
+            else
+                $id = 'slides';
+        }
         if($this->checkExistData())
             $data = $this->data;
         else{

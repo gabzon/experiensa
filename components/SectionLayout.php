@@ -27,6 +27,7 @@ class SectionLayout
     public function displaySectionLayout(){
         //Showcase
         if($this->source == 'showcase'){
+            //Showcase component is a Slider
             if($this->content_settings['component'] == 'slider'){
                 $this->setSectionShowcaseSlider();
                 $this->slider_obj = new Slider($this->slider['component'],
@@ -37,14 +38,18 @@ class SectionLayout
                 $show_layout = ($this->content_settings['show_layout']=='TRUE'?true:false);
                 $background = $this->background;
                 $layout = $this->layout;
+                $title = $layout['title'];
+                $name = "section_slider_".str_replace(' ', '_', strtolower($title));
                 include(locate_template('templates/partials/section/component_slider.php'));
-            }else{
+            }else{// Showcase is a single component
                 $component = $this->content_settings['component'];
                 $background = $this->background;
                 $showcase_data = $this->showcase_data;
 //                print_r($showcase_data);
                 $textimage_obj = new Textimage($this->textimage);
                 $layout = $this->layout;
+                $title = $layout['title'];
+                $name = "section_component_".str_replace(' ', '_', strtolower($title));
                 include(locate_template('templates/partials/section/component.php'));
             }
         }else{//Page
@@ -58,11 +63,15 @@ class SectionLayout
                     $this->slider['taxonomy'],
                     $this->slider['terms'],
                     $message);
-                $this->slider_obj->showSlider();
-            }else{
+                $title = $this->page_data['title'];
+                $name = "section_slider_".str_replace(' ', '_', strtolower($title));
+                $this->slider_obj->showSlider($name);
+            }else{//Single Page
                 $background = $this->background;
                 $layout = $this->layout;
                 $page = $this->page_data;
+                $title = $page['title'];
+                $name = "section_page_".str_replace(' ', '_', strtolower($title));
                 include(locate_template('templates/partials/section/single_page.php'));
             }
         }

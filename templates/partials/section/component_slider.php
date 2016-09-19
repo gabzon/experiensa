@@ -1,7 +1,7 @@
 <?php
 
 if($show_layout):?>
-<div class="ui <?= $background['class'];?> vertical segment" style="<?= $background['style'];?>">
+<section id="<?= $name;?>" class="ui <?= $background['class'];?> vertical segment" style="<?= $background['style'];?>">
     <div class="ui <?= $layout['container_class'];?> vertical segment" style="<?= $layout['container_style'].$layout['content_color'];?>">
         <div class="ui <?= $layout['title_alignment']?> header" style="<?= $layout['title_color'];?>">
             <div class="page-header">
@@ -13,8 +13,8 @@ if($show_layout):?>
         <?php $this->slider_obj->showSlider();?>
         </p>
     </div>
-</div>
+</section>
 <?php
 else:
-    $this->slider_obj->showSlider();
+    $this->slider_obj->showSlider($name);
 endif;

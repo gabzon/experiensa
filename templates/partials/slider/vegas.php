@@ -10,7 +10,7 @@
         });
     });
 </script>
-<div class="voyage-slider main-slider" style="height:100vh;">
+<section id="<?= $id;?>" class="voyage-slider main-slider" style="height:100vh;">
     <div class="ui container">
         <br><br>
         <div id="preview" class="ui container">
@@ -43,4 +43,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

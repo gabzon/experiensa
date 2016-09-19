@@ -8,10 +8,10 @@
 ?>
 <script type="text/javascript">
     jQuery(function() {
-        jQuery('#slides').superslides({play:'8000'});
+        jQuery('#<?= $id;?>').superslides({play:'8000'});
     });
 </script>
-<div id="slides" class='main-slider'>
+<section id="<?= $id;?>" class='main-slider'>
     <ul class="slides-container">
         <?php foreach($data as $info):?>
         <li>
@@ -36,4 +36,4 @@
         </li>
         <?php endforeach;?>
     </ul>
-</div>
+</section>
