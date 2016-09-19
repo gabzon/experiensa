@@ -1,8 +1,8 @@
 function reservation_datepicker(){
-    var now = moment();
-    jQuery('#reservation_date').val(now.format('DD/MM/YYYY'));
+    //var now = moment();
+    //jQuery('#reservation_date').val(now.format('DD/MM/YYYY'));
 
-    var rs_datepicker = jQuery('#reservation_datepicker'); 
+    /*var rs_datepicker = jQuery('#reservation_datepicker');
      rs_datepicker.datetimepicker({
          inline: true,
          format: 'DD/MM/YYYY',
@@ -23,21 +23,23 @@ function reservation_datepicker(){
          dt_class.addClass('bt-datepicker');
      }
      var body_class = jQuery('body').attr('class');
+     */
      /*if(body_class.indexOf('page-template-villa-blanca') !== -1){
          console.log('entro aqui');
          jQuery('.month.active').addClass('pink-active');
          jQuery('.day.active').addClass('pink-active');
      }*/
     
-    /*jQuery('#reservation_datepicker').datepicker({
+    jQuery('#reservation_datepicker').datepicker({
         inline : true,
-        changeMonth: true,
-        changeYear: true,
-        showAnim: 'slideDown',
+        // changeMonth: true,
+        // changeYear: true,
+        // showAnim: 'slideDown',
+        firstDay: 1,
         minDate: -20,
         altField : '#reservation_date',
         dateFormat: 'dd/mm/yy'
-    });*/
+    });
     //jQuery('#checkin_timepicker').datetimepicker({format: 'LT'});
     jQuery('#checkin_timepicker').wickedpicker({title:'Check-In'});
     jQuery('#checkout_timepicker').wickedpicker({
