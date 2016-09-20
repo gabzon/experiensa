@@ -18,5 +18,5 @@ endif;
 <?php
     get_template_part('templates/villa_blanca/pricing');
     get_template_part('templates/villa_blanca/reservations');
-//    get_template_part('templates/villa_blanca/references');
+    //get_template_part('templates/villa_blanca/references');
 ?>

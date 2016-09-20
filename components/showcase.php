@@ -1,6 +1,7 @@
 <?php
 
 use Experiensa\Modules\Users;
+use Experiensa\Modules\Post;
 use \Experiensa\Modules\QueryBuilder;
 
 class Showcase{
@@ -84,6 +85,9 @@ class Showcase{
                 break;
             case 'pinterest':
                 include(locate_template('templates/partials/showcase/freewall/pinterest-layout.php'));
+                break;
+            case 'carousel-testimonial':
+                include(locate_template('templates/partials/showcase/carousel/carousel-testimonial.php'));
                 break;
             default:
                 include(locate_template('templates/partials/showcase/carousel/carousel.php'));
@@ -207,7 +211,7 @@ class Showcase{
                 $info['thumbnail_url'] = $images['thumbnail_url'];
             }
         }
-        if($component=='all' && $posttype != 'team'){
+        if($component=='all' && $posttype != 'team' && $posttype != 'jetpack-testimonial'){
             $images = Voyage::get_voyage_images($id);
             if(!empty($images)) {
                 $info['post_link'] = $post_link;
@@ -243,6 +247,21 @@ class Showcase{
                 $row['subtitle'] = $subtitle;
                 $info[] = $row;
                 $row = array();
+            }
+        }
+        if($posttype == 'jetpack-testimonial'){
+            $info['post_link'] = $post_link;
+            $info['title'] = ucwords(get_the_title($id));
+            $info['subtitle'] = Post::getPostContent($id);
+            $images = Post::getImages($id);
+            if(!empty($images)){
+                $info['image_url'] = $images['image_url'];
+                $info['thumbnail_image'] = $images['thumbnail_image'];
+                $info['thumbnail_url'] = $images['thumbnail_url'];
+            }else{
+                $info['image_url'] = '#';
+                $info['thumbnail_image'] = '#';
+                $info['thumbnail_url'] = '#';
             }
         }
         if($component=='location'){

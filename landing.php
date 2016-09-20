@@ -34,7 +34,6 @@ else:?>
     <br>
 <?php
 endif;
-
 get_template_part('templates/landing/partners');
 ?>
 
