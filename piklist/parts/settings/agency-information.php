@@ -49,7 +49,7 @@ piklist('field',array(
         'estimate'  => __('Estiamtes','sage'),
         'feedback'  => __('Feedback','sage'),
         'services'  => __('Services','sage'),
-        'room'      => __('Rooms','sage')
+        'facility'      => __('Facilities','sage')
     ),
     'conditions' => array(
         array(

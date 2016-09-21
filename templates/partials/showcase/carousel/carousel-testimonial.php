@@ -7,12 +7,7 @@ if(!empty($data)):
             autoPlay: 3000,
             loop:true,
             items: 1,
-            stopOnHover:true,
-            nav : true,
-            navText: [
-                "<i class='angle left big icon'></i>",
-                "<i class='angle right big icon'></i>"
-            ]
+            stopOnHover:true
         });
     });
 </script>
@@ -22,7 +17,7 @@ if(!empty($data)):
         foreach($data as $value):
         ?>
         <div class="item">
-            <div class="ui two column centered grid">
+            <div class="ui two column middle aligned centered grid">
                 <div class="row">
                     <div class="center aligned column">
                         <br><br>

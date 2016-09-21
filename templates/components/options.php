@@ -42,6 +42,7 @@
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
+                <option value="< 12 years"><?php _e('< 12 year old','sage'); ?></option>
                 <option value="more"><?php _e('More','sage'); ?></option>
             </select>
         </div>

@@ -26,16 +26,22 @@
     </div>
 
     <div class="ui basic fluid large label colorless">
-        <input name="host-type[]" value="hotel" type="checkbox" ng-model="hotel"/> &nbsp;&nbsp;<?php _e('Hotel','sage'); ?>
+        <input name="host-type[]" value="Hotel" type="checkbox" ng-model="hotel"/> &nbsp;&nbsp;<?php _e('Hotel','sage'); ?>
     </div>
     <div class="ui basic fluid large label colorless">
-        <input name="host-type[]" value="appartment" type="checkbox"/> &nbsp;&nbsp;<?php _e('House/Appartment','sage'); ?>
+        <input name="host-type[]" value="Appartment" type="checkbox"/> &nbsp;&nbsp;<?php _e('House/Appartment','sage'); ?>
     </div>
     <div class="ui basic fluid large label colorless">
-        <input name="host-type[]" value="camping" type="checkbox"/> &nbsp;&nbsp;<?php _e('Homestay','sage'); ?>
+        <input name="host-type[]" value="Homestay" type="checkbox"/> &nbsp;&nbsp;<?php _e('Homestay','sage'); ?>
     </div>
     <div class="ui basic fluid large label colorless">
-        <input name="host-type[]" value="homestay" type="checkbox"/> &nbsp;&nbsp;<?php _e('Camping','sage'); ?>
+        <input name="host-type[]" value="Camping" type="checkbox"/> &nbsp;&nbsp;<?php _e('Camping','sage'); ?>
+    </div>
+    <div class="ui basic fluid large label colorless">
+        <input name="host-type[]" value="All Inclusive" type="checkbox"/> &nbsp;&nbsp;<?php _e('All Inclusive','sage'); ?>
+    </div>
+    <div class="ui basic fluid large label colorless">
+        <input name="host-type[]" value="Half-Board" type="checkbox"/> &nbsp;&nbsp;<?php _e('Half-Board','sage'); ?>
     </div>
     <div ng-show="hotel">
         <div class="ui basic fluid large label colorless">

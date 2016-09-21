@@ -4,9 +4,10 @@
         <label for="transport-type"><?php _e('Type of transportation','sage'); ?></label>
         <select name="transport-type" class="ui dropdown">
             <option value=""><?php _e('Type of transport','sage'); ?></option>
-            <option value="private"><?php _e('Private','sage'); ?></option>
-            <option value="semi-private"><?php _e('Semi private','sage'); ?></option>
-            <option value="public"><?php _e('Public','sage'); ?></option>
+            <option value="rent a car"><?php _e('Rent a Car','sage'); ?></option>
+<!--            <option value="private">--><?php //_e('Private','sage'); ?><!--</option>-->
+<!--            <option value="semi-private">--><?php //_e('Semi private','sage'); ?><!--</option>-->
+            <option value="public transportation"><?php _e('Public Transportation','sage'); ?></option>
         </select>
     </div>
     <div class="ui fluid input field" ng-hide="companion">
