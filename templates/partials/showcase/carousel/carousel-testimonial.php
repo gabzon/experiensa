@@ -4,15 +4,10 @@ if(!empty($data)):
 <script type="text/javascript">
     jQuery(function() {
         jQuery(".testimonial-carousel").owlCarousel({
-            autoPlay: true, //Set AutoPlay to 3 seconds
-            autoplayTimeout:3000,
+            autoPlay: 3000,
             loop:true,
             items: 1,
-            nav:true,
-            navText: [
-                "<i class='chevron circle left icon'></i>",
-                "<i class='chevron circle right icon'></i>"
-            ],
+            stopOnHover:true
         });
     });
 </script>

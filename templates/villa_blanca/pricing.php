@@ -1,4 +1,4 @@
-<div class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/comedor.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
+<section id="villa_blanca_pricing" class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/comedor.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
     <br>
     <br>
     <br>
@@ -11,4 +11,4 @@
     ?>
     </div>
     <br>
-</div>
+</section>
