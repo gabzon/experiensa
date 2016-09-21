@@ -149,11 +149,11 @@
                         }
                     }
                 });
-
+                /*
                 var carousel_active = $('.owl-item.active').length;
                 if(carousel_active === 1){
                     $('.owl-nav').hide();
-                }
+                }*/
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.4});
 
                 $('.grid-masonry').masonry({

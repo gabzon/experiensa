@@ -74,13 +74,19 @@
 .owl-carousel .owl-nav .owl-prev{
     left: -45px;
     top: 50%;
+    background-color: transparent;
 }
-
+.owl-carousel .owl-nav .owl-prev:hover{
+    background-color: transparent;
+}
 .owl-carousel .owl-nav .owl-next{
     right: -45px;
     top: 50%;
+    background-color: transparent;
 }
-
+.owl-carousel .owl-nav .owl-next:hover{
+    background-color: transparent;
+}
 .owl-slider .owl-nav .owl-prev{
     color:white;
     left: 10px;
@@ -130,5 +136,5 @@
 }
 
 .owl-carousel .owl-dots .owl-dot.active span,.owl-theme .owl-dots .owl-dot:hover span{
-    background:#869791
+    background:#FFFFFF;
 }

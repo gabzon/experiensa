@@ -7,7 +7,12 @@ if(!empty($data)):
             autoPlay: 3000,
             loop:true,
             items: 1,
-            stopOnHover:true
+            stopOnHover:true,
+            nav : true,
+            navText: [
+                "<i class='angle left big icon'></i>",
+                "<i class='angle right big icon'></i>"
+            ]
         });
     });
 </script>
