@@ -5,22 +5,16 @@
 .villa-blanca .ui-widget {
     font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
     background: #FFFFFF;
-    /*background: #2e3641;*/
-    border: none;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
 }
-
-.villa-blanca .ui-datepicker.ui-widget.ui-widget-content.ui-corner-all{
-    border: 1px solid rgba(34, 36, 38, 0.15);
-    border-radius: 12px;
+.villa-blanca .ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all{
+    border: 1px solid rgba(34, 36, 38, 0.15) !important;
+    border-radius: 12px 12px 12px 12px;
+    -moz-border-radius: 12px 12px 12px 12px;
+    -webkit-border-radius: 12px 12px 12px 12px;
 }
 
 .villa-blanca .ui-datepicker {
-    padding: 0;
-    /*border: 1px solid rgba(34, 36, 38, 0.15);
-    border-radius: 12px;*/
+    padding: 3px;
 }
 
 .villa-blanca .ui-datepicker-header {
@@ -42,7 +36,6 @@
 .villa-blanca .ui-datepicker .ui-datepicker-title {
     margin-top: .4em;
     margin-bottom: .3em;
-    /*color: #e9f0f4;*/
     color: #000;
     font-weight: bold;
 }
@@ -66,7 +59,6 @@
 .villa-blanca .ui-datepicker .ui-datepicker-next span,
 .villa-blanca .ui-datepicker .ui-datepicker-prev span {
     background-image: url(../images/ui-icons_454545_256x240.png);
-    /*background-image: url(images/ui-icons_222222_256x240.png);*/
     background-position: -32px 0;
     margin-top: 0;
     top: 0;
@@ -84,10 +76,8 @@
 .villa-blanca .ui-datepicker th {
     padding: 1em 0;
     color: #909090;
-    /*color: #ccc;*/
     font-size: 13px;
     font-weight: bold;
-    /*font-weight: normal;*/
     border: none;
     border-top: 1px solid #3a414d;
     border-bottom: 1px solid #3a414d;
@@ -95,10 +85,8 @@
 
 .villa-blanca .ui-datepicker td {
     background: #FFFFFF;
-    /*background: #f97e76;*/
-    border: none;
+    /*border: none;*/
     padding: 0;
-    /*border: 1px solid #ddd;*/
 }
 
 .villa-blanca td .ui-state-default {
@@ -109,8 +97,6 @@
     margin: 0;
     font-weight: normal;
     color: #000;
-    /*color: #efefef;*/
-    /*font-size: 16px;*/
     font-size: 0.9em;
 }
 
@@ -119,7 +105,6 @@
 }
 
 .villa-blanca .ui-state-disabled .ui-state-default {
-    /*color: #fba49e;*/
     color: #777;
 }
 
@@ -127,46 +112,7 @@
 .villa-blanca td .ui-state-hover {
     background: #e61a8d;
     color: #fff;
-    /*background: #2e3641;*/
 }
 
-
-
-/*.bt-datepicker{
-    background: #F9FAFB;
-    border: 1px solid rgba(34, 36, 38, 0.15);
-    border-radius: 0.285714rem;
-    box-shadow: 0 0 0 0 transparent inset;
-}
-.dow{
-    color: rgba(0,0,0,.6);
-}
-.picker-switch{
-    background: #E0E1E2 none;
-    color: rgba(0, 0, 0, 0.6);
-}
-.picker-switch.accordion-toggle{
-    background: transparent;
-}
-.decade.active,.year.active,.month.active,.day.active{
-    background: #e61a8d !important;
-}
-.decade,.year,.month,.day{
-    color: rgba(0, 0, 0, 0.87);
-}
-.day.old, .day.new{
-    cursor: default;
-    opacity: 0.45 !important;
-    background-image: none !important;
-    box-shadow: none !important;
-    pointer-events: none !important;
-}
-.day.old:hover{
-    background: #CACBCD;
-}
-.bootstrap-datetimepicker-widget table td.today:before{
-    border-bottom-color: #e61a8d !important;
-}
-table.table-condensed .prev,.next{
-    background: #e61a8d !important;
-}*/
+.villa-blanca td + td,th + th { border-left: 1px solid #ddd; }
+.villa-blanca tr + tr { border-top: 1px solid #ddd; }
