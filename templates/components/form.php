@@ -56,6 +56,6 @@
             <input id="form-submit" type="submit" class="ui button" value="<?php _e('Request a quote','sage'); ?>">
         </form>
         <br/><br/>
-        <div id="feedback"></div>
+        <div id="feedback" style="display: none"></div>
         <br/><br/>
     </section>

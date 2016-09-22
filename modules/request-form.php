@@ -1,16 +1,23 @@
 <?php
 
 function requestQuote(){
+    $error = true;
+    $msg = '';
+    $body = '';
     $headers = array('Content-Type: text/html; charset=UTF-8');
-  
+
     if ( function_exists( 'gglcptch_check' ) ){
 		$validate = gglcptch_check();
 		if($validate['response']===false && $validate['reason']!='VERIFICATION_FAILED'){
-			echo "<h4 style=\"color:red\">Error checking captcha</h4>";
+            $msg .= "Error checking captcha. ";
+            header('Content-Type: application/json');
+            echo json_encode(['error'=>$error,"msg"=>$msg]);
 			die();
 		}
     }else{
-		echo "<h3 style=\"color:red\">Need to install captcha plugin</h3>";
+        $msg .= 'Need to install captcha plugin. ';
+        header('Content-Type: application/json');
+        echo json_encode(['error'=>$error,"msg"=>$msg]);
 		die();
 	}
     $fullname       = $_POST['fullname'];
@@ -20,6 +27,7 @@ function requestQuote(){
     $destination    = $_POST['destination'];
     $departure      = $_POST['departure'];
     $return         = $_POST['return'];
+    $flexibility    = $_POST['flexibility'];
 
     $budget         = $_POST['budget'];
     $companion      = $_POST['companion'];
@@ -34,119 +42,152 @@ function requestQuote(){
     if (isset($_POST['flight-options'])) {
         $flight_options  = $_POST['flight-options'];
     } else {
-        $flight_options = "";
+        $flight_options = array();
     }
 
     if (isset($_POST['host-options'])) {
         $host_options = $_POST['host-options'];
     } else{
-        $host_options = "";
+        $host_options = array();
     }
 
     if (isset($_POST['host-type'])) {
         $host_type = $_POST['host-type'];
     } else{
-        $host_type= "";
+        $host_type= array();
     }
 
     if (isset($_POST['hotel'])) {
         $hotel = $_POST['hotel'];
     } else{
-        $hotel = "";
+        $hotel = array();
     }
 
     if (isset($_POST['theme'])) {
         $themes = $_POST['theme'];
     } else{
-        $themes = "";
+        $themes = array();
     }
-
     $transport_type = $_POST['transport-type'];
     $driver = $_POST['driver'];
+    //Contact Info
+    $contact = '<strong>Nom complet: </strong>'.$fullname.'<br>';
+    $contact .= '<strong>Email: </strong>'. $email .'<br>';
+    $contact .= '<strong>Téléphone: </strong>'. $phone .'<br>';
+    $contact .= '<hr>';
+    //Destination, Companions, Budget and Preferences
+    $body .= ($destination==''?'':'<strong>Destination: </strong>'. $destination  .'<br>');
+    $body .= ($departure==''?'':'<strong>Date de départ: </strong>'. $departure .'<br>');
+    $body .= ($return==''?'':'<strong>Date de retour: </strong>'. $return  . '<br>');
+    $body .= ($flexibility==''?'':'<strong>Flexibility: </strong>'. $flexibility. '<br><hr>');
+    $body .= ($companion==''?'':'<strong>Companions: </strong>'. $companion . '<br>');
+    $body .= ($adults==''?'':'<strong>Number of Adults: </strong>'. $adults  . '<br>');
+    $body .= ($kids==''?'':'<strong>Number of kids: </strong>'. $kids . '<br><hr>');
+    $body .= ($budget==''?'':'<strong>Budget: </strong>'. $budget  . '<br><hr>');
+    $body .= ($preferences==''?'':'<strong>Preferences: </strong><br>'. $preferences  .'<br><hr>');
 
-    $info = '<strong>Nom complet: </strong>'       . $fullname     . '<br>'.
-    '<strong>Email: </strong>'             . $email        . '<br>'.
-    '<strong>Téléphone: </strong>'         . $phone        . '<br><hr>';
-    $pinfo="";
-    $pinfo .= ($destination==''?'':'<strong>Destination: </strong>'       . $destination  . '<br>');
-    $pinfo .= ($departure==''?'':'<strong>Date de départ: </strong>'       . $departure  . '<br>');
-    $pinfo .= ($return==''?'':'<strong>Date de retour: </strong>'       . $return  . '<br><hr>');
-    $pinfo .= ($budget==''?'':'<strong>Budget: </strong>'       . $budget  . '<br>');
-    $pinfo .= ($companion==''?'':'<strong>Companions: </strong>'       . $companion  . '<br>');
-    $pinfo .= ($adults==''?'':'<strong>Number of Adults: </strong>'       . $adults  . '<br>');
-    $pinfo .= ($kids==''?'':'<strong>Number of kids: </strong>'       . $kids  . '<br><hr>');
-    $pinfo .= ($preferences==''?'':'<strong>Preferences: </strong><br>'       . $preferences  . '<br>');
-    $info.=$pinfo;
+    $body .= '<strong>Flight Options: </strong><br>';
     if(!empty($class)){
-        $pinfo .= '<strong>Classe: </strong>';
+        $body .= '<strong>Classe: </strong>';
+        $class_info = '';
         foreach ($class as $c) {
-            $pinfo .= ucwords($c) . ', ';
+            $class_info .= ucwords($c) . ', ';
         }
-        $info.=$pinfo;
+        if($class_info == ''){
+            $body .= 'No class type selected';
+        }else{
+            $body .= $class_info;
+        }
     }
 
-    $pinfo .= '<br><strong>Siege: </strong>'        . $seat         . '<br>';
-    $info.=$pinfo;
-    if ($flight_options != "") {
-        $pinfo .= '<strong>Flight options: </strong></ul>';
+    $body .= '<br><strong>Siege: </strong>'        . $seat         . '<br>';
+    if (!empty($flight_options)) {
+        $body .= '<strong>Flight Preferences: </strong>';
+        $finfo = '';
         foreach ($flight_options as $fo) {
-            $pinfo .= '<li>' . ucwords($fo) . '</li>';
+            $finfo .= '<li>' . ucwords($fo) . '</li>';
         }
-        $pinfo.= '</ul>';
-        $info.=$pinfo;
+        if($finfo == ''){
+            $finfo .= 'No flight preferences selected.';
+        }else{
+            $finfo = '<ul>'.$finfo.'</ul>';
+        }
+        $body .= $finfo;
     }
 
-    if ($host_options != "") {
-        $pinfo .= '<strong>Host options: </strong></ul>';
+    if (!empty($host_options)) {
+        $body .= '<hr><br><strong>Host options: </strong>';
+        $hinfo = '';
         foreach ($host_options as $ho) {
-            $pinfo .= '<li>' . ucwords($ho) . '</li>';
+            $hinfo .= '<li>' . ucwords($ho) . '</li>';
         }
-        $pinfo.= '</ul>';
-        $info.=$pinfo;
+        if($hinfo == ''){
+            $hinfo .= 'No host options selected.';
+        }else{
+            $hinfo = '<ul>'.$hinfo.'</ul>';
+        }
+        $body .= $hinfo;
     }
 
-    if ($host_type != "") {
-        $pinfo .= '<strong>Host type: </strong></ul>';
+    if (!empty($host_type)) {
+        $body .= '<hr><br><strong>Host type: </strong>';
+        $htinfo = '';
         foreach ($host_type as $ht) {
-            $pinfo .= '<li>' . ucwords($ht) . '</li>';
+            $htinfo .= '<li>' . ucwords($ht) . '</li>';
         }
-        $pinfo.= '</ul>';
-        $info.=$pinfo;
+        if($htinfo == ''){
+            $htinfo .= 'No host type selected.';
+        }else{
+            $htinfo = '<ul>'.$htinfo.'</ul>';
+        }
+        $body .= $htinfo;
     }
 
-    if ($hotel != "") {
-        $pinfo .= '<strong>Hotel stars: </strong></ul>';
+    if (!empty($hotel)) {
+        $body .= '<hr><br><strong>Hotel stars: </strong>';
+        $hinfo = '';
         foreach ($hotel as $stars) {
-            $pinfo .= '<li>' . ucwords($stars) . '</li>';
+            $hinfo .= '<li>' . ucwords($stars) . '</li>';
         }
-        $pinfo.= '</ul>';
-        $info.=$pinfo;
+        if($hinfo == ''){
+            $hinfo .= 'No hotel stars selected.';
+        }else{
+            $hinfo = '<ul>'.$hinfo.'</ul>';
+        }
+        $body .= $hinfo;
     }
 
-    if ($themes != "") {
-        $pinfo .= '<strong>Themes: </strong></ul>';
+    if (!empty($themes)) {
+        $body .= '<hr><br><strong>Themes: </strong>';
+        $tinfo = '';
         foreach ($themes as $theme) {
-            $pinfo .= '<li>' . ucwords($theme) . '</li>';
+            $tinfo .= '<li>' . ucwords($theme) . '</li>';
         }
-        $pinfo.= '</ul>';
-        $info.=$pinfo;
+        if($tinfo == ''){
+            $tinfo .= 'No themes selected.';
+        }else{
+            $tinfo = '<ul>'.$tinfo.'</ul>';
+        }
+        $body .= $tinfo;
     }
 
-    $pinfo .=    '<strong>Type de transport: </strong>'  . $transport_type . '<br>' .
-    '<strong>Conducteur: </strong>'         . $driver         . '<br>';
-    $info.=$pinfo;
-    //$to = 'gabriel@sevinci.com,jacqueline@fiestatravel.ch,'.$email;
+    $body .= '<strong>Transport type: </strong>' . $transport_type . '<br>';
+    $body .= '<strong>Conducteur: </strong>' . $driver . '<br>';
+    $partner_body = $body;
+    $body = $contact.$body;
     $agency_email  = $_POST['agency_email'];
     $to = $agency_email.','.$email;
-    $mail_status=array();
-    if( wp_mail( $to,'Devis: '. $destination , $info, $headers) === FALSE){
-        $mail_status=["status"=>0,"msg"=>"Error Sending Email"];
+    $mail_status=false;
+    if( wp_mail( $to,'Devis: '. $destination , $body, $headers) === FALSE){
+        $msg .= "Error Sending Email. ";
+//        $mail_status=["status"=>0,"msg"=>"Error Sending Email"];
     } else{
-        $mail_status=["status"=>1,"msg"=>'<h3 style="color:blue">Email envoyé</h3> '];
+        $error = false;
+        $mail_status = true;
+        $msg .= "Email envoyé. ";
+//        $mail_status=["status"=>1,"msg"=>'Email envoyé'];
     }
-    if($mail_status['status']==0){
-      echo $mail_status['msg'];
-    }else{
+    if($mail_status){
       $args = array (
         'posts_per_page' => -1,
         'post_type'     => array( 'partner' ),
@@ -164,13 +205,16 @@ function requestQuote(){
         }
         $partners_mail = rtrim($partners_mail);
         $partners_mail = rtrim($partners_mail,',');
-        if( wp_mail( $partners_mail,'Devis: '. $destination , $pinfo, $headers) === FALSE){
-          echo $mail_status['msg'].'and to partners too...';
+        if( wp_mail( $partners_mail,'Devis: '. $destination , $partner_body, $headers) === FALSE){
+            $msg .= " Mail sended to partners.";
         }else{
-          echo $mail_status['msg'];
+            $msg .= " Error sending email to partners";
+            $error = true;
         }
       }
     }
+    header('Content-Type: application/json');
+    echo json_encode(['error'=>$error,"msg"=>$msg,"body"=>$body]);
     die();
 }
 

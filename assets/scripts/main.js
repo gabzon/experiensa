@@ -149,11 +149,11 @@
                         }
                     }
                 });
-                /*
+
                 var carousel_active = $('.owl-item.active').length;
                 if(carousel_active === 1){
                     $('.owl-nav').hide();
-                }*/
+                }
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.4});
 
                 $('.grid-masonry').masonry({
@@ -242,7 +242,14 @@
                         url: sage_vars.ajaxurl,
                         data: newRequest,
                         success:function(data){
-                            $("#feedback").html(data);
+                            var success_msg = "<div class=\"ui success message\"><i class=\"close icon\"></i><div class=\"header\">Success</div><p>"+data.msg+"</p></div>";
+                            var error_msg = "<div class=\"ui negative message\"><i class=\"close icon\"></i><div class=\"header\">Success</div><p>"+data.msg+"</p></div>";
+                            if(data.error === false){
+                                $("#feedback").html(success_msg);
+                            }else{
+                                $("#feedback").html(error_msg);
+                            }
+                            $("#feedback").show(1000).delay(2000).fadeOut();
                         },
                         error: function(request, error) {
                             console.log("Request: " + JSON.stringify(request));
