@@ -180,12 +180,10 @@ function requestQuote(){
     $mail_status=false;
     if( wp_mail( $to,'Devis: '. $destination , $body, $headers) === FALSE){
         $msg .= "Error Sending Email. ";
-//        $mail_status=["status"=>0,"msg"=>"Error Sending Email"];
     } else{
         $error = false;
         $mail_status = true;
         $msg .= "Email envoyé. ";
-//        $mail_status=["status"=>1,"msg"=>'Email envoyé'];
     }
     if($mail_status){
       $args = array (
@@ -201,15 +199,18 @@ function requestQuote(){
         while( $the_query->have_posts() ){
             $the_query->the_post();
             $mail = get_post_meta( $the_query->post->ID, 'partner_email',true);
-            $partners_mail .= $mail.", ";
+            if(!empty($email))
+                $partners_mail .= $mail.", ";
         }
-        $partners_mail = rtrim($partners_mail);
-        $partners_mail = rtrim($partners_mail,',');
-        if( wp_mail( $partners_mail,'Devis: '. $destination , $partner_body, $headers) === FALSE){
-            $msg .= " Mail sended to partners.";
-        }else{
-            $msg .= " Error sending email to partners";
-            $error = true;
+        if($partners_mail!== "") {
+            $partners_mail = rtrim($partners_mail);
+            $partners_mail = rtrim($partners_mail, ',');
+            if (wp_mail($partners_mail, 'Devis: ' . $destination, $partner_body, $headers) === FALSE) {
+                $msg .= " Mail sended to partners.";
+            } else {
+                $msg .= " Error sending email to partners";
+                $error = true;
+            }
         }
       }
     }
