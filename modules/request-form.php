@@ -208,7 +208,7 @@ function requestQuote(){
             if (wp_mail($partners_mail, 'Devis: ' . $destination, $partner_body, $headers) === FALSE) {
                 $msg .= " Mail sended to partners.";
             } else {
-                $msg .= " Error sending email to partners.";
+                $msg .= " Error sending email to partners (".$partners_mail.")";
                 $error = true;
             }
         }
