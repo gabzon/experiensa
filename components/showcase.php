@@ -109,6 +109,9 @@ class Showcase{
             case 'location':
                 $query = self::by_terms_query($posttype, $category);
                 break;
+            case 'facility_type':
+                $query = self::by_terms_query($posttype, $category);
+                break;
             case 'all':
                 $query = QueryBuilder::getPostByPostType($posttype);
                 break;
@@ -211,7 +214,7 @@ class Showcase{
                 $info['thumbnail_url'] = $images['thumbnail_url'];
             }
         }
-        if($component=='all' && $posttype != 'team' && $posttype != 'jetpack-testimonial'){
+        if($component=='all' && $posttype != 'team' && $posttype != 'jetpack-testimonial' && $posttype != 'facility'){
             $images = Voyage::get_voyage_images($id);
             if(!empty($images)) {
                 $info['post_link'] = $post_link;
@@ -222,7 +225,7 @@ class Showcase{
                 $info['thumbnail_url'] = $images['thumbnail_url'];
             }
         }
-        if($posttype == 'team'){
+        if($posttype == 'team'){//Users
             $users = Users::getUserList(['contributor'],true);
             foreach($users as $user){
                 $user_id = $user['ID'];
@@ -249,7 +252,7 @@ class Showcase{
                 $row = array();
             }
         }
-        if($posttype == 'jetpack-testimonial'){
+        if($posttype == 'jetpack-testimonial' || $posttype === 'facility'){
             $info['post_link'] = $post_link;
             $info['title'] = ucwords(get_the_title($id));
             $info['subtitle'] = Post::getPostContent($id);

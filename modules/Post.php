@@ -28,6 +28,11 @@ class Post
                 }
             }
             $images['thumbnail_image'] = wp_get_attachment_image($feature_image_id);
+        }else{
+            $default = get_stylesheet_directory_uri() . '/assets/images/mauritius.jpg';
+            $images['image_url'] = $default;
+            $images['thumbnail_url'] = $default;
+            $images['thumbnail_image'] = "<img src='".$default."' style=\"width: 100%;height: 100%;\">";
         }
         return $images;
     }

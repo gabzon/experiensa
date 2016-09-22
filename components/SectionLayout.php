@@ -45,7 +45,6 @@ class SectionLayout
                 $component = $this->content_settings['component'];
                 $background = $this->background;
                 $showcase_data = $this->showcase_data;
-//                print_r($showcase_data);
                 $textimage_obj = new Textimage($this->textimage);
                 $layout = $this->layout;
                 $title = $layout['title'];
@@ -205,6 +204,7 @@ class SectionLayout
         $this->layout = $layout;
     }
     private function setTextImage(){
+        $textimage['display_textimage'] = false;
         $textimage['display_title'] = 'yes';
         $textimage['display_subtitle'] = 'yes';
         $textimage['display_overlay'] = 'yes';
@@ -214,6 +214,7 @@ class SectionLayout
         $textimage['font_size'] = '1';
         $textimage['text_color'] = '#FFFFFF';
         if($this->source == 'showcase' && $this->content_settings['show_textimage'] == 'TRUE'){
+            $textimage['display_textimage'] = true;
             $textimage['display_title'] = (!empty($this->content_settings['display_title'])?$this->content_settings['display_title']:$textimage['display_title']);
             $textimage['display_subtitle'] = (!empty($this->content_settings['display_subtitle'])?$this->content_settings['display_subtitle']:$textimage['display_subtitle']);
             $textimage['display_overlay'] = (!empty($this->content_settings['display_overlay'])?$this->content_settings['display_overlay']:$textimage['display_overlay']);

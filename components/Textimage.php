@@ -10,6 +10,7 @@ class Textimage
     private $text_transform;
     private $text_order;
     private $text_position;
+    private $display_textimage;
     private $display_title;
     private $display_subtitle;
     private $display_overlay;
@@ -25,6 +26,7 @@ class Textimage
 
     function __construct($options)
     {
+        $this->display_textimage = $options['display_textimage'];
         $this->font_size = $options['font_size'];
         $this->text_color = $options['text_color'];
         $this->text_transform = $options['text_transform'];
@@ -113,6 +115,9 @@ class Textimage
     }
     public function getImage(){
         return $this->image;
+    }
+    public function getDisplayTextImage(){
+        return $this->display_textimage;
     }
     public function getDisplayOverlay(){
         return $this->display_overlay;
