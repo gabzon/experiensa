@@ -198,9 +198,9 @@ function requestQuote(){
       if( $the_query->have_posts() ){
         while( $the_query->have_posts() ){
             $the_query->the_post();
-            $mail = get_post_meta( $the_query->post->ID, 'partner_email',true);
-            if(!empty($email))
-                $partners_mail .= $mail.", ";
+            $pmail = get_post_meta( $the_query->post->ID, 'partner_email',true);
+            if(!empty($pmail))
+                $partners_mail .= $pmail.", ";
         }
         if($partners_mail!== "") {
             $partners_mail = rtrim($partners_mail);
@@ -208,7 +208,7 @@ function requestQuote(){
             if (wp_mail($partners_mail, 'Devis: ' . $destination, $partner_body, $headers) === FALSE) {
                 $msg .= " Mail sended to partners.";
             } else {
-                $msg .= " Error sending email to partners (".$partners_mail.")";
+                $msg .= " Error sending email to partners.";
                 $error = true;
             }
         }
