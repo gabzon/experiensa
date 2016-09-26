@@ -122,10 +122,12 @@ class SectionLayout
     public function getBgImage($background_settings,$source){
         if($source == 'page'){
             $image = $this->getBackgroundImage($background_settings['bg_image_page']);
+            $size = $this->getBackgroundSize($background_settings,$source);
         }else{
             $image = $this->getBackgroundImage($background_settings['bg_image_showcase']);
+            $size = $this->getBackgroundSize($background_settings,$source);
         }
-        return ($image ? "background:url('" . $image . "') no-repeat center center fixed; background-size: cover; height:100vh;" : "");
+        return ($image ? "background:url('" . $image . "') no-repeat center center fixed;".$size : "");
     }
     private function getBackgroundImage($images){
         $bg_img = false;
@@ -136,6 +138,19 @@ class SectionLayout
             }
         }
         return $bg_img;
+    }
+    private function getBackgroundSize($background_settings,$source){
+        $size = "background-size: cover;";
+        if($source == 'page'){
+            $s = (isset($background_settings['bg_image_size_page'])?$background_settings['bg_image_size_page']:[0=>'content']);
+            if(!empty($s[0]) && $s[0]==='full')
+                $size .= 'height:100vh;';
+        }else{
+            $s = (isset($background_settings['bg_image_size_showcase'])?$background_settings['bg_image_size_showcase']:[0=>'content']);
+            if(!empty($s[0]) && $s[0]==='full')
+                $size .= 'height:100vh;';
+        }
+        return $size;
     }
     private function checkShowPageBgSlider($background_settings,$source){
         if($source == 'page' && $background_settings['show_background'] == 'TRUE' && $background_settings['background_type_page'] == 'slider')

@@ -892,6 +892,32 @@ $bg_image_page = array(
         )
     )
 );
+$bg_image_size_page = array(
+    'type'      => 'radio',
+    'field'     => 'bg_image_size_page',
+    'label'     => __('Background size','sage'),
+    'columns' => 6,
+    'list' => false,
+    'value' => 'content',
+    'choices'   => array(
+        'full'   => __('Full size','sage'),
+        'content'        => __('Fit to content','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'promotions_section_options:background_settings:show_background',
+            'value' => 'TRUE'
+        ),
+        array(
+            'field' => 'promotions_section_options:content_settings:source_type',
+            'value' => 'page'
+        ),
+        array(
+            'field' => 'promotions_section_options:background_settings:background_type_page',
+            'value' => 'image'
+        )
+    )
+);
 $bg_image_showcase = array(
     'type'      => 'file',
     'field'     => 'bg_image_showcase',
@@ -909,6 +935,32 @@ $bg_image_showcase = array(
                 'max' => 1
             )
         )
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'promotions_section_options:background_settings:show_background',
+            'value' => 'TRUE'
+        ),
+        array(
+            'field' => 'promotions_section_options:content_settings:source_type',
+            'value' => 'showcase'
+        ),
+        array(
+            'field' => 'promotions_section_options:background_settings:background_type_showcase',
+            'value' => 'image'
+        )
+    )
+);
+$bg_image_size_showcase = array(
+    'type'      => 'radio',
+    'field'     => 'bg_image_size_showcase',
+    'label'     => __('Background size','sage'),
+    'columns' => 6,
+    'list' => false,
+    'value' => 'content',
+    'choices'   => array(
+        'full'   => __('Full size','sage'),
+        'content'        => __('Fit to content','sage')
     ),
     'conditions' => array(
         array(
@@ -1025,7 +1077,9 @@ $background_settings = array(
         $bg_texture_page,
         $bg_texture_showcase,
         $bg_image_page,
+        $bg_image_size_page,
         $bg_image_showcase,
+        $bg_image_size_showcase,
         $bg_category
     )
 );
