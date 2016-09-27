@@ -13,4 +13,6 @@
         <br>
         <?= $page['content'];?>
     </div>
+    <br>
+    <br>    
 </section>
