@@ -37,11 +37,15 @@ class Catalog{
             }else
                 $agency_response = "";
         }
+
         $agency_response = json_decode($agency_response);
         $api_response[] =$agency_response;
 
         //Partners Catalog
         $partners = Partners::partnerApiList();
+//        echo "<pre>";
+//        print_r($partners);
+//        echo "</pre>";
         if(!empty($partners) && Helpers::check_internet_connection()){
             for ($i=0; $i < count($partners); $i++) {
                 // Check if  $partners[$i]['website'] dont have '/' on last char
@@ -50,9 +54,15 @@ class Catalog{
                     $api_url .= '/';
                 }
                 $api_url .= 'wp-json/wp/v2/voyage';
+//                echo "<br>entro a un partner ".$api_url;
                 //Check if $api_url is a valid url
                 if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
+//                    echo "<br>entro aqui ".$api_url;
                     $file_headers = @get_headers($api_url);
+//                    echo "<br>los header de ".$api_url;
+//                    echo "<pre>";
+//                    print_r($file_headers);
+//                    echo "</pre>";
                     //check if url have response HTTP/1.1 200 OK
                     if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
                         //Using Curl
@@ -65,10 +75,12 @@ class Catalog{
                             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                             // Set the url
                             $real_url = $api_url.$lang_req;
+                            echo "<br> real url ".$real_url;
                             curl_setopt($ch, CURLOPT_URL,$real_url);
                             // Execute
                             $partner_response=curl_exec($ch);
                             if(!$partner_response){
+                                echo "<br> api url ".$api_url;
                                 curl_setopt($ch, CURLOPT_URL,$api_url);
                                 $partner_response=curl_exec($ch);
                             }
@@ -88,7 +100,9 @@ class Catalog{
                 }
             }
         }
-
+//        echo "<pre>";
+//        print_r($api_response);
+//        echo "</pre>";
         $voyages = array();
 
         for ($i=0; $i < count($api_response); $i++) {

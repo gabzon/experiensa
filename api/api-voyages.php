@@ -123,7 +123,7 @@ function slug_get_voyage_cover_image( $object, $field_name, $request ) {
     //get images from feature image
     $cover_image = wp_get_attachment_image_src( get_post_thumbnail_id($object['id']), 'full' );
     if(!empty($cover_image)){
-        for($i=0;$i<count($cover_image);$i++){
+        for($i=0;$i < count($cover_image);$i++){
             if(strpos($cover_image[$i],'http')===0){
                 $images['feature_image'] = $cover_image[$i];
             }
@@ -152,7 +152,7 @@ function slug_get_voyage_cover_image( $object, $field_name, $request ) {
                 $row['term'] = $term->name;
                 $location[] = $row;
             }
-            $response = RequestMedia::get_media_request_api('media',$location);
+            $response = \Experiensa\Config\RequestMedia::get_media_request_api('media',$location);
             if(!empty($response)){
                 foreach($response as $image){
                     if(strpos($image['full_size'],'http')===0){
@@ -184,7 +184,7 @@ function slug_get_voyage_itinerary( $object, $field_name, $request ) {
     $description    = get_post_meta($object[ 'id' ],'itinerary_description');
     if(!empty($day) && !empty($title) && !empty($subtitle)){
         $count = count($day);
-        for($i=0;$i<$count;$i++){
+        for($i=0;$i < $count;$i++){
             if(isset($title[$i]) && !empty($title[$i])){
               $itinerary .= "<strong>".$day[$i]." - ".$title[$i]."</strong>";
             }else{
@@ -223,7 +223,7 @@ function slug_get_voyage_country( $object, $field_name, $request ) {
     $country = "";
     $terms = get_the_terms($object[ 'id' ],'country');
     if(!empty($terms)){
-        if(count($terms)<2){
+        if(count($terms) < 2){
             $country = $terms[0]->name;
         }else {
             foreach ($terms as $term) {
@@ -242,7 +242,7 @@ function slug_get_voyage_location( $object, $field_name, $request ) {
     $location = "";
     $terms = get_the_terms($object[ 'id' ],'location');
     if(!empty($terms)){
-        if(count($terms)<2){
+        if(count($terms) < 2){
             $location = $terms[0]->name;
         }else {
             foreach ($terms as $term) {
@@ -261,7 +261,7 @@ function slug_get_voyage_theme( $object, $field_name, $request ) {
     $themes = "";
     $terms = get_the_terms($object[ 'id' ],'theme');
     if(!empty($terms)){
-        if(count($terms)<2){
+        if(count($terms) < 2){
             $themes = $terms[0]->name;
         }else {
             foreach ($terms as $term) {
