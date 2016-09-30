@@ -99,7 +99,7 @@ class Card{
                                 . __('Contact us','sage').
                             "</a>";
                 $card .=    "<div class=\"right floated\">
-                                <button id=\"".$contact["modal"]."\" class=\"ui green button\" type=\"submit\" name=\"select\">
+                                <button id=\"".$contact["modal"]."\" class=\"ui green button\" type=\"submit\" name=\"select\" style=\"width: 100%;height: 100%;\">
                                     <i class=\"eye icon\"></i>"
                                     . __('Details','sage').
                                 "</button>

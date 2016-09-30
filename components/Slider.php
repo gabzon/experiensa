@@ -28,7 +28,7 @@ class Slider
         if($this->component=='vegas') {
             $data = QueryBuilder::getImagesByPostType($post_type, $taxonomy, $terms);
         }else {
-            $data = QueryBuilder::getPostBasicInfo($post_type, $taxonomy, $terms);
+            $data = QueryBuilder::getPostBasicInfo($post_type, $taxonomy, $terms, false);
         }
         $this->data = $data;
     }

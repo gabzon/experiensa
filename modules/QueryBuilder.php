@@ -90,7 +90,7 @@ class QueryBuilder
         }
         return $images;
     }
-    public static function getPostBasicInfo($post_type,$taxonomy,$terms){
+    public static function getPostBasicInfo($post_type,$taxonomy,$terms,$all_content = true){
         $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms);
         $data = array();
         if(!empty($posts)) {
@@ -123,8 +123,10 @@ class QueryBuilder
                     $excerpt = self::getPostContent($id);
                     if ($excerpt === false || empty($excerpt))
                         $excerpt = '';
-                    else
-                        $excerpt = substr($excerpt, 0, 30) . '...';
+                    else {
+                        if(!$all_content)
+                            $excerpt = substr($excerpt, 0, 30) . '...';
+                    }
                 }
                 $content = self::getPostContent($id);
                 $row['id'] = $id;
