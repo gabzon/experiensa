@@ -11,6 +11,7 @@ class Catalog{
         $api_response = [];
         //Agency Catalog
         $agency_api_url = get_site_url() . '/wp-json/wp/v2/voyage';
+        echo " el agency api url es ".$agency_api_url;
         if (function_exists('curl_version')){//Using Curl
             //  Initiate curl
             $ch = curl_init();
@@ -20,6 +21,7 @@ class Catalog{
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             // Set the url
             $real_url = $agency_api_url.$lang_req;
+            echo "el real url propio es ".$real_url;
             curl_setopt($ch, CURLOPT_URL,$real_url);
             // Execute
             $agency_response=curl_exec($ch);
@@ -37,15 +39,15 @@ class Catalog{
             }else
                 $agency_response = "";
         }
-
+        echo "<pre>";
+        print_r($agency_response);
+        echo "</pre>";
         $agency_response = json_decode($agency_response);
         $api_response[] =$agency_response;
 
         //Partners Catalog
         $partners = Partners::partnerApiList();
-//        echo "<pre>";
-//        print_r($partners);
-//        echo "</pre>";
+
         if(!empty($partners) && Helpers::check_internet_connection()){
             for ($i=0; $i < count($partners); $i++) {
                 // Check if  $partners[$i]['website'] dont have '/' on last char
@@ -75,12 +77,12 @@ class Catalog{
                             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                             // Set the url
                             $real_url = $api_url.$lang_req;
-                            echo "<br> real url ".$real_url;
+//                            echo "<br> real url ".$real_url;
                             curl_setopt($ch, CURLOPT_URL,$real_url);
                             // Execute
                             $partner_response=curl_exec($ch);
                             if(!$partner_response){
-                                echo "<br> api url ".$api_url;
+//                                echo "<br> api url ".$api_url;
                                 curl_setopt($ch, CURLOPT_URL,$api_url);
                                 $partner_response=curl_exec($ch);
                             }
