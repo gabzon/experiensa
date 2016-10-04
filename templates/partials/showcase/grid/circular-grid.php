@@ -24,7 +24,7 @@ foreach($data as $value):
         <?php
         endif;
         ?>
-            <img src="<?= $value['image_url'];?>" style="margin: auto;">
+            <img src="<?= $value['image_url'];?>" style="margin: auto;" alt="<?= $textimage_option->getTitle();?>">
         </div>
         
     </div>

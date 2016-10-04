@@ -17,6 +17,9 @@ if($show_layout):?>
     </div>
 </section>
 <?php
-else:
+else:?>
+    <div style="color: #FFFFFF;">
+<?php
     $this->slider_obj->showSlider($name);
-endif;
+endif;?>
+    </div>
