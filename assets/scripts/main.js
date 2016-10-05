@@ -123,37 +123,8 @@
                 jQuery('.header-menu').addClass("secondary");
                 scrollMenu(header_menu_background);
                 //}
-                $(".owl-carousel").owlCarousel({
-                    /*autoplay:true,
-                    autoplayTimeout:3000,*/
-                    autoplayHoverPause:true,
-                    loop:true,
-                    nav:true,
-                    margin: 5,
-					autoHeight:false,
-                    dots: true,
-                    navText: [
-                        "<i class='angle left big icon'></i>",
-                        "<i class='angle right big icon'></i>"
-                    ],
-                    responsive:{
-                        0:{
-                            items:1,
-                            nav:false
-                        },
-                        600:{
-                            items:3
-                        },
-                        1920:{
-                            items:5
-                        }
-                    }
-                });
-
-                var carousel_active = $('.owl-item.active').length;
-                if(carousel_active === 1){
-                    $('.owl-nav').hide();
-                }
+                //Init Landing Components: Carousel
+                initLandingComponents();
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.4});
 
                 $('.grid-masonry').masonry({

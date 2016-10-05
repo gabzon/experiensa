@@ -21,6 +21,8 @@
     .title {display:none};
 }
 .owl-carousel{
+    padding: 10px;
+    text-align: center;
     .owl-item{
         .carousel-component{
             height:100%;
@@ -72,7 +74,7 @@
     position: absolute;
 }
 .owl-carousel .owl-nav .owl-prev{
-    left: -45px;
+    left: -25px;
     top: 50%;
     background-color: transparent;
 }
@@ -80,7 +82,7 @@
     background-color: transparent;
 }
 .owl-carousel .owl-nav .owl-next{
-    right: -45px;
+    right: -25px;
     top: 50%;
     background-color: transparent;
 }
