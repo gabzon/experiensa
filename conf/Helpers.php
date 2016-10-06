@@ -116,4 +116,42 @@ class Helpers {
         ];
         return $components;
     }
+
+    /**
+     * Return the website use: travel agency, hotel or tourism office
+     * @return bool
+     */
+    public static function getWebsiteUse(){
+        $use = false;
+        $agency_options = get_option('agency_settings');
+        if(isset($agency_options)) {
+            $website_use = (isset($agency_options['website_use']) ? $agency_options['website_use'] : false);
+            $use = $website_use;
+        }
+        return $use;
+    }
+
+    public static function getUnableDates(){
+        $use = self::getWebsiteUse();
+        $dates = array();
+        if($use == 'hotel'){
+            $agency_options = get_option('agency_settings');
+            if(isset($agency_options['unable_dates']) && !empty($agency_options['unable_dates'])){
+                $unable_dates = $agency_options['unable_dates'];
+                foreach ($unable_dates as $date){
+                    if(!empty($date['unable_start_date'])){
+                        $row['start_date'] = $date['unable_start_date'];
+                        if(!empty($date['unable_end_date'])){
+                            $row['end_date'] = $date['unable_end_date'];
+                        }else{
+                            $row['end_date'] = $date['unable_start_date'];
+                        }
+                        $dates[] = $row;
+                        $row = array();
+                    }
+                }
+            }
+        }
+        return $dates;
+    }
 }

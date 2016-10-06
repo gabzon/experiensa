@@ -97,89 +97,6 @@ add_action( 'admin_menu', 'hide_custom_post_types' );
 //}
 //add_action('add_meta_boxes', 'change_meta_box_titles');
 
-/*function create_custom_landing_page(){
-    $pages = get_pages(
-        array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => 'landing.php'
-        )
-    );
-    if(empty($pages)):
-        //create a new page and automatically assign the page template
-        $post = array(
-            'post_title' => "Home",
-            'post_content' => "",
-            'post_status' => "publish",
-            'post_type' => 'page',
-        );
-        $postID = wp_insert_post($post);
-        update_post_meta($postID, "_wp_page_template", "landing.php");
-    endif;
-}
-add_action('admin_menu', 'create_custom_landing_page');
-
-function create_custom_request_page(){
-    $pages = get_pages(
-        array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => 'request-form.php'
-        )
-    );
-    if(empty($pages)):
-        //create a new page and automatically assign the page template
-        $post = array(
-            'post_title' => "Request",
-            'post_content' => "",
-            'post_status' => "publish",
-            'post_type' => 'page',
-        );
-        $postID = wp_insert_post($post);
-        update_post_meta($postID, "_wp_page_template", "request-form.php");
-    endif;
-}
-add_action('admin_menu', 'create_custom_request_page');
-
-function create_custom_catalog_page(){
-    $pages = get_pages(
-        array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => 'catalog.php'
-        )
-    );
-    if(empty($pages)):
-        //create a new page and automatically assign the page template
-        $post = array(
-            'post_title' => "Catalog",
-            'post_content' => "",
-            'post_status' => "publish",
-            'post_type' => 'page',
-        );
-        $postID = wp_insert_post($post);
-        update_post_meta($postID, "_wp_page_template", "catalog.php");
-    endif;
-}
-add_action('admin_menu', 'create_custom_catalog_page');
-
-function create_custom_search_result_page(){
-    $pages = get_pages(
-        array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => 'postlist-result.php'
-        )
-    );
-    if(empty($pages)):
-        //create a new page and automatically assign the page template
-        $post = array(
-            'post_title' => "Search Post By Term",
-            'post_content' => "",
-            'post_status' => "publish",
-            'post_type' => 'page',
-        );
-        $postID = wp_insert_post($post);
-        update_post_meta($postID, "_wp_page_template", "postlist-result.php");
-    endif;
-}
-add_action('admin_menu', 'create_custom_search_result_page');*/
 /**
  * @param $vars
  * @return array
@@ -191,3 +108,34 @@ function add_query_vars_filter( $vars ){
     return $vars;
 }
 add_filter( 'query_vars', 'add_query_vars_filter' );
+
+/**
+ * Filter function to hide Hotel Settings tab on Options page
+ * @param $part_data
+ * @param $folder
+ */
+function hide_hotel_settings_tab($part_data, $folder){
+    if(isset($part_data['data']['flow']) && $part_data['data']['flow'][0] == 'options' && $part_data['data']['title'] == 'Hotel Settings') {
+        $website_use = Helpers::getWebsiteUse();
+        if ($website_use == 'hotel')
+            return $part_data;
+        return;
+    }else {
+        return $part_data;
+    }
+}
+add_filter('piklist_part_process_callback','hide_hotel_settings_tab', 10, 2);
+/**
+ * Ajax/JSON response to get Hotel reservation unable dates
+ */
+function get_reservation_unable_dates(){
+    $error = true;
+    $unable_dates = Helpers::getUnableDates();
+    if(!empty($unable_dates))
+        $error = false;
+    header('Content-Type: application/json');
+    echo json_encode(['error'=>$error,"dates"=>$unable_dates]);
+    die();
+}
+add_action('wp_ajax_get_reservation_unable_dates', 'get_reservation_unable_dates');
+add_action('wp_ajax_nopriv_get_reservation_unable_dates', 'get_reservation_unable_dates');
