@@ -6,7 +6,8 @@ function requestReservation(){
     $fullname = $_POST['fullname'];
     $agency_email = $_POST['agency_email'];
     $email = $_POST['email'];
-    $reservation_date = $_POST['reservation_date'];
+    $reservation_start = $_POST['reservation_start'];
+    $reservation_end = $_POST['reservation_end'];
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
     $comments = (isset($_POST['comments'])?$_POST['comments']:"");
@@ -16,7 +17,7 @@ function requestReservation(){
     
     $body = "<strong>Fullname: </strong>".$fullname."<br>";
     $body .= "<strong>Email: </strong>".$email."<br>";
-    $body .= "<strong>Date: </strong>".$reservation_date."<br>";
+    $body .= "<strong>Start Date: </strong>".$reservation_start." <strong>End Date: </strong>".$reservation_end."<br>";
     $body .= "<strong>Check-In: </strong>".$checkin."<br>";
     $body .= "<strong>Check-Out: </strong>".$checkout."<br>";
     $body .= "<strong>Comments: </strong>".$comments."<br>";

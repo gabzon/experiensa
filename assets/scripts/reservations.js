@@ -45,7 +45,35 @@ function reservation_datepicker(){
         dateFormat: 'dd/mm/yy',
         beforeShowDay: function (date) {
             var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [dates_to_disable.indexOf(dateString) == -1];
+            return [dates_to_disable.indexOf(dateString) === -1];
+        }
+    });
+    jQuery('#reservation_start').datepicker({
+        // changeMonth: true,
+        // changeYear: true,
+        firstDay: 1,
+        minDate: -20,
+        dateFormat: 'dd/mm/yy',
+        beforeShowDay: function (date) {
+            var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [dates_to_disable.indexOf(dateString) === -1];
+        },
+	onSelect: function () {
+	    var dt2 = jQuery('#reservation_end');
+            var startDate = jQuery(this).datepicker('getDate');
+	    dt2.datepicker('setDate', startDate);
+	    dt2.datepicker('option', 'minDate', startDate);
+	}
+    });
+    jQuery('#reservation_end').datepicker({
+        // changeMonth: true,
+        // changeYear: true,
+        firstDay: 1,
+        minDate: -20,
+        dateFormat: 'dd/mm/yy',
+        beforeShowDay: function (date) {
+            var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [dates_to_disable.indexOf(dateString) === -1];
         }
     });
     jQuery('#checkin_timepicker').wickedpicker({title:'Check-In'});

@@ -12,6 +12,20 @@
       </div>
     </div>
     <div class="fields">
+        <div class="field" style="width: 50%;">
+            <div class="ui left icon input">
+                <input name="reservation_start" id="reservation_start" type="text" class="villa-blanca" placeholder="<?php _e('Start Date','sage'); ?>" required/>
+                <i class="calendar icon"></i>
+            </div>
+        </div>
+        <div class="field" style="width: 50%;">
+            <div class="ui left icon input">
+                <input name="reservation_end" id="reservation_end" type="text" class="villa-blanca" placeholder="<?php _e('End Date','sage'); ?>" required/>
+                <i class="calendar icon"></i>
+            </div>
+        </div>
+    </div>
+    <div class="fields">
       <div class="field">
         <input name="checkin" id="checkin_timepicker" type="text" placeholder="<?php _e('Check-In','sage'); ?>" required/>
       </div>
