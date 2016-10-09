@@ -76,6 +76,10 @@ function reservation_datepicker(){
             return [dates_to_disable.indexOf(dateString) === -1];
         }
     });
+    if(jQuery('.villa-blanca').length>0){
+        jQuery("#ui-datepicker-div").addClass("villa-blanca");
+
+    }
     jQuery('#checkin_timepicker').wickedpicker({title:'Check-In'});
     jQuery('#checkout_timepicker').wickedpicker({
         title:'Check-Out'
