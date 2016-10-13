@@ -1,4 +1,4 @@
-voy a mostar datos del pais des wiki
+<!--voy a mostar datos del pais des wiki-->
 <?php
     $post_id = $post->ID;
     $title = get_the_title($post->ID);

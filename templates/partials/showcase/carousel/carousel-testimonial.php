@@ -3,11 +3,22 @@ if(!empty($data)):
 ?>
 <script type="text/javascript">
     jQuery(function() {
-        jQuery(".testimonial-carousel").owlCarousel({
+        var testimonial_carousel = jQuery(".testimonial-carousel");
+        testimonial_carousel.owlCarousel({
             autoPlay: 3000,
             loop:true,
+            margin:5,
+            nav:true,
             items: 1,
-            stopOnHover:true
+            stopOnHover:true,
+            navText: [
+                "<i class='angle left big icon'></i>",
+                "<i class='angle right big icon'></i>"
+            ],
+        });
+        testimonial_carousel.each(function(){
+            jQuery(".owl-dots",this).removeClass('disabled');
+            jQuery(".owl-nav",this).removeClass('disabled');
         });
     });
 </script>

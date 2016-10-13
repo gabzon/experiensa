@@ -33,6 +33,7 @@ function requestQuote(){
     $companion      = $_POST['companion'];
     $adults         = $_POST['adults'];
     $kids           = $_POST['kids'];
+    $babies           = $_POST['babies'];
 
     $preferences    = $_POST['preferences'];
 
@@ -83,6 +84,7 @@ function requestQuote(){
     $body .= ($companion==''?'':'<strong>Companions: </strong>'. $companion . '<br>');
     $body .= ($adults==''?'':'<strong>Number of Adults: </strong>'. $adults  . '<br>');
     $body .= ($kids==''?'':'<strong>Number of kids: </strong>'. $kids . '<br><hr>');
+    $body .= ($babies==''?'':'<strong>Number of babies: </strong>'. $babies . '<br><hr>');
     $body .= ($budget==''?'':'<strong>Budget: </strong>'. $budget  . '<br><hr>');
     $body .= ($preferences==''?'':'<strong>Preferences: </strong><br>'. $preferences  .'<br><hr>');
 

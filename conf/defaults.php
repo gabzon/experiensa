@@ -139,3 +139,16 @@ function get_reservation_unable_dates(){
 }
 add_action('wp_ajax_get_reservation_unable_dates', 'get_reservation_unable_dates');
 add_action('wp_ajax_nopriv_get_reservation_unable_dates', 'get_reservation_unable_dates');
+
+function addExperiensaCustomImageSizes(){
+    add_theme_support( 'post-thumbnails' );
+    add_image_size( 'standard-size', 1280, 720, true );
+}
+add_action('init', 'addExperiensaCustomImageSizes');
+
+function experiensa_image_sizes_names($sizes) {
+    return array_merge( $sizes, array(
+        'standard-size' => __( 'Standard size', 'sage' )
+    ) );
+}
+add_filter('image_size_names_choose', 'experiensa_image_sizes_names');

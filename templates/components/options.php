@@ -32,7 +32,7 @@
     <div class="three wide field">
         <div class="ui fluid input field" ng-hide="companion">
             <select name="kids" id="kids" class="ui dropdown">
-                <option value=""><?php _e('Kids','sage'); ?></option>
+                <option value=""><?= __('Kids','sage').' (2-11 '.__('years').')'; ?></option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -47,7 +47,24 @@
             </select>
         </div>
     </div>
-    <div class="seven wide field">
+    <div class="three wide field">
+        <div class="ui fluid input field">
+            <select name="babies" id="babies" class="ui dropdown">
+                <option value=""><?= __('Babies','sage').' (0-1 '.__('years').')'; ?></option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="more"><?php _e('More','sage'); ?></option>
+            </select>
+        </div>
+    </div>
+    <div class="four wide field">
         <strong><?php _e('Budget','sage'); ?></strong>
         <div class="budget-slider">
             <div id="price-slider"></div>

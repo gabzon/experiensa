@@ -9,6 +9,7 @@
         <?php
         $is_image = wp_attachment_is_image($post->ID);
         $title = get_the_title($post->ID);
+
         if($is_image):
         	$is_country = has_term($title,'country',$post->ID);
         	if($is_country):
