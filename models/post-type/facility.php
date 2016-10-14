@@ -34,7 +34,7 @@ if ( ! function_exists('facility_post_type') ) {
             'label'                 => __( 'Facilities', 'sage' ),
             'description'           => __( 'List of facilities in the establishment', 'sage' ),
             'labels'                => $labels,
-            'supports'              => array('title', 'thumbnail', 'excerpt', 'revisions'),
+            'supports'              => array('title', 'thumbnail','editor', 'excerpt', 'revisions'),
             'taxonomies'            => array( 'facility-type', 'category', 'post_tag'),
             'hierarchical'          => false,
             'public'                => true,
