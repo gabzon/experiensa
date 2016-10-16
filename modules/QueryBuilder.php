@@ -25,6 +25,7 @@ class QueryBuilder
         }
         $taxonomies['location'] = __('Destinations','sage');
         $taxonomies['all'] = __('All Posts','sage');
+        $taxonomies['news'] = __('News','sage');
         return $taxonomies;
     }
     public static function getPostByPostType($post_type){

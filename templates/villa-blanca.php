@@ -16,7 +16,6 @@ if($section_obj->checkExistSections()):
 endif;
 ?>
 <?php
-    get_template_part('templates/villa_blanca/pricing');
-    get_template_part('templates/villa_blanca/reservations');
-    //get_template_part('templates/villa_blanca/references');
+    get_template_part('templates/villa-blanca-pricing');
+    get_template_part('templates/reservations');
 ?>

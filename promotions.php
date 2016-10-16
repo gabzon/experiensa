@@ -7,10 +7,16 @@ $design_settings = get_option('experiensa_design_settings');
 $page_object = get_queried_object();
 $page_id     = get_queried_object_id();
 
-$section_obj = new Experiensa\Component\Section($page_id,$design_settings,'promotions_section_options');
+$section_obj = new Experiensa\Component\Section($page_id,$design_settings,'promotions_section');
+/*echo "<pre>";
+print_r($design_settings['promotions_section']);
+echo "</pre>";*/
 if($section_obj->checkExistSections()):
     $sections = $section_obj->getSections();
     foreach($sections as $section):
+//        echo "<pre>";
+//        print_r($section);
+//        echo "</pre>";
         $section_obj->showSection($section);
     endforeach;
 else:?>

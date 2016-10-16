@@ -15,25 +15,19 @@ class Section
     private $segment_options;
     function __construct($page_id,$design_settings, $section_options_name = 'section_options')
     {
+//        echo "<pre>";
+//        print_r($design_settings);
+//        echo "</pre>";
         $this->sections = array();
         $this->content_settings = array();
         $this->background_settings = array();
         if(!empty($design_settings)) {
-//            echo"existe ";
             if(isset($design_settings[$section_options_name])) {
-//                echo"existe landing_section_options ";
 //                $section_options = $settings[$section_options_name];
                 if($section_options_name === 'section_options') {
-                    echo "es general ";
-////                    $this->section_options = $this->getPageSectionOptions($page_id, $section_options);
-////                    if (!empty($this->section_options))
-////                        $this->segment_options = $this->section_options['segment_options'];
-////                    else
-////                        $this->segment_options = array();
+                    echo "**";
                 }else {
                     $this->sections = $design_settings[$section_options_name];
-////                    $this->section_options = $section_options;
-////                    $this->segment_options = $this->section_options['segment_options'];
                 }
             }
         }
@@ -45,125 +39,77 @@ class Section
         return $this->sections;
     }
 
-
-
+    private function createContentSettings($section){
+        $settings = array();
+        if(!empty($section)){
+            $settings['source_type'] = $section['source_type'];
+            $settings['pages'] = $section['pages'];
+            $settings['show_template'] = $section['show_template'];
+            $settings['template'] = $section['template'];
+            $settings['component'] = $section['component'];
+            $settings['posttype'] = $section['posttype'];
+            $settings['category'] = $section['category'];
+            $settings['terms'] = $section['terms'];
+            $settings['max'] = $section['max'];
+            $settings['slider_type'] = $section['slider_type'];
+            $settings['slider_title'] = $section['slider_title'];
+            $settings['slider_subtitle'] = $section['slider_subtitle'];
+            $settings['show_textimage'] = $section['show_textimage'];
+            $settings['display_title'] = $section['display_title'];
+            $settings['display_subtitle'] = $section['display_subtitle'];
+            $settings['display_overlay'] = $section['display_overlay'];
+            $settings['text_order'] = $section['text_order'];
+            $settings['text_position'] = $section['text_position'];
+            $settings['text_transform'] = $section['text_transform'];
+            $settings['font_size'] = $section['font_size'];
+            $settings['text_color'] = $section['text_color'];
+            $settings['show_layout'] = $section['show_layout'];
+            $settings['container'] = $section['container'];
+            $settings['content_color'] = $section['content_color'];
+            $settings['title_alignment'] = $section['title_alignment'];
+            $settings['title_color'] = $section['title_color'];
+            $settings['segment_title'] = $section['segment_title'];
+            $settings['segment_subtitle'] = $section['segment_subtitle'];
+        }
+        return $settings;
+    }
+    private function createBackgroundSettings($section){
+        $settings = array();
+        if(!empty($section)){
+            $source_type = $section['source_type'];
+            $settings['show_background'] = $section['show_background'];
+            if($source_type == 'page'){
+                $settings['background_type'] = $section['background_type_page'];
+                $settings['background_color'] = $section['background_color_page'];
+                $settings['color_inverted'] = $section['color_inverted_page'];
+                $settings['bg_texture'] = $section['bg_texture_page'];
+                $settings['bg_image'] = $section['bg_image_page'];
+                $settings['bg_image_size'] = (isset($section['bg_image_size_page'])?$section['bg_image_size_page']:[]);
+            }else{
+                $settings['background_type'] = $section['background_type_showcase'];
+                $settings['background_color'] = $section['background_color_showcase'];
+                $settings['color_inverted'] = $section['color_inverted_showcase'];
+                $settings['bg_texture'] = $section['bg_texture_showcase'];
+                $settings['bg_image'] = $section['bg_image_showcase'];
+                $settings['bg_image_size'] = $section['bg_image_size_showcase'];
+            }
+            $settings['media_category'] = $section['media_category'];
+        }
+        return $settings;
+    }
     public function showSection($section){
-        $content_settings = (isset($section['content_settings'])?$section['content_settings']:array());
-        $background_settings = $section['background_settings'];
+        $content_settings = $this->createContentSettings($section);
+        $background_settings = $this->createBackgroundSettings($section);
         $section_layout = new SectionLayout($content_settings,$background_settings);
         $section_layout->displaySectionLayout();
     }
-    public function setSectionBackground($background_settings){
 
-    }
-    public function getSectionBackground($background_settings, $source = 'page'){
-        $background['style'] = '';
-        $background['class'] = '';
-
-    }
-    public function getSectionContent(){
-
-    }
 
     public function checkExistSectionOptions(){
         return (!empty($this->section_options)?true:false);
     }
 
-    public function getPageSectionOptions($page_id,$settings){
-        $options = array();
-//        $section_options = $settings['section_options'];
-        foreach ($settings as $option){
-            if($option['pages'] == $page_id){
-                $options = $option;
-                break;
-            }
-        }
-        return $options;
-    }
     public function getSectionOptions(){
         return $this->section_options;
-    }
-    public function getSegmentList(){
-        return $this->segment_options;
-    }
-    public function getSegmentOptions($segment){
-        $options['container'] = $segment['container'];
-        $options['title_alignment'] = $segment['title_alignment'];
-        $options['segment_title'] = $segment['segment_title'];
-        $options['segment_subtitle'] = $segment['segment_subtitle'];
-        $options['background_type'] = $segment['background_type'];
-        $options['background_color'] = $segment['background_color'];
-        $options['color_inverted'] = $segment['color_inverted'];
-        $options['bg_texture'] = $segment['bg_texture'];
-        $options['bg_image'] = $segment['bg_image'];
-        return $options;
-//        $segment_options = array();
-//        if(!empty($this->segment_options)) {
-//            $options = $this->segment_options;
-//            foreach ($options as $option){
-//                $row['container'] = $option['container'];
-//                $row['title_alignment'] = $option['title_alignment'];
-//                $row['segment_title'] = $option['segment_title'];
-//                $row['segment_subtitle'] = $option['segment_subtitle'];
-//                $row['background_type'] = $option['background_type'];
-//                $row['background_color'] = $option['background_color'];
-//                $row['color_inverted'] = $option['color_inverted'];
-//                $row['bg_texture'] = $option['bg_texture'];
-//                $row['bg_image'] = $option['bg_image'];
-//                $segment_options[] = $row;
-//            }
-//        }
-//        return $segment_options;
-    }
-    public function getSegmentSourceType($segment){
-        return $segment['content_source_options']['source_type'];
-    }
-    public function getSegmentPageID($segment){
-        return $segment['content_source_options']['pages'];
-    }
-    public function getSegmentTitle($segment){
-        if(!empty($segment['segment_title']))
-            $title = $segment['segment_title'];
-        else{
-            if($this->getSegmentSourceType($segment)=='page'){
-                $title = get_the_title($this->getSegmentPageID($segment));
-            }else{
-                $title = ucfirst($segment['content_source_options']['showcase_options']['category']);
-            }
-        }
-        return $title;
-    }
-    public function getSegmentSubtitle($segment){
-        return $segment['segment_subtitle'];
-    }
-    public function displaySegmentShowcase($segment){
-        $showcase_options = $segment['content_source_options']['showcase_options'];
-        $showcase['posttype'] = $showcase_options['posttype'];
-        $showcase['category'] = $showcase_options['category'];
-        $component = $showcase_options['component'];
-        $data = \Showcase::getData($showcase);
-        $textimage = array();
-        $textimage_options = $segment['content_source_options']['showcase_options']['textimage_options'];
-        if(isset($textimage_options) && !empty($textimage_options))
-            $textimage = $textimage_options;
-        $textimage_object = new Textimage($textimage);
-        \Showcase::displayComponent($component,$data,$textimage_object);
-    }
-    public function displaySegmentSlider($segment){
-        $slider_options = $segment['content_source_options']['slider_options'];
-        $slider_terms = explode(',',$slider_options['terms']);
-        if($slider_options['slider_type'] == 'message') {
-            $slider_type = 'vegas';
-            $post_type = ['attachment'];
-            $taxonomy = $slider_options['taxonomy'];
-            $message = $slider_options['message'];
-        }else {
-            $slider_type = 'superslides';
-            $post_type = [$slider_options['post_type']];
-            $taxonomy = $slider_options['taxonomy'];
-            $message = '';
-        }
-        $slider = new Slider($slider_type,$post_type,$taxonomy,$slider_terms,$message);
-        $slider->showSlider();
     }
 }

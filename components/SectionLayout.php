@@ -1,5 +1,6 @@
 <?php namespace Experiensa\Component;
 
+use WP_Query;
 use Experiensa\Modules\QueryBuilder;
 
 class SectionLayout
@@ -19,7 +20,7 @@ class SectionLayout
         $this->source = $content_settings['source_type'];
         $this->background_settings = $background_settings;
         $this->content_settings = $content_settings;
-        $this->setSectionBackground($background_settings,$this->source);
+        $this->setSectionBackground($background_settings);
         $this->setSectionLayout();
         $this->setTextImage();
         $this->setShowcaseData();
@@ -52,46 +53,66 @@ class SectionLayout
                 include(locate_template('templates/partials/section/component.php'));
             }
         }else{//Page
-            $this->setSectionPageSlider($this->background_settings,$this->source);
-            $this->setPageData();
-            //Show Page with Slider
-            if(!empty($this->slider)){
-                $message = '<h1>'.$this->page_data['title'].'</h1>'.$this->page_data['content'];
-                $this->slider_obj = new Slider($this->slider['component'],
-                    $this->slider['post_type'],
-                    $this->slider['taxonomy'],
-                    $this->slider['terms'],
-                    $message);
-                $title = $this->page_data['title'];
-                $name = "section_slider_".str_replace(' ', '_', strtolower($title));
-                $this->slider_obj->showSlider($name);
-            }else{//Single Page
-                $background = $this->background;
-                $layout = $this->layout;
-                $page = $this->page_data;
-                $title = $page['title'];
-                $name = "section_page_".str_replace(' ', '_', strtolower($title));
-                include(locate_template('templates/partials/section/single_page.php'));
+            /*
+            echo "<pre>";
+            print_r($this->content_settings);
+            echo "</pre>";*/
+            if($this->source == 'page') {
+                if($this->content_settings['show_template']==='FALSE') {
+                    $this->setSectionPageSlider($this->background_settings, $this->source);
+                    $this->setPageData();
+                    //Show Page with Slider
+                    if (!empty($this->slider)) {
+                        $message = '<h1>' . $this->page_data['title'] . '</h1>' . $this->page_data['content'];
+                        $this->slider_obj = new Slider($this->slider['component'],
+                            $this->slider['post_type'],
+                            $this->slider['taxonomy'],
+                            $this->slider['terms'],
+                            $message);
+                        $title = $this->page_data['title'];
+                        $name = "section_slider_" . str_replace(' ', '_', strtolower($title));
+                        $this->slider_obj->showSlider($name);
+                    } else {//Single Page
+                        set_query_var('background',$this->background);
+                        set_query_var('layout',$this->layout);
+                        set_query_var('page',$this->page_data);
+                        set_query_var('name',"section_page_" . str_replace(' ', '_', strtolower($this->page_data['title'])));
+                        get_template_part('templates/partials/section/single_page');
+                    }
+                }else {//Page with Template
+                    $page_id = $this->content_settings['pages'];
+                    $template_path = \Helpers::getTemplatePathByID($page_id);
+                    //$template_path = \Helpers::getTemplatePath($template_name);
+                    $args = array(
+                        'p'         => $page_id,
+                        'post_type' => 'any');
+                    global $wp_query;
+                    $wp_query = new WP_Query($args);
+                    get_template_part(str_replace('.php', '', $template_path));
+                }
+            }else{//Single Template
+                $template = str_replace('.php','',$this->content_settings['template']);
+                get_template_part($template);
             }
         }
     }
-    public function setSectionBackground($background_settings, $source = 'page'){
+    public function setSectionBackground($background_settings){
         $background['style'] = '';
         $background['class'] = '';
         $background['type'] = 'none';
-        if($background_settings['show_background'] == 'TRUE' && ( $source == 'showcase' || ($source == 'page' && $background_settings['background_type_page'] != 'slider')) ){
-            $type = $this->getBackgroundType($background_settings,$source);
+        if($background_settings['show_background'] == 'TRUE' && $background_settings['background_type'] != 'slider'){
+            $type = $background_settings['background_type'];
             if($type == 'color'){
                 $background['style'] = '';
-                $background['class'] = $this->getBgColor($background_settings,$source);
+                $background['class'] = $this->getBgColor($background_settings);
                 $background['type'] = 'color';
             }else{
                 if($type == 'texture'){
-                    $background['style'] = $this->getBgTexture($background_settings,$source);
+                    $background['style'] = $this->getBgTexture($background_settings['bg_texture']);
                     $background['class'] = '';
                     $background['type'] = 'texture';
                 }else{
-                    $background['style'] = $this->getBgImage($background_settings,$source);
+                    $background['style'] = $this->getBackgroundImage($background_settings['bg_image'],$background_settings['bg_image_size']);
                     $background['class'] = '';
                     $background['type'] = 'image';
                 }
@@ -99,37 +120,20 @@ class SectionLayout
         }
         $this->background = $background;
     }
-    public function getBackgroundType($background_settings, $source = 'page'){
-        if($source == 'page'){
-            return $background_settings['background_type_page'];
-        }
-        return $background_settings['background_type_showcase'];
+
+    public function getBgColor($background_settings){
+        return get_the_color($background_settings['background_color'], $background_settings['color_inverted']);
     }
-    public function getBgColor($background_settings,$source){
-        if($source == 'page'){
-            return get_the_color($background_settings['background_color_page'], $background_settings['color_inverted_page']);
-        }
-        return get_the_color($background_settings['background_color_showcase'], $background_settings['color_inverted_showcase']);
-    }
-    public function getBgTexture($background_settings,$source){
-        if($source == 'page'){
-            $texture_image = $this->getBackgroundImage($background_settings['bg_texture_page']);
-        }else{
-            $texture_image = $this->getBackgroundImage($background_settings['bg_texture_showcase']);
-        }
+    public function getBgTexture($texture_list){
+        $texture_image = $this->getBackgroundImageURL($texture_list);
         return ($texture_image ? "background-image: url(" . $texture_image . "); background-repeat:repeat;" : "");
     }
-    public function getBgImage($background_settings,$source){
-        if($source == 'page'){
-            $image = $this->getBackgroundImage($background_settings['bg_image_page']);
-            $size = $this->getBackgroundSize($background_settings,$source);
-        }else{
-            $image = $this->getBackgroundImage($background_settings['bg_image_showcase']);
-            $size = $this->getBackgroundSize($background_settings,$source);
-        }
+    public function getBackgroundImage($image_list,$size_list){
+        $image = $this->getBackgroundImageURL($image_list);
+        $size = $this->getBackgroundSize($size_list);
         return ($image ? "background:url('" . $image . "') no-repeat center center fixed;".$size : "");
     }
-    private function getBackgroundImage($images){
+    private function getBackgroundImageURL($images){
         $bg_img = false;
         foreach($images as $img){
             if(isset($img)){
@@ -139,21 +143,15 @@ class SectionLayout
         }
         return $bg_img;
     }
-    private function getBackgroundSize($background_settings,$source){
+    private function getBackgroundSize($size_list){
         $size = "background-size: cover;";
-        if($source == 'page'){
-            $s = (isset($background_settings['bg_image_size_page'])?$background_settings['bg_image_size_page']:[0=>'content']);
-            if(!empty($s[0]) && $s[0]==='full')
-                $size .= 'height:100vh;';
-        }else{
-            $s = (isset($background_settings['bg_image_size_showcase'])?$background_settings['bg_image_size_showcase']:[0=>'content']);
-            if(!empty($s[0]) && $s[0]==='full')
-                $size .= 'height:100vh;';
-        }
+        $s = (isset($size_list)?$size_list:[0=>'content']);
+        if(!empty($s[0]) && $s[0]==='full')
+            $size .= 'height:100vh;';
         return $size;
     }
     private function checkShowPageBgSlider($background_settings,$source){
-        if($source == 'page' && $background_settings['show_background'] == 'TRUE' && $background_settings['background_type_page'] == 'slider')
+        if($source == 'page' && $background_settings['show_background'] == 'TRUE' && $background_settings['background_type'] == 'slider')
             return true;
         return false;
     }

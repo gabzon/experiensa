@@ -2,7 +2,6 @@
 /**
 * Template Name: Landing page
 */
-use Experiensa\Modules\QueryBuilder;
 $design_settings = get_option('experiensa_design_settings');
 $page_object = get_queried_object();
 $page_id     = get_queried_object_id();

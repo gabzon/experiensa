@@ -56,11 +56,27 @@ class Helpers {
         $templates_names = array();
         foreach ($templates as $key => $value){
             if($value !== 'landing.php' )
-                $templates_names[$key] = $key;
+                $templates_names[$value] = $key;
         }
         return $templates_names;
     }
-
+    public static function getTemplatePathByID($id){
+        $template = get_post_meta( $id, '_wp_page_template', true );
+        if($template == 'default')
+            $template = 'index.php';
+        return $template;
+    }
+    public static function getTemplatePath($template_name){
+        $path = 'index.php';
+        $templates = wp_get_theme()->get_page_templates();
+        foreach ($templates as $key => $value){
+            if($value == $template_name ) {
+                $path = $value;
+                break;
+            }
+        }
+        return $path;
+    }
     /**
      * @return array
      */

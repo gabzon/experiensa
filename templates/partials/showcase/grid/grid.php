@@ -19,29 +19,26 @@ if(!empty($data)):
             <?php
             else:
             ?>
-                <div class="ui center aligned segment">
-                    <div class="content">
-                        <div class="header" style="color:#000;">
-                            <?=$value['title'];?>
-                        </div>
-                    </div>
-                </div>
                 <div class="ui secondary segment" style="padding: 0;background-color: transparent;">
                     <a href="<?=$value['post_link'];?>" class="image" target="_blank">
-                        <img src="<?=$value['image_url'];?>" style="width: 100%;height: 100%;">
-                    </a>
-                </div>
+                        <div class="ui image">
+                            <div class="content" style="text-align: center !important; padding: 5px;background-color: rgba(0, 0, 0, 0) !important; position: absolute; height: 100%; width: 100%;z-index: 1;padding-top: 25%;">
+                                <div class="center">
+                                    <div class="header" style="font-size: 1em;color: #FFFFFF;"><?= $value['title'];?></div>
                 <?php
                 if (!empty($value['subtitle'])):
                 ?>
-                <div class="ui secondary center aligned segment">
-                    <div class="content">
-                        <?=$value['subtitle'];?>
-                    </div>
-                </div>
+                                        <br>
+                                        <div class="description" style="font-size: 1em;color: #FFFFFF;"><?= $value['subtitle'];?></div>
                 <?php
                 endif;
                 ?>
+                                </div>
+                            </div>
+                            <img src="<?=$value['image_url'];?>" width="100%">
+                        </div>
+                    </a>
+                </div>
             <?php
             endif;
             ?>
