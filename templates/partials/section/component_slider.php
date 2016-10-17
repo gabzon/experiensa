@@ -12,7 +12,7 @@ if($show_layout):?>
             </div>
         </div>
         <p>
-        <?php $this->slider_obj->showSlider();?>
+        <?php $slider_obj->showSlider();?>
         </p>
     </div>
 </section>
@@ -20,6 +20,6 @@ if($show_layout):?>
 else:?>
     <div style="color: #FFFFFF;">
 <?php
-    $this->slider_obj->showSlider($name);
+    $slider_obj->showSlider($name);
 endif;?>
     </div>

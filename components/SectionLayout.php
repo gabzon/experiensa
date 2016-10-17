@@ -36,27 +36,24 @@ class SectionLayout
                     $this->slider['taxonomy'],
                     $this->slider['terms'],
                     $this->slider['message']);
-                $show_layout = ($this->content_settings['show_layout']=='TRUE'?true:false);
-                $background = $this->background;
-                $layout = $this->layout;
-                $title = $layout['title'];
-                $name = "section_slider_".str_replace(' ', '_', strtolower($title));
-                include(locate_template('templates/partials/section/component_slider.php'));
+                set_query_var('slider_obj',$this->slider_obj);
+                set_query_var('show_layout',($this->content_settings['show_layout']=='TRUE'?true:false));
+                set_query_var('background',$this->background);
+                set_query_var('layout',$this->layout);
+                set_query_var('name',"section_slider_".str_replace(' ', '_', strtolower($this->layout['title'])));
+                get_template_part("templates/partials/section/component_slider");
+//                include(locate_template('templates/partials/section/component_slider.php'));
             }else{// Showcase is a single component
-                $component = $this->content_settings['component'];
-                $background = $this->background;
-                $showcase_data = $this->showcase_data;
-                $textimage_obj = new Textimage($this->textimage);
-                $layout = $this->layout;
-                $title = $layout['title'];
-                $name = "section_component_".str_replace(' ', '_', strtolower($title));
-                include(locate_template('templates/partials/section/component.php'));
+                set_query_var('component',$this->content_settings['component']);
+                set_query_var('background',$this->background);
+                set_query_var('showcase_data',$this->showcase_data);
+                set_query_var('textimage_obj',new Textimage($this->textimage));
+                set_query_var('layout',$this->layout);
+                set_query_var('name',"section_component_".str_replace(' ', '_', strtolower($this->layout['title'])));
+                get_template_part("templates/partials/section/component");
+                //include(locate_template('templates/partials/section/component.php'));
             }
         }else{//Page
-            /*
-            echo "<pre>";
-            print_r($this->content_settings);
-            echo "</pre>";*/
             if($this->source == 'page') {
                 if($this->content_settings['show_template']==='FALSE') {
                     $this->setSectionPageSlider($this->background_settings, $this->source);
@@ -241,8 +238,13 @@ class SectionLayout
         $this->textimage = $textimage;
     }
     private function setShowcaseData(){
+        /*echo "<pre>";
+        print_r($this->content_settings);
+        echo "</pre>";*/
         $showcase['posttype'] = $this->content_settings['posttype'];
         $showcase['category'] = $this->content_settings['category'];
+        $showcase['terms'] = $this->content_settings['terms'];
+        $showcase['max'] = $this->content_settings['max'];
         $this->showcase_data = \Showcase::getData($showcase);
     }
     private function setPageData(){

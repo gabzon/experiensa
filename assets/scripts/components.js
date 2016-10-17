@@ -1,5 +1,5 @@
 
-function initLandingCarousel(){
+function initCarousel(){
     var carousel = jQuery(".owl-carousel");
     carousel.owlCarousel({
         loop:true,
@@ -33,5 +33,5 @@ function initLandingCarousel(){
     }
 }
 function initLandingComponents(){
-    initLandingCarousel();
+    initCarousel();
 }

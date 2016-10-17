@@ -91,6 +91,7 @@
                 reservation_datepicker();
                 sendReservation();
                 smoothPageScroll();
+                initCarousel();
             },
             finalize: function() {
               // JavaScript to be fired on all pages, after page specific JS is fired

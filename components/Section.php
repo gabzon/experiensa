@@ -50,7 +50,7 @@ class Section
             $settings['posttype'] = $section['posttype'];
             $settings['category'] = $section['category'];
             $settings['terms'] = $section['terms'];
-            $settings['max'] = $section['max'];
+            $settings['max'] = (isset($section['max'])&&!empty($section['max'])?$section['max']:'-1');
             $settings['slider_type'] = $section['slider_type'];
             $settings['slider_title'] = $section['slider_title'];
             $settings['slider_subtitle'] = $section['slider_subtitle'];
@@ -91,7 +91,7 @@ class Section
                 $settings['color_inverted'] = $section['color_inverted_showcase'];
                 $settings['bg_texture'] = $section['bg_texture_showcase'];
                 $settings['bg_image'] = $section['bg_image_showcase'];
-                $settings['bg_image_size'] = $section['bg_image_size_showcase'];
+                $settings['bg_image_size'] = (isset($section['bg_image_size_showcase'])?$section['bg_image_size_showcase']:"content");
             }
             $settings['media_category'] = $section['media_category'];
         }

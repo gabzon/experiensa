@@ -55,42 +55,45 @@ class Showcase{
         }
     }
     public static function displayComponent($component,$data,$textimage_option){
+        set_query_var('component',$component);
+        set_query_var('data',$data);
+        set_query_var('textimage_option',$textimage_option);
         switch($component){
             case 'carousel':
-                include(locate_template('templates/partials/showcase/carousel/carousel.php'));
+                get_template_part("templates/partials/showcase/carousel/carousel");
                 break;
             case 'circular_grid':
-                include(locate_template('templates/partials/showcase/grid/circular-grid.php'));
+                get_template_part("templates/partials/showcase/grid/circular-grid");
                 break;
             case 'grid':
-                include(locate_template('templates/partials/showcase/grid/grid.php'));
+                get_template_part("templates/partials/showcase/grid/grid");
                 break;
             case 'card':
-                include(locate_template('templates/partials/showcase/card/card.php'));
+                get_template_part("templates/partials/showcase/card/card");
                 break;
             case 'button':
-                include(locate_template('templates/partials/showcase/button/button.php'));
+                get_template_part("templates/partials/showcase/button/button");
                 break;
             case 'masonry':
-                include(locate_template('templates/partials/showcase/masonry/masonry.php'));
+                get_template_part("templates/partials/showcase/masonry/masonry");
                 break;
             case 'flex-layout':
-                include(locate_template('templates/partials/showcase/freewall/flex-layout.php'));
+                get_template_part("templates/partials/showcase/freewall/flex-layout");
                 break;
             case 'windows':
-                include(locate_template('templates/partials/showcase/freewall/win8-layout.php'));
+                get_template_part("templates/partials/showcase/freewall/win8-layout");
                 break;
             case 'img-layout':
-                include(locate_template('templates/partials/showcase/freewall/image-layout.php'));
+                get_template_part("templates/partials/showcase/freewall/image-layout");
                 break;
             case 'pinterest':
-                include(locate_template('templates/partials/showcase/freewall/pinterest-layout.php'));
+                get_template_part("templates/partials/showcase/freewall/pinterest-layout");
                 break;
             case 'carousel-testimonial':
-                include(locate_template('templates/partials/showcase/carousel/carousel-testimonial.php'));
+                get_template_part("templates/partials/showcase/carousel/carousel-testimonial");
                 break;
             default:
-                include(locate_template('templates/partials/showcase/carousel/carousel.php'));
+                get_template_part("templates/partials/showcase/carousel/carousel");
                 break;
         }
     }
