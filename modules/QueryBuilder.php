@@ -71,6 +71,15 @@ class QueryBuilder
         $query = new WP_Query($args);
         return $query;
     }
+    public static function getPosts($limit = 4){
+        $args = array(
+            'numberposts' => $limit,
+            'order'=> 'ASC',
+            'orderby' => 'title'
+        );
+        $posts = get_posts($args);
+        return $posts;
+    }
     public static function getPostByPostType($post_type,$limit = -1){
         $args = array(
             'posts_per_page' => $limit,
@@ -108,7 +117,10 @@ class QueryBuilder
         $query = get_posts($args);
         return $query;
     }
-
+    public static function getFeatureImage($id){
+        $feat_image = wp_get_attachment_url(get_post_thumbnail_id($id));
+        return $feat_image;
+    }
     public static function getImagesByPostType($post_type,$taxonomy,$terms){
         $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms);
         $images = array();
