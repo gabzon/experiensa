@@ -28,9 +28,14 @@ function initCarousel(){
             jQuery(".owl-dots", this).removeClass('disabled');
             jQuery(".owl-nav", this).removeClass('disabled');
         });
-        var carousel_active = jQuery('.owl-item.active').length;
-        if (carousel_active === 1) {
-            jQuery('.owl-nav').hide();
+        var testimonial_carousel = jQuery(".testimonial-carousel");
+        if(testimonial_carousel.length > 0) {
+            jQuery('.owl-nav').show();
+        }else{
+            var carousel_active = jQuery('.owl-item.active').length;
+            if (carousel_active === 1) {
+                jQuery('.owl-nav').hide();
+            }
         }
     }
 }
