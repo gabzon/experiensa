@@ -91,7 +91,10 @@
                 reservation_datepicker();
                 sendReservation();
                 smoothPageScroll();
+                initSlides();
                 initCarousel();
+                initMasonry();
+                freewall_layout();
             },
             finalize: function() {
               // JavaScript to be fired on all pages, after page specific JS is fired
@@ -111,7 +114,7 @@
         // Home page
         'home': {
             init: function() {
-                $('#slides').superslides({play:'8000'});
+                initSlides();
                 var header_menu_background = header_background_color();
                 var first_section = jQuery('.ui.vertical.segment:first');
                 if(first_section.length>0){
@@ -127,16 +130,6 @@
                 //Init Landing Components: Carousel
                 initLandingComponents();
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.4});
-
-                $('.grid-masonry').masonry({
-                  // set itemSelector so .grid-sizer is not used in layout
-                  itemSelector: '.grid-item',
-                  // use element for option
-                  columnWidth: '.grid-sizer',
-                  percentPosition: true,
-                  gutter: 10
-                });
-                // $('.grid-masonry .grid-item .image').dimmer({on:'hover', opacity: 0.4});
                 freewall_layout();
 
             },

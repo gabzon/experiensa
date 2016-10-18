@@ -28,9 +28,52 @@ class QueryBuilder
         $taxonomies['news'] = __('News','sage');
         return $taxonomies;
     }
-    public static function getPostByPostType($post_type){
+    public static function getTermsByTaxonomy($taxonomy,$terms = array()){
+        if(!empty($terms)){
+            $args = array(
+                'taxonomy'   => $taxonomy,
+                'orderby'    => 'none',
+                'slug'       => $terms,
+                'hide_empty' => true,
+            );
+
+        }else {
+            $args = array(
+                'taxonomy'   => $taxonomy,
+                'orderby'    => 'none',
+                'hide_empty' => true,
+            );
+        }
+        $terms = get_terms($args);
+        return $terms;
+    }
+    public static function getPostByArguments($post_type,$taxonomy,$terms,$limit=-1){
+        if(empty($terms))
+            $terms = QueryBuilder::getTermsByTaxonomy($taxonomy);
+        else {
+            $terms = QueryBuilder::getTermsByTaxonomy($taxonomy, $terms);
+            if(empty($terms))
+                $terms = QueryBuilder::getTermsByTaxonomy($taxonomy);
+        }
+
+        $args = array (
+            'posts_per_page' => $limit,
+            'post_type'      => array($post_type),
+            'post_status'    => array('publish', 'inherit'),
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => $taxonomy,
+                    'field'    => 'slug',
+                    'terms'    => wp_list_pluck($terms, 'slug')
+                )
+            )
+        );
+        $query = new WP_Query($args);
+        return $query;
+    }
+    public static function getPostByPostType($post_type,$limit = -1){
         $args = array(
-            'posts_per_page' => -1,
+            'posts_per_page' => $limit,
             'post_type'      => array($post_type),
             'post_status'    => array('publish', 'inherit'),
             'order' => 'DESC',
@@ -49,10 +92,10 @@ class QueryBuilder
         return $query;
     }
 
-    public static function getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms){
+    public static function getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms,$limit = -1){
         $args = array(
             'post_type' => $post_type,
-            'posts_per_page' => -1,
+            'posts_per_page' => $limit,
             'post_status'   => array( 'publish', 'inherit' ),
             'tax_query' => array(
                 array(
@@ -65,6 +108,7 @@ class QueryBuilder
         $query = get_posts($args);
         return $query;
     }
+
     public static function getImagesByPostType($post_type,$taxonomy,$terms){
         $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms);
         $images = array();
@@ -144,9 +188,9 @@ class QueryBuilder
         }
         return $data;
     }
-    public static function getTermsByTaxonomy($taxonomy){
-        return get_terms($taxonomy, 'orderby=none&hide_empty');
-    }
+//    public static function getTermsByTaxonomy($taxonomy){
+//        return get_terms($taxonomy, 'orderby=none&hide_empty');
+//    }
     public static function getTermsByPostTypeAndTaxonomy($post_types,$taxonomies){
         global $wpdb;
 

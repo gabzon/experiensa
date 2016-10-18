@@ -97,7 +97,7 @@ class Showcase{
                 break;
         }
     }
-    public static function showcase_query($posttype,$category){
+    public static function showcase_query($posttype,$category,$terms=array(),$limit=-1){
         $query = null;
         switch ($category) {
             case 'promotions':
@@ -107,19 +107,19 @@ class Showcase{
                 $query = self::general_query($posttype, $category);
                 break;
             case 'theme':
-                $query = self::by_terms_query($posttype, $category);
+                $query = QueryBuilder::getPostByArguments($posttype,$category,$terms,$limit);
                 break;
             case 'location':
-                $query = self::by_terms_query($posttype, $category);
+                $query = QueryBuilder::getPostByArguments($posttype,$category,$terms,$limit);
                 break;
             case 'facility_type':
-                $query = self::by_terms_query($posttype, $category);
+                $query = QueryBuilder::getPostByArguments($posttype,$category,$terms,$limit);
                 break;
             case 'all':
                 $query = QueryBuilder::getPostByPostType($posttype);
                 break;
             default:
-                $query = null;
+                $query = QueryBuilder::getPostByArguments($posttype,$category,$terms,$limit);
                 break;
         }
         return $query;
@@ -153,15 +153,8 @@ class Showcase{
         $query = new WP_Query($args);
         return $query;
     }
-    public static function getTermByTaxonomy($category){
-        $terms = get_terms( array(
-            'taxonomy' => $category,
-            'orderby'=> 'name',
-            'hide_empty' => true,
-        ) );
-        return $terms;
-    }
-    public static function byTermsQueryLimitOneTerm($posttype,$category,$term){
+
+    public static function getOnePostByCategoryAndTerm($posttype,$category,$term){
         $args = array (
             'posts_per_page' => 1,
             'post_type'      => array($posttype),
@@ -281,6 +274,9 @@ class Showcase{
                 $info['image_url'] = $images['image_url'];
                 $info['thumbnail_image'] = $images['thumbnail_image'];
                 $info['thumbnail_url'] = $images['thumbnail_url'];
+                /*echo "<pre>";
+                print_r($info);
+                echo "</pre>";*/
             }
         }
         return $info;
@@ -342,53 +338,55 @@ class Showcase{
         return $display;
     }
 
-    public static function getData($args){
+    public static function getData($post_type,$category,$terms,$max){
         $data = array();
         //Check if have showcase options dont have posttype
-        if($args['posttype']=='none'):
-            $terms = self::getTermByTaxonomy($args['category']);
+        if($post_type == 'none') {
+            if(empty($terms))
+                $terms = QueryBuilder::getTermsByTaxonomy($category);
+            else
+                $terms = QueryBuilder::getTermsByTaxonomy($category,$terms);
             $info = array();
-            foreach($terms as $term):
-                $query = self::byTermsQueryLimitOneTerm('attachment',$args['category'],$term);
-                if($query && $query->have_posts()):
-                    while ( $query->have_posts() ) :
+            foreach ($terms as $term) {
+                $query = self::getOnePostByCategoryAndTerm('attachment', $category, $term);
+                if ($query && $query->have_posts()) {
+                    while ($query->have_posts()) {
                         $query->the_post();
                         $id = $query->post->ID;
-                        $info = self::getPostdataNoPosttype($args['category'],$id);
-                        if ( !empty( $info ) )
+                        $info = self::getPostdataNoPosttype($category, $id);
+                        if (!empty($info))
                             $data[] = $info;
-                    endwhile;
-                endif;
-            endforeach;
-        //Showcase have any posttype
-        else:
-            if($args['posttype']=='team'):
-                $data = self::get_post_data($args['posttype'], $args['category']);
-            else:
-                $query = self::showcase_query( $args['posttype'] , $args['category']);
-                if($query && $query->have_posts()):
-                    while ( $query->have_posts() ) :
+                    }
+                }
+            }
+        }else {//Showcase have any posttype
+            if ($post_type == 'team') {
+                $data = self::get_post_data($post_type, $category);
+            }else {
+                $query = self::showcase_query($post_type, $category, $terms, $max);
+                if ($query && $query->have_posts()) {
+                    while ($query->have_posts()) {
                         $query->the_post();
                         $id = $query->post->ID;
                         //If postype is brochure
-                        if($args['posttype'] == 'brochure'){
+                        if ($post_type == 'brochure') {
                             $brochures = Brochure::getBrochuresByPost($id);
-                            foreach ($brochures as $brochure){
-                                $info = Brochure::getInfo($brochure,$id);
-                                if (!empty($info)):
+                            foreach ($brochures as $brochure) {
+                                $info = Brochure::getInfo($brochure, $id);
+                                if (!empty($info)) {
                                     $data[] = $info;
-                                endif;
+                                }
                             }
-                        }else {
-                            $info = self::get_post_data($args['posttype'], $args['category'], $id);
-                            if (!empty($info)):
+                        } else {
+                            $info = self::get_post_data($post_type, $category, $id);
+                            if (!empty($info)) {
                                 $data[] = $info;
-                            endif;
+                            }
                         }
-                    endwhile;
-                endif;
-            endif;
-        endif;
+                    }
+                }
+            }
+        }
         return $data;
     }
 }

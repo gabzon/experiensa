@@ -1,37 +1,59 @@
 
 function initCarousel(){
     var carousel = jQuery(".owl-carousel");
-    carousel.owlCarousel({
-        loop:true,
-        margin:5,
-        nav:true,
-        autoHeight:false,
-        navText: [
-            "<i class='angle left big icon'></i>",
-            "<i class='angle right big icon'></i>"
-        ],
-        responsive:{
-            0:{
-                items:1,
-                nav:false
-            },
-            600:{
-                items:3
-            },
-            1920:{
-                items:5
+    if(carousel.length>0) {
+        carousel.owlCarousel({
+            loop: true,
+            margin: 5,
+            nav: true,
+            autoHeight: false,
+            navText: [
+                "<i class='angle left big icon'></i>",
+                "<i class='angle right big icon'></i>"
+            ],
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                600: {
+                    items: 3
+                },
+                1920: {
+                    items: 5
+                }
             }
+        });
+        carousel.each(function () {
+            jQuery(".owl-dots", this).removeClass('disabled');
+            jQuery(".owl-nav", this).removeClass('disabled');
+        });
+        var carousel_active = jQuery('.owl-item.active').length;
+        if (carousel_active === 1) {
+            jQuery('.owl-nav').hide();
         }
-    });
-    carousel.each(function(){
-        jQuery(".owl-dots",this).removeClass('disabled');
-        jQuery(".owl-nav",this).removeClass('disabled');
-    });
-    var carousel_active = jQuery('.owl-item.active').length;
-    if(carousel_active === 1){
-        jQuery('.owl-nav').hide();
+    }
+}
+function initMasonry() {
+    var jMasonry = jQuery('.grid-masonry');
+    if (jMasonry.length > 0) {
+        jMasonry.masonry({
+            // set itemSelector so .grid-sizer is not used in layout
+            itemSelector: '.grid-item',
+            // use element for option
+            columnWidth: '.grid-sizer',
+            percentPosition: true,
+            gutter: 10
+        });
+    }
+}
+function initSlides(){
+    var slides = jQuery('#slides');
+    if(slides.length > 0){
+        slides.superslides({play:'8000'});
     }
 }
 function initLandingComponents(){
     initCarousel();
+    initMasonry();
 }

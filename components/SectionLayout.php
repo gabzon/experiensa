@@ -241,11 +241,12 @@ class SectionLayout
         /*echo "<pre>";
         print_r($this->content_settings);
         echo "</pre>";*/
-        $showcase['posttype'] = $this->content_settings['posttype'];
-        $showcase['category'] = $this->content_settings['category'];
-        $showcase['terms'] = $this->content_settings['terms'];
-        $showcase['max'] = $this->content_settings['max'];
-        $this->showcase_data = \Showcase::getData($showcase);
+        $post_type = $this->content_settings['posttype'];
+        $category = $this->content_settings['category'];
+        $terms = $this->content_settings['terms'];
+        $terms = explode(',',$terms);
+        $max = $this->content_settings['max'];
+        $this->showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
     }
     private function setPageData(){
         $page_id = $this->content_settings['pages'];

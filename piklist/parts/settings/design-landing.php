@@ -5,8 +5,6 @@ Setting: experiensa_design_settings
 Tab: Landing
 Flow: Layout
 */
-
-
 /**
  * TextImages settings
  */
@@ -22,9 +20,14 @@ $show_textimage = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
-        )
+        ),
+        array(
+            'field' => 'landing_section:component',
+            'value' => 'slider',
+            'compare' => '!='
+        ),
     )
 );
 
@@ -32,15 +35,15 @@ $ti_html_title = array(
     'type'      => 'html',
     'template'  => 'field',
     'columns'   => 12,
-    'field'     => 'ti_html_title', // 'field' is only required for a settings page.
+    'field'     => 'ti_html_title',
     'value'     => '<h4>'.__('Textimage Options','sage').'</h4><hr>',
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
@@ -57,11 +60,11 @@ $ti_display_title = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
@@ -78,11 +81,11 @@ $ti_display_subtitle = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
@@ -99,11 +102,11 @@ $ti_display_overlay = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
@@ -120,11 +123,11 @@ $ti_text_order = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
@@ -148,11 +151,11 @@ $ti_text_position = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
@@ -170,30 +173,35 @@ $ti_text_transformation = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
 );
 
 $ti_font_size = array(
-    'type'      => 'text',
+    'type'      => 'number',
     'label' => __('Text Size','sage'),
     'help'  => __('em font size type','sage'),
     'field'     => 'font_size',
     'columns'   => 3,
-    'value'     => '1',
+    'default'     => 0.3,
+    'attributes' => array(
+        'step' => 0.1,
+        'min'  => 0.1,
+        'max'  => 3
+    ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
@@ -210,11 +218,11 @@ $ti_text_color = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_textimage',
+            'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
         )
     )
@@ -231,49 +239,7 @@ $showcase_html_title = array(
     'value'     => '<h4>'.__('Showcase Options','sage').'</h4><hr>',
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
-            'value' => 'showcase'
-        )
-    )
-);
-
-$showcase_posttype = array(
-    'type'      => 'select',
-    'field'     => 'posttype',
-    'value'     => 'none',
-    'label'     => __('Post Type to Show','sage'),
-    'columns'   => 4,
-    'choices'   => \Experiensa\Modules\QueryBuilder::getPostTypes(),
-    'conditions' => array(
-        array(
-            'field' => 'landing_section_options:content_settings:source_type',
-            'value' => 'showcase'
-        )
-    )
-//    'conditions' => array(
-//        'relation'  => 'or',
-//        array(
-//            'field' => 'landing_section_options:content_options:showcase_options:component',
-//            'value' => Helpers::getComponentList()
-//        ),
-//        array(
-//            'field' => 'landing_section_options:content_options:showcase_options:slider_options:slider_type',
-//            'compare' => '!=',
-//            'value' => 'message'
-//        )
-//    )
-);
-
-$showcase_categories = array(
-    'type'      => 'select',
-    'field'     => 'category',
-    'value'     => 'location',
-    'label'     => __('Category','sage'),
-    'columns'   => 4,
-    'choices'   => \Experiensa\Modules\QueryBuilder::getTaxonomies(),
-    'conditions' => array(
-        array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         )
     )
@@ -288,13 +254,76 @@ $showcase_component = array(
     'value'     => 'carousel',
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         )
     )
 );
-
-
+$showcase_posttype = array(
+    'type'      => 'select',
+    'field'     => 'posttype',
+    'value'     => 'none',
+    'label'     => __('Post Type to Show','sage'),
+    'columns'   => 4,
+    'choices'   => \Experiensa\Modules\QueryBuilder::getPostTypes(),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:source_type',
+            'value' => 'showcase'
+        )
+    )
+);
+$showcase_categories = array(
+    'type'      => 'select',
+    'field'     => 'category',
+    'value'     => 'location',
+    'label'     => __('Category','sage'),
+    'columns'   => 4,
+    'choices'   => \Experiensa\Modules\QueryBuilder::getTaxonomies(),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:source_type',
+            'value' => 'showcase'
+        )
+    )
+);
+$showcase_terms = array(
+    'type' => 'text',
+    'field' => 'terms',
+    'label' => __('Categories','sage'),
+    'columns'   => 10,
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('You can enter here the categories separated by commas','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:source_type',
+            'value' => 'showcase'
+        ),
+        array(
+            'field' => 'landing_section:category',
+            'value' => array('all','news'),
+            'compare' => '!='
+        )
+    )
+);
+$showcase_max_post = array(
+    'type' => 'number',
+    'field' => 'max',
+    'label' => __('Max post #','sage'),
+    'columns'   => 2,
+    'value' => '2',
+    'attributes' => array(
+        'min'  => -1
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:source_type',
+            'value' => 'showcase'
+        )
+    )
+);
 /**
  *  Photo Slider Options
  */
@@ -302,15 +331,15 @@ $slider_html_title = array(
     'type'      => 'html',
     'template'  => 'field',
     'columns'   => 12,
-    'field'     => 'slider_html_title', // 'field' is only required for a settings page.
+    'field'     => 'slider_html_title',
     'value'     => '<h4>'.__('Photo Slider Options','sage').'</h4><hr>',
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:component',
+            'field' => 'landing_section:component',
             'value' => 'slider'
         )
     )
@@ -328,69 +357,64 @@ $slider_type = array(
     'value'     => 'posts',
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:component',
+            'field' => 'landing_section:component',
             'value' => 'slider'
         )
     )
 );
-$slider_message = array(
+$slider_title = array(
     'type' => 'text',
-    'field' => 'message',
-    'label' => __('Slider Message','sage'),
-    'columns'   => 7,
+    'field' => 'slider_title',
+    'label' => __('Slider Title','sage'),
+    'columns'   => 4,
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter your message here','sage')
+        'placeholder' => __('Enter your title here','sage')
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:component',
+            'field' => 'landing_section:component',
             'value' => 'slider'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:slider_type',
+            'field' => 'landing_section:slider_type',
             'value' => 'message'
         )
     )
-//    'conditions' => array(
-//        array(
-//            'field' => 'landing_section_options:content_settings:showcase_options:slider_options:slider_type',
-//            'value' => 'message'
-//        )
-//    )
 );
-$showcase_terms = array(
+$slider_subtitle = array(
     'type' => 'text',
-    'field' => 'terms',
-    'label' => __('Categories','sage'),
-    'columns'   => 7,
+    'field' => 'slider_subtitle',
+    'label' => __('Slider Subtitle','sage'),
+    'columns'   => 4,
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('You can enter here the categories separated by commas','sage')
+        'placeholder' => __('Enter your subtitle here','sage')
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:component',
+            'field' => 'landing_section:component',
             'value' => 'slider'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:slider_type',
-            'value' => 'posts'
+            'field' => 'landing_section:slider_type',
+            'value' => 'message'
         )
     )
 );
+
 /**
  * Content Layout Options
  */
@@ -398,15 +422,15 @@ $layout_html_title = array(
     'type'      => 'html',
     'template'  => 'field',
     'columns'   => 12,
-    'field'     => 'layout_html_title', // 'field' is only required for a settings page.
+    'field'     => 'layout_html_title',
     'value'     => '<h4>'.__('Layout Options','sage').'</h4><hr>',
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_layout',
+            'field' => 'landing_section:show_layout',
             'value' => 'TRUE'
         )
     )
@@ -424,11 +448,11 @@ $segment_container = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_layout',
+            'field' => 'landing_section:show_layout',
             'value' => 'TRUE'
         )
     )
@@ -445,11 +469,11 @@ $segment_content_color = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_layout',
+            'field' => 'landing_section:show_layout',
             'value' => 'TRUE'
         )
     )
@@ -467,11 +491,11 @@ $segment_title_alignment = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_layout',
+            'field' => 'landing_section:show_layout',
             'value' => 'TRUE'
         )
     )
@@ -488,11 +512,11 @@ $segment_title_color = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_layout',
+            'field' => 'landing_section:show_layout',
             'value' => 'TRUE'
         )
     )
@@ -508,11 +532,11 @@ $segment_title = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_layout',
+            'field' => 'landing_section:show_layout',
             'value' => 'TRUE'
         )
     )
@@ -528,11 +552,11 @@ $segment_subtitle = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:show_layout',
+            'field' => 'landing_section:show_layout',
             'value' => 'TRUE'
         )
     )
@@ -550,8 +574,13 @@ $show_layout = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
+        ),
+        array(
+            'field' => 'landing_section:component',
+            'value' => 'slider',
+            'compare' => '!='
         ),
     )
 );
@@ -566,46 +595,78 @@ $source_type = array(
     'label' => __('Source Content Type','sage'),
     'help'  => __('Here you can select what type of content displayed in the segment','sage'),
     'field'     => 'source_type',
-    'columns'   => 6,
+    'columns'   => 4,
     'value'     => 'page',
     'choices'   => array(
         'page'              => __('Page','sage'),
-        'showcase'           => __('Showcase','sage')
+        'showcase'           => __('Showcase','sage'),
+        'template'           => __('Template','sage')
     )
 );
 $pages = array(
     'type'      => 'select',
     'label' => __('Page to show','sage'),
     'field'     => 'pages',
-    'columns'   => 6,
+    'columns'   => 4,
     'choices'   => Helpers::getPagesFromCurrentLanguage(),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'page'
         )
     )
 );
-
+$show_template = array(
+    'type'      => 'select',
+    'label' => __('Show Template','sage'),
+    'field'     => 'show_template',
+    'columns'   => 4,
+    'value'     => 'FALSE',
+    'choices'   => array(
+        'FALSE'          => __('No template','sage'),
+        'TRUE'           => __('Show','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:source_type',
+            'value' => 'page'
+        )
+    )
+);
+$templates = array(
+    'type'      => 'select',
+    'label' => __('Templates','sage'),
+    'field'     => 'template',
+    'columns'   => 4,
+    'choices'   => array(
+        Helpers::getPageTemplateNames()
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:source_type',
+            'value' => 'template'
+        )
+    )
+);
 /**
  * Background Options
  */
-$bg_html_line = $bg_html_title = array(
+$bg_html_line = array(
     'type'      => 'html',
     'template'  => 'field',
     'columns'   => 12,
-    'field'     => 'bg_html_line', // 'field' is only required for a settings page.
+    'field'     => 'bg_html_line',
     'value'     => '<hr>',
 );
 $bg_html_title = array(
     'type'      => 'html',
     'template'  => 'field',
     'columns'   => 12,
-    'field'     => 'bg_html_title', // 'field' is only required for a settings page.
+    'field'     => 'bg_html_title',
     'value'     => '<h4>'.__('Background Options','sage').'</h4><hr>',
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:background_settings:show_background',
             'value' => 'TRUE'
         )
     )
@@ -625,16 +686,28 @@ $background_type_showcase = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         )
     )
 );
-
+$bg_html_title = array(
+    'type'      => 'html',
+    'template'  => 'field',
+    'columns'   => 12,
+    'field'     => 'bg_html_title', // 'field' is only required for a settings page.
+    'value'     => '<h4>'.__('Background Options','sage').'</h4><hr>',
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:show_background',
+            'value' => 'TRUE'
+        )
+    )
+);
 $background_type_page = array(
     'type'      => 'select',
     'label' => __('Background Type','sage'),
@@ -650,11 +723,11 @@ $background_type_page = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'page'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         )
     )
@@ -686,15 +759,15 @@ $bg_color_page = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'page'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_page',
+            'field' => 'landing_section:background_type_page',
             'value' => 'color'
         )
     )
@@ -725,15 +798,15 @@ $bg_color_showcase = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_showcase',
+            'field' => 'landing_section:background_type_showcase',
             'value' => 'color'
         )
     )
@@ -752,15 +825,15 @@ $bg_color_inverted_page = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'page'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_page',
+            'field' => 'landing_section:background_type_page',
             'value' => 'color'
         )
     )
@@ -779,15 +852,15 @@ $bg_color_inverted_showcase = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_showcase',
+            'field' => 'landing_section:background_type_showcase',
             'value' => 'color'
         )
     )
@@ -813,15 +886,15 @@ $bg_texture_page = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'page'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_page',
+            'field' => 'landing_section:background_type_page',
             'value' => 'texture'
         )
     )
@@ -846,15 +919,15 @@ $bg_texture_showcase = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_showcase',
+            'field' => 'landing_section:background_type_showcase',
             'value' => 'texture'
         )
     )
@@ -880,15 +953,15 @@ $bg_image_page = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'page'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_page',
+            'field' => 'landing_section:background_type_page',
             'value' => 'image'
         )
     )
@@ -906,15 +979,15 @@ $bg_image_size_page = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'page'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_page',
+            'field' => 'landing_section:background_type_page',
             'value' => 'image'
         )
     )
@@ -939,15 +1012,15 @@ $bg_image_showcase = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_showcase',
+            'field' => 'landing_section:background_type_showcase',
             'value' => 'image'
         )
     )
@@ -965,15 +1038,15 @@ $bg_image_size_showcase = array(
     ),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'showcase'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_showcase',
+            'field' => 'landing_section:background_type_showcase',
             'value' => 'image'
         )
     )
@@ -981,31 +1054,24 @@ $bg_image_size_showcase = array(
 $bg_category = array(
     'type' => 'select',
     'label' => __('Image Media Category','sage'),
-//    'help'  => __('If inverted color is checked, this section background will be colored instead','sage'),
     'field' => 'media_category',
     'columns' => 6,
     'value' => '',
     'choices' => \Experiensa\Modules\QueryBuilder::getTermsSlugByPTAndTaxonomy(['attachment'],['media_category']),
     'conditions' => array(
         array(
-            'field' => 'landing_section_options:background_settings:show_background',
+            'field' => 'landing_section:show_background',
             'value' => 'TRUE'
         ),
         array(
-            'field' => 'landing_section_options:content_settings:source_type',
+            'field' => 'landing_section:source_type',
             'value' => 'page'
         ),
         array(
-            'field' => 'landing_section_options:background_settings:background_type_page',
+            'field' => 'landing_section:background_type_page',
             'value' => 'slider'
         )
     )
-//    'conditions' => array(
-//        array(
-//            'field' => 'landing_section_options:background_settings:background_options:background_type',
-//            'value' => 'slider'
-//        )
-//    )
 );
 $show_background = array(
     'type'      => 'select',
@@ -1016,30 +1082,55 @@ $show_background = array(
     'choices'   => array(
         'FALSE'              => __('No background','sage'),
         'TRUE'           => __('Show background','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:component',
+            'value' => 'slider',
+            'compare' => '!='
+        ),
+        /*array(
+            'field' => 'landing_section:source_type',
+            'value' => 'template',
+            'compare' => '!='
+        ),*/
     )
 );
 
+$dummy_field =array(
+    'type'=>'hidden',
+    'field'=>'dummy_field',
+    'value' => 'dummy'
+);
 
-/**
- *  Main Section Option Field Group
- */
-$content_settings = array(
+piklist('field',array(
     'type' => 'group',
-    'field' => 'content_settings',
+    'field' => 'landing_section',
+    'label' => __('Section options','sage'),
+    'add_more' => true,
+    'help'      => __('You can set the style to your custom template','sage'),
     'fields' => array(
+        $dummy_field,
         $source_type,
         $pages,
+        $show_template,
+        $templates,
+        /**
+         * Content Settings
+         */
         //Showcase Options
         $showcase_html_title,
         $showcase_component,
         $showcase_posttype,
         $showcase_categories,
+        $showcase_terms,
+        $showcase_max_post,
         //Slider Options
         $slider_html_title,
         $slider_type,
-        $slider_message,
-        $showcase_terms,
-        //TextImage Options
+        $slider_title,
+        $slider_subtitle,
+//        //TextImage Options
         $show_textimage,
         $ti_html_title,
         $ti_display_title,
@@ -1050,7 +1141,7 @@ $content_settings = array(
         $ti_text_transformation,
         $ti_font_size,
         $ti_text_color,
-        //Layout Options
+//        //Layout Options
         $show_layout,
         $layout_html_title,
         $segment_container,
@@ -1059,14 +1150,9 @@ $content_settings = array(
         $segment_title_color,
         $segment_title,
         $segment_subtitle,
-    )
-);
-
-$background_settings = array(
-    'type' => 'group',
-    'field' => 'background_settings',
-    'fields' => array(
-        $bg_html_line,
+        /**
+         * Background Settings
+         */
         $show_background,
         $bg_html_title,
         $background_type_page,
@@ -1082,25 +1168,5 @@ $background_settings = array(
         $bg_image_showcase,
         $bg_image_size_showcase,
         $bg_category
-    )
-);
-
-$dummy_field =array(
-    'type'=>'hidden',
-    'field'=>'dummy_field',
-    'value' => 'dummy'
-);
-
-
-piklist('field',array(
-    'type' => 'group',
-    'field' => 'landing_section_options',
-    'label' => __('Section options','sage'),
-    'add_more' => true,
-    'help'      => __('You can set the style to your custom template','sage'),
-    'fields' => array(
-        $dummy_field,
-        $content_settings,
-        $background_settings
     )
 ));

@@ -24,10 +24,13 @@ $page_id     = get_queried_object_id();
 <br>
 <br>
 <?php
-$section_obj = new Experiensa\Component\Section($page_id,$design_settings,'about_section_options');
+$section_obj = new Experiensa\Component\Section($page_id,$design_settings,'about_section');
 if($section_obj->checkExistSections()):
     $sections = $section_obj->getSections();
     foreach($sections as $section):
+//        echo "<pre>";
+//        print_r($section);
+//        echo "</pre>";
         $section_obj->showSection($section);
     endforeach;
 endif;
