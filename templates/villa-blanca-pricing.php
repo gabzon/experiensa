@@ -2,12 +2,25 @@
 /**
  * Template Name: Villa Blanca Pricing
  */
+use Experiensa\Modules\QueryBuilder;
+use Experiensa\Modules\Post;
+
+$query = QueryBuilder::getPostByPostType('post');
+if(!isset($background)){
+    $bg_url = get_stylesheet_directory_uri().'/assets/images/comedor.jpg';
+    $background['style'] = "background:url('".$bg_url."') no-repeat center center fixed; background-size: cover; height:100vh;";
+    $background['class'] = 'inverted';
+    $background['type'] = 'none';
+}
+if(!isset($name)){
+    $name = 'villa_blanca_pricing';
+}
 ?>
-<section id="villa_blanca_pricing" class="ui inverted segment vertical" style="background:url(<?= get_stylesheet_directory_uri() . '/assets/images/comedor.jpg'; ?>) no-repeat center center fixed; background-size: cover; height:100vh;">
+<section id="villa_blanca_pricing" class="ui <?= $background['class'];?> segment vertical" style="<?=$background['style'];?>">
     <br>
     <br>
     <br>
-    <h1 class="text-center"><?= __('Pricing','sage');?></h1>
+    <h1 class="text-center" style="color: #FFFFFF;"><?= __('Pricing','sage');?></h1>
     <br>
     <div class="ui grid centered">
     <?php
