@@ -85,6 +85,7 @@ class SectionLayout
                         'post_type' => 'any');
                     global $wp_query;
                     $wp_query = new WP_Query($args);
+                    set_query_var('background',$this->background);
                     get_template_part(str_replace('.php', '', $template_path));
                 }
             }else{//Single Template
