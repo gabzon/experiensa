@@ -6,10 +6,24 @@ use Experiensa\Modules\QueryBuilder;
 use Experiensa\Modules\Post;
 
 $query = QueryBuilder::getPostByPostType('post');
-
+if(!isset($background)){
+    $background['style'] = '';
+    $background['class'] = '';
+    $background['type'] = 'none';
+}
+if(!isset($name)){
+    $name = 'section_news';
+}
 if ($query && $query->have_posts()) :?>
-<section id="section_news" style="background-color: #0d3349;">
-    <div class="ui relaxed divided list">
+<section id="<?=$name;?>" class="ui <?=$background['class'];?> vertical segment" style="<?=$background['style'];?>">
+    <br>
+    <div class="ui container vertical segment">
+        <div class="ui center aligned header" style="color:#FFFFFF;">
+            <div class="page-header">
+                <h1><?= __('News','sage');?></h1>
+            </div>
+        </div>
+        <div class="ui divided items" style="color: #FFFFFF;">
 <?php
     while ($query->have_posts()) :
         $query->the_post();
@@ -22,11 +36,12 @@ if ($query && $query->have_posts()) :?>
         set_query_var('content',$content);
         set_query_var('post_link',$post_link);
         set_query_var('images',$images);
-        echo "$id - $title - $content - $post_link";
         get_template_part('templates/single','new');
     endwhile;
 ?>
+        </div>
     </div>
+    <br>
 </section>
 <?php
 endif;
