@@ -93,7 +93,7 @@ class Section
                 $settings['bg_image'] = $section['bg_image_showcase'];
                 $settings['bg_image_size'] = (isset($section['bg_image_size_showcase'])?$section['bg_image_size_showcase']:"content");
             }
-            $settings['media_category'] = $section['media_category'];
+            $settings['media_category'] = (isset($section['media_category'])?$section['media_category']:'');
         }
         return $settings;
     }
