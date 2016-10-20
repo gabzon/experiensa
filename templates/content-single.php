@@ -24,3 +24,23 @@
 </div>
 <br>
 <br>
+<!--<section id="villa_blanca_reservations" class="ui <?/*= $background['class'];*/?> segment vertical custom-section" style="<?/*=$background['style'];*/?>">
+    <div class="section-background"></div>
+    <br>
+    <br>
+    <br>
+    <h1 class="text-center" style="color: #FFFFFF;"><?/*= __('Reservation','sage');*/?></h1>
+    <br>
+    <div class="ui grid centered">
+        <div class="five wide column">
+            <div id="reservation_datepicker" class="villa-blanca"></div>
+        </div>
+        <div class="five wide column">
+            <?php /*get_template_part('templates/components/reservation','form'); */?>
+            <br/><br/>
+            <div id="reservationFeedback" style="display: none;"></div>
+            <br/><br/>
+        </div>
+    </div>
+    <br>
+</section>-->
