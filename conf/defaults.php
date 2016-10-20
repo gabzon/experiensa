@@ -152,3 +152,14 @@ function experiensa_image_sizes_names($sizes) {
     ) );
 }
 add_filter('image_size_names_choose', 'experiensa_image_sizes_names');
+
+/**
+ * Change email sender name to blog name
+ * @param $email
+ * @return mixed
+ */
+function ec_mail_name( $email ){
+    $blog_name = get_bloginfo('name');
+    return $blog_name; // new email name from sender.
+}
+add_filter( 'wp_mail_from_name', 'ec_mail_name' );
