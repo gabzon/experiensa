@@ -85,6 +85,8 @@ class Section
                 $settings['bg_texture'] = $section['bg_texture_page'];
                 $settings['bg_image'] = $section['bg_image_page'];
                 $settings['bg_image_size'] = (isset($section['bg_image_size_page'])?$section['bg_image_size_page']:[]);
+                $settings['opacity'] = (isset($section['opacity_page'])&&!empty($section['opacity_page'])?$section['opacity_page']:'0.01');
+                $settings['opacity_color'] = (isset($section['opacity_color_page'])&&!empty($section['opacity_color_page'])?$section['opacity_color_page']:'#FFFFFF');
             }else{
                 $settings['background_type'] = $section['background_type_showcase'];
                 $settings['background_color'] = $section['background_color_showcase'];
@@ -92,6 +94,8 @@ class Section
                 $settings['bg_texture'] = $section['bg_texture_showcase'];
                 $settings['bg_image'] = $section['bg_image_showcase'];
                 $settings['bg_image_size'] = (isset($section['bg_image_size_showcase'])?$section['bg_image_size_showcase']:"content");
+                $settings['opacity'] = (isset($section['opacity_showcase'])&&!empty($section['opacity_showcase'])?$section['opacity_showcase']:'0.01');
+                $settings['opacity_color'] = (isset($section['opacity_color_showcase'])&&!empty($section['opacity_color_showcase'])?$section['opacity_color_showcase']:'#FFFFFF');
             }
             $settings['media_category'] = (isset($section['media_category'])?$section['media_category']:'');
         }

@@ -110,7 +110,10 @@ class SectionLayout
                     $background['class'] = '';
                     $background['type'] = 'texture';
                 }else{
-                    $background['style'] = $this->getBackgroundImage($background_settings['bg_image'],$background_settings['bg_image_size']);
+                    $background['style'] = $this->getBackgroundImage($background_settings['bg_image'],
+                        $background_settings['bg_image_size'],
+                        $background_settings['opacity'],
+                        $background_settings['opacity_color']);
                     $background['class'] = '';
                     $background['type'] = 'image';
                 }
@@ -126,10 +129,11 @@ class SectionLayout
         $texture_image = $this->getBackgroundImageURL($texture_list);
         return ($texture_image ? "background-image: url(" . $texture_image . "); background-repeat:repeat;" : "");
     }
-    public function getBackgroundImage($image_list,$size_list){
+    public function getBackgroundImage($image_list,$size_list,$opacity,$opacity_color){
         $image = $this->getBackgroundImageURL($image_list);
         $size = $this->getBackgroundSize($size_list);
-        return ($image ? "background:url('" . $image . "') no-repeat center center fixed;".$size : "");
+        $opacity_style = $this->getBackgroundOpacity($opacity,$opacity_color);
+        return ($image ? "background:".$opacity_style."url('" . $image . "') no-repeat center center fixed;".$size : "");
     }
     private function getBackgroundImageURL($images){
         $bg_img = false;
@@ -147,6 +151,14 @@ class SectionLayout
         if(!empty($s[0]) && $s[0]==='full')
             $size .= 'height:100vh;';
         return $size;
+    }
+    private function getBackgroundOpacity($opacity,$color){
+        $style = "";
+        if($opacity !== '0.01'){
+            $rgb = \Helpers::hex2rgb($color);
+            $style = "linear-gradient(rgba(".$rgb.",". $opacity."),rgba(".$rgb.",". $opacity.")),";
+        }
+        return $style;
     }
     private function checkShowPageBgSlider($background_settings,$source){
         if($source == 'page' && $background_settings['show_background'] == 'TRUE' && $background_settings['background_type'] == 'slider')

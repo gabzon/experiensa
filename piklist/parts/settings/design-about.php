@@ -937,7 +937,7 @@ $bg_image_page = array(
     'type'      => 'file',
     'field'     => 'bg_image_page',
     'label'     => __('Background image','sage'),
-    'columns' => 6,
+    'columns' => 3,
     'options'   => array(
         'modal_title'   => __('Add Image','sage'),
         'button'        => __('Add Image','sage')
@@ -970,7 +970,7 @@ $bg_image_size_page = array(
     'type'      => 'radio',
     'field'     => 'bg_image_size_page',
     'label'     => __('Background size','sage'),
-    'columns' => 6,
+    'columns' => 4,
     'list' => false,
     'value' => 'content',
     'choices'   => array(
@@ -1035,6 +1035,106 @@ $bg_image_size_showcase = array(
     'choices'   => array(
         'full'   => __('Full size','sage'),
         'content'        => __('Fit to content','sage')
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'about_section:show_background',
+            'value' => 'TRUE'
+        ),
+        array(
+            'field' => 'about_section:source_type',
+            'value' => 'showcase'
+        ),
+        array(
+            'field' => 'about_section:background_type_showcase',
+            'value' => 'image'
+        )
+    )
+);
+$bg_opacity_page = array(
+    'type'      => 'number',
+    'label' => __('Opacity','sage'),
+    'field'     => 'opacity_page',
+    'columns'   => 1,
+    'default'     => 0.01,
+    'attributes' => array(
+        'step' => 0.01,
+        'min'  => 0.01,
+        'max'  => 1
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'about_section:show_background',
+            'value' => 'TRUE'
+        ),
+        array(
+            'field' => 'about_section:source_type',
+            'value' => 'page'
+        ),
+        array(
+            'field' => 'about_section:background_type_page',
+            'value' => 'image'
+        )
+    )
+);
+$bg_opacity_showcase = array(
+    'type'      => 'number',
+    'label' => __('Opacity','sage'),
+    'field'     => 'opacity_showcase',
+    'columns'   => 1,
+    'default'     => 0.01,
+    'attributes' => array(
+        'step' => 0.01,
+        'min'  => 0.01,
+        'max'  => 1
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'about_section:show_background',
+            'value' => 'TRUE'
+        ),
+        array(
+            'field' => 'about_section:source_type',
+            'value' => 'showcase'
+        ),
+        array(
+            'field' => 'about_section:background_type_showcase',
+            'value' => 'image'
+        )
+    )
+);
+$bg_opacity_color_page = array(
+    'type' => 'colorpicker',
+    'field' => 'opacity_color_page',
+    'label' => __('Opacity Color', 'sage'),
+    'default' => '#FFFFFF',
+    'columns'   => 3,
+    'attributes' => array(
+        'class' => 'small-text'
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'about_section:show_background',
+            'value' => 'TRUE'
+        ),
+        array(
+            'field' => 'about_section:source_type',
+            'value' => 'page'
+        ),
+        array(
+            'field' => 'about_section:background_type_page',
+            'value' => 'image'
+        )
+    )
+);
+$bg_opacity_color_showcase = array(
+    'type' => 'colorpicker',
+    'field' => 'opacity_color_showcase',
+    'label' => __('Opacity Color', 'sage'),
+    'default' => '#FFFFFF',
+    'columns'   => 3,
+    'attributes' => array(
+        'class' => 'small-text'
     ),
     'conditions' => array(
         array(
@@ -1167,6 +1267,10 @@ piklist('field',array(
         $bg_image_size_page,
         $bg_image_showcase,
         $bg_image_size_showcase,
+        $bg_opacity_page,
+        $bg_opacity_color_page,
+        $bg_opacity_showcase,
+        $bg_opacity_color_showcase,
         $bg_category
     )
 ));
