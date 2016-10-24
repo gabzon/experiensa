@@ -7,7 +7,7 @@
                 <?= (!empty($layout['subtitle'])?"<h3>".$layout['subtitle']."</h3><br>":"");?>
             </div>
         </div>
-        <?php \Showcase::displayComponent($component,$showcase_data,$textimage_obj);?>
+        <?php \Showcase::displayComponent($component,$showcase_data,$textimage_obj,$column_number);?>
         <br>
         <br>
         <br>

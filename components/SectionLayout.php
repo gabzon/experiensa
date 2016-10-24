@@ -42,8 +42,8 @@ class SectionLayout
                 set_query_var('layout',$this->layout);
                 set_query_var('name',"section_slider_".str_replace(' ', '_', strtolower($this->layout['title'])));
                 get_template_part("templates/partials/section/component_slider");
-//                include(locate_template('templates/partials/section/component_slider.php'));
             }else{// Showcase is a single component
+                set_query_var('column_number',$this->content_settings['columns']);
                 set_query_var('component',$this->content_settings['component']);
                 set_query_var('background',$this->background);
                 set_query_var('showcase_data',$this->showcase_data);
@@ -51,7 +51,6 @@ class SectionLayout
                 set_query_var('layout',$this->layout);
                 set_query_var('name',"section_component_".str_replace(' ', '_', strtolower($this->layout['title'])));
                 get_template_part("templates/partials/section/component");
-                //include(locate_template('templates/partials/section/component.php'));
             }
         }else{//Page
             if($this->source == 'page') {

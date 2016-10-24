@@ -325,6 +325,30 @@ $showcase_max_post = array(
         )
     )
 );
+$showcase_column = array(
+    'type'      => 'select',
+    'field'     => 'columns',
+    'value'     => 'four',
+    'label'     => __('Column #','sage'),
+    'columns'   => 3,
+    'choices'   => array(
+        'eight'     => '2',
+        'five'     => '3',
+        'four'     => '4',
+        'three'     => '5',
+        'two'     => '8',
+    ),
+    'conditions' => array(
+        array(
+            'field' => 'promotions_section:source_type',
+            'value' => 'showcase'
+        ),
+        array(
+            'field' => 'promotions_section:component',
+            'value' => 'grid'
+        )
+    )
+);
 /**
  *  Photo Slider Options
  */
@@ -1226,6 +1250,7 @@ piklist('field',array(
         $showcase_categories,
         $showcase_terms,
         $showcase_max_post,
+        $showcase_column,
         //Slider Options
         $slider_html_title,
         $slider_type,

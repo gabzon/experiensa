@@ -51,6 +51,7 @@ class Section
             $settings['category'] = $section['category'];
             $settings['terms'] = $section['terms'];
             $settings['max'] = (isset($section['max'])&&!empty($section['max'])?$section['max']:'-1');
+            $settings['columns'] = (isset($section['columns'])&&!empty($section['columns'])?$section['columns']:'four');
             $settings['slider_type'] = $section['slider_type'];
             $settings['slider_title'] = $section['slider_title'];
             $settings['slider_subtitle'] = $section['slider_subtitle'];

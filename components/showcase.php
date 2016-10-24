@@ -54,7 +54,8 @@ class Showcase{
             return $display;
         }
     }
-    public static function displayComponent($component,$data,$textimage_option){
+    public static function displayComponent($component,$data,$textimage_option,$column_number=false){
+        set_query_var('column_number',$column_number);
         set_query_var('component',$component);
         set_query_var('data',$data);
         set_query_var('textimage_option',$textimage_option);

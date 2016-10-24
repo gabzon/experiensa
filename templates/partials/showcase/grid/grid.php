@@ -7,7 +7,7 @@ if(!empty($data)):
     foreach($data as $value):
         $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url']);
     ?>
-        <div class="four wide column">
+        <div class="<?= $column_number.' wide';?> column">
             <div class="ui raised segments">
             <?php
             if($textimage_option->getDisplayTextImage()):?>
