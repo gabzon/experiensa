@@ -16,7 +16,7 @@ if(!isset($name)){
     $name = 'villa_blanca_reservations';
 }
 ?>
-<section id="villa_blanca_reservations" class="ui segment vertical custom-section">
+<section id="villa_blanca_reservations" class="ui segment vertical custom-section" style="<?= $background['size'];?>">
     <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>
     <br>
     <br>

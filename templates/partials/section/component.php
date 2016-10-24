@@ -1,4 +1,4 @@
-<section id="<?= $name;?>" class="ui vertical segment custom-section">
+<section id="<?= $name;?>" class="ui vertical segment custom-section" style="<?= $background['size'];?>">
     <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>
     <div class="ui <?= $layout['container_class'];?> vertical segment" style="<?= $layout['container_style'].$layout['content_color'];?>">
         <div class="ui <?= $layout['title_alignment']?> header" style="<?= $layout['title_color'];?>">

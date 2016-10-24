@@ -84,7 +84,7 @@ class Section
                 $settings['color_inverted'] = $section['color_inverted_page'];
                 $settings['bg_texture'] = $section['bg_texture_page'];
                 $settings['bg_image'] = $section['bg_image_page'];
-                $settings['bg_image_size'] = (isset($section['bg_image_size_page'])?$section['bg_image_size_page']:[]);
+                $settings['bg_image_size'] = (isset($section['bg_image_size_page'])&&!empty($section['bg_image_size_page'][0])?$section['bg_image_size_page'][0]:'content');
                 $settings['opacity'] = (isset($section['opacity_page'])&&!empty($section['opacity_page'])?$section['opacity_page']:'0.01');
                 $settings['opacity_color'] = (isset($section['opacity_color_page'])&&!empty($section['opacity_color_page'])?$section['opacity_color_page']:'#FFFFFF');
             }else{
@@ -93,7 +93,7 @@ class Section
                 $settings['color_inverted'] = $section['color_inverted_showcase'];
                 $settings['bg_texture'] = $section['bg_texture_showcase'];
                 $settings['bg_image'] = $section['bg_image_showcase'];
-                $settings['bg_image_size'] = (isset($section['bg_image_size_showcase'])?$section['bg_image_size_showcase']:"content");
+                $settings['bg_image_size'] = (isset($section['bg_image_size_showcase'])&&!empty($section['bg_image_size_showcase'][0])?$section['bg_image_size_showcase'][0]:"content");
                 $settings['opacity'] = (isset($section['opacity_showcase'])&&!empty($section['opacity_showcase'])?$section['opacity_showcase']:'0.01');
                 $settings['opacity_color'] = (isset($section['opacity_color_showcase'])&&!empty($section['opacity_color_showcase'])?$section['opacity_color_showcase']:'#FFFFFF');
             }

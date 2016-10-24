@@ -98,6 +98,7 @@ class SectionLayout
         $background['style'] = '';
         $background['class'] = '';
         $background['type'] = 'none';
+        $background['size'] = '';
         if($background_settings['show_background'] == 'TRUE' && $background_settings['background_type'] != 'slider'){
             $type = $background_settings['background_type'];
             if($type == 'color'){
@@ -116,6 +117,8 @@ class SectionLayout
                         $background_settings['opacity_color']);
                     $background['class'] = '';
                     $background['type'] = 'image';
+                    if($background_settings['bg_image_size']==='full')
+                        $background['size'] = 'height:100vh;';
                 }
             }
         }
@@ -145,12 +148,11 @@ class SectionLayout
         }
         return $bg_img;
     }
-    private function getBackgroundSize($size_list){
-        $size = "background-size: cover;";
-        $s = (isset($size_list)?$size_list:[0=>'content']);
-        if(!empty($s[0]) && $s[0]==='full')
-            $size .= 'height:100vh;';
-        return $size;
+    private function getBackgroundSize($size){
+        $nsize = "background-size: cover;";
+        if($size==='full')
+            $nsize .= 'height:100vh;';
+        return $nsize;
     }
     private function getBackgroundOpacity($opacity,$color){
         $style = "";
