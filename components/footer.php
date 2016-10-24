@@ -1,13 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: victor
- * Date: 01-07-2016
- * Time: 11:30 PM
- */
-
-namespace Components\Footer;
-
+<?php namespace Components\Footer;
 
 class Footer
 {

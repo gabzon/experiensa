@@ -29,6 +29,14 @@ class Footer{
             'default'     => 'true',
             'transport'   => 'refresh',
         ) );
+        $this->wp_customize->add_setting( 'display_footer_menu' , array(
+            'default'     => 'false',
+            'transport'   => 'refresh',
+        ) );
+        $this->wp_customize->add_setting( 'display_footer_copyright' , array(
+            'default'     => 'false',
+            'transport'   => 'refresh',
+        ) );
         $this->wp_customize->add_setting( 'footer_logo_size' , array(
             'default'     => 'tiny',
             'transport'   => 'refresh',
@@ -84,6 +92,33 @@ class Footer{
                 )
             )
         );
+        $this->wp_customize->add_control(
+            'display_footer_menu',
+            array(
+                'label'    => __('Display Footer Menu', 'sage'),
+                'section'  => 'experiensa_footer_design',
+                'settings' => 'display_footer_menu',
+                'type'     => 'select',
+                'choices'  => array(
+                    'true'  => __('Yes', 'sage'),
+                    'false' => __('No', 'sage')
+                )
+            )
+        );
+        $this->wp_customize->add_control(
+            'display_footer_copyright',
+            array(
+                'label'    => __('Display Copyright Message', 'sage'),
+                'section'  => 'experiensa_footer_design',
+                'settings' => 'display_footer_copyright',
+                'type'     => 'select',
+                'choices'  => array(
+                    'true'  => __('Yes', 'sage'),
+                    'false' => __('No', 'sage')
+                )
+            )
+        );
+
         $this->wp_customize->add_control(
             'footer_logo_size',
             array(

@@ -39,7 +39,20 @@ Class Menu {
      * @return mixed
      */
     public static function get_all_menus_list(){
-        return array_unique(get_terms( 'nav_menu', array( 'hide_empty' => true ) ),SORT_REGULAR);
+        $footer_menu = self::get_footer_menu();
+        if(!empty($footer_menu)){
+            $footer_menu_id = $footer_menu[0]->term_id;
+            $menu =  array_unique(get_terms( 'nav_menu', array( 'hide_empty' => true, 'exclude' => $footer_menu_id ) ),SORT_REGULAR);
+        }else
+            $menu =  array_unique(get_terms( 'nav_menu', array( 'hide_empty' => true, 'exclude' => $footer_menu['term_id'] ) ),SORT_REGULAR);
+//        $menu_name = 'primary_navigation';
+//        $locations = get_nav_menu_locations();
+//        $menu_id = $locations[ $menu_name ] ;
+//        $menuxxx = wp_get_nav_menu_object($menu_id);
+//        echo "<pre>";
+//        print_r($menuxxx);
+//        echo "</pre>";
+        return $menu;
     }
 
     /**
@@ -64,5 +77,9 @@ Class Menu {
             display_language_menu_accordion();
             echo '</div>';
         }
+    }
+    public static function get_footer_menu(){
+        $footer_menu = get_terms( 'nav_menu', array( 'hide_empty' => true, 'slug' => 'footer' ));
+        return $footer_menu;
     }
 }

@@ -35,12 +35,12 @@ $container = \Components\Footer\Footer::getContainer();
                     <?php \Components\Footer\Footer::displayContactItems(); ?>
                 </div>
             </div>
-
             <!-- Social Network Section -->
             <div class="column center aligned">
                 <br><br>
                 <?php \Components\Footer\Footer::displaySocialItems(); ?>
             </div>
+            <?php get_template_part('templates/partials/footer/footer','menu');?>
         </div>
     </div>
 </footer>
