@@ -23,7 +23,7 @@ if(!isset($name)){
     <br>
     <h1 class="text-center" style="color: #FFFFFF;"><?= __('Pricing','sage');?></h1>
     <br>
-    <div class="ui grid centered">
+    <div class="ui two column stackable grid centered">
     <?php
         get_template_part('templates/villa_blanca/high','season');
         get_template_part('templates/villa_blanca/low','season');

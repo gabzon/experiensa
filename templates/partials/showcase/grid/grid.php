@@ -2,7 +2,7 @@
 if(!empty($data)):
 ?>
     <!-- Grid Component -->
-    <div class="ui grid">
+    <div class="ui stackable grid">
     <?php
     foreach($data as $value):
         $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url']);

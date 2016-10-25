@@ -23,7 +23,7 @@ if(!isset($name)){
     <br>
     <h1 class="text-center" style="color: #FFFFFF;"><?= __('Reservation','sage');?></h1>
     <br>
-    <div class="ui grid centered">
+    <div class="ui two column stackable grid centered">
       <div class="five wide column">
         <div id="reservation_datepicker" class="villa-blanca"></div>
       </div>
