@@ -9,7 +9,14 @@ $container = \Components\Footer\Footer::getContainer();
 <!-- Baldur Footer Template -->
 <footer class="ui segment vertical" style="<?=$style;?>">
     <div id="footer-container" class="<?= $container['class'];?>" style="<?= $container['style'];?>">
-        <div class="ui six column grid stackable">
+        <div class="ui seven column grid stackable">
+            <!-- Copyright Section -->
+            <div class="column">
+                <br>
+                <?php if(\Components\Footer\Footer::getIfDisplayCopyright()): ?>
+                <div class="item"><?= __('Copyright © All rights reserved','sage');?></div>
+                <?php endif;?>
+            </div>
             <!-- Location Section -->
             <div class="column">
                 <br>
@@ -41,7 +48,7 @@ $container = \Components\Footer\Footer::getContainer();
                 <?php \Components\Footer\Footer::displaySocialItems(); ?>
             </div>
             <div class="column right ">
-            <?php get_template_part('templates/partials/footer/footer','menu');?>
+                <?php get_template_part('templates/partials/footer/footer','menu');?>
             </div>
         </div>
     </div>

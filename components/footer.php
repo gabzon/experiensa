@@ -45,6 +45,20 @@ class Footer
         $color = get_theme_mod('footer_font_color');
         return (!empty($color)?$color:'#ffffff');
     }
+    public static function getIfDisplayCopyright(){
+        $show = get_theme_mod('display_footer_copyright');
+        if(!empty($show)){
+            return ($show==='true'?true:false);
+        }else
+            return false;
+    }
+    public static function getIfDisplayMenu(){
+        $show = get_theme_mod('display_footer_menu');
+        if(!empty($show)){
+            return ($show==='true'?true:false);
+        }else
+            return false;
+    }
     public static function getContainer(){
         $container = get_theme_mod('footer_container');
         $container = (!empty($container)?$container:'container');
@@ -62,10 +76,14 @@ class Footer
     public static function getLocationInfo(){
         $agency_options = get_option('agency_settings');
         $info = array();
-        $info['address'] = ($agency_options['agency_address']?$agency_options['agency_address']:false);
-        $info['postal_code'] = ($agency_options['agency_postal_code']?$agency_options['agency_postal_code']:false);
-        $info['city'] = ($agency_options['agency_city']?$agency_options['agency_city']:false);
-        $info['country'] = ($agency_options['agency_country']?$agency_options['agency_country']:false);
+        if(!empty($agency_options['agency_address']))
+            $info['address'] = $agency_options['agency_address'];
+        if(!empty($agency_options['agency_postal_code']))
+            $info['postal_code'] = $agency_options['agency_postal_code'];
+        if(!empty($agency_options['agency_city']))
+            $info['city'] = $agency_options['agency_city'];
+        if(!empty($agency_options['agency_country']))
+            $info['country'] = $agency_options['agency_country'];
         return $info;
     }
     public static function getContactInfo(){
