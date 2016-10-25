@@ -9,7 +9,7 @@ $container = \Components\Footer\Footer::getContainer();
 <!-- Baldur Footer Template -->
 <footer class="ui segment vertical" style="<?=$style;?>">
     <div id="footer-container" class="<?= $container['class'];?>" style="<?= $container['style'];?>">
-        <div class="ui five column grid stackable">
+        <div class="ui six column grid stackable">
             <!-- Location Section -->
             <div class="column">
                 <br>
@@ -40,7 +40,9 @@ $container = \Components\Footer\Footer::getContainer();
                 <br><br>
                 <?php \Components\Footer\Footer::displaySocialItems(); ?>
             </div>
+            <div class="column right ">
             <?php get_template_part('templates/partials/footer/footer','menu');?>
+            </div>
         </div>
     </div>
 </footer>

@@ -1,13 +1,11 @@
 <!-- Main Mobile Menu -->
 <?php
-$menu_list = Menu::get_all_menus_list();
-if(!empty($menu_list)):
-    foreach($menu_list as $menu):
-?>
+$main_menu = Menu::get_main_menu();
+if(!empty($main_menu)):?>
     <div class="item">
         <div class="header">MENU</div>
         <?php
-        $menu_items = wp_get_nav_menu_items($menu->term_id);
+        $menu_items = wp_get_nav_menu_items($main_menu->term_id);
         foreach($menu_items as $item):
             if ($item->menu_item_parent == 0):
                 if (Menu::check_children_menu($menu_items, $item->ID)):
@@ -32,5 +30,4 @@ if(!empty($menu_list)):
         ?>
     </div>
 <?php
-    endforeach;
 endif;;
