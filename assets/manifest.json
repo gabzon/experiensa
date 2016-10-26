@@ -9,6 +9,7 @@
                 "scripts/freewall.js",
                 "scripts/reservations.js",
                 "scripts/components.js",
+                "scripts/sections.js",
                 "scripts/main.js"
             ],
             "main": true

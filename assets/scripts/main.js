@@ -98,7 +98,7 @@
             },
             finalize: function() {
               // JavaScript to be fired on all pages, after page specific JS is fired
-
+                changeMobileSectionsHeight();
             }
         },
         'single':{
@@ -132,7 +132,6 @@
                 initLandingComponents();
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.4});
                 freewall_layout();
-
             },
             finalize: function() {
                 // JavaScript to be fired on the home page, after the init JS

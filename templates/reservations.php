@@ -16,23 +16,25 @@ if(!isset($name)){
     $name = 'villa_blanca_reservations';
 }
 ?>
-<section id="villa_blanca_reservations" class="ui segment vertical custom-section" style="<?= $background['size'];?> overflow: hidden;">
-    <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?> overflow-y: scroll;-webkit-overflow-scrolling:touch;"></div>
-    <br>
-    <br>
-    <br>
-    <h1 class="text-center" style="color: #FFFFFF;"><?= __('Reservation','sage');?></h1>
-    <br>
-    <div class="ui two column stackable grid centered">
-      <div class="five wide column">
-        <div id="reservation_datepicker" class="villa-blanca"></div>
-      </div>
-      <div class="five wide column">
-        <?php get_template_part('templates/components/reservation','form'); ?>
-        <br/><br/>
-        <div id="reservationFeedback" style="display: none;"></div>
-        <br/><br/>
-      </div>
+<section id="villa_blanca_reservations" class="ui segment vertical custom-section" style="<?= $background['size'];?>">
+    <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>
+    <div class="section-content">
+        <br>
+        <br>
+        <br>
+        <h1 class="text-center" style="color: #FFFFFF;"><?= __('Reservation','sage');?></h1>
+        <br>
+        <div class="ui two column stackable grid centered">
+          <div class="five wide column">
+            <div id="reservation_datepicker" class="villa-blanca"></div>
+          </div>
+          <div class="five wide column">
+            <?php get_template_part('templates/components/reservation','form'); ?>
+            <br/><br/>
+            <div id="reservationFeedback" style="display: none;"></div>
+            <br/><br/>
+          </div>
+        </div>
+        <br>
     </div>
-    <br>
 </section>

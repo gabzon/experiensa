@@ -16,18 +16,18 @@ if(!isset($name)){
     $name = 'villa_blanca_pricing';
 }
 ?>
-<section id="villa_blanca_pricing" class="ui segment vertical custom-section" style="<?= $background['size'];?> overflow: hidden;">
-    <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>  overflow-y: scroll;-webkit-overflow-scrolling:touch;"></div>
-    <br>
-    <br>
-    <br>
-    <h1 class="text-center" style="color: #FFFFFF;"><?= __('Pricing','sage');?></h1>
-    <br>
-    <div class="ui two column stackable grid centered">
-    <?php
-        get_template_part('templates/villa_blanca/high','season');
-        get_template_part('templates/villa_blanca/low','season');
-    ?>
+<section id="villa_blanca_pricing" class="ui segment vertical custom-section" style="<?= $background['size'];?>">
+    <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>
+    <div class="section-content">
+        <br><br><br>
+        <h1 class="text-center" style="color: #FFFFFF;"><?= __('Pricing','sage');?></h1>
+        <br>
+        <div class="ui two column stackable grid centered">
+        <?php
+            get_template_part('templates/villa_blanca/high','season');
+            get_template_part('templates/villa_blanca/low','season');
+        ?>
+        </div>
+        <br>
     </div>
-    <br>
 </section>

@@ -15,9 +15,10 @@ if(!isset($name)){
     $name = 'section_news';
 }
 if ($query && $query->have_posts()) :?>
-<section id="<?=$name;?>" class="ui <?=$background['class'];?> vertical segment" style="<?=$background['style'];?>">
-    <br>
-    <div class="ui container vertical segment">
+<section id="<?=$name;?>" class="ui vertical segment custom-section" style="<?= $background['size'];?>">
+    <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>
+    <div class="ui container vertical segment section-content">
+        <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
             <div class="page-header">
                 <h1><?= __('News','sage');?></h1>

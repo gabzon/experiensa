@@ -1,6 +1,6 @@
-<section id="<?= $name;?>" class="ui vertical segment custom-section" style="<?= $background['size'];?> overflow: hidden;">
-    <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?> overflow-y: scroll;-webkit-overflow-scrolling:touch;"></div>
-    <div class="ui <?= $layout['container_class'];?> vertical segment" style="<?= $layout['container_style'].$layout['content_color'];?>">
+<section id="<?= $name;?>" class="ui vertical segment custom-section" style="<?= $background['size'];?>">
+    <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>
+    <div class="ui <?= $layout['container_class'];?> vertical segment section-content" style="<?= $layout['container_style'].$layout['content_color'];?>">
         <br>
         <div class="ui <?= $layout['title_alignment']?> header" style="<?= $layout['title_color'];?>">
             <br>
