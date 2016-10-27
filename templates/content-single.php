@@ -18,7 +18,11 @@
             <footer>
                 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
             </footer>
-            <?php comments_template('/templates/comments.php'); ?>
+            <?php
+            if(comments_open()):
+                comments_template('/templates/comments.php');
+            endif;
+            ?>
         </article>
     <?php endwhile; ?>
 </div>
