@@ -18,7 +18,7 @@ class Header{
     public function add_section(){
         $header_section = [
             'title'      => __('Header Design','sage'),
-            'priority'   => 10,
+            'priority'   => 20,
             'panel'     => 'experiensa_design'
         ];
         $this->wp_customize->add_section( 'experiensa_header_design'  , $header_section );

@@ -13,9 +13,9 @@
             get_template_part('templates/page', 'header');
             get_template_part('templates/content', 'page');
     }
-
-    $agency_options = get_option('experiensa_design_settings');
-    $catalog_template = $agency_options['agency_catalog_template'];
+    $catalog_template = get_theme_mod('agency_catalog_template');
+    $catalog_template = (!empty($catalog_template)?$catalog_template:'simple-grid');
+    
     switch ($catalog_template) {
         case 'isotope-grid':
             get_template_part('templates/catalog/isotop-top');
