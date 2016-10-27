@@ -15,7 +15,7 @@
     }
     $catalog_template = get_theme_mod('agency_catalog_template');
     $catalog_template = (!empty($catalog_template)?$catalog_template:'simple-grid');
-    
+
     switch ($catalog_template) {
         case 'isotope-grid':
             get_template_part('templates/catalog/isotop-top');

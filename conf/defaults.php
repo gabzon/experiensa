@@ -163,3 +163,13 @@ function ec_mail_name( $email ){
     return $blog_name; // new email name from sender.
 }
 add_filter( 'wp_mail_from_name', 'ec_mail_name' );
+
+/* @author Brad Dalton
+@example http://wpsites.net/ @copyright 2014 WP Sites
+ */
+function wpsites_custom_tiled_gallery_width($width){
+    $tiled_gallery_content_width = $width;
+    $width = 1200;
+    return $width;
+}
+add_filter( 'tiled_gallery_content_width', 'wpsites_custom_tiled_gallery_width' );
