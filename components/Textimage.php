@@ -23,6 +23,7 @@ class Textimage
     private $title;
     private $subtitle;
     private $image;
+    private $post_link;
 
     function __construct($options)
     {
@@ -91,10 +92,11 @@ class Textimage
     public function getTextStyle(){
         return $this->text_style;
     }
-    public function setInfo($title,$subtitle, $image){
+    public function setInfo($title,$subtitle, $image, $post_link='#'){
         $this->image = $image;
         $title = ( isset($title) && !empty($title)?$title:'');
         $subtitle = ( isset($subtitle) && !empty($subtitle)?$subtitle:'');
+        $this->post_link = (isset($post_link)&&!empty($post_link)?$post_link:'#');
         if( $this->text_order === 'title_first'){
             $this->title = $title;
             $this->subtitle = $subtitle;
@@ -115,6 +117,9 @@ class Textimage
     }
     public function getImage(){
         return $this->image;
+    }
+    public function getPostLink(){
+        return $this->post_link;
     }
     public function getDisplayTextImage(){
         return $this->display_textimage;

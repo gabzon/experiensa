@@ -5,16 +5,18 @@ if(!empty($data)):
     <div class="ui stackable grid">
     <?php
     foreach($data as $value):
-        $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url']);
+        $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url'],$value['post_link']);
     ?>
         <div class="<?= $column_number.' wide';?> column">
             <div class="ui raised segments">
             <?php
+            //Check if will use TextImage
             if($textimage_option->getDisplayTextImage()):?>
                 <div class="ui secondary segment" style="padding: 0;background-color: transparent;">
-                    <a href="<?=$value['post_link'];?>" class="image" target="_blank">
-                        <?php $textimage_option->displayTextimage();?>
-                    </a>
+
+<!--                    <a href="--><?//=$value['post_link'];?><!--" class="image" target="_blank">-->
+                    <?php $textimage_option->displayTextimage();?>
+<!--                    </a>-->
                 </div>
             <?php
             else:

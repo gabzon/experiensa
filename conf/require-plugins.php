@@ -34,7 +34,14 @@ function showRequirePlugins()
         'url'       => 'https://jetpack.com/'
     ];
 
-    $plugins = [$piklist, $api, $wpml, $jetpack];
+    $tailor = [
+        'name'      => 'Tailor',
+        'folder'    => 'tailor',
+        'file'      => 'tailor.php',
+        'url'       => 'http://gettailor.com/'
+    ];
+
+    $plugins = [$piklist, $api, $wpml, $jetpack, $tailor];
 
     foreach ($plugins as $key => $value) {
         $plugin = $value['folder'] . '/' . $value['file'];

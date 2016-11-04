@@ -52,7 +52,7 @@ $ti_display_title = array(
     'type'      => 'select',
     'label' => __('Display Title?','sage'),
     'field'     => 'display_title',
-    'columns'   => 4,
+    'columns'   => 3,
     'value'     => 'yes',
     'choices'   => array(
         'yes'           => __('Yes','sage'),
@@ -73,7 +73,7 @@ $ti_display_subtitle = array(
     'type'      => 'select',
     'label' => __('Display Subtitle?','sage'),
     'field'     => 'display_subtitle',
-    'columns'   => 4,
+    'columns'   => 3,
     'value'     => 'yes',
     'choices'   => array(
         'yes'           => __('Yes','sage'),
@@ -94,7 +94,7 @@ $ti_display_overlay = array(
     'type'      => 'select',
     'label' => __('Display Overlay?','sage'),
     'field'     => 'display_overlay',
-    'columns'   => 4,
+    'columns'   => 3,
     'value'     => 'yes',
     'choices'   => array(
         'yes'           => __('Yes','sage'),
@@ -108,6 +108,28 @@ $ti_display_overlay = array(
         array(
             'field' => 'landing_section:show_textimage',
             'value' => 'TRUE'
+        )
+    )
+);
+$ti_hover_animation = array(
+    'type'      => 'select',
+    'label' => __('Hover Animation','sage'),
+    'field'     => 'hover_animation',
+    'columns'   => 3,
+    'value'     => 'yes',
+    'choices'   => Helpers::getHoverEffectList(),
+    'conditions' => array(
+        array(
+            'field' => 'landing_section:source_type',
+            'value' => 'showcase'
+        ),
+        array(
+            'field' => 'landing_section:show_textimage',
+            'value' => 'TRUE'
+        ),
+        array(
+            'field' => 'landing_section:display_overlay',
+            'value' => 'yes'
         )
     )
 );
@@ -1261,6 +1283,7 @@ piklist('field',array(
         $ti_display_title,
         $ti_display_subtitle,
         $ti_display_overlay,
+        $ti_hover_animation,
         $ti_text_order,
         $ti_text_position,
         $ti_text_transformation,

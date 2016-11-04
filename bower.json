@@ -20,7 +20,8 @@
     "jquery-ui-touch-punch": "*",
     "wickedpicker": "^0.4.1",
     "moment": "^2.15.0",
-    "eonasdan-bootstrap-datetimepicker": "^4.17.42"
+    "eonasdan-bootstrap-datetimepicker": "^4.17.42",
+    "imagehover.css": "*"
   },
   "overrides": {
     "semantic": {
@@ -84,6 +85,11 @@
     "moment": {
       "main": [
         "./min/moment-with-locales.js"
+      ]
+    },
+    "imagehover.css": {
+      "main": [
+        "./css/imagehover.css"
       ]
     },
     "eonasdan-bootstrap-datetimepicker": {
