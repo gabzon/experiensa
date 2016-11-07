@@ -232,6 +232,8 @@ class SectionLayout
         $textimage['display_title'] = 'yes';
         $textimage['display_subtitle'] = 'yes';
         $textimage['display_overlay'] = 'yes';
+        $textimage['hover_animation'] = 'imghvr-fade';
+        $textimage['animation_color'] = 'animation_color';
         $textimage['text_order'] = 'title_first';
         $textimage['text_position'] = 'top_left';
         $textimage['text_transform'] = 'uppercase';
@@ -242,6 +244,8 @@ class SectionLayout
             $textimage['display_title'] = (!empty($this->content_settings['display_title'])?$this->content_settings['display_title']:$textimage['display_title']);
             $textimage['display_subtitle'] = (!empty($this->content_settings['display_subtitle'])?$this->content_settings['display_subtitle']:$textimage['display_subtitle']);
             $textimage['display_overlay'] = (!empty($this->content_settings['display_overlay'])?$this->content_settings['display_overlay']:$textimage['display_overlay']);
+            $textimage['hover_animation'] = (!empty($this->content_settings['hover_animation'])?$this->content_settings['hover_animation']:$textimage['hover_animation']);
+            $textimage['animation_color'] = (!empty($this->content_settings['animation_color'])?$this->content_settings['animation_color']:$textimage['animation_color']);
             $textimage['text_order'] = (!empty($this->content_settings['text_order'])?$this->content_settings['text_order']:$textimage['text_order']);
             $textimage['text_position'] = (!empty($this->content_settings['text_position'])?$this->content_settings['text_position']:$textimage['text_position']);
             $textimage['text_transform'] = (!empty($this->content_settings['text_transform'])?$this->content_settings['text_transform']:$textimage['text_transform']);

@@ -59,6 +59,8 @@ class Section
             $settings['display_title'] = $section['display_title'];
             $settings['display_subtitle'] = $section['display_subtitle'];
             $settings['display_overlay'] = $section['display_overlay'];
+            $settings['hover_animation'] = (isset($section['hover_animation']) && !empty($section['hover_animation'])?$section['hover_animation']:'imghvr-fade');
+            $settings['animation_color'] = (isset($section['animation_color']) && !empty($section['animation_color'])?$section['animation_color']:'#FFFFFF');
             $settings['text_order'] = $section['text_order'];
             $settings['text_position'] = $section['text_position'];
             $settings['text_transform'] = $section['text_transform'];

@@ -33,9 +33,7 @@ function tailor_enqueue_styles() {
     $dist_url = get_template_directory_uri().'/dist/styles/';
     wp_enqueue_style(
         'tailor-custom-styles',
-        $dist_url.'frontend.css',
-        array(),
-        $this->version()
+        $dist_url.'frontend.css'
     );
 }
 
@@ -56,8 +54,8 @@ if ( ! function_exists( 'tailor_experiensa' ) ) {
 //        tailor_load_experiensa_element();
         add_action('tailor_load_elements', 'tailor_load_experiensa_element', 20);
         add_action( 'tailor_register_elements', 'tailor_register_experiensa_element' );
-//        add_action( 'wp_enqueue_scripts', 'tailor_enqueue_styles' );
-//        add_action( 'tailor_canvas_enqueue_scripts', 'tailor_enqueue_scripts', 99 );
+        add_action( 'wp_enqueue_scripts', 'tailor_enqueue_styles' );
+        add_action( 'tailor_canvas_enqueue_scripts', 'tailor_enqueue_scripts', 99 );
 //        $asd = get_included_files();
 //        echo "<pre>";
 //        print_r($asd);

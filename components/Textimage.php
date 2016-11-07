@@ -14,6 +14,8 @@ class Textimage
     private $display_title;
     private $display_subtitle;
     private $display_overlay;
+    private $hover_animation;
+    private $animation_color;
 
     private $text_style;
     private $vertical_style;
@@ -27,6 +29,7 @@ class Textimage
 
     function __construct($options)
     {
+        var_dump($options);
         $this->display_textimage = $options['display_textimage'];
         $this->font_size = $options['font_size'];
         $this->text_color = $options['text_color'];
@@ -36,6 +39,8 @@ class Textimage
         $this->display_title = ($options['display_title']==='yes'?true:false);
         $this->display_subtitle = ($options['display_subtitle']==='yes'?true:false);
         $this->display_overlay = ($options['display_overlay']==='yes'?true:false);
+        $this->hover_animation = $options['hover_animation'];
+        $this->animation_color = $options['animation_color'];
 
         $this->setTextStyle();
         $this->setVerticalAlignment();
@@ -51,13 +56,17 @@ class Textimage
 
     }
     private function setVerticalAlignment(){
-        if(strpos($this->text_position,'top') !== false)
+        if(strpos($this->text_position,'top') !== false) {
             $this->vertical_style = 'top aligned ';
-        else{
-            if(strpos($this->text_position,'bottom') !== false)
+//            $this->vertical_style = '';
+        }else{
+            if(strpos($this->text_position,'bottom') !== false) {
                 $this->vertical_style = 'bottom aligned ';
-            else
+//                $this->vertical_style = '';
+            }else {
+//                $this->vertical_style = '';
                 $this->vertical_style = 'middle aligned ';
+            }
         }
     }
     private function setVerticalSimpleAligment(){
@@ -126,6 +135,12 @@ class Textimage
     }
     public function getDisplayOverlay(){
         return $this->display_overlay;
+    }
+    public function getAnimation(){
+        return $this->hover_animation;
+    }
+    public function getAnimationColor(){
+        return $this->animation_color;
     }
     public function displayTextimage(){
         $textimage = $this;

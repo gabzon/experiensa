@@ -1,8 +1,13 @@
+<style>
+    figure:hover{
+        background-color: <?= $textimage->getAnimationColor();?>;
+    }
+</style>
 <div class="ui image">
-    <figure class="imghvr-reveal-down">
+    <figure class="<?= $textimage->getAnimation();?>">
         <img src="<?=$textimage->getImage();?>">
-        <figcaption>
-            <div class="<?= $textimage->getVerticalAlignment();?> content" style="<?= $textimage->getHorizontalAlignment();?>">
+        <figcaption style="background-color: <?= $textimage->getAnimationColor();?>;">
+            <div class="content" style="<?= $textimage->getHorizontalAlignment();?>">
                 <div class="center">
                     <div class="header" style="<?= $textimage->getTextStyle();?>"><?= $textimage->getTitle();?></div>
                     <br>
@@ -10,7 +15,7 @@
                 </div>
             </div>
         </figcaption>
-        <a href="<?=$textimage->getPostLink;?>"></a>
+        <a href="<?=$textimage->getPostLink();?>"></a>
     </figure>
 </div>
 
