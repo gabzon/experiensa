@@ -29,7 +29,6 @@ class Textimage
 
     function __construct($options)
     {
-        var_dump($options);
         $this->display_textimage = $options['display_textimage'];
         $this->font_size = $options['font_size'];
         $this->text_color = $options['text_color'];
