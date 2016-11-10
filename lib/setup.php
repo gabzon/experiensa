@@ -110,6 +110,10 @@ function assets() {
     wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');
   wp_enqueue_script('freewall/js', Assets\asset_path('scripts/freewall.js'), ['jquery'], null, false);
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+    wp_enqueue_script('react', get_template_directory_uri().'/assets/scripts/react-lib/react-v15.0.1.js');
+    wp_enqueue_script('react-dom', get_template_directory_uri().'/assets/scripts/react-lib/react-dom-v15.0.1.js',['react']);
+    wp_enqueue_script('babel', get_template_directory_uri().'/assets/scripts/react-lib/babel-standalone-v6.18.2.js');
+    wp_enqueue_script('react-main', get_template_directory_uri().'/react-src/main.js',['react','react-dom','babel']);
   wp_localize_script('sage/js','sage_vars',$localized_array);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

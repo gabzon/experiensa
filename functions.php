@@ -23,7 +23,7 @@ $sage_includes = [
     'models/taxonomy',            // Custom taxonomies
     'models/post-type',           // All custom post types
     'modules',
-    'extensions/tailor/Tailor_Experiensa.php',
+//    'extensions/tailor/Tailor_Experiensa.php',
     'extensions/tailor/tailor.php'
 ];
 

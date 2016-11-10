@@ -173,3 +173,11 @@ function wpsites_custom_tiled_gallery_width($width){
     return $width;
 }
 add_filter( 'tiled_gallery_content_width', 'wpsites_custom_tiled_gallery_width' );
+
+function babelType($tag,$handle,$src){
+    if($handle !== 'react-main'){
+        return $tag;
+    }
+    return '<scripts src="'. $src .'" type="text/babel"></scripts>'. "\n";
+}
+add_filter('script_loader_tag','babelType',10,3);

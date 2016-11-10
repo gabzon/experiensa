@@ -25,6 +25,9 @@
             ?>
         </article>
     <?php endwhile; ?>
+    <div id="prueba-react">
+
+    </div>
 </div>
 <br>
 <br>

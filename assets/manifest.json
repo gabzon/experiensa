@@ -40,6 +40,13 @@
             "files": [
                 "scripts/canvas.js"
             ]
+        },
+        "react_libs.js":{
+            "files": [
+                "scripts/react-lib/react-v15.0.1.js",
+                "scripts/react-lib/react-dom-v15.0.1.js",
+                "scripts/react-lib/babel-standalone-v6.18.2.js"
+            ]
         }
     },
     "config": {
