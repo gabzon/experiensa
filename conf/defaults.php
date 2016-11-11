@@ -178,6 +178,6 @@ function babelType($tag,$handle,$src){
     if($handle !== 'react-main'){
         return $tag;
     }
-    return '<scripts src="'. $src .'" type="text/babel"></scripts>'. "\n";
+    return '<script src="'. $src .'" type="text/babel"></script>'. "\n";
 }
 add_filter('script_loader_tag','babelType',10,3);

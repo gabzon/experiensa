@@ -6,4 +6,5 @@ var Posts = React.createClass({
     }
 })
 ReactDOM.render(<Posts/>,document.getElementById("prueba-react"));
-console.log('probando react');
+console.log('probando react '+sage_vars.ajaxurl);
+console.log('probando react2 '+sage_vars.siteurl);

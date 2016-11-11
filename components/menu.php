@@ -39,10 +39,13 @@ Class Menu {
      * @return mixed
      */
     public static function get_main_menu(){
+        $menu = [];
         $menu_name = 'primary_navigation';
         $locations = get_nav_menu_locations();
-        $menu_id = $locations[ $menu_name ] ;
-        $menu = wp_get_nav_menu_object($menu_id);
+        if(isset($locations[ $menu_name ])) {
+            $menu_id = $locations[$menu_name];
+            $menu = wp_get_nav_menu_object($menu_id);
+        }
         return $menu;
     }
 
