@@ -5,16 +5,19 @@ if ( ! function_exists( 'tailor_load_experiensa_elements' ) ) {
     {
         $extension_dir = get_template_directory().'/extensions/tailor/';
         $files = [
-            $extension_dir."includes/elements/class-custom-news.php",
-            $extension_dir."includes/shortcodes/shortcode-custom-news.php"
+            "includes/elements/class-custom-news.php",
+            "includes/elements/class-grid-container.php",
+            "includes/elements/class-grid.php",
+
+            "includes/shortcodes/shortcode-custom-news.php",
+            "includes/shortcodes/shortcode-grid-container.php",
+            "includes/shortcodes/shortcode-grid.php"
         ];
         foreach ($files as $file){
-            include_once $file;
+            $path = $extension_dir.$file;
+            if(file_exists($path))
+                include_once $path;
         }
-//        $asd = get_included_files();
-//        echo "<pre>";
-//        print_r($asd);
-//        echo "</pre>";
     }
 }
 
@@ -27,11 +30,27 @@ if(! function_exists('tailor_register_experiensa_elements')){
             'badge'             =>  __( 'Experiensa' ),
             'class_name'        =>  'Tailor_Custom_News_Element',
         ) );
+
+        $element_manager->add_element( 'tailor_experiensa_grid_container', array(
+            'label'             =>  __( 'Grid Component' ),
+            'description'       =>  __( 'Customizable Grid' ),
+            'type'              =>  'container',
+            'badge'             =>  __( 'Experiensa' ),
+            'class_name'        =>  'Tailor_Custom_Grid_Container_Element',
+            'child'             =>  'tailor_experiensa_grid',
+        ) );
+        $element_manager->add_element( 'tailor_experiensa_grid', array(
+            'label'             =>  __( 'Grid' ),
+            'type'              =>  'child',
+            'class_name'        =>  'Tailor_Custom_Grid_Element',
+        ) );
     }
 }
 if(! function_exists('register_experiensa_partial_path')){
     function register_experiensa_partial_path($paths){
-        $paths[] = get_template_directory() . 'templates/partials/';
+        $partials = get_template_directory() . '/templates/partials/';
+        $paths[] = $partials;
+        $paths[] = $partials.'showcase/grid/';
         return $paths;
     }
 }

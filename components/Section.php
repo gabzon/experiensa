@@ -25,7 +25,7 @@ class Section
             if(isset($design_settings[$section_options_name])) {
 //                $section_options = $settings[$section_options_name];
                 if($section_options_name === 'section_options') {
-                    echo "**";
+                    $this->sections = $design_settings[$section_options_name];
                 }else {
                     $this->sections = $design_settings[$section_options_name];
                 }

@@ -1,5 +1,8 @@
 <?php
+
+$textimage_option = (!isset($textimage_option)? new \Experiensa\Component\Textimage($textimage_data):$textimage_option);
 if(!empty($data)):
+//    var_dump($data);
 ?>
     <!-- Grid Component -->
     <div class="ui stackable grid">

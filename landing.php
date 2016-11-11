@@ -7,7 +7,7 @@ $page_object = get_queried_object();
 $page_id     = get_queried_object_id();
 //echo "<br><br><br>";
 //echo "<pre>";
-//print_r($design_settings['landing_section_options']);
+//print_r($design_settings);
 //echo "</pre>";
 $section_obj = new Experiensa\Component\Section($page_id,$design_settings,'landing_section');
 if($section_obj->checkExistSections()):
