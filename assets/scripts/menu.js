@@ -20,6 +20,11 @@ jQuery(function($){
         allowCategorySelection: true
     });
     $('.ui.accordion').accordion();
+    var mobile_menu = $('.ui.vertical.menu.mobile');
+    var mobile_menu_items = mobile_menu.find(".item .item");
+    mobile_menu_items.click(function () {
+        $('.ui.vertical.inverted.navbar.menu.mobile').hide();
+    });
 });
 function mobileMenuOnPcMarginConf(){
     var mobileMenuOnPC = jQuery(".ui.vertical.inverted.navbar.fixed.menu.pc");
