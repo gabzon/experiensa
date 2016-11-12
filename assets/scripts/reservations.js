@@ -80,10 +80,10 @@ function reservation_datepicker(){
         jQuery("#ui-datepicker-div").addClass("villa-blanca");
 
     }
-    jQuery('#checkin_timepicker').wickedpicker({title:'Check-In'});
-    jQuery('#checkout_timepicker').wickedpicker({
-        title:'Check-Out'
-    });
+    // jQuery('#checkin_timepicker').wickedpicker({title:'Check-In'});
+    // jQuery('#checkout_timepicker').wickedpicker({
+    //     title:'Check-Out'
+    // });
 }
 function ajaxSubmitReservation(){
   var newRequest = jQuery(this).serialize();

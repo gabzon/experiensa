@@ -8,8 +8,8 @@ function requestReservation(){
     $email = $_POST['email'];
     $reservation_start = $_POST['reservation_start'];
     $reservation_end = $_POST['reservation_end'];
-    $checkin = $_POST['checkin'];
-    $checkout = $_POST['checkout'];
+//    $checkin = $_POST['checkin'];
+//    $checkout = $_POST['checkout'];
     $comments = (isset($_POST['comments'])?$_POST['comments']:"");
     
     $to = $agency_email.','.$email;
@@ -18,8 +18,8 @@ function requestReservation(){
     $body = "<strong>Fullname: </strong>".$fullname."<br>";
     $body .= "<strong>Email: </strong>".$email."<br>";
     $body .= "<strong>Start Date: </strong>".$reservation_start." <strong>End Date: </strong>".$reservation_end."<br>";
-    $body .= "<strong>Check-In: </strong>".$checkin."<br>";
-    $body .= "<strong>Check-Out: </strong>".$checkout."<br>";
+//    $body .= "<strong>Check-In: </strong>".$checkin."<br>";
+//    $body .= "<strong>Check-Out: </strong>".$checkout."<br>";
     $body .= "<strong>Comments: </strong>".$comments."<br>";
     
     $success = "<div class=\"ui success message\">

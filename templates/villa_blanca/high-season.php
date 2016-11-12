@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="extra center aligned content">
-      <button class="ui pink button"><?= __('Get it!','sage');?></button>
+      <a href="<?=get_site_url();?>/#villa_blanca_reservations" class="ui pink button"><?= __('Get it!','sage');?></a>
     </div>
   </div>
 </div>

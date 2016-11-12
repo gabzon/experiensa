@@ -30,4 +30,4 @@ if(!empty($main_menu)):?>
         ?>
     </div>
 <?php
-endif;;
+endif;

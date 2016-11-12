@@ -25,14 +25,14 @@
             </div>
         </div>
     </div>
-    <div class="fields">
-      <div class="field">
-        <input name="checkin" id="checkin_timepicker" type="text" placeholder="<?php _e('Check-In','sage'); ?>" required/>
-      </div>
-      <div class="field">
-        <input name="checkout" id="checkout_timepicker" type="text" placeholder="<?php _e('Check-Out','sage'); ?>" required/>
-      </div>
-    </div>
+<!--    <div class="fields">-->
+<!--      <div class="field">-->
+<!--        <input name="checkin" id="checkin_timepicker" type="text" placeholder="--><?php //_e('Check-In','sage'); ?><!--" required/>-->
+<!--      </div>-->
+<!--      <div class="field">-->
+<!--        <input name="checkout" id="checkout_timepicker" type="text" placeholder="--><?php //_e('Check-Out','sage'); ?><!--" required/>-->
+<!--      </div>-->
+<!--    </div>-->
     <div class="field">
       <textarea rows="4" name="comments" placeholder="<?= __('Comments','sage'); ?>"></textarea>
     </div>
