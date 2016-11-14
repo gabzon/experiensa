@@ -221,212 +221,16 @@
                 <h1>Testimonials</h1>
             </div>
         </div>
-        <script type="text/javascript">
-            jQuery(function() {
-                var testimonial_carousel = jQuery(".testimonial-carousel");
-                testimonial_carousel.owlCarousel({
-                    autoPlay: 3000,
-                    loop:true,
-                    margin:5,
-                    nav:true,
-                    items: 1,
-                    stopOnHover:true,
-                    navText: [
-                        "<i class='angle left big icon'></i>",
-                        "<i class='angle right big icon'></i>"
-                    ],
-                });
-                testimonial_carousel.each(function(){
-                    jQuery(".owl-dots",this).removeClass('disabled');
-                    jQuery(".owl-nav",this).removeClass('disabled');
-                });
-            });
-        </script>
-        <!-- Testimonial Carousel Component -->
-        <div class="owl-carousel owl-theme testimonial-carousel owl-loaded owl-drag">
-            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-2224px, 0px, 0px); transition: 0s; width: 7784px;"><div class="owl-item cloned" style="width: 1107px; margin-right: 5px;"><div class="item">
-                            <div class="ui two column middle aligned centered grid">
-                                <div class="row">
-                                    <div class="center aligned column">
-                                        <br><br>
-                                        <div class="ui pointing below basic label" style="padding: 1em;">
-                                            <p>
-                                                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In metus eros, posuere vitae lectus vehicula, scelerisque semper mi. Sed sagittis mi at dignissim rutrum.</em>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="four column centered row">
-                                    <div class="right aligned column">
-                                        <div class="ui tiny circular image">
-                                            <img src="http://i1.wp.com/bnb.experiensa.com/files/2016/09/77.jpg?fit=128%2C128">
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="content">
-                                            <div class="header"><strong>Carlos Hernandez</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                        </div></div><div class="owl-item cloned" style="width: 1107px; margin-right: 5px;"><div class="item">
-                            <div class="ui two column middle aligned centered grid">
-                                <div class="row">
-                                    <div class="center aligned column">
-                                        <br><br>
-                                        <div class="ui pointing below basic label" style="padding: 1em;">
-                                            <p>
-                                                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In metus eros, posuere vitae lectus vehicula, scelerisque semper mi. Sed sagittis mi at dignissim rutrum. Donec arcu augue, semper sit amet imperdiet eget, facilisis eget quam. Nunc at purus id est ultrices aliquam. Aenean iaculis fringilla efficitur. Etiam vulputate tempus nunc, at consectetur lorem pharetra sit amet.</em>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="four column centered row">
-                                    <div class="right aligned column">
-                                        <div class="ui tiny circular image">
-                                            <img src="http://i2.wp.com/bnb.experiensa.com/files/2016/09/85.jpg?fit=128%2C128">
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="content">
-                                            <div class="header"><strong>María Gonzalez</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                        </div></div><div class="owl-item active" style="width: 1107px; margin-right: 5px;"><div class="item">
-                            <div class="ui two column middle aligned centered grid">
-                                <div class="row">
-                                    <div class="center aligned column">
-                                        <br><br>
-                                        <div class="ui pointing below basic label" style="padding: 1em;">
-                                            <p>
-                                                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit!</em>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="four column centered row">
-                                    <div class="right aligned column">
-                                        <div class="ui tiny circular image">
-                                            <img src="http://i2.wp.com/bnb.experiensa.com/files/2016/09/64.jpg?fit=128%2C128">
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="content">
-                                            <div class="header"><strong>Amy Smith</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                        </div></div><div class="owl-item" style="width: 1107px; margin-right: 5px;"><div class="item">
-                            <div class="ui two column middle aligned centered grid">
-                                <div class="row">
-                                    <div class="center aligned column">
-                                        <br><br>
-                                        <div class="ui pointing below basic label" style="padding: 1em;">
-                                            <p>
-                                                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In metus eros, posuere vitae lectus vehicula, scelerisque semper mi. Sed sagittis mi at dignissim rutrum.</em>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="four column centered row">
-                                    <div class="right aligned column">
-                                        <div class="ui tiny circular image">
-                                            <img src="http://i1.wp.com/bnb.experiensa.com/files/2016/09/77.jpg?fit=128%2C128">
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="content">
-                                            <div class="header"><strong>Carlos Hernandez</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                        </div></div><div class="owl-item" style="width: 1107px; margin-right: 5px;"><div class="item">
-                            <div class="ui two column middle aligned centered grid">
-                                <div class="row">
-                                    <div class="center aligned column">
-                                        <br><br>
-                                        <div class="ui pointing below basic label" style="padding: 1em;">
-                                            <p>
-                                                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In metus eros, posuere vitae lectus vehicula, scelerisque semper mi. Sed sagittis mi at dignissim rutrum. Donec arcu augue, semper sit amet imperdiet eget, facilisis eget quam. Nunc at purus id est ultrices aliquam. Aenean iaculis fringilla efficitur. Etiam vulputate tempus nunc, at consectetur lorem pharetra sit amet.</em>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="four column centered row">
-                                    <div class="right aligned column">
-                                        <div class="ui tiny circular image">
-                                            <img src="http://i2.wp.com/bnb.experiensa.com/files/2016/09/85.jpg?fit=128%2C128">
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="content">
-                                            <div class="header"><strong>María Gonzalez</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                        </div></div><div class="owl-item cloned" style="width: 1107px; margin-right: 5px;"><div class="item">
-                            <div class="ui two column middle aligned centered grid">
-                                <div class="row">
-                                    <div class="center aligned column">
-                                        <br><br>
-                                        <div class="ui pointing below basic label" style="padding: 1em;">
-                                            <p>
-                                                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit!</em>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="four column centered row">
-                                    <div class="right aligned column">
-                                        <div class="ui tiny circular image">
-                                            <img src="http://i2.wp.com/bnb.experiensa.com/files/2016/09/64.jpg?fit=128%2C128">
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="content">
-                                            <div class="header"><strong>Amy Smith</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                        </div></div><div class="owl-item cloned" style="width: 1107px; margin-right: 5px;"><div class="item">
-                            <div class="ui two column middle aligned centered grid">
-                                <div class="row">
-                                    <div class="center aligned column">
-                                        <br><br>
-                                        <div class="ui pointing below basic label" style="padding: 1em;">
-                                            <p>
-                                                <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In metus eros, posuere vitae lectus vehicula, scelerisque semper mi. Sed sagittis mi at dignissim rutrum.</em>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="four column centered row">
-                                    <div class="right aligned column">
-                                        <div class="ui tiny circular image">
-                                            <img src="http://i1.wp.com/bnb.experiensa.com/files/2016/09/77.jpg?fit=128%2C128">
-                                        </div>
-                                    </div>
-                                    <div class="column">
-                                        <div class="content">
-                                            <div class="header"><strong>Carlos Hernandez</strong></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                        </div></div></div></div><div class="owl-nav"><div class="owl-prev"><i class="angle left big icon"></i></div><div class="owl-next"><i class="angle right big icon"></i></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+        <?php
+        $post_type = "jetpack-testimonial";
+        $category = "all";
+        $terms = [];
+        $max = 5;
+        $showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
+//        var_dump($showcase_data);
+        set_query_var('data',$showcase_data);
+        get_template_part("templates/partials/showcase/carousel/carousel-testimonial");
+        ?>
         <br>
         <br>
         <br>
@@ -468,8 +272,6 @@
             </div>
             <div class="column">
                 <h5>KEEP IN TOUCH</h5>
-                &nbsp;
-
             </div>
         </div>    </div>
     <br>
