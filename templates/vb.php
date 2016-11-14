@@ -5,7 +5,7 @@
 ?>
 <!-- VILLA BLANCA MAIN SECTION -->
 <section id="section_page_villa_blanca" class="ui vertical segment custom-section" style="height:100vh;">
-    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('http://bnb.experiensa.com/files/2016/09/portadabuenaretocada-1.jpg') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/landing.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
     <div class="ui  vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
         <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
@@ -31,7 +31,7 @@
 </section>
 <!--ABOUT SECTION-->
 <section id="section_page_about" class="ui vertical segment custom-section" style="">
-    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('http://bnb.experiensa.com/files/2016/09/garden6.jpg') no-repeat center center fixed;background-size: cover;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/about.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
     <div class="ui  vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
         <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
@@ -61,14 +61,17 @@
             </div>
             <div class="column">
                 The property is well connected by both train and car with Barcelona and la Costa Brava. The Foundation for Environmental Education granted many years ago the Blue Flag to the wonderful beaches of Sant Vicenç de Montalt and Caldes d’Estrac for their high environmental and quality standards. These beaches are within walking distance.
+                <br>
+                <br>
             </div>
         </div>    </div>
     <br>
     <br>
+
 </section>
 <!--FACILITIES SECTION-->
 <section id="section_component_facilities" class="ui vertical segment custom-section" style="">
-    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('http://bnb.experiensa.com/files/2016/10/beach1.jpg') no-repeat center center fixed;background-size: cover;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/facilities.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
     <div class="ui  vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
         <div class="ui center aligned header" style="color:#FFFFFF;">
             <div class="page-header">
@@ -110,13 +113,13 @@
 </section>
 <!-- Princing Section -->
 <section id="villa_blanca_pricing" class="ui segment vertical custom-section" style="height:100vh;">
-    <div class="section-background " style="background:linear-gradient(rgba(219,63,46,0.31),rgba(219,63,46,0.31)),url('http://bnb.experiensa.com/files/2016/09/34-854x1280.jpg') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(219,63,46,0.31),rgba(219,63,46,0.31)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/price.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
     <div class="section-content">
         <br><br><br>
         <h1 class="text-center" style="color: #FFFFFF;">Pricing</h1>
         <br>
         <div class="ui two column stackable grid centered">
-            <div class="five wide column">
+            <div class="five wide column" style="padding-left: 95px !important;">
                 <div class="ui card">
                     <div class="content">
                         <div class="center aligned header">High season</div>
@@ -124,24 +127,28 @@
                     <div class="center aligned content">
                         <h1 class="ui massive header">10'500<sup class="meta">€</sup></h1>
                         <div class="meta">
-                            Per Week      </div>
+                            Per Week
+                        </div>
                         <div class="description">
                             <b>From</b>
                         </div>
                         <div class="meta">
-                            June 1st      </div>
+                            June 1st
+                        </div>
                         <br>
                         <div class="description">
                             <b>To</b>
                         </div>
                         <div class="meta">
-                            Sectember 30th      </div>
+                            Sectember 30th
+                        </div>
                     </div>
                     <div class="extra center aligned content">
                         <a href="http://bnb.experiensa.com/#villa_blanca_reservations" class="ui pink button" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">Get it!</a>
                     </div>
                 </div>
-            </div><div class="five wide column">
+            </div>
+            <div class="five wide column" style="padding-left: 95px !important;">
                 <div class="ui card">
                     <div class="content">
                         <div class="center aligned header">Low season</div>
@@ -149,77 +156,56 @@
                     <div class="center aligned content">
                         <h1 class="ui massive header">9'0500<sup class="meta">€</sup></h1>
                         <div class="meta">
-                            Per Week      </div>
+                            Per Week
+                        </div>
                         <div class="description">
                             <b>From</b>
                         </div>
                         <div class="meta">
-                            October 1st      </div>
+                            October 1st
+                        </div>
                         <br>
                         <div class="description">
                             <b>To</b>
                         </div>
                         <div class="meta">
-                            May 31th      </div>
+                            May 31th
+                        </div>
                     </div>
                     <div class="extra center aligned content">
                         <a href="http://bnb.experiensa.com/#villa_blanca_reservations" class="ui pink button" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">Get it!</a>
                     </div>
                 </div>
-            </div>        </div>
+            </div>
+        </div>
+        <br>
+        <br>
         <br>
     </div>
 </section>
 <!-- RESERVATIONS SECTION -->
 <section id="villa_blanca_reservations" class="ui segment vertical custom-section" style="height:100vh;">
-    <div class="section-background " style="background:url('http://bnb.experiensa.com/files/2016/09/inside-08.jpg') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
+    <div class="section-background " style="background:url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/reservation.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
     <div class="section-content">
         <br>
         <br>
         <br>
         <h1 class="text-center" style="color: #FFFFFF;">Reservation</h1>
         <br>
-        <div class="ui two column stackable grid centered">
-            <div class="five wide column">
-                <div id="reservation_datepicker" class="villa-blanca hasDatepicker"><div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title="Prev" data-slimstat-clicked="false" data-slimstat-type="0" data-slimstat-tracking="true" data-slimstat-async="false" data-slimstat-callback="true"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next" data-slimstat-clicked="false" data-slimstat-type="0" data-slimstat-tracking="true" data-slimstat-async="false" data-slimstat-callback="true"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">November</span>&nbsp;<span class="ui-datepicker-year">2016</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">1</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">2</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">3</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">4</a></td><td class=" ui-datepicker-week-end undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">5</a></td><td class=" ui-datepicker-week-end undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">6</a></td></tr><tr><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">7</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">8</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">9</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">10</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">11</a></td><td class=" ui-datepicker-week-end undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">12</a></td><td class=" ui-datepicker-week-end undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">13</a></td></tr><tr><td class=" ui-datepicker-days-cell-over undefined ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">14</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">15</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">16</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">17</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">18</a></td><td class=" ui-datepicker-week-end undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">19</a></td><td class=" ui-datepicker-week-end undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">20</a></td></tr><tr><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">21</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">22</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">23</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">24</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">25</a></td><td class=" ui-datepicker-week-end undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">26</a></td><td class=" ui-datepicker-week-end undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">27</a></td></tr><tr><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">28</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">29</a></td><td class=" undefined" data-handler="selectDay" data-event="click" data-month="10" data-year="2016"><a class="ui-state-default" href="#" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">30</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div></div>
+        <div class="ui two column stackable grid">
+            <div class="five wide centered column">
+                <div id="reservation_datepicker" class="villa-blanca" style="padding-left: 120px !important;"></div>
+                <br>
+                <div style="padding-left: 35px;">
+                    <button class="compact ui button" style="background-color: #fff; color: #000">Available Date</button>
+                    <button class="compact ui button" style="background-color: #fff; color: #777">Unable Date</button>
+                    <button class="compact ui button" style="background-color: #e61a8d; color: #fff">Today/Selected</button>
+                </div>
             </div>
-            <div class="five wide column">
-                <form class="ui form" type="post" action="" id="newReservation">
-                    <div class="field">
-                        <div class="ui left icon input fluid">
-                            <input type="text" name="fullname" placeholder="Full name" required="">
-                            <i class="user icon"></i>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui left icon input fluid">
-                            <input name="email" type="text" placeholder="Email" required="">
-                            <i class="envelope icon"></i>
-                        </div>
-                    </div>
-                    <div class="fields">
-                        <div class="field" style="width: 50%;">
-                            <div class="ui left icon input">
-                                <input name="reservation_start" id="reservation_start" type="text" class="villa-blanca hasDatepicker" placeholder="Start Date" required="">
-                                <i class="calendar icon"></i>
-                            </div>
-                        </div>
-                        <div class="field" style="width: 50%;">
-                            <div class="ui left icon input">
-                                <input name="reservation_end" id="reservation_end" type="text" class="villa-blanca hasDatepicker" placeholder="End Date" required="">
-                                <i class="calendar icon"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <textarea rows="4" name="comments" placeholder="Comments"></textarea>
-                    </div>
-                    <input type="hidden" name="action" value="requestReservation">
-                    <input type="hidden" name="agency_email" value="info@experiensa.com">
-                    <input type="hidden" id="reservation_date" name="reservation_date" value="14/11/2016">
-                    <input id="form-submit" type="submit" class="ui button pink" value="Send a Reservation">
-                </form>            <br><br>
-                <div id="reservationFeedback" style="display: none;">0</div>
+            <div class="five wide centered column">
+                <?php get_template_part('templates/components/reservation','form'); ?>
+                <br><br>
+                <div id="reservationFeedback" style="display: none;"></div>
                 <br><br>
             </div>
         </div>
@@ -228,7 +214,7 @@
 </section>
 <!--TESTIMONIAL SECTION-->
 <section id="section_component_testimonials" class="ui vertical segment custom-section" style="">
-    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('http://bnb.experiensa.com/files/2016/09/inside-01.jpg') no-repeat center center fixed;background-size: cover;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/testimonials.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
     <div class="ui container vertical segment section-content" style="color:#FFFFFF;">
         <div class="ui center aligned header" style="color:#FFFFFF;">
             <div class="page-header">
@@ -258,9 +244,6 @@
         </script>
         <!-- Testimonial Carousel Component -->
         <div class="owl-carousel owl-theme testimonial-carousel owl-loaded owl-drag">
-
-
-
             <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-2224px, 0px, 0px); transition: 0s; width: 7784px;"><div class="owl-item cloned" style="width: 1107px; margin-right: 5px;"><div class="item">
                             <div class="ui two column middle aligned centered grid">
                                 <div class="row">
@@ -451,7 +434,7 @@
 </section>
 <!--CONTACT SECTION-->
 <section id="section_page_contact" class="ui vertical segment custom-section" style="">
-    <div class="section-background " style="background:url('http://bnb.experiensa.com/files/2016/09/chairs.jpg') no-repeat center center fixed;background-size: cover;"></div>
+    <div class="section-background " style="background:url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/contact.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
     <div class="ui  vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
         <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
