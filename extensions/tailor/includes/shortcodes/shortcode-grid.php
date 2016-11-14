@@ -29,7 +29,7 @@ if ( ! function_exists( 'tailor_shortcode_experiensa_grid' ) ) {
         $terms = (($atts['terms']=='')?[]:$atts['terms']);
         $max = $atts['max'];
         $showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
-        var_dump($showcase_data);
+//        var_dump($showcase_data);
 
         /**
          * TextImage
@@ -45,7 +45,7 @@ if ( ! function_exists( 'tailor_shortcode_experiensa_grid' ) ) {
         $textimage['text_transform'] = $atts['text_transform'];
         $textimage['font_size'] = $atts['font_size'];
         $textimage['text_color'] = $atts['text_color'];
-        var_dump($textimage);
+//        var_dump($textimage);
 //        $textimage_obj = new \Experiensa\Component\Textimage($textimage);
 //        var_dump($textimage_obj);
 //        $template = get_template_directory() . '/templates/partials/showcase/grid/grid.php';

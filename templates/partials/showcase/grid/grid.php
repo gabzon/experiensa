@@ -16,10 +16,7 @@ if(!empty($data)):
             //Check if will use TextImage
             if($textimage_option->getDisplayTextImage()):?>
                 <div class="ui secondary segment" style="padding: 0;background-color: transparent;">
-
-<!--                    <a href="--><?//=$value['post_link'];?><!--" class="image" target="_blank">-->
                     <?php $textimage_option->displayTextimage();?>
-<!--                    </a>-->
                 </div>
             <?php
             else:
