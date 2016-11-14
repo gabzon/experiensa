@@ -119,7 +119,7 @@
         <h1 class="text-center" style="color: #FFFFFF;">Pricing</h1>
         <br>
         <div class="ui two column stackable grid centered">
-            <div class="five wide column" style="padding-left: 95px !important;">
+            <div class="five wide column" style="padding-left: 35px !important;">
                 <div class="ui card">
                     <div class="content">
                         <div class="center aligned header">High season</div>
@@ -148,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <div class="five wide column" style="padding-left: 95px !important;">
+            <div class="five wide column" style="padding-left: 35px !important;">
                 <div class="ui card">
                     <div class="content">
                         <div class="center aligned header">Low season</div>
@@ -194,9 +194,9 @@
         <br>
         <div class="ui two column stackable grid">
             <div class="five wide centered column">
-                <div id="reservation_datepicker" class="villa-blanca" style="padding-left: 120px !important;"></div>
+                <div id="reservation_datepicker" class="villa-blanca" style="padding-left: 50px !important;"></div>
                 <br>
-                <div style="padding-left: 35px;">
+                <div style="padding-left: 40px;">
                     <button class="compact ui button" style="background-color: #fff; color: #000">Available Date</button>
                     <button class="compact ui button" style="background-color: #fff; color: #777">Unable Date</button>
                     <button class="compact ui button" style="background-color: #e61a8d; color: #fff">Today/Selected</button>
