@@ -4,8 +4,8 @@
  */
 ?>
 <style>
-    .custom-section {
-        -webkit-text-size-adjust: 100% !important; /* Prevent font scaling in landscape while allowing user zoom */
+    html {
+        -webkit-text-size-adjust: none !important; /* Prevent font scaling in landscape while allowing user zoom */
     }
 </style>
 <!-- VILLA BLANCA MAIN SECTION -->
