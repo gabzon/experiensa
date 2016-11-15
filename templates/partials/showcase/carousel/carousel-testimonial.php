@@ -30,7 +30,7 @@ if(!empty($data)):
         <div class="item">
             <div class="ui two column middle aligned centered grid">
                 <div class="row">
-                    <div class="center aligned column">
+                    <div class="fifteen wide center aligned column">
                         <br><br>
                         <div class="ui pointing below basic label" style="padding: 1em;">
                             <p>
