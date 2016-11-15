@@ -7,7 +7,7 @@
     </div>
     <div class="field">
       <div class="ui left icon input fluid">
-        <input name="email" type="text" placeholder="<?php _e('Email','sage'); ?>" required/>
+        <input name="email" type="email" placeholder="<?php _e('Email','sage'); ?>" required/>
         <i class="envelope icon"></i>
       </div>
     </div>
