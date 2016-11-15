@@ -3,6 +3,11 @@
  * Template Name: New Villa Blanca Template
  */
 ?>
+<style>
+    html {
+        -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+    }
+</style>
 <!-- VILLA BLANCA MAIN SECTION -->
 <section id="section_page_villa_blanca" class="ui vertical segment custom-section" style="height:100vh;">
     <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/landing.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
