@@ -1,6 +1,8 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 <div class="ui container">
     <?php while (have_posts()) : the_post(); ?>
         <article <?php post_class(); ?>>
