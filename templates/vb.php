@@ -9,8 +9,6 @@
     <div class="ui  vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
         <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
-            <br>
-            <br>
             <div class="page-header"><br><br><br>
                 <h1>Villa Blanca</h1>
             </div>
@@ -185,7 +183,7 @@
 </section>
 <!-- RESERVATIONS SECTION -->
 <section id="villa_blanca_reservations" class="ui segment vertical custom-section" style="height:100vh;">
-    <div class="section-background " style="background:url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/reservation.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
+    <div class="section-background" style="background:url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/reservation.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
     <div class="section-content">
         <br>
         <br>
@@ -273,7 +271,8 @@
             <div class="column">
                 <h5>KEEP IN TOUCH</h5>
             </div>
-        </div>    </div>
+        </div>
+    </div>
     <br>
     <br>
 </section>
