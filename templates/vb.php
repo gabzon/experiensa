@@ -285,10 +285,13 @@
                     <button class="ui circular google plus icon button">
                         <i class="google plus icon"></i>
                     </button>
+                    <br>
                 </div>
             </div>
         </div>
     </div>
+    <br>
+    <br>
     <br>
     <br>
 </section>
