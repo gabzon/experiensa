@@ -198,9 +198,8 @@
                 <div id="reservation_datepicker" class="villa-blanca" style="padding-left: 50px !important;"></div>
                 <br>
                 <div style="padding-left: 40px;">
-                    <button class="compact ui button" style="background-color: #fff; color: #000">Available Date</button>
-                    <button class="compact ui button" style="background-color: #fff; color: #777">Unable Date</button>
-                    <button class="compact ui button" style="background-color: #e61a8d; color: #fff">Today/Selected</button>
+                    <button class="compact ui button" style="background-color: #fff; color: #000"><?= __('Available','sage');?></button>
+                    <button class="compact ui button" style="background-color: #e61a8d; color: #fff"><?= __('Occupied','sage');?></button>
                 </div>
             </div>
             <div class="five wide centered column">
@@ -276,6 +275,17 @@
             </div>
             <div class="column">
                 <h5>KEEP IN TOUCH</h5>
+                <div class="ui items">
+                    <button class="ui circular facebook icon button">
+                        <i class="facebook icon"></i>
+                    </button>
+                    <button class="ui circular twitter icon button">
+                        <i class="twitter icon"></i>
+                    </button>
+                    <button class="ui circular google plus icon button">
+                        <i class="google plus icon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
