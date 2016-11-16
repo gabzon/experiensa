@@ -197,7 +197,7 @@
             <div class="five wide centered column">
                 <div id="reservation_datepicker" class="villa-blanca" style="padding-left: 50px !important;"></div>
                 <br>
-                <div style="padding-left: 40px;">
+                <div style="padding-left: 70px;">
                     <button class="compact ui button" style="background-color: #fff; color: #000"><?= __('Available','sage');?></button>
                     <button class="compact ui button" style="background-color: #e61a8d; color: #fff"><?= __('Occupied','sage');?></button>
                 </div>
