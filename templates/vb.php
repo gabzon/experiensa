@@ -5,7 +5,7 @@
 ?>
 <!-- VILLA BLANCA MAIN SECTION -->
 <section id="section_page_villa_blanca" class="ui vertical segment custom-section" style="height:100vh;">
-    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/landing.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/landing.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
     <div class="ui  vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
         <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
@@ -29,8 +29,8 @@
 </section>
 <!--ABOUT SECTION-->
 <section id="section_page_about" class="ui vertical segment custom-section" style="">
-    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/about.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
-    <div class="ui  vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/about.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
+    <div class="ui container vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
         <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
             <br>
@@ -42,14 +42,14 @@
         <br>
         <br>
         <br>
-        <div class="ui grid stackable">
+        <div class="ui stackable grid">
             <div class="two wide column"></div>
-            <div class="twelve wide column">
+            <div class="twelve wide column" style="text-align: center;">
                 <h3>At the heart of beautiful Catalonia: enjoy the elegance of the mansion, romantic gardens, calm and prestige, sports facilities fun, clear sea of Costa Brava, charms of Barcelona, in exclusivity for your family and friends</h3>
             </div>
             <div class="two wide column"></div>
         </div>
-        <div class="ui two column grid stackable">
+        <div class="ui two column grid stackable" style="text-align: justify;">
             <div class="column">
                 Villa Blanca is a manorial mansion with views over the Mediterranean Sea. It is located in the Maresme Coast, where the approximate minimum temperature between spring and autumn is 10 degrees Celsius, and the approximate maximum temperature is 30 degrees Celsius.
 
@@ -62,18 +62,21 @@
                 <br>
                 <br>
             </div>
-        </div>    </div>
+        </div>
+    </div>
     <br>
     <br>
 
 </section>
 <!--FACILITIES SECTION-->
 <section id="section_component_facilities" class="ui vertical segment custom-section" style="">
-    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/facilities.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/facilities.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
     <div class="ui  vertical segment section-content" style="padding: 0px 15px 0 15px;color:#FFFFFF;">
+        <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
+            <br>
+            <br>
             <div class="page-header">
-                <br>
                 <h1>Facilities</h1>
             </div>
         </div>
@@ -111,7 +114,7 @@
 </section>
 <!-- Princing Section -->
 <section id="villa_blanca_pricing" class="ui segment vertical custom-section" style="height:100vh;">
-    <div class="section-background " style="background:linear-gradient(rgba(219,63,46,0.31),rgba(219,63,46,0.31)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/price.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/price.jpg' ?>') no-repeat center center fixed;background-size: cover;height:100vh;"></div>
     <div class="section-content">
         <br><br><br>
         <h1 class="text-center" style="color: #FFFFFF;">Pricing</h1>
@@ -152,7 +155,7 @@
                         <div class="center aligned header">Low season</div>
                     </div>
                     <div class="center aligned content">
-                        <h1 class="ui massive header">9'0500<sup class="meta">€</sup></h1>
+                        <h1 class="ui massive header">9'500<sup class="meta">€</sup></h1>
                         <div class="meta">
                             Per Week
                         </div>
@@ -195,9 +198,8 @@
                 <div id="reservation_datepicker" class="villa-blanca" style="padding-left: 50px !important;"></div>
                 <br>
                 <div style="padding-left: 40px;">
-                    <button class="compact ui button" style="background-color: #fff; color: #000">Available Date</button>
-                    <button class="compact ui button" style="background-color: #fff; color: #777">Unable Date</button>
-                    <button class="compact ui button" style="background-color: #e61a8d; color: #fff">Today/Selected</button>
+                    <button class="compact ui button" style="background-color: #fff; color: #000"><?= __('Available','sage');?></button>
+                    <button class="compact ui button" style="background-color: #e61a8d; color: #fff"><?= __('Occupied','sage');?></button>
                 </div>
             </div>
             <div class="five wide centered column">
@@ -212,9 +214,12 @@
 </section>
 <!--TESTIMONIAL SECTION-->
 <section id="section_component_testimonials" class="ui vertical segment custom-section" style="">
-    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/testimonials.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
+    <div class="section-background " style="background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('<?= get_site_url().'/wp-content/themes/experiensa/dist/images/testimonials.jpg' ?>') no-repeat center center fixed;background-size: cover;"></div>
     <div class="ui container vertical segment section-content" style="color:#FFFFFF;">
+        <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
+            <br>
+            <br>
             <div class="page-header">
                 <h1>Testimonials</h1>
             </div>
@@ -270,6 +275,17 @@
             </div>
             <div class="column">
                 <h5>KEEP IN TOUCH</h5>
+                <div class="ui items">
+                    <button class="ui circular facebook icon button">
+                        <i class="facebook icon"></i>
+                    </button>
+                    <button class="ui circular twitter icon button">
+                        <i class="twitter icon"></i>
+                    </button>
+                    <button class="ui circular google plus icon button">
+                        <i class="google plus icon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

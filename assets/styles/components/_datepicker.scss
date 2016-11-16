@@ -105,13 +105,14 @@
 }
 
 .villa-blanca .ui-state-disabled .ui-state-default {
-    color: #777;
+    background: #e61a8d;
+    color: #fff;
 }
 
 .villa-blanca td .ui-state-active,
 .villa-blanca td .ui-state-hover {
-    background: #e61a8d;
-    color: #fff;
+    background: #fff;
+    color: #777;
 }
 
 .villa-blanca td + td,th + th { border-left: 1px solid #ddd; }

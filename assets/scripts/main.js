@@ -130,7 +130,7 @@
                 //}
                 //Init Landing Components: Carousel
                 initLandingComponents();
-                $(".image .dimmer").dimmer({on:'hover', opacity: 0.4});
+                $(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
                 freewall_layout();
             },
             finalize: function() {

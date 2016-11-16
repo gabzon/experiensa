@@ -5,7 +5,7 @@ if(!empty($data)):
 //    var_dump($data);
 ?>
     <!-- Grid Component -->
-    <div class="ui stackable grid">
+    <div class="ui stackable grid centered">
     <?php
     foreach($data as $value):
         $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url'],$value['post_link']);
