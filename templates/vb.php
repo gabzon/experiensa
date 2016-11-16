@@ -286,11 +286,11 @@
                         <i class="google plus icon"></i>
                     </button>
                     <br>
+                    <br>
                 </div>
             </div>
         </div>
     </div>
-    <br>
     <br>
     <br>
     <br>
