@@ -6,6 +6,7 @@ var changed      = require('gulp-changed');
 var concat       = require('gulp-concat');
 var flatten      = require('gulp-flatten');
 var gulp         = require('gulp');
+var dest         = require('gulp-dest');
 var gulpif       = require('gulp-if');
 var imagemin     = require('gulp-imagemin');
 var jshint       = require('gulp-jshint');
@@ -19,6 +20,7 @@ var runSequence  = require('run-sequence');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
+var babel = require('gulp-babel');
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./assets/manifest.json');
@@ -232,6 +234,68 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(gulpif(enabled.failJSHint, jshint.reporter('fail')));
 });
+// ### React Task
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var gutil = require('gulp-util');
+var babelify = require('babelify');
+
+var scripts_path = path.dist + 'scripts';
+var dependencies = [
+    'react',
+    'react-dom'
+];
+var scriptsCount = 0;
+
+function bundleReactApp(isProduction) {
+    scriptsCount++;
+    // Browserify will bundle all our js files together in to one and will let
+    // us use modules in the front end.
+    var appBundler = browserify({
+        entries: './react-src/index.js',
+        debug: true
+    });
+
+    // If it's not for production, a separate vendors.js file will be created
+    // the first time gulp is run so that we don't have to rebundle things like
+    // react everytime there's a change in the js file
+    if (!isProduction && scriptsCount === 1){
+        // create vendors.js for dev environment.
+        browserify({
+            require: dependencies,
+            debug: true
+        })
+            .bundle()
+            .on('error', gutil.log)
+            .pipe(source('react_vendors.js'))
+            .pipe(gulp.dest(scripts_path));
+    }
+    if (!isProduction){
+        // make the dependencies external so they dont get bundled by the
+        // app bundler. Dependencies are already bundled in vendor.js for
+        // development environments.
+        dependencies.forEach(function(dep){
+            appBundler.external(dep);
+        });
+    }
+
+    appBundler
+    // transform ES6 and JSX to ES5 with babelify
+        .transform("babelify", {
+            presets: ["es2015", "react",'stage-0'],
+            plugins: ['transform-decorators-legacy']})
+        .bundle()
+        .on('error',gutil.log)
+        .pipe(source('react_app.js'))
+        .pipe(gulp.dest(scripts_path));
+}
+gulp.task('react-dev', function () {
+    bundleReactApp(false);
+});
+
+gulp.task('react', function (){
+    bundleReactApp(true);
+});
 
 // ### Clean
 // `gulp clean` - Deletes the build folder entirely.
@@ -264,7 +328,7 @@ gulp.task('watch', function() {
 // Generally you should be running `gulp` instead of `gulp build`.
 gulp.task('build', function(callback) {
     runSequence('styles',
-    'scripts',
+    'scripts','react',
     ['fonts', 'images'],
     callback);
 });

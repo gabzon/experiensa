@@ -40,6 +40,11 @@
             "files": [
                 "scripts/canvas.js"
             ]
+        },
+        "client.js": {
+            "files": [
+                "scripts/client.js"
+            ]
         }
     },
     "config": {
