@@ -283,7 +283,7 @@ function bundleReactApp(isProduction) {
     // transform ES6 and JSX to ES5 with babelify
         .transform("babelify", {
             presets: ["es2015", "react",'stage-0'],
-            plugins: ['transform-decorators-legacy']})
+            plugins: ['transform-decorators-legacy','transform-object-assign']})
         .bundle()
         .on('error',gutil.log)
         .pipe(source('react_app.js'))

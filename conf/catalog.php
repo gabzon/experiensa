@@ -106,11 +106,12 @@ class Catalog{
 //        print_r($api_response);
 //        echo "</pre>";
         $voyages = array();
-
+        $index = 0;
         for ($i=0; $i < count($api_response); $i++) {
             for ($j = 0; isset($api_response[$i]) && $j < count($api_response[$i]); $j++) {
                 $voyage = $api_response[$i][$j];
                 $tab = [
+                    'index'             => $index,
                     'id'                => $voyage->id,
                     'title'             => $voyage->title->rendered,
                     'excerpt'           => $voyage->excerpt->rendered,
@@ -127,6 +128,7 @@ class Catalog{
                     'website_name'      => $voyage->website_name,
                 ];
                 $voyages[] = $tab;
+                $index++;
             }
         }
         return $voyages;
