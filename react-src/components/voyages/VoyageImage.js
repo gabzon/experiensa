@@ -1,6 +1,6 @@
 import React from 'react';
 import VoyagePrice from './VoyagePrice'
-import Experiensa_Resource from '../../resource'
+//import Experiensa_Resource from '../../resource'
 
 export default class VoyageImage extends React.Component {
     constructor(){
@@ -20,12 +20,12 @@ export default class VoyageImage extends React.Component {
                     imgSrc = imageGallery[0]
                     voyageImage = <img src={imgSrc}/>
                 }else{
-                    imgSrc = Experiensa_Resource.stylesheet_directory_uri + '/assets/images/travel-no-image.jpg'
+                    imgSrc = sage_vars.stylesheet_directory_uri + '/assets/images/travel-no-image.jpg'
                     voyageImage = <img src={imgSrc}/>
                 }
             }
         }else{
-            imgSrc = Experiensa_Resource.stylesheet_directory_uri + '/assets/images/travel-no-image.jpg'
+            imgSrc = sage_vars.stylesheet_directory_uri + '/assets/images/travel-no-image.jpg'
             voyageImage = <img src={imgSrc}/>
         }
 
