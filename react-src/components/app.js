@@ -1,11 +1,12 @@
 import React from 'react'
 import {Component} from 'react'
 import {connect} from 'react-redux'
-import {showUsers} from '../actions'
+import {showUsers, requestCatalog} from '../actions'
 
 class App extends Component{
     componentWillMount(){
         this.props.showUsers()
+        this.props.requestCatalog()
     }
     renderUsersList(){
         return this.props.users.map((user)=>{
@@ -14,12 +15,19 @@ class App extends Component{
             )
         })
     }
+    renderCatalogList(){
+        return this.props.catalog.map((voyage)=>{
+            return(
+                <li key={voyage.index}>{voyage.title}</li>
+            )
+        })
+    }
     render(){
         return(
             <div>
                 <h2>User list</h2>
                 <ul>
-                    {this.renderUsersList()}
+                    {this.renderCatalogList()}
                 </ul>
             </div>
         )
@@ -28,8 +36,9 @@ class App extends Component{
 
 function mapStateToProps(state){
     return {
-        users: state.user.list
+        users: state.user.list,
+        catalog: state.catalog.catalog
     }
 }
 
-export default connect(mapStateToProps,{showUsers})(App)
+export default connect(mapStateToProps,{showUsers,requestCatalog})(App)

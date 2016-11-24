@@ -4,6 +4,13 @@ export default class FilterTheme extends React.Component {
     constructor(){
         super()
     }
+    renderThemesButtons(){
+        return this.props.themes.map((theme)=>{
+            return(
+                <button className="ui compact button" key={theme.id}>{theme.name}</button>
+            )
+        })
+    }
     render() {
         return (
             <div className="column">
@@ -12,9 +19,7 @@ export default class FilterTheme extends React.Component {
 				  	<div className="content">Theme</div>
             	</h3>
                 <div className="ui buttons">
-				  	<button className="ui compact button">One</button>
-				  	<button className="ui compact button">Two</button>
-			  		<button className="ui compact button">Three</button>
+                    {this.renderThemesButtons()}
 				</div>
             </div>
         );

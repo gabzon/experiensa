@@ -12,10 +12,10 @@ export default class CatalogFilterLayout extends React.Component {
     render() {
         return (
             <div className="ui four column stackable grid">
-                <FilterCategory/>
-                <FilterLocation/>
-                <FilterTheme/>
-                <FilterIncluded/>
+                <div className="stretched row">
+                    <FilterLocation locations={this.props.locations}/>
+                    <FilterTheme themes={this.props.themes}/>
+                </div>
             </div>
         );
     }

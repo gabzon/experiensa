@@ -117,3 +117,8 @@
 
 .villa-blanca td + td,th + th { border-left: 1px solid #ddd; }
 .villa-blanca tr + tr { border-top: 1px solid #ddd; }
+
+#reservation_datepicker .ui-state-default{
+    pointer-events: none;
+    cursor: default;
+}

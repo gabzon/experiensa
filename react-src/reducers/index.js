@@ -1,18 +1,10 @@
 import { combineReducers } from 'redux'
-import { showUsers} from './users'
+import { showUsers } from './users'
+import { requestCatalog } from './catalog'
 
 const rootReducer = combineReducers({
-    user: showUsers
+    user: showUsers,
+    catalog: requestCatalog
 })
 
 export default rootReducer
-// import items from './items'
-// import filters from './filters'
-// import catalog from './catalog'
-// import filters from './filters'
-
-// export default combineReducers({
-  // items
-	// catalog,
-	// filters
-// })

@@ -74,6 +74,18 @@ class CatalogCustomRoute extends WP_REST_Controller {
                 $filters = explode(',', $location_string);
             }
 		}
+		if(!empty($filters)){
+		    $filters_aux = $filters;
+            $filters = [];
+            $i = 0;
+		    foreach ($filters_aux as $filter_name){
+                $filter['id'] = $i;
+                $filter['name'] = rtrim(ltrim($filter_name.' '),' ');
+                $filter['active'] = false;
+                $filters[] = $filter;
+                $i++;
+            }
+        }
 		return $filters;
 	}
 	public function get_theme_filter($new = false){
@@ -97,6 +109,18 @@ class CatalogCustomRoute extends WP_REST_Controller {
                 $filters = explode(',', $theme_string);
             }
 		}
+        if(!empty($filters)){
+            $filters_aux = $filters;
+            $filters = [];
+            $i = 0;
+            foreach ($filters_aux as $filter_name){
+                $filter['id'] = $i;
+                $filter['name'] = rtrim(ltrim($filter_name.' '),' ');
+                $filter['active'] = false;
+                $filters[] = $filter;
+                $i++;
+            }
+        }
 		return $filters;
 
 	}

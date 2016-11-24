@@ -274,20 +274,20 @@
 
             </div>
             <div class="column">
-                <h5>KEEP IN TOUCH</h5>
-                <div class="ui items">
-                    <button class="ui circular facebook icon button">
-                        <i class="facebook icon"></i>
-                    </button>
-                    <button class="ui circular twitter icon button">
-                        <i class="twitter icon"></i>
-                    </button>
-                    <button class="ui circular google plus icon button">
-                        <i class="google plus icon"></i>
-                    </button>
-                    <br>
-                    <br>
-                </div>
+<!--                <h5>KEEP IN TOUCH</h5>-->
+<!--                <div class="ui items">-->
+<!--                    <button class="ui circular facebook icon button">-->
+<!--                        <i class="facebook icon"></i>-->
+<!--                    </button>-->
+<!--                    <button class="ui circular twitter icon button">-->
+<!--                        <i class="twitter icon"></i>-->
+<!--                    </button>-->
+<!--                    <button class="ui circular google plus icon button">-->
+<!--                        <i class="google plus icon"></i>-->
+<!--                    </button>-->
+<!--                    <br>-->
+<!--                    <br>-->
+<!--                </div>-->
             </div>
         </div>
     </div>

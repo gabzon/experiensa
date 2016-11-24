@@ -105,7 +105,8 @@ function assets() {
   }
   $localized_array = array(
   	'ajaxurl'=>admin_url('admin-ajax.php'),
-    'siteurl'=>get_site_url()
+    'siteurl'=>get_site_url(),
+    'stylesheet_directory_uri'=>get_stylesheet_directory_uri()
   );
   if(\Helpers::check_internet_connection())
     wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');

@@ -4,6 +4,13 @@ export default class FilterLocation extends React.Component {
     constructor(){
         super()
     }
+    renderLocationButtons(){
+        return this.props.locations.map((location)=>{
+            return(
+                <button className="ui compact button" key={location.id}>{location.name}</button>
+            )
+        })
+    }
     render() {
         return (
             <div className="column">
@@ -12,9 +19,7 @@ export default class FilterLocation extends React.Component {
 				  	<div className="content">Location</div>
             	</h3>
                 <div className="ui buttons">
-				  	<button className="ui compact button">One</button>
-				  	<button className="ui compact button">Two</button>
-			  		<button className="ui compact button">Three</button>
+                    {this.renderLocationButtons()}
 				</div>
             </div>
         );
