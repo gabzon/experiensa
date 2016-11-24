@@ -1,5 +1,6 @@
 import axios from 'axios'
-
+//import Experiensa_Resource from '../resource'
+// console.log(Experiensa_Resource)
 //Tipos de Acciones
 export const REQUEST_CATALOG = 'REQUEST_CATALOG'
 // export const REQUEST_THEME_FILTER = 'REQUEST_THEME_FILTER'
@@ -32,7 +33,8 @@ export function showUsers(){
 
 export function requestCatalog() {
     return(dispatch,getState)=>{
-        axios.get('http://localhost:8080/experiensa/wp-json/wp/v2/catalog')
+        let localApiCatalogURL = sage_vars.siteurl + '/wp-json/wp/v2/catalog'
+        axios.get(localApiCatalogURL)
             .then((response)=>{
                 dispatch(
                     {
