@@ -53,6 +53,23 @@ class CatalogCustomRoute extends WP_REST_Controller {
 	public function get_catalog(){
 		return $this->catalog;
 	}
+	public function get_unique_array_filter($filters){
+	    if(!empty($filters)) {
+	        $aux = [];
+            $out = [];
+            $i = 0;
+            foreach ($filters as $item){
+                if(!in_array($item['name'],$aux)){
+                    $aux[] = $item['name'];
+                    $item['id'] = $i;
+                    $out[] = $item;
+                    $i++;
+                }
+            }
+            return $out;
+        }
+        return [];
+    }
 	public function get_location_filter($new = false){
 		if(!$new){
 			$catalog = $this->get_catalog();
@@ -77,17 +94,15 @@ class CatalogCustomRoute extends WP_REST_Controller {
 		if(!empty($filters)){
 		    $filters_aux = $filters;
             $filters = [];
-            $i = 0;
 		    foreach ($filters_aux as $filter_name){
-                $filter['id'] = $i;
                 $filter['name'] = rtrim(ltrim($filter_name.' '),' ');
                 $filter['active'] = false;
                 $filters[] = $filter;
-                $i++;
             }
         }
-		return $filters;
+		return $this->get_unique_array_filter($filters);
 	}
+
 	public function get_theme_filter($new = false){
 		if(!$new){
 			$catalog = $this->get_catalog();
@@ -112,16 +127,13 @@ class CatalogCustomRoute extends WP_REST_Controller {
         if(!empty($filters)){
             $filters_aux = $filters;
             $filters = [];
-            $i = 0;
             foreach ($filters_aux as $filter_name){
-                $filter['id'] = $i;
                 $filter['name'] = rtrim(ltrim($filter_name.' '),' ');
                 $filter['active'] = false;
                 $filters[] = $filter;
-                $i++;
             }
         }
-		return $filters;
+        return $this->get_unique_array_filter($filters);
 
 	}
 	public function response_catalog(){

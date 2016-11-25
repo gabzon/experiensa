@@ -7,7 +7,7 @@ export default class FilterLocation extends React.Component {
     renderLocationButtons(){
         return this.props.locations.map((location)=>{
             return(
-                <button className="ui compact button" key={location.id}>{location.name}</button>
+                <button className="ui compact button" key={location.id} style={{"margin":"3px"}}>{location.name}</button>
             )
         })
     }
@@ -18,7 +18,7 @@ export default class FilterLocation extends React.Component {
             		<i className="world icon"></i>
 				  	<div className="content">Location</div>
             	</h3>
-                <div className="ui buttons">
+                <div className="ui items" style={{"display": "block"}}>
                     {this.renderLocationButtons()}
 				</div>
             </div>

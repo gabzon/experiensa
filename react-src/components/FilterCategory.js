@@ -11,7 +11,7 @@ export default class FilterCategory extends React.Component {
             		<i className="edit icon"></i>
 				  	<div className="content">Category</div>
             	</h3>
-                <div className="ui buttons">
+                <div className="ui items">
 				  	<button className="ui compact button">One</button>
 				  	<button className="ui compact button">Two</button>
 			  		<button className="ui compact button">Three</button>
