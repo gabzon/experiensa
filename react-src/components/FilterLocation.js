@@ -1,4 +1,5 @@
 import React from 'react';
+import CatalogFilterButton from './filters/CatalogFilterButton'
 
 export default class FilterLocation extends React.Component {
     constructor(){
@@ -7,7 +8,7 @@ export default class FilterLocation extends React.Component {
     renderLocationButtons(){
         return this.props.locations.map((location)=>{
             return(
-                <button className="ui compact button" key={location.id} style={{"margin":"3px"}}>{location.name}</button>
+                <CatalogFilterButton key={location.id} id={location.id} name={location.name} filter_type="FILTER_LOCATION"/>
             )
         })
     }

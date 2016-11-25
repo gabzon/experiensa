@@ -1,4 +1,5 @@
 import React from 'react';
+import CatalogFilterButton from './filters/CatalogFilterButton'
 
 export default class FilterTheme extends React.Component {
     constructor(){
@@ -7,7 +8,7 @@ export default class FilterTheme extends React.Component {
     renderThemesButtons(){
         return this.props.themes.map((theme)=>{
             return(
-                <button className="ui compact button" key={theme.id} style={{"margin":"3px"}}>{theme.name}</button>
+                <CatalogFilterButton key={theme.id} id={theme.id} name={theme.name} filter_type="FILTER_THEME"/>
             )
         })
     }
