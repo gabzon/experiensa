@@ -1,4 +1,4 @@
-import {REQUEST_CATALOG, FILTER_CATALOG_THEME_ACTIVE} from '../actions'
+import {REQUEST_CATALOG, FILTER_CATALOG} from '../actions'
 
 const initialState = {
   catalog: [],
@@ -18,7 +18,7 @@ export function requestCatalog(state = initialState,action){
         location_filters_active: []
       })
       break;
-    case FILTER_CATALOG_THEME_ACTIVE:
+    case FILTER_CATALOG:
       console.log('estoy llamando al reducer type FILTER_CATALOG_THEME')
       return Object.assign({}, state, {
         catalog: action.payload,
