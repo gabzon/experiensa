@@ -25,9 +25,11 @@ class CatalogFilterButton extends React.Component {
         }
         switch(filter_type){
             case 'FILTER_THEME':
+                console.log('entro en theme')
                 this.props.filterThemeCatalog(this.props.name,!this.state.isActive)
                 break
             default:
+                console.log('entro en location')
                 this.props.filterLocationCatalog(this.props.name,!this.state.isActive)
                 break
         }
