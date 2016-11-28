@@ -11,7 +11,7 @@ class CatalogFilterButton extends React.Component {
         }
         // this.handleClick = this.handleClick.bind(this)
     }
-    handleClick(){
+    handleClick(filter_type){
         if(this.state.isActive){
             this.setState({
                 isActive: false,
@@ -23,7 +23,7 @@ class CatalogFilterButton extends React.Component {
                 customClass: "ui active compact button"
             })
         }
-        switch(this.props.filter_type){
+        switch(filter_type){
             case 'FILTER_THEME':
                 this.props.filterThemeCatalog(this.props.name,!this.state.isActive)
                 break
@@ -35,17 +35,14 @@ class CatalogFilterButton extends React.Component {
     }
     render() {
         return (
-            <button className={this.state.customClass} key={this.props.id} style={{"margin":"3px"}} onClick={() => this.handleClick()}>{this.props.name}</button>
+            <button className={this.state.customClass} key={this.props.id} style={{"margin":"3px"}} onClick={() => this.handleClick(this.props.filter_type)}>{this.props.name}</button>
         );
     }
 }
 function mapStateToProps(state){
     return {
         isActive: false,
-        customClass: "ui compact button"/*,
-        catalog: state.catalog.catalog,
-        theme_filters: state.catalog.theme_filters,
-        location_filters: state.catalog.location_filters*/
+        customClass: "ui compact button"
     }
 }
 
