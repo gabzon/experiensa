@@ -43,41 +43,8 @@ function filterCatalogByItem(filter,itemName,list){
     }
     return auxList
 }
-/*function searchThemeNeedle(needle, filteredList,originalList){
-    let auxList = []
-    console.log("needl e"+needle)
-    for( var voyage of originalList ){
-        if(voyage.theme.indexOf(needle) !== -1){
-            auxList.push(voyage)
-        }
-    }
-    if(filteredList.length > 0){
-        let sw
-        for( var item of auxList){
-            sw = false
-            for (var foundItem of filteredList) {
-                if(foundItem.index === item.index){
-                    sw = true
-                    break
-                }
-            }
-            if(!sw){
-                filteredList.push(item)
-            }
-
-        }
-        return filteredList
-    }
-    return auxList
-}*/
 
 function searchOnCatalog(catalog,themes,locations){
-    console.log("mi catalogo es ")
-    console.log(catalog)
-    console.log("mi themes ")
-    console.log(themes)
-    console.log("mi location es ")
-    console.log(locations)
     let auxList = []
     for(var filter of themes){
         for(var voyage of catalog){
@@ -93,29 +60,13 @@ function searchOnCatalog(catalog,themes,locations){
             }
         }
     }
-    console.log("mis filtrados brutos")
-    console.log(auxList)
     if(auxList.length > 1){
-        let nAuxList = []
-        let tam = auxList.length
-        let sw
-        for (var i = 0; i < tam -1; i++){
-            sw = false
-            for (var j = i + 1; j < tam; j++){
-                if( auxList[i].index === auxList[j].index){
-                    console.log(" es igual "+auxList[i].index+" con este "+auxList[j].index)
-                    sw = true
-
-                    break
-                }
-            }
-            console.log("el valor de sw es "+sw)
-            if(sw === false)
-                nAuxList.push(auxList[i])
-        }
-        console.log("mi filtrados desbrutizados")
-        console.log(nAuxList)
-        return nAuxList
+        let nAuxList = auxList.filter(function(elem,pos){
+            return auxList.indexOf(elem) == pos
+        })
+        if(nAuxList.length > 0)
+            return nAuxList
+        return []
     }
     return auxList
 }
@@ -160,15 +111,6 @@ export function filterThemeCatalog(filter,add){
         }else{
             newCatalog = searchOnCatalog(originalCatalog, themes_actives,location_actives)
         }
-        /*let newCatalog =  original_state.catalog
-        console.log(original_state)
-        if(themes_actives.length < 1 && original_state.location_filters_active.length < 1){
-            newCatalog =  original_state.originalCatalog
-        }else{
-            newCatalog = searchThemeNeedle(filter, original_state.catalogFiltered, original_state.originalCatalog)
-            console.log('se va mostrar es')
-            console.log(newCatalog)
-        }*/
         dispatch({
             type: FILTER_CATALOG,
             payload: newCatalog,
@@ -185,8 +127,8 @@ export function filterThemeCatalog(filter,add){
 export function filterLocationCatalog(filter,add){
     return(dispatch,getState)=>{
         let original_state = getState().catalog;
-        console.log(original_state)
-        console.log("el valor de add es "+add)
+        //console.log(original_state)
+        //console.log("el valor de add es "+add)
         let new_locations_actives
         if(add){
             new_locations_actives = add_filter(filter,original_state.location_filters_active)
