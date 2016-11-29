@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button, Icon} from 'semantic-ui-react'
+import CatalogVoyageDetailsModal from './CatalogVoyageDetailsModal'
 
 export default class CatalogVoyageContactDetailsLayout extends React.Component {
     constructor(){
@@ -11,8 +13,7 @@ export default class CatalogVoyageContactDetailsLayout extends React.Component {
                     <i className="mail outline icon"></i>Contact us
                 </a>
                 <div className="right floated">
-                    <button id="modal-card-details" className="ui green button" type="submit" name="select" style={{"width": "100%","height": "100%"}}>
-                        <i className="eye icon"></i>Details</button>
+                    <CatalogVoyageDetailsModal voyage={this.props.voyage}/>
                 </div>
             </div>
         );

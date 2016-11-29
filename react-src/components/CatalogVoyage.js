@@ -26,7 +26,7 @@ export default class CatalogVoyage extends React.Component {
                 <VoyageImage voyage={this.props.voyage}/>
                 {titleComponent}
                 {excerptComponent}
-                <CatalogVoyageContactDetailsLayout/>
+                <CatalogVoyageContactDetailsLayout voyage={this.props.voyage}/>
             </div>
         );
     }
