@@ -44,7 +44,7 @@ function filterCatalogByItem(filter,itemName,list){
     return auxList
 }
 
-function searchOnCatalog(catalog,themes,locations){
+function searchOnCatalogOR(catalog,themes,locations){
     let auxList = []
     for(var filter of themes){
         for(var voyage of catalog){
@@ -70,6 +70,59 @@ function searchOnCatalog(catalog,themes,locations){
         return []
     }
     return auxList
+}
+function searchOnCatalogAND(catalog,themes,locations){
+    let auxList = []
+    let returnAuxList = []
+    let sw
+    if(themes.length > 0) {
+        for (var voyage of catalog) {
+            sw = true
+            for (var filter of themes) {
+                if (voyage.theme.indexOf(filter) === -1) {
+                    sw = false
+                    break
+                }
+            }
+            if (sw) {
+                auxList.push(voyage)
+            }
+        }
+        if(auxList.length > 0 && locations.length > 0){
+            for (var voyage of auxList) {
+                sw = true
+                for (var filter of locations) {
+                    if (voyage.location.indexOf(filter) === -1) {
+                        sw = false
+                        break
+                    }
+                }
+                if (sw) {
+                    returnAuxList.push(voyage)
+                }
+            }
+        }else{
+            if(auxList.length > 0)
+                returnAuxList = auxList
+        }
+
+    }else{
+        if(locations.length > 0){
+            for (var voyage of catalog) {
+                sw = true
+                for (var filter of locations) {
+                    if (voyage.location.indexOf(filter) === -1) {
+                        sw = false
+                        break
+                    }
+                }
+                if (sw) {
+                    returnAuxList.push(voyage)
+                }
+            }
+        }
+    }
+    return returnAuxList
 }
 /*
  * Action Creations
@@ -110,7 +163,8 @@ export function filterThemeCatalog(filter,add){
         if(themes_actives.length < 1 && location_actives.length < 1){
             newCatalog =  original_state.originalCatalog
         }else{
-            newCatalog = searchOnCatalog(originalCatalog, themes_actives,location_actives)
+            newCatalog = searchOnCatalogAND(originalCatalog, themes_actives,location_actives)
+            // newCatalog = searchOnCatalogOR(originalCatalog, themes_actives,location_actives)
         }
         dispatch({
             type: FILTER_CATALOG,
@@ -139,7 +193,7 @@ export function filterLocationCatalog(filter,add){
         if(themes_actives.length < 1 && location_actives.length < 1){
             newCatalog =  original_state.originalCatalog
         }else{
-            newCatalog = searchOnCatalog(originalCatalog, themes_actives,location_actives)
+            newCatalog = searchOnCatalogAND(originalCatalog, themes_actives,location_actives)
         }
         dispatch({
             type: FILTER_CATALOG,
