@@ -10,8 +10,11 @@ import Catalog from './components/Catalog'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <Catalog />
-  </Provider>
-  , document.getElementById('catalog-app'));
+let catalog_app = document.getElementById('catalog-app')
+if(catalog_app != null ) {
+    ReactDOM.render(
+        <Provider store={createStoreWithMiddleware(reducers)}>
+            <Catalog />
+        </Provider>
+        , catalog_app);
+}

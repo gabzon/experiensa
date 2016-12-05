@@ -32,17 +32,19 @@ if(! function_exists('tailor_register_experiensa_elements')){
         ) );
 
         $element_manager->add_element( 'tailor_experiensa_grid_container', array(
-            'label'             =>  __( 'Grid Component' ),
+            'label'             =>  __( 'Grid Container' ),
             'description'       =>  __( 'Customizable Grid' ),
             'type'              =>  'container',
             'badge'             =>  __( 'Experiensa' ),
             'class_name'        =>  'Tailor_Custom_Grid_Container_Element',
             'child'             =>  'tailor_experiensa_grid',
+//            'child_container'   =>  'tailor_experiensa_grid',
         ) );
         $element_manager->add_element( 'tailor_experiensa_grid', array(
             'label'             =>  __( 'Grid' ),
             'type'              =>  'child',
             'class_name'        =>  'Tailor_Custom_Grid_Element',
+//            'child_container'   =>  '.experiensa-grid',
         ) );
     }
 }

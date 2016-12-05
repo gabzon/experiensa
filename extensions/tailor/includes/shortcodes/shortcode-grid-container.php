@@ -21,8 +21,11 @@ if ( ! function_exists( 'tailor_shortcode_experiensa_grid_container' ) ) {
      * @return string
      */
     function tailor_shortcode_experiensa_grid_container( $atts, $content = null, $tag ) {
+        echo "mis atts<br>";
         var_dump($atts);
+        echo "mis content<br>";
         var_dump($content);
+        echo "mis tag<br>";
         var_dump($tag);
         $default_atts = apply_filters( 'tailor_shortcode_default_atts_' . $tag, array() );
         $atts = shortcode_atts( $default_atts, $atts, $tag );
@@ -47,8 +50,10 @@ if ( ! function_exists( 'tailor_shortcode_experiensa_grid_container' ) ) {
         $inner_html = '%s';
         $content = do_shortcode( $content );
         $html = sprintf( $outer_html, sprintf( $inner_html, $content ) );
-        var_dump($inner_html);
-        var_dump($html);
+//        echo "mis innet_html<br>";
+//        var_dump($inner_html);
+//        echo "mis html<br>";
+//        var_dump($html);
 
         /**
          * Filter the HTML for the element.

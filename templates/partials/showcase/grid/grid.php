@@ -51,4 +51,7 @@ if(!empty($data)):
     ?>
     </div>
 <?php
+else:?>
+    <h3><?=__("Empty data","sage");?></h3>
+<?php
 endif;

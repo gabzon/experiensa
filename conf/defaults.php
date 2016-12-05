@@ -181,3 +181,8 @@ function babelType($tag,$handle,$src){
     return '<script src="'. $src .'" type="text/babel"></script>'. "\n";
 }
 add_filter('script_loader_tag','babelType',10,3);
+
+function load_custom_tailor_canvas() {
+    wp_enqueue_script( 'custom-tailor-canvas', get_template_directory_uri() . '/dist/scripts/canvas.js', [], null, true );
+}
+add_action( 'customize_preview_init', 'load_custom_tailor_canvas' );

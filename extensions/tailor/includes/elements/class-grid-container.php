@@ -64,7 +64,7 @@ if ( class_exists( 'Tailor_Element' ) && ! class_exists( 'Tailor_Custom_Grid_Con
                 'priority'              =>  30,
             ) );
             $this->add_setting( 'title_color', array(
-                'sanitize_callback'     =>  'tailor_sanitize_text',
+                'sanitize_callback'     =>  'tailor_sanitize_color',
                 'default'               =>  '#FFFFFF',
             ) );
             $this->add_control( 'title_color', array(
@@ -73,7 +73,7 @@ if ( class_exists( 'Tailor_Element' ) && ! class_exists( 'Tailor_Custom_Grid_Con
                 'section'               =>  'colors',
             ) );
             $this->add_setting( 'content_color', array(
-                'sanitize_callback'     =>  'tailor_sanitize_text',
+                'sanitize_callback'     =>  'tailor_sanitize_color',
                 'default'               =>  '#FFFFFF',
             ) );
             $this->add_control( 'content_color', array(

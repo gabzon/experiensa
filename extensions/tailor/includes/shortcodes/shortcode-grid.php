@@ -25,11 +25,17 @@ if ( ! function_exists( 'tailor_shortcode_experiensa_grid' ) ) {
         $page_id     = get_queried_object_id();
 //        var_dump($page_id);
         $post_type = $atts['posttype'];
+        echo "<h2>MI POSTTYPE ".$post_type."</h2>";
         $category = $atts['category'];
+        echo "<h2>MI CATEGORY ".$category."</h2>";
         $terms = (($atts['terms']=='')?[]:$atts['terms']);
+        echo "<h2>MIS TERMS</h2>";
+        var_dump($terms);
         $max = $atts['max'];
+        echo "<h2>max ".$max."</h2>";
         $showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
-//        var_dump($showcase_data);
+        echo "<h2>showcase_data</h2>";
+        var_dump($showcase_data);
 
         /**
          * TextImage
@@ -45,7 +51,8 @@ if ( ! function_exists( 'tailor_shortcode_experiensa_grid' ) ) {
         $textimage['text_transform'] = $atts['text_transform'];
         $textimage['font_size'] = $atts['font_size'];
         $textimage['text_color'] = $atts['text_color'];
-//        var_dump($textimage);
+        echo "<h2>textimage</h2>";
+        var_dump($textimage);
 //        $textimage_obj = new \Experiensa\Component\Textimage($textimage);
 //        var_dump($textimage_obj);
 //        $template = get_template_directory() . '/templates/partials/showcase/grid/grid.php';
@@ -53,14 +60,18 @@ if ( ! function_exists( 'tailor_shortcode_experiensa_grid' ) ) {
 //        $asd = locate_template($template);
 //        var_dump($asd);
 //        set_query_var('column_number',$column_number);
-        set_query_var('data',$showcase_data);
-        set_query_var('textimage_data',$textimage);
+//        $html = "<h1>****************</h1>";
+
+//        set_query_var('data',$showcase_data);
+//        set_query_var('textimage_data',$textimage);
+        $data = [
+            "textimage_data" => $textimage,
+            "data"           => $showcase_data
+        ];
         ob_start();
-        get_template_part("templates/partials/pruebas");
-//        tailor_partial( 'pruebas', '',[
-//            'data'              => $showcase_data,
-//            'textimage_option' => $textimage_obj
-//        ]);
+//        get_template_part("templates/partials/showcase/grid/grid2");
+
+        tailor_partial( 'templates/partials/showcase/grid/grid', '',$data);
         $html = ob_get_clean();
 //        var_dump($html);
         return $html;

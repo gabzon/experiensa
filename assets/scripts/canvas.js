@@ -21,3 +21,14 @@
 
 } ) ( window.Tailor.Api.Element, Tailor.Views || {} );
 },{}]},{},[1]);
+
+( function( SettingAPI, $ ) {
+	'use strict';
+	// console.log("hola aqui estoy!!!!");
+	SettingAPI.onChange( 'tailor_experiensa_grid:posttype', function( to, from ) {
+		console.log("se cambio eso");
+	} );
+	/*SettingAPI.onChange( 'element:custom_setting', function( to, from, model ) {
+		// Perform an action when an element setting changes using the to and from values of the setting
+	} );*/
+} ) ( window.Tailor.Api.Setting, jQuery );
