@@ -98,7 +98,8 @@ class Showcase{
                 break;
         }
     }
-    public static function showcase_query($posttype,$category,$terms=array(),$limit=-1){
+    public static function showcase_query($posttype,$category,$terms=array(),$limit = -1){
+//        echo "<h3>showcase_query</h3>";
         $query = null;
         switch ($category) {
             case 'promotions':
@@ -117,7 +118,7 @@ class Showcase{
                 $query = QueryBuilder::getPostByArguments($posttype,$category,$terms,$limit);
                 break;
             case 'all':
-                $query = QueryBuilder::getPostByPostType($posttype);
+                $query = QueryBuilder::getPostByPostType($posttype,$limit);
                 break;
             default:
                 $query = QueryBuilder::getPostByArguments($posttype,$category,$terms,$limit);
@@ -364,6 +365,7 @@ class Showcase{
             if ($post_type == 'team') {
                 $data = self::get_post_data($post_type, $category);
             }else {
+//                echo "<h3>Entro aqui</h3>";
                 $query = self::showcase_query($post_type, $category, $terms, $max);
                 if ($query && $query->have_posts()) {
                     while ($query->have_posts()) {

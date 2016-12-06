@@ -48,6 +48,7 @@ class QueryBuilder
         return $terms;
     }
     public static function getPostByArguments($post_type,$taxonomy,$terms,$limit=-1){
+//        echo "<h3>getPostByArguments </h3> pt $post_type - tax $taxonomy - limit $limit";
         if(empty($terms))
             $terms = QueryBuilder::getTermsByTaxonomy($taxonomy);
         else {

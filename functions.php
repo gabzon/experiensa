@@ -25,7 +25,8 @@ $sage_includes = [
     'models/post-type',           // All custom post types
     'modules',
 //    'extensions/tailor/Tailor_Experiensa.php',
-    'extensions/tailor/tailor.php'
+    'extensions/tailor/tailor.php',
+    'livecomposer_ext'
 ];
 
 foreach ($sage_includes as $file) {

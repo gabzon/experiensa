@@ -34,14 +34,14 @@ function showRequirePlugins()
         'url'       => 'https://jetpack.com/'
     ];
 
-    $tailor = [
-        'name'      => 'Tailor',
-        'folder'    => 'tailor',
-        'file'      => 'tailor.php',
-        'url'       => 'http://gettailor.com/'
+    $live_composer = [
+        'name'      => 'Live Composer',
+        'folder'    => 'live-composer-page-builder',
+        'file'      => 'ds-live-composer.php',
+        'url'       => 'https://livecomposerplugin.com/downloads/live-composer-page-builder/'
     ];
 
-    $plugins = [$piklist, $api, $wpml, $jetpack, $tailor];
+    $plugins = [$piklist, $api, $wpml, $jetpack, $live_composer];
 
     foreach ($plugins as $key => $value) {
         $plugin = $value['folder'] . '/' . $value['file'];
