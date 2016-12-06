@@ -1,4 +1,4 @@
-<form class="ui form" type="post" action="" id="newReservation">
+<form class="ui stackable form" type="post" action="" id="newReservation">
     <div class="field">
       <div class="ui left icon input fluid">
         <input type="text" name="fullname" placeholder="<?php _e('Full name','sage'); ?>" required>
@@ -36,7 +36,7 @@
     ?>
     <input type="hidden" name="agency_email" value="<?php echo $agency_email; ?>"/>
     <input type="hidden" id="reservation_date" name="reservation_date">
-    <div class="fields">
+    <div class="two fields">
         <div class="field" style="width: 50%;">
             <?php if( function_exists( 'gglcptch_display' ) ) { echo gglcptch_display(); } ; ?>
         </div>
