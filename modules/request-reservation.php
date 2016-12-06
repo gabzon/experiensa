@@ -2,7 +2,18 @@
 
 function requestReservation(){
     $headers = array('Content-Type: text/html; charset=UTF-8');
-    
+    if ( function_exists( 'gglcptch_check' ) ){
+        $validate = gglcptch_check();
+        if($validate['response']===false && $validate['reason']!='VERIFICATION_FAILED'){
+            $msg = "Error checking captcha. ";
+            echo $msg;
+            die();
+        }
+    }else{
+        $msg = 'Need to install captcha plugin. ';
+        echo $msg;
+        die();
+    }
     $fullname = $_POST['fullname'];
     $agency_email = $_POST['agency_email'];
     $email = $_POST['email'];

@@ -36,5 +36,12 @@
     ?>
     <input type="hidden" name="agency_email" value="<?php echo $agency_email; ?>"/>
     <input type="hidden" id="reservation_date" name="reservation_date">
-    <input id="form-submit" type="submit" class="ui button pink" value="<?= __('Send a Reservation','sage'); ?>">
+    <div class="fields">
+        <div class="field" style="width: 50%;">
+            <?php if( function_exists( 'gglcptch_display' ) ) { echo gglcptch_display(); } ; ?>
+        </div>
+        <div class="field" style="width: 50%;text-align: right;">
+            <input id="form-submit" type="submit" class="ui button pink" value="<?= __('Send a Reservation','sage'); ?>">
+        </div>
+    </div>
 </form>
