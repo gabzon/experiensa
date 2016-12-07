@@ -7,9 +7,7 @@
                 <div class="description"><?= $textimage->getSubtitle();?></div>
             </div>
         </div>
-        <div class="ui dimmer" style="padding: 5px 5px 5px 5px;">
-
-        </div>
+        <div class="ui dimmer" style="padding: 5px 5px 5px 5px;"></div>
         <img src="<?=$textimage->getImage();?>" width="100%">
     </div>
 </a>

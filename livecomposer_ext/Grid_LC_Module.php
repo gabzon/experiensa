@@ -1,5 +1,10 @@
 <?php
 
+use \Experiensa\LiveComposer\Options\Query;
+use \Experiensa\LiveComposer\Options\Layout;
+use \Experiensa\LiveComposer\Options\Color;
+use \Experiensa\LiveComposer\Options\Background;
+use \Experiensa\LiveComposer\Options\TextImage;
 // Check if Live Composer is active
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
 
@@ -16,21 +21,29 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
 
             // The options array
             $options = array(
-                \Experiensa\LiveComposer\Options\Query::postType('posttype'),
-                \Experiensa\LiveComposer\Options\Query::taxonomies('category'),
-                \Experiensa\LiveComposer\Options\Query::terms('terms'),
-                \Experiensa\LiveComposer\Options\Query::max('max'),
-                \Experiensa\LiveComposer\Options\Query::columnGrid('columns'),
-                \Experiensa\LiveComposer\Options\TextImage::display(),
-                \Experiensa\LiveComposer\Options\TextImage::displayTitle(),
-                \Experiensa\LiveComposer\Options\TextImage::displaySubtitle(),
-                \Experiensa\LiveComposer\Options\TextImage::displayOverlay(),
-//                \Experiensa\LiveComposer\Options\TextImage::hoverAnimation()
-                \Experiensa\LiveComposer\Options\TextImage::textOrder(),
-                \Experiensa\LiveComposer\Options\TextImage::fontSize(),
-                \Experiensa\LiveComposer\Options\TextImage::textTransform(),
-                \Experiensa\LiveComposer\Options\TextImage::textColor(),
-                \Experiensa\LiveComposer\Options\TextImage::textPosition(),
+                Query::postType('posttype'),
+                Query::taxonomies('category'),
+                Query::terms('terms'),
+                Query::max('max'),
+                Query::columnGrid('columns'),
+                Color::titleColor(),
+                Color::contentColor(),
+                Background::type(),
+                Background::color(),
+                Background::colorInverted(),
+                TextImage::display(),
+                TextImage::displayTitle(),
+                TextImage::displaySubtitle(),
+                TextImage::displayOverlay(),
+                Layout::container(),
+                Layout::title(),
+                Layout::subtitle(),
+                Layout::titleAlignment(),
+                TextImage::textOrder(),
+                TextImage::fontSize(),
+                TextImage::textTransform(),
+                TextImage::textColor(),
+                TextImage::textPosition(),
             );
 
             // Return the array

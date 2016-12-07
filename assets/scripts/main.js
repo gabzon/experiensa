@@ -95,6 +95,7 @@
                 initCarousel();
                 initMasonry();
                 freewall_layout();
+                $(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
             },
             finalize: function() {
               // JavaScript to be fired on all pages, after page specific JS is fired

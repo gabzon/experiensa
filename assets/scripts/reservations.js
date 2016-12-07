@@ -30,55 +30,57 @@ function getDisabledDates(dates){
     return dateRange;
 }
 function reservation_datepicker(){
-    var unable_dates = [];
-    getReservationUnableDates(function(response){
-        unable_dates = response;
-    });
-    var dates_to_disable = getDisabledDates(unable_dates);
-    jQuery('#reservation_datepicker').datepicker({
-        inline : true,
-        // changeMonth: true,
-        // changeYear: true,
-        firstDay: 1,
-        minDate: -20,
-        altField : '#reservation_date',
-        dateFormat: 'dd/mm/yy',
-        beforeShowDay: function (date) {
-            var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [dates_to_disable.indexOf(dateString) === -1];
-        }
-    });
-    jQuery('#reservation_start').datepicker({
-        // changeMonth: true,
-        // changeYear: true,
-        firstDay: 1,
-        minDate: -20,
-        dateFormat: 'dd/mm/yy',
-        beforeShowDay: function (date) {
-            var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [dates_to_disable.indexOf(dateString) === -1];
-        },
-	onSelect: function () {
-	    var dt2 = jQuery('#reservation_end');
-            var startDate = jQuery(this).datepicker('getDate');
-	    dt2.datepicker('setDate', startDate);
-	    dt2.datepicker('option', 'minDate', startDate);
-	}
-    });
-    jQuery('#reservation_end').datepicker({
-        // changeMonth: true,
-        // changeYear: true,
-        firstDay: 1,
-        minDate: -20,
-        dateFormat: 'dd/mm/yy',
-        beforeShowDay: function (date) {
-            var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [dates_to_disable.indexOf(dateString) === -1];
-        }
-    });
-    if(jQuery('.villa-blanca').length>0){
-        jQuery("#ui-datepicker-div").addClass("villa-blanca");
+    if(jQuery('#reservation_datepicker').length > 0) {
+        var unable_dates = [];
+        getReservationUnableDates(function (response) {
+            unable_dates = response;
+        });
+        var dates_to_disable = getDisabledDates(unable_dates);
+        jQuery('#reservation_datepicker').datepicker({
+            inline: true,
+            // changeMonth: true,
+            // changeYear: true,
+            firstDay: 1,
+            minDate: -20,
+            altField: '#reservation_date',
+            dateFormat: 'dd/mm/yy',
+            beforeShowDay: function (date) {
+                var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [dates_to_disable.indexOf(dateString) === -1];
+            }
+        });
+        jQuery('#reservation_start').datepicker({
+            // changeMonth: true,
+            // changeYear: true,
+            firstDay: 1,
+            minDate: -20,
+            dateFormat: 'dd/mm/yy',
+            beforeShowDay: function (date) {
+                var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [dates_to_disable.indexOf(dateString) === -1];
+            },
+            onSelect: function () {
+                var dt2 = jQuery('#reservation_end');
+                var startDate = jQuery(this).datepicker('getDate');
+                dt2.datepicker('setDate', startDate);
+                dt2.datepicker('option', 'minDate', startDate);
+            }
+        });
+        jQuery('#reservation_end').datepicker({
+            // changeMonth: true,
+            // changeYear: true,
+            firstDay: 1,
+            minDate: -20,
+            dateFormat: 'dd/mm/yy',
+            beforeShowDay: function (date) {
+                var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                return [dates_to_disable.indexOf(dateString) === -1];
+            }
+        });
+        if (jQuery('.villa-blanca').length > 0) {
+            jQuery("#ui-datepicker-div").addClass("villa-blanca");
 
+        }
     }
     // jQuery('#checkin_timepicker').wickedpicker({title:'Check-In'});
     // jQuery('#checkout_timepicker').wickedpicker({
