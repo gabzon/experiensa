@@ -126,7 +126,7 @@
                             <div class="center aligned header"><?= __("Starting at","sage");?></div>
                         </div>
                         <div class="center aligned content">
-                            <h1 class="ui massive header">10'500<sup class="meta">€</sup></h1>
+                            <h1 class="ui massive header">1'100<sup class="meta">€</sup></h1>
                             <div class="meta">
                                 <?= __("PER NIGHT UP TO 24 PEOPLE","sage");?>
                             </div>
