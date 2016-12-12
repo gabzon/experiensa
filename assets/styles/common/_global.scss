@@ -6,3 +6,8 @@ h3 { font-size: 1.8em; font-size: 3.5vh;}
 h4 { font-size: 1.5em; font-size: 3.2vh;}
 h5 { font-size: 1.3em; font-size: 3vh;}
 h6 { font-size: 1.1em; font-size: 2.75vh}
+.ui.micro.image, .ui.micro.images .image, .ui.micro.images img, .ui.micro.images svg {
+  width: 25px;
+  height: auto;
+  font-size: .71428571rem;
+}

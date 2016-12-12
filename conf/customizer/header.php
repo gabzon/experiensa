@@ -152,6 +152,7 @@ class Header{
                 'settings' => 'header_logo_size',
                 'type'     => 'select',
                 'choices'  => array(
+                    'micro'      => __('Micro (25px)','sage'),
                     'mini'      => __('Mini (35px)','sage'),
                     'tiny'      => __('Tiny (80px)','sage'),
                     'small'     => __('Small (150px)','sage')
