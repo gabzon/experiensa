@@ -119,64 +119,35 @@
         <br><br><br>
         <h1 class="text-center" style="color: #FFFFFF;">Pricing</h1>
         <br>
-        <div class="ui two column stackable grid centered">
-            <div class="five wide column" style="padding-left: 35px !important;">
-                <div class="ui card">
-                    <div class="content">
-                        <div class="center aligned header">High season</div>
-                    </div>
-                    <div class="center aligned content">
-                        <h1 class="ui massive header">10'500<sup class="meta">€</sup></h1>
-                        <div class="meta">
-                            Per Week
+        <div class="ui one column stackable center aligned grid">
+                <div class="column three wide">
+                    <div class="ui card">
+                        <div class="content">
+                            <div class="center aligned header"><?= __("Starting at","sage");?></div>
                         </div>
-                        <div class="description">
-                            <b>From</b>
+                        <div class="center aligned content">
+                            <h1 class="ui massive header">10'500<sup class="meta">€</sup></h1>
+                            <div class="meta">
+                                <?= __("PER NIGHT UP TO 24 PEOPLE","sage");?>
+                            </div>
+                            <div class="description">
+                                <b><?= __("HIGH SEASON","sage");?></b>
+                            </div>
+                            <div class="meta">
+                                <?= __("Minimum one week","sage");?>
+                            </div>
+                            <br>
+                            <div class="description">
+                                <b><?= __("LOW SEASON","sage");?></b>
+                            </div>
+                            <div class="meta">
+                                <?= __("Minimum 3 nights","sage");?>
+                            </div>
                         </div>
-                        <div class="meta">
-                            June 1st
-                        </div>
-                        <br>
-                        <div class="description">
-                            <b>To</b>
-                        </div>
-                        <div class="meta">
-                            Sectember 30th
-                        </div>
-                    </div>
-                    <div class="extra center aligned content">
-                        <a href="http://bnb.experiensa.com/#villa_blanca_reservations" class="ui pink button" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">Get it!</a>
-                    </div>
-                </div>
-            </div>
-            <div class="five wide column" style="padding-left: 35px !important;">
-                <div class="ui card">
-                    <div class="content">
-                        <div class="center aligned header">Low season</div>
-                    </div>
-                    <div class="center aligned content">
-                        <h1 class="ui massive header">9'500<sup class="meta">€</sup></h1>
-                        <div class="meta">
-                            Per Week
-                        </div>
-                        <div class="description">
-                            <b>From</b>
-                        </div>
-                        <div class="meta">
-                            October 1st
-                        </div>
-                        <br>
-                        <div class="description">
-                            <b>To</b>
-                        </div>
-                        <div class="meta">
-                            May 31th
+                        <div class="extra center aligned content">
+                            <a href="http://bnb.experiensa.com/#villa_blanca_reservations" class="ui pink button" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">Get it!</a>
                         </div>
                     </div>
-                    <div class="extra center aligned content">
-                        <a href="http://bnb.experiensa.com/#villa_blanca_reservations" class="ui pink button" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false">Get it!</a>
-                    </div>
-                </div>
             </div>
         </div>
         <br>
