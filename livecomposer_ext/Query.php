@@ -49,12 +49,12 @@ class Query
         );
     }
 
-    public static function max($id = 'max')
+    public static function max($id = 'max',$max = '2')
     {
         return array(
             'label'               => __('Max post #', 'sage'),
             'id'                  => $id,
-            'std'                 => '2',
+            'std'                 => $max,
             'type'                => 'slider',
             'refresh_on_change'   => false,
             'affect_on_change_el' => '.element-to-affect',

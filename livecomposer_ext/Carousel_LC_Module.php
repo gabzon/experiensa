@@ -7,11 +7,11 @@ use \Experiensa\LiveComposer\Options\Background;
 use \Experiensa\LiveComposer\Options\TextImage;
 
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
-    class Carousel_LC_Module
+    class ExperiensaCarousel_LC_Module extends DSLC_Module
     {
-        var $module_id = 'Carousel_LC_Module';
+        var $module_id = 'ExperiensaCarousel_LC_Module';
         var $module_title = 'Carousel';
-        var $module_icon = 'Carousel_LC_Module';
+        var $module_icon = 'picture';
         var $module_category = 'Experiensa';
         // Module Options
         function options() {
@@ -21,8 +21,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Query::postType('posttype'),
                 Query::taxonomies('category'),
                 Query::terms('terms'),
-                Query::max('max'),
-                Query::columnGrid('columns'),
+                Query::max('max','5'),
                 Color::titleColor(),
                 Color::contentColor(),
                 Background::type(),
@@ -47,17 +46,16 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             return apply_filters( 'dslc_module_options', $options, $this->module_id );
 
         }
-    }
-    // Module Output
-    function output( $options ) {
+        // Module Output
+        function output( $options ) {
         $post_type = $options['posttype'];
         $category = $options['category'];
         $terms = (($options['terms']=='')?[]:$options['terms']);
         $max = $options['max'];
         $showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
-        /**
-         * TextImage
-         */
+            /**
+             * TextImage
+             */
         $textimage['display_textimage'] = ($options['display_textimage']=='yes'?true:false);
         $textimage['display_title'] = $options['display_title'];
         $textimage['display_subtitle'] = $options['display_subtitle'];
@@ -79,16 +77,16 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
         }else{
             $html = "<h2>".__('Empty Data','sage')."</h2>";
         }
-        // REQUIRED
-        $this->module_start( $options );
-        echo $html;
-        // REQUIRED
-        $this->module_end( $options );
+            // REQUIRED
+            $this->module_start( $options );
+            echo $html;
+            // REQUIRED
+            $this->module_end( $options );
 
+        }
     }
-
     // Register Module
     add_action('dslc_hook_register_modules',
-        create_function('', 'return dslc_register_module( "Carousel_LC_Module" );')
+        create_function('', 'return dslc_register_module( "ExperiensaCarousel_LC_Module" );')
     );
 }

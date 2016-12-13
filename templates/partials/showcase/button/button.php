@@ -7,7 +7,7 @@ if(!empty($data)):
     foreach($data as $value):
         if(!isset($value['post_link'])):
     ?>
-            <button id="<?=$value['filter-class'];?>" class="ui basic button" data-filter="<?=$value['filter-data'];?>" style="font-weight:bold">
+            <button id="<?=$value['filter-class'];?>" class="ui basic button" data-filter="<?=$value['filter-data'];?>" style="font-weight:bold; margin: 5px 5px 5px 5px;">
         <?php
         else:
         ?>

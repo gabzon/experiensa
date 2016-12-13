@@ -45,6 +45,11 @@
             "files": [
                 "scripts/client.js"
             ]
+        },
+        "lc-plugins.js":{
+            "files":[
+                "scripts/lc-plugin.js"
+            ]
         }
     },
     "config": {

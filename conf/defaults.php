@@ -182,7 +182,15 @@ function babelType($tag,$handle,$src){
 }
 add_filter('script_loader_tag','babelType',10,3);
 
-function load_custom_tailor_canvas() {
-    wp_enqueue_script( 'custom-tailor-canvas', get_template_directory_uri() . '/dist/scripts/canvas.js', [], null, true );
+//function load_custom_tailor_canvas() {
+//    wp_enqueue_script( 'custom-tailor-canvas', get_template_directory_uri() . '/dist/scripts/canvas.js', [], null, true );
+//}
+//add_action( 'customize_preview_init', 'load_custom_tailor_canvas' );
+
+function load_custom_wp_admin_style($hook) {
+    if($hook != 'toplevel_page_livecomposer_editor') {
+        return;
+    }
+    wp_enqueue_script( 'lc-experiensa-plugins', get_template_directory_uri() . '/dist/scripts/lc-plugins.js' );
 }
-add_action( 'customize_preview_init', 'load_custom_tailor_canvas' );
+add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );

@@ -39,6 +39,7 @@ function initCarousel(){
         }
     }
 }
+window.initCarousel = initCarousel;
 function initMasonry() {
     var jMasonry = jQuery('.grid-masonry');
     if (jMasonry.length > 0) {

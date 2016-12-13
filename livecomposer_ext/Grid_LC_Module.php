@@ -24,7 +24,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Query::postType('posttype'),
                 Query::taxonomies('category'),
                 Query::terms('terms'),
-                Query::max('max'),
+                Query::max('max','4'),
                 Query::columnGrid('columns'),
                 Color::titleColor(),
                 Color::contentColor(),
