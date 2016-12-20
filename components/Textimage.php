@@ -143,9 +143,10 @@ class Textimage
     }
     public function displayTextimage(){
         $textimage = $this;
-        if($this->display_overlay)
+        if($this->display_overlay) {
             include(locate_template('templates/partials/textimage/overlay.php'));
-        else
+        }else {
             include(locate_template('templates/partials/textimage/simple.php'));
+        }
     }
 }

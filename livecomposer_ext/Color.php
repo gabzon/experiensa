@@ -7,9 +7,9 @@ class Color
         return array(
             'label'   => __('Title Color', 'sage'),
             'id'      => $id,
-            'std'     => '#FFFFFF',
+            'std'     => '#000000',
             'type'    => 'color',
-            'refresh_on_change' => false,
+//            'refresh_on_change' => false,
             'section' => 'styling',
             'tab' => __('Color','sage')
         );
@@ -18,9 +18,9 @@ class Color
         return array(
             'label'   => __('Content Color', 'sage'),
             'id'      => $id,
-            'std'     => '#FFFFFF',
+            'std'     => '#000000',
             'type'    => 'color',
-            'refresh_on_change' => false,
+//            'refresh_on_change' => false,
             'section' => 'styling',
             'tab' => __('Color','sage')
         );

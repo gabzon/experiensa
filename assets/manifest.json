@@ -12,11 +12,29 @@
                 "scripts/sections.js",
                 "scripts/main.js"
             ],
-            "main": true
+            "main": true,
+            "bower":[
+                "vegas",
+                "semantic",
+                "superslides",
+                "owl.carousel",
+                "masonry",
+                "freewall",
+                "jquery-ui"
+            ]
         },
         "main.css": {
             "files": [
                 "styles/main.scss"
+            ],
+            "bower":[
+                "vegas",
+                "semantic",
+                "superslides",
+                "owl.carousel",
+                "masonry",
+                "freewall",
+                "jquery-ui"
             ],
             "main": true
         },
@@ -47,6 +65,24 @@
             ]
         },
         "lc-plugins.js":{
+            "bower": [
+                "owl.carousel",
+                "freewall",
+                "masonry",
+                "superslides",
+                "vegas"
+            ]
+        },
+        "lc-plugins.css":{
+            "bower": [
+                "owl.carousel",
+                "freewall",
+                "masonry",
+                "superslides",
+                "vegas"
+            ]
+        },
+        "lc-plugins-init.js":{
             "files":[
                 "scripts/lc-plugin.js"
             ]

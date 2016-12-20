@@ -127,7 +127,7 @@ class TextImage
             'id'      => $id,
             'std'     => '1.8',
             'type'    => 'text',
-            'refresh_on_change' => false,
+//            'refresh_on_change' => false,
 //            'min' => 0.1,
 //            'max' => 3,
 //            'step' => 0.1,
@@ -165,7 +165,7 @@ class TextImage
             'id'      => $id,
             'std'     => '#FFFFFF',
             'type'    => 'color',
-            'refresh_on_change' => false,
+//            'refresh_on_change' => false,
             'section' => 'styling',
             'tab' => __('TextImage','sage')
         );
@@ -190,5 +190,20 @@ class TextImage
             'section' => 'styling',
             'tab' => __('TextImage','sage')
         );
+    }
+    public static function setTextImageOptions($options){
+        $data['display_textimage'] = ($options['display_textimage']=='yes'?true:false);
+        $data['display_title'] = $options['display_title'];
+        $data['display_subtitle'] = $options['display_subtitle'];
+        $data['display_overlay'] = $options['display_overlay'];
+        $data['hover_animation'] = 'imghvr-fade';//$options['hover_animation'];
+        $data['animation_color'] = "#000";//$options['animation_color'];
+        $data['text_order'] = $options['text_order'];
+        $data['text_position'] = $options['text_position'];
+        $data['text_transform'] = $options['text_transform'];
+        $data['font_size'] = $options['font_size'];
+        $data['text_color'] = $options['text_color'];
+        $textimage_obj = new \Experiensa\Component\Textimage($data);
+        return $textimage_obj;
     }
 }

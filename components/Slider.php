@@ -25,15 +25,22 @@ class Slider
         $post_type = $this->post_type;
         $taxonomy = $this->taxonomy;
         $terms = $this->terms;
+        file_put_contents("debug_prueba.txt", $this->post_type);
+        file_put_contents("debug_prueba.txt", $this->taxonomy,FILE_APPEND);
+        file_put_contents("debug_prueba.txt", $this->terms,FILE_APPEND);
         if($this->component=='vegas') {
+            file_put_contents("debug_prueba.txt","**vegas**",FILE_APPEND);
             $data = QueryBuilder::getImagesByPostType($post_type, $taxonomy, $terms);
         }else {
             $data = QueryBuilder::getPostBasicInfo($post_type, $taxonomy, $terms, false);
+            file_put_contents("debug_prueba.txt","SUPERslider",FILE_APPEND);
         }
+        $debug_export = var_export($data, true);
+        file_put_contents("debug_prueba.txt",$debug_export,FILE_APPEND);
         $this->data = $data;
     }
 
-    private function checkExistData(){
+    public function checkExistData(){
         $exist = false;
         if(!empty($this->data))
             $exist = true;

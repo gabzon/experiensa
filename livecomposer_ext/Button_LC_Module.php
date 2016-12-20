@@ -26,8 +26,10 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Background::color(),
                 Background::colorInverted(),
                 Layout::container(),
+                Layout::showTitle(),
                 Layout::title(),
                 Layout::subtitle(),
+                Layout::showSubtitle(),
                 Layout::titleAlignment(),
             );
 
@@ -42,8 +44,14 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             $terms = (($options['terms']=='')?[]:$options['terms']);
             $max = $options['max'];
             $showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
-            set_query_var('data',$showcase_data);
             if(!empty($showcase_data)) {
+                $layout = Layout::setLayoutOptions($options);
+                $background = Background::setBackgroundOption($options);
+                $name = Query::setSectionName('cards',$category,$layout['title']);
+                set_query_var('name',$name);
+                set_query_var('data',$showcase_data);
+                set_query_var('layout',$layout);
+                set_query_var('background',$background);
                 ob_start();
                 get_template_part("templates/partials/showcase/button/button");
                 $html = ob_get_clean();

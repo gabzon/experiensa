@@ -149,7 +149,11 @@ class QueryBuilder
         return $images;
     }
     public static function getPostBasicInfo($post_type,$taxonomy,$terms,$all_content = true){
-        $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms);
+        if($taxonomy=='all') {
+            $posts = self::getPostByPostType($post_type[0]);
+        }else {
+            $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type, $taxonomy, $terms);
+        }
         $data = array();
         if(!empty($posts)) {
             foreach ($posts as $post) {
