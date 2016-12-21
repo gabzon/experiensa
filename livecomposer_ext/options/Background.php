@@ -55,11 +55,11 @@ class Background
             'tab' => __('Background','sage')
         );
     }
-    public static function colorInverted($id='color_inverted'){
+    public static function colorInverted($id='color_inverted',$default=''){
         return array(
             'label'   => __('Color inverted', 'sage'),
             'id'      => $id,
-            'std'     => '',
+            'std'     => $default,
             'type'    => 'select',
             'choices' => array(
                 array(
@@ -71,6 +71,16 @@ class Background
                     'value' => 'inverted'
                 )
             ),
+            'section' => 'styling',
+            'tab' => __('Background','sage')
+        );
+    }
+    public static function image($id='image'){
+        return array(
+            'label' => __( 'Background Image', 'sage' ),
+            'id' => $id,
+            'std' => '',
+            'type' => 'image',
             'section' => 'styling',
             'tab' => __('Background','sage')
         );

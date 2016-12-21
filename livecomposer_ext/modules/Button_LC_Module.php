@@ -4,13 +4,13 @@ use \Experiensa\LiveComposer\Options\Query;
 use \Experiensa\LiveComposer\Options\Layout;
 use \Experiensa\LiveComposer\Options\Color;
 use \Experiensa\LiveComposer\Options\Background;
-use \Experiensa\LiveComposer\Options\TextImage;
+//use \Experiensa\Component\Showcase;
 
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
     class Button_LC_Module extends DSLC_Module{
         var $module_id = 'Button_LC_Module';
         var $module_title = 'Buttons';
-        var $module_icon = 'picture';
+        var $module_icon = 'play-sign';
         var $module_category = 'Experiensa';
         // Module Options
         function options() {
@@ -39,11 +39,12 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
         }
         // Module Output
         function output( $options ) {
+
             $post_type = $options['posttype'];
             $category = $options['category'];
             $terms = (($options['terms']=='')?[]:$options['terms']);
             $max = $options['max'];
-            $showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
+            $showcase_data = Showcase::getData($post_type,$category,$terms,$max);
             if(!empty($showcase_data)) {
                 $layout = Layout::setLayoutOptions($options);
                 $background = Background::setBackgroundOption($options);

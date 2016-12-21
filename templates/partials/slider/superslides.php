@@ -1,8 +1,3 @@
-<script type="text/javascript">
-    jQuery(function() {
-        jQuery('#<?= $name;?>').superslides({play:'8000'});
-    });
-</script>
 <!-- Super Slides Component main-slider-->
 <section id="<?= $name;?>" class="super-slides-component">
     <ul class="slides-container">

@@ -1,7 +1,7 @@
 /**
  *
  */
-jQuery(document).ready(function ($) {
+jQuery(document).ready(function () {
     function initCarouselLC(){
         var carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-ExperiensaCarousel_LC_Module" );
         if(carousel_module.length > 0) {
@@ -39,6 +39,7 @@ jQuery(document).ready(function ($) {
         }
     }
     window.initCarouselLC = initCarouselLC;
+
     function initMasonryLC() {
         var jMasonry = jQuery("#page-builder-frame").contents().find( ".grid-masonry" );
         if (jMasonry.length > 0) {
@@ -53,8 +54,9 @@ jQuery(document).ready(function ($) {
         }
     }
     window.initMasonryLC = initMasonryLC;
+
     function initSuperSliderLC(){
-        var super_slide_module = $('#page-builder-frame') .contents().find( ".dslc-module-SuperSlider_LC_Module" );
+        var super_slide_module = jQuery('#page-builder-frame') .contents().find( ".dslc-module-SuperSlider_LC_Module" );
         if(super_slide_module.length > 0){
             var super_slides = super_slide_module.find(".super-slides-component");
             super_slides.superslides({play:'8000'});
@@ -62,6 +64,7 @@ jQuery(document).ready(function ($) {
         }
     }
     window.initSuperSliderLC = initSuperSliderLC;
+
     function initVegasSliderLC(){
         var vegas_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-VegasSlider_LC_Module" );
         if(vegas_module.length > 0){
@@ -102,6 +105,7 @@ jQuery(document).ready(function ($) {
         }
     }
     window.initVegasSliderLC = initVegasSliderLC;
+
     var Freewall = freewall;
     function initFreewallFlexLC(){
         var flex_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-FlexLayout_LC_Module" );
@@ -121,6 +125,7 @@ jQuery(document).ready(function ($) {
         }
     }
     window.initFreewallFlexLC = initFreewallFlexLC;
+
     function initFreewallImageLC(){
         console.log("ya estoy aqui");
         var image_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-ImageLayout_LC_Module" );
@@ -239,10 +244,10 @@ jQuery(document).ready(function ($) {
 
 });
 jQuery(document).ajaxSuccess(function(event, xhr, settings) {
-    console.log("An individual AJAX call has completed successfully***********");
+    // console.log("An individual AJAX call has completed successfully***********");
     // console.log(event);
     // console.log(xhr);
-    console.log(settings);
+    // console.log(settings);
     var action = 'action=dslc-ajax-add-module';
     if(settings.data.indexOf('dslc_module_id=SuperSlider_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
         initSuperSliderLC();

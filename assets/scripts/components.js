@@ -54,7 +54,7 @@ function initMasonry() {
     }
 }
 function initSlides(){
-    var slides = jQuery('#slides');
+    var slides = jQuery('.super-slides-component');
     if(slides.length > 0){
         slides.superslides({play:'8000'});
     }

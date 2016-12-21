@@ -15,26 +15,26 @@ $overlay = get_stylesheet_directory_uri() .  '/bower_components/vegas/dist/overl
             <div class="ui grid stackable">
                 <div class="mobile only row">
                     <div class="sixteen wide column">
-                        <p class="font-white"><?=$message;?></p>
+                        <h1 style="<?=$title_color;?>"><?=$layout['title'];?></h1>
+                        <p style="<?=$subtitle_color;?>"><?=$layout['subtitle'];?></p>
                     </div>
                 </div>
                 <div class="tablet only row">
                     <div class="ui grid">
                         <div class="ten wide column">
-                            <h1 class="font-white"></h1>
-                            <p class="font-white">"<?=$message;?></p>
+                            <h1 style="<?=$title_color;?>"><?=$layout['title'];?></h1>
+                            <p style="<?=$subtitle_color;?>"><?=$layout['subtitle'];?></p>
                         </div>
                     </div>
                 </div>
                 <div class="computer only row">
                     <div class="ui grid">
-                        <div class="ten wide column">
-                            <div>
-                                <h1 class="font-white"><?=$message;?></h1>
+                        <div class="column">
+                            <div class="content">
+                                <h1 style="<?=$title_color;?>"><?=$layout['title'];?></h1>
+                                <p style="<?=$subtitle_color;?>"><?=$layout['subtitle'];?></p>
                             </div>
                         </div>
-                        <div class="one wide column"></div>
-                        <div class="five wide column"></div>
                     </div>
                 </div>
             </div>

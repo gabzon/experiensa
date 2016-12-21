@@ -5,13 +5,14 @@ use \Experiensa\LiveComposer\Options\Layout;
 use \Experiensa\LiveComposer\Options\Color;
 use \Experiensa\LiveComposer\Options\Background;
 use \Experiensa\Component\Slider;
+
 // Check if Live Composer is active
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
     class SuperSlider_LC_Module extends DSLC_Module{
         // Module Attributes
         var $module_id = 'SuperSlider_LC_Module';
         var $module_title = 'Super Slider';
-        var $module_icon = 'th';
+        var $module_icon = 'forward';
         var $module_category = 'Experiensa';
         // Module Options
         function options() {
@@ -21,7 +22,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Query::postType('posttype','attachment'),
                 Query::taxonomies('category','media_category'),
                 Query::terms('terms','landing'),
-//                Query::max('max','5'),
+                Query::max('max','5'),
                 Color::titleColor(),
                 Color::contentColor(),
                 Background::type(),
@@ -43,7 +44,8 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             $post_type = [$options['posttype']];
             $category = $options['category'];
             $terms = explode(',',$options['terms']);
-            $slider = new Slider('slides',$post_type,$category,$terms);
+            $max = $options['max'];
+            $slider = new Slider('slides',$post_type,$category,$terms,false,intval($max));
             if($slider->checkExistData()){
                 $showcase_data = $slider->getImages();
                 $layout = Layout::setLayoutOptions($options);

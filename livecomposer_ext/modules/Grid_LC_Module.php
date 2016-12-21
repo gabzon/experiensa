@@ -5,6 +5,7 @@ use \Experiensa\LiveComposer\Options\Layout;
 use \Experiensa\LiveComposer\Options\Color;
 use \Experiensa\LiveComposer\Options\Background;
 use \Experiensa\LiveComposer\Options\TextImage;
+
 // Check if Live Composer is active
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
 

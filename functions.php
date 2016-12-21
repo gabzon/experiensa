@@ -26,6 +26,8 @@ $sage_includes = [
     'modules',
 //    'extensions/tailor/Tailor_Experiensa.php',
     'extensions/tailor/tailor.php',
+    'livecomposer_ext/options',
+    'livecomposer_ext/modules',
     'livecomposer_ext'
 ];
 
