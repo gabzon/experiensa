@@ -1,7 +1,8 @@
 /**
  *
  */
-jQuery(document).ready(function () {
+// var $ = jQuery;
+jQuery(document).ready(function ($) {
     function initCarouselLC(){
         var carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-ExperiensaCarousel_LC_Module" );
         if(carousel_module.length > 0) {
@@ -111,7 +112,7 @@ jQuery(document).ready(function () {
         var flex_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-FlexLayout_LC_Module" );
         if(flex_module.length > 0){
             // var flex = flex_module.find("");
-            var wall = new Freewall('#freewall');
+            var wall = new Freewall(flex_module.find('#freewall'));
             wall.reset({
                 selector: '.brick',
                 animate: true,
@@ -131,7 +132,7 @@ jQuery(document).ready(function () {
         var image_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-ImageLayout_LC_Module" );
         if(image_module.length > 0){
             console.log("voy a crear el image layout");
-            var wall_image = new Freewall("#freewall-image");
+            var wall_image = new Freewall(image_module.find("#freewall-image"));
             wall_image.reset({
                 selector: '.freewall-cell',
                 animate: true,
@@ -148,21 +149,26 @@ jQuery(document).ready(function () {
 
     function initFreewallPinterestLC(){
         console.log("ya estoy aqui initFreewallPinterestLC");
-        var image_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-PinterestLayout_LC_Module" );
-        if(image_module.length > 0){
+        var pinterest_module = $('#page-builder-frame').contents().find( ".dslc-module-PinterestLayout_LC_Module" );
+        if(pinterest_module.length > 0){
             console.log("voy a crear el initFreewallPinterestLC");
-            var wall_pinterest = new Freewall("#freewall-pinterest");
-            wall_pinterest.reset({
-                selector: '.brick-pinterest',
-                animate: true,
-                cellW: 200,
-                cellH: 'auto',
-                onResize: function() {
-                    wall_pinterest.fitWidth();
-                }
-            });
-            wall_pinterest.fitWidth();
+            var pinterest = pinterest_module.find(".pinterest-container");
+            pinterest.pinto();
         }
+        // if(pinterest_module.length > 0){
+        //     console.log("voy a crear el initFreewallPinterestLC");
+        //     var wall_pinterest = new Freewall(pinterest_module.find("#freewall-pinterest"));
+        //     wall_pinterest.reset({
+        //         selector: '.brick-pinterest',
+        //         animate: true,
+        //         cellW: 200,
+        //         cellH: 'auto',
+        //         onResize: function() {
+        //             wall_pinterest.fitWidth();
+        //         }
+        //     });
+        //     wall_pinterest.fitWidth();
+        // }
     }
     window.initFreewallPinterestLC = initFreewallPinterestLC;
 
@@ -178,7 +184,7 @@ jQuery(document).ready(function () {
             }else{
                 console.log("NOOOO existe selector");
             }
-            var wall_win8 = new Freewall("#win8-freewall");
+            var wall_win8 = new Freewall(win8);
             wall_win8.reset({
                 selector: selector,
                 cellW: 320,

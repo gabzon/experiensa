@@ -69,7 +69,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 set_query_var('background',$background);
 
                 ob_start();
-                get_template_part("templates/partials/showcase/freewall/pinterest-layout");
+                get_template_part("templates/partials/showcase/pinterest/pinterest");
                 $html = ob_get_clean();
             }else{
                 $html = "<h2>".__('Empty Data','sage')."</h2>";

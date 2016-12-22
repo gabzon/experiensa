@@ -70,7 +70,8 @@
                 "freewall",
                 "masonry",
                 "superslides",
-                "vegas"
+                "vegas",
+                "pinto"
             ]
         },
         "lc-plugins.css":{
@@ -80,6 +81,9 @@
                 "masonry",
                 "superslides",
                 "vegas"
+            ],
+            "files":[
+                "styles/pinto.css"
             ]
         },
         "lc-plugins-init.js":{
