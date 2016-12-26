@@ -109,20 +109,25 @@ class QueryBuilder
     }
 
     public static function getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms,$limit = -1){
-        $args = array(
-            'post_type' => $post_type,
-            'posts_per_page' => $limit,
-            'post_status'   => array( 'publish', 'inherit' ),
-            'tax_query' => array(
-                array(
-                    'taxonomy' => $taxonomy,
-                    'field' => 'slug',
-                    'terms' => $terms
+        if($taxonomy=='all'){
+            $query = self::getPostByPostType($post_type,$limit);
+            return $query->get_posts();
+        }else {
+            $args = array(
+                'post_type'      => $post_type,
+                'posts_per_page' => $limit,
+                'post_status'    => array('publish', 'inherit'),
+                'tax_query'      => array(
+                    array(
+                        'taxonomy' => $taxonomy,
+                        'field'    => 'slug',
+                        'terms'    => $terms
+                    )
                 )
-            )
-        );
-        $query = get_posts($args);
-        return $query;
+            );
+            $query = get_posts($args);
+            return $query;
+        }
     }
     public static function getFeatureImage($id){
         $feat_image = wp_get_attachment_url(get_post_thumbnail_id($id));
