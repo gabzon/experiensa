@@ -92,6 +92,7 @@
                 sendReservation();
                 smoothPageScroll();
                 initSlides();
+                initVegasSlider();
                 initCarousel();
                 initMasonry();
                 freewall_layout();

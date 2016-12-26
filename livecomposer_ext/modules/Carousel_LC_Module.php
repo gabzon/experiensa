@@ -31,52 +31,49 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 TextImage::displayTitle(),
                 TextImage::displaySubtitle(),
                 TextImage::displayOverlay(),
-                Layout::container(),
-                Layout::title(),
-                Layout::subtitle(),
-                Layout::titleAlignment(),
                 TextImage::textOrder(),
                 TextImage::fontSize(),
                 TextImage::textTransform(),
                 TextImage::textColor(),
                 TextImage::textPosition(),
+                Layout::container(),
+                Layout::showTitle(),
+                Layout::title(),
+                Layout::subtitle(),
+                Layout::showSubtitle(),
+                Layout::titleAlignment(),
             );
 
             // Return the array
             return apply_filters( 'dslc_module_options', $options, $this->module_id );
 
         }
+
         // Module Output
         function output( $options ) {
-        $post_type = $options['posttype'];
-        $category = $options['category'];
-        $terms = (($options['terms']=='')?[]:$options['terms']);
-        $max = $options['max'];
-        $showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
-            /**
-             * TextImage
-             */
-        $textimage['display_textimage'] = ($options['display_textimage']=='yes'?true:false);
-        $textimage['display_title'] = $options['display_title'];
-        $textimage['display_subtitle'] = $options['display_subtitle'];
-        $textimage['display_overlay'] = $options['display_overlay'];
-        $textimage['hover_animation'] = 'imghvr-fade';//$options['hover_animation'];
-        $textimage['animation_color'] = "#000";//$options['animation_color'];
-        $textimage['text_order'] = $options['text_order'];
-        $textimage['text_position'] = $options['text_position'];
-        $textimage['text_transform'] = $options['text_transform'];
-        $textimage['font_size'] = $options['font_size'];
-        $textimage['text_color'] = $options['text_color'];
-        $textimage_obj = new \Experiensa\Component\Textimage($textimage);
-        set_query_var('data',$showcase_data);
-        set_query_var('textimage_data',$textimage);
-        if(!empty($showcase_data)) {
-            ob_start();
-            get_template_part("templates/partials/showcase/carousel/carousel");
-            $html = ob_get_clean();
-        }else{
-            $html = "<h2>".__('Empty Data','sage')."</h2>";
-        }
+            $post_type = $options['posttype'];
+            $category = $options['category'];
+            $terms = (($options['terms']=='')?[]:$options['terms']);
+            $max = $options['max'];
+            $showcase_data = \Showcase::getData($post_type,$category,$terms,$max);
+            if(!empty($showcase_data)) {
+                $textimage_option = TextImage::setTextImageOptions($options);
+                $layout = Layout::setLayoutOptions($options);
+                $background = Background::setBackgroundOption($options);
+                $name = Query::setSectionName('carousel',$category,$layout['title']);
+
+                set_query_var('name',$name);
+                set_query_var('data',$showcase_data);
+                set_query_var('textimage_option',$textimage_option);
+                set_query_var('layout',$layout);
+                set_query_var('background',$background);
+
+                ob_start();
+                get_template_part("templates/partials/showcase/carousel/carousel");
+                $html = ob_get_clean();
+            }else{
+                $html = "<h2>".__('Empty Data','sage')."</h2>";
+            }
             // REQUIRED
             $this->module_start( $options );
             echo $html;

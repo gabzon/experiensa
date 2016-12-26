@@ -11,13 +11,15 @@ class Slider
     private $terms;
     private $message;
     private $data;
-    function __construct($component,$post_type=['media'],$taxonomy='media_category',$terms=['landing'],$message=false)
+    private $limit;
+    function __construct($component,$post_type=['media'],$taxonomy='media_category',$terms=['landing'],$message=false,$limit = -1)
     {
         $this->component = $component;
         $this->post_type = $post_type;
         $this->taxonomy = $taxonomy;
         $this->terms = $terms;
         $this->message = $message;
+        $this->limit = $limit;
         $this->setData();
     }
 
@@ -25,15 +27,22 @@ class Slider
         $post_type = $this->post_type;
         $taxonomy = $this->taxonomy;
         $terms = $this->terms;
+//        file_put_contents("debug_prueba.txt", $this->post_type);
+//        file_put_contents("debug_prueba.txt", $this->taxonomy,FILE_APPEND);
+//        file_put_contents("debug_prueba.txt", $this->terms,FILE_APPEND);
         if($this->component=='vegas') {
-            $data = QueryBuilder::getImagesByPostType($post_type, $taxonomy, $terms);
+//            file_put_contents("debug_prueba.txt","**vegas**",FILE_APPEND);
+            $data = QueryBuilder::getImagesByPostType($post_type, $taxonomy, $terms,$this->limit);
         }else {
-            $data = QueryBuilder::getPostBasicInfo($post_type, $taxonomy, $terms, false);
+            $data = QueryBuilder::getPostBasicInfo($post_type, $taxonomy, $terms, false,$this->limit,true);
+//            file_put_contents("debug_prueba.txt","SUPERslider",FILE_APPEND);
         }
+        $debug_export = var_export($data, true);
+//        file_put_contents("debug_prueba.txt",$debug_export,FILE_APPEND);
         $this->data = $data;
     }
 
-    private function checkExistData(){
+    public function checkExistData(){
         $exist = false;
         if(!empty($this->data))
             $exist = true;

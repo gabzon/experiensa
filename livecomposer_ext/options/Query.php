@@ -4,7 +4,7 @@ use \Experiensa\Modules\QueryBuilder;
 
 class Query
 {
-    public static function postType($id = 'posttype')
+    public static function postType($id = 'posttype',$default = 'post')
     {
         $pt = QueryBuilder::getPostTypes();
         $cpt = [];
@@ -14,14 +14,14 @@ class Query
         return array(
             'label'   => __('Post Type', 'sage'),
             'id'      => $id,
-            'std'     => 'post',
+            'std'     => $default,
             'type'    => 'select',
             'choices' => $cpt,
             'tab' => __('Query','sage')
         );
     }
 
-    public static function taxonomies($id = 'category')
+    public static function taxonomies($id = 'category',$default = 'all')
     {
         $taxonomies = QueryBuilder::getTaxonomies();
         $tax = [];
@@ -31,19 +31,19 @@ class Query
         return array(
             'label'   => __('Category', 'sage'),
             'id'      => $id,
-            'std'     => 'all',
+            'std'     => $default,
             'type'    => 'select',
             'choices' => $tax,
             'tab' => __('Query','sage')
         );
     }
 
-    public static function terms($id = 'terms')
+    public static function terms($id = 'terms',$default='')
     {
         return array(
             'label' => __('Categories', 'sage'),
             'id'    => $id,
-            'std'   => '',
+            'std'   => $default,
             'type'  => 'text',
             'tab' => __('Query','sage')
         );
@@ -56,7 +56,7 @@ class Query
             'id'                  => $id,
             'std'                 => $max,
             'type'                => 'slider',
-            'refresh_on_change'   => false,
+//            'refresh_on_change'   => false,
             'affect_on_change_el' => '.element-to-affect',
             'min'                 => -1,
             'max'                 => 50,
@@ -95,5 +95,10 @@ class Query
             ),
             'tab' => __('Query','sage')
         );
+    }
+    public static function setSectionName($component = 'component',$category = 'all',$title){
+        $end_name = (!empty($title)?$title:$category);
+        $name = "section_".$component."_".str_replace(' ', '_', strtolower($end_name));
+        return $name;
     }
 }

@@ -26,6 +26,8 @@ $sage_includes = [
     'modules',
 //    'extensions/tailor/Tailor_Experiensa.php',
     'extensions/tailor/tailor.php',
+    'livecomposer_ext/options',
+    'livecomposer_ext/modules',
     'livecomposer_ext'
 ];
 
@@ -46,8 +48,14 @@ foreach ($sage_includes as $file) {
 }
 unset($file, $filepath);
 
-// add_action('wp_head', 'show_template');
-// function show_template() {
-// 	global $template;
-// 	print_r($template);
-// }
+function lc_add_new_templates( $templates ) {
+    // Add new templates ( repeat for more templates )
+    $templates['my-template-id'] = array(
+        'title' => 'Custom Page',
+        'id' => 'my-template-id',
+        'code' => 'LIVE COMPOSER CODE',
+        'section' => 'my templates'
+    );
+    // Pass them back to LC
+    return $templates;
+} add_filter( 'dslc_get_templates', 'lc_add_new_templates' );

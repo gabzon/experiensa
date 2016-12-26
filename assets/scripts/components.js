@@ -54,9 +54,30 @@ function initMasonry() {
     }
 }
 function initSlides(){
-    var slides = jQuery('#slides');
+    var slides = jQuery('.super-slides-component');
     if(slides.length > 0){
         slides.superslides({play:'8000'});
+    }
+}
+function initVegasSlider(){
+    var vegas_src = jQuery(".vegas-images");
+    if(vegas_src.length > 0) {
+        var slides = vegas_src.attr("data-img");
+        var data = slides.split(',');
+        var array_src = [];
+        var row = {};
+        for(var i = 0; i < data.length; i++){
+            row.src = data[i];
+            array_src.push(row);
+            row = {};
+        }
+        var jVegas =  jQuery(".voyage-slider");
+        var vegas_overlay = jQuery(".vegas-overlays");
+        var overlay = vegas_overlay.attr("data-overlay");
+        jQuery(".voyage-slider").vegas({
+            overlay: overlay,
+            slides: array_src
+        });
     }
 }
 function initLandingComponents(){

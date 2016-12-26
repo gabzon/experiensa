@@ -17,6 +17,9 @@ class QueryBuilder
         $post_types['team'] = __('Team','sage');
         return $post_types;
     }
+    public static function checkPostTypeExist($cpt){
+        return post_type_exists($cpt);
+    }
     public static function getTaxonomies($args=[],$output='names'){
         $taxonomies_list = get_taxonomies($args,$output);
         $taxonomies = array();
@@ -88,7 +91,10 @@ class QueryBuilder
             'post_status'    => array('publish', 'inherit'),
             'order' => 'DESC',
         );
+//        file_put_contents("debug_prueba.txt", "voy a buscar es: ",FILE_APPEND);
+//        file_put_contents("debug_prueba.txt", var_export($args, true),FILE_APPEND);
         $query = new WP_Query($args);
+//        file_put_contents("debug_prueba.txt", var_export($query, true),FILE_APPEND);
         return $query;
     }
     public static function getPostByPostTypeAndCategoryName($post_type,$category)
@@ -99,7 +105,7 @@ class QueryBuilder
             'order' => 'DESC',
         );
         $query = new WP_Query($args);
-        return $query;
+        return $query->get_posts();
     }
 
     public static function getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms,$limit = -1){
@@ -122,9 +128,10 @@ class QueryBuilder
         $feat_image = wp_get_attachment_url(get_post_thumbnail_id($id));
         return $feat_image;
     }
-    public static function getImagesByPostType($post_type,$taxonomy,$terms){
-        $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms);
+    public static function getImagesByPostType($post_type,$taxonomy,$terms,$limit=-1){
+        $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms,$limit);
         $images = array();
+//        file_put_contents("debug_prueba.txt",var_export($posts, true),FILE_APPEND);
         if(!empty($posts)){
             foreach($posts as $post){
                 $id = $post->ID;
@@ -148,19 +155,30 @@ class QueryBuilder
         }
         return $images;
     }
-    public static function getPostBasicInfo($post_type,$taxonomy,$terms,$all_content = true){
-        $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms);
+    public static function getPostBasicInfo($post_type,$taxonomy,$terms,$all_content = true,$limit=-1,$get_post=false){
+        if($taxonomy=='all') {
+//            file_put_contents("debug_prueba.txt", "VOY A ALL!",FILE_APPEND);
+//            file_put_contents("debug_prueba.txt", $post_type,FILE_APPEND);
+//            file_put_contents("debug_prueba.txt", "***".$post_type[0]."***",FILE_APPEND);
+//            file_put_contents("debug_prueba.txt", "***LIMIT ES ".$limit."***",FILE_APPEND);
+            $posts = self::getPostByPostType($post_type[0],$limit);
+            $posts = ($get_post?$posts->get_posts():$posts);
+        }else {
+            $posts = self::getPostByPostTypeTaxonomyAndTerm($post_type, $taxonomy, $terms);
+        }
         $data = array();
         if(!empty($posts)) {
             foreach ($posts as $post) {
                 $id = $post->ID;
                 $image = false;
                 if(in_array('voyage',$post_type)) {
+//                    file_put_contents("debug_prueba.txt", " VOY por VOYAGE  ",FILE_APPEND);
                     $images = \Voyage::get_voyage_images_list($id);
                     if(!empty($images)) {
                         $image = $images[0];
                     }
                 }else {
+//                    file_put_contents("debug_prueba.txt", "VOY POR OTRO!",FILE_APPEND);
                     if(in_array('attachment',$post_type)) {
                         $feat_image = wp_get_attachment_url($id);
                         if ($feat_image) {
