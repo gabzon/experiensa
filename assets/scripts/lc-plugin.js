@@ -41,6 +41,32 @@ jQuery(document).ready(function ($) {
     }
     window.initCarouselLC = initCarouselLC;
 
+    function initSingleCarousel(){
+        var single_carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-SingleCarousel_LC_Module" );
+        if(single_carousel_module.length > 0) {
+            var testimonial_carousel = jQuery("#page-builder-frame").contents().find(".testimonial-carousel");
+            if (testimonial_carousel.length > 0) {
+                testimonial_carousel.owlCarousel({
+                    autoPlay: 3000,
+                    loop:true,
+                    margin:5,
+                    nav:true,
+                    items: 1,
+                    stopOnHover:true,
+                    navText: [
+                        "<i class='angle left big icon'></i>",
+                        "<i class='angle right big icon'></i>"
+                    ],
+                });
+                testimonial_carousel.each(function(){
+                    jQuery(".owl-dots",this).removeClass('disabled');
+                    jQuery(".owl-nav",this).removeClass('disabled');
+                });
+            }
+        }
+    }
+    window.initSingleCarousel = initSingleCarousel;
+
     function initMasonryLC() {
         var jMasonry = jQuery("#page-builder-frame").contents().find( ".grid-masonry" );
         if (jMasonry.length > 0) {
@@ -61,7 +87,7 @@ jQuery(document).ready(function ($) {
         if(super_slide_module.length > 0){
             var super_slides = super_slide_module.find(".super-slides-component");
             super_slides.superslides({play:'8000'});
-            console.log("he iniciado superslides!!!!!!!!!!!!!!!!!");
+            // console.log("he iniciado superslides!!!!!!!!!!!!!!!!!");
         }
     }
     window.initSuperSliderLC = initSuperSliderLC;
@@ -75,9 +101,7 @@ jQuery(document).ready(function ($) {
                 var data = slides.split(',');
                 var array_src = [];
                 var row = {};
-                // console.log(data);
                 for(var i = 0; i < data.length; i++){
-                    // console.log(data[i]);
                     row.src = data[i];
                     array_src.push(row);
                     row = {};
@@ -85,24 +109,13 @@ jQuery(document).ready(function ($) {
                 var jVegas = vegas_module.find(".voyage-slider");
                 var vegas_overlay = vegas_module.find(".vegas-overlays");
                 var overlay = vegas_overlay.attr("data-overlay");
-                // console.log(overlay);
-                // console.log("este es el array que voy a mostrar");
-                // console.log(array_src);
                 if(jVegas.length > 0) {
-                    // console.log("existe jVegas");
-                    // console.log("el overlay es ");
-                    // console.log(overlay);
                     jVegas.vegas({
                         overlay: overlay,
                         slides: array_src
                     });
-                    // console.log(jVegas.html());
-                }/*else{
-                    console.log("NOOOOO existe jVegas");
-                }*/
-            }/*else{
-                console.log("no hay datos para vegas");
-            }*/
+                }
+            }
         }
     }
     window.initVegasSliderLC = initVegasSliderLC;
@@ -111,7 +124,6 @@ jQuery(document).ready(function ($) {
     function initFreewallFlexLC(){
         var flex_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-FlexLayout_LC_Module" );
         if(flex_module.length > 0){
-            // var flex = flex_module.find("");
             var wall = new Freewall(flex_module.find('#freewall'));
             wall.reset({
                 selector: '.brick',
@@ -128,10 +140,8 @@ jQuery(document).ready(function ($) {
     window.initFreewallFlexLC = initFreewallFlexLC;
 
     function initFreewallImageLC(){
-        console.log("ya estoy aqui");
         var image_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-ImageLayout_LC_Module" );
         if(image_module.length > 0){
-            console.log("voy a crear el image layout");
             var wall_image = new Freewall(image_module.find("#freewall-image"));
             wall_image.reset({
                 selector: '.freewall-cell',
@@ -148,42 +158,28 @@ jQuery(document).ready(function ($) {
     window.initFreewallImageLC = initFreewallImageLC;
 
     function initFreewallPinterestLC(){
-        console.log("ya estoy aqui initFreewallPinterestLC");
+        // console.log("ya estoy aqui initFreewallPinterestLC");
         var pinterest_module = $('#page-builder-frame').contents().find( ".dslc-module-PinterestLayout_LC_Module" );
         if(pinterest_module.length > 0){
-            console.log("voy a crear el initFreewallPinterestLC");
+            // console.log("voy a crear el initFreewallPinterestLC");
             var pinterest = pinterest_module.find(".pinterest-container");
             pinterest.pinto();
         }
-        // if(pinterest_module.length > 0){
-        //     console.log("voy a crear el initFreewallPinterestLC");
-        //     var wall_pinterest = new Freewall(pinterest_module.find("#freewall-pinterest"));
-        //     wall_pinterest.reset({
-        //         selector: '.brick-pinterest',
-        //         animate: true,
-        //         cellW: 200,
-        //         cellH: 'auto',
-        //         onResize: function() {
-        //             wall_pinterest.fitWidth();
-        //         }
-        //     });
-        //     wall_pinterest.fitWidth();
-        // }
     }
     window.initFreewallPinterestLC = initFreewallPinterestLC;
 
     function initFreewallWindows8LC(){
-        console.log("ya estoy aqui initFreewallWindows8LC");
+        // console.log("ya estoy aqui initFreewallWindows8LC");
         var windows8_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-Windows8Layout_LC_Module" );
         if(windows8_module.length > 0){
-            console.log("voy a crear el initFreewallWindows8LC");
+            // console.log("voy a crear el initFreewallWindows8LC");
             var win8 = windows8_module.find("#win8-freewall");
             var selector = win8.find('.level1');
-            if(selector.length>0){
-                console.log("existe selector");
-            }else{
-                console.log("NOOOO existe selector");
-            }
+            // if(selector.length>0){
+            //     console.log("existe selector");
+            // }else{
+            //     console.log("NOOOO existe selector");
+            // }
             var wall_win8 = new Freewall(win8);
             wall_win8.reset({
                 selector: selector,
@@ -207,6 +203,12 @@ jQuery(document).ready(function ($) {
         if(carousel_module.length>0){
             console.log("hay un dslc-module-ExperiensaCarousel_LC_Module");
             initCarouselLC();
+        }
+        //Single Carousel
+        var single_carousel_module = jQuery(this).contents().find( ".dslc-module-SingleCarousel_LC_Module" );
+        if(single_carousel_module.length>0){
+            console.log("hay un dslc-module-SingleCarousel_LC_Module");
+            initSingleCarousel();
         }
         //Masonry
         var masonry_module = jQuery(this).contents().find( ".grid-masonry" );

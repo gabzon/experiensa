@@ -17,6 +17,9 @@ class QueryBuilder
         $post_types['team'] = __('Team','sage');
         return $post_types;
     }
+    public static function checkPostTypeExist($cpt){
+        return post_type_exists($cpt);
+    }
     public static function getTaxonomies($args=[],$output='names'){
         $taxonomies_list = get_taxonomies($args,$output);
         $taxonomies = array();
