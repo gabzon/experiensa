@@ -85,9 +85,10 @@ class QueryBuilder
         return $posts;
     }
     public static function getPostByPostType($post_type,$limit = -1){
+        $pt = (is_array($post_type)?$post_type:array($post_type));
         $args = array(
             'posts_per_page' => $limit,
-            'post_type'      => array($post_type),
+            'post_type'      => $pt,
             'post_status'    => array('publish', 'inherit'),
             'order' => 'DESC',
         );
