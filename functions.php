@@ -24,11 +24,9 @@ $sage_includes = [
     'models/taxonomy',            // Custom taxonomies
     'models/post-type',           // All custom post types
     'modules',
-//    'extensions/tailor/Tailor_Experiensa.php',
-    'extensions/tailor/tailor.php',
-    'livecomposer_ext/options',
-    'livecomposer_ext/modules',
-    'livecomposer_ext'
+    'extensions/livecomposer/options',
+    'extensions/livecomposer/modules',
+    'extensions'
 ];
 
 foreach ($sage_includes as $file) {
@@ -38,24 +36,10 @@ foreach ($sage_includes as $file) {
 
     if (is_dir($filepath)){
         foreach (glob("$filepath/*.php") as $filename) {
-//            echo "<h1>$filepath</h1>";
             require_once($filename);
         }
     }else{
-//        echo "<h1>$filepath</h1>";
         require_once $filepath;
     }
 }
 unset($file, $filepath);
-
-function lc_add_new_templates( $templates ) {
-    // Add new templates ( repeat for more templates )
-    $templates['my-template-id'] = array(
-        'title' => 'Custom Page',
-        'id' => 'my-template-id',
-        'code' => 'LIVE COMPOSER CODE',
-        'section' => 'my templates'
-    );
-    // Pass them back to LC
-    return $templates;
-} add_filter( 'dslc_get_templates', 'lc_add_new_templates' );

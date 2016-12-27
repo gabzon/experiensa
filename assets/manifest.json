@@ -38,11 +38,6 @@
             ],
             "main": true
         },
-        "frontend.css": {
-            "files": [
-                "styles/frontend.css"
-            ]
-        },
         "customizer.js": {
             "files": [
                 "scripts/customizer.js"
