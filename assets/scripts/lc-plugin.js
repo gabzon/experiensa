@@ -6,10 +6,10 @@ jQuery(document).ready(function ($) {
     function initCarouselLC(){
         var carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-ExperiensaCarousel_LC_Module" );
         if(carousel_module.length > 0) {
-            console.log("hay dslc-module-ExperiensaCarousel_LC_Module*****");
-            var carousel = jQuery("#page-builder-frame").contents().find(".owl-carousel");
+            // console.log("hay dslc-module-ExperiensaCarousel_LC_Module*****");
+            var carousel = jQuery("#page-builder-frame").contents().find(".owl-carousel.carousel-multi");
             if (carousel.length > 0) {
-                console.log("ahora hay un carousel************");
+                // console.log("ahora hay un carousel************");
                 carousel.owlCarousel({
                     loop: true,
                     margin: 5,
@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
     function initSingleCarousel(){
         var single_carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-SingleCarousel_LC_Module" );
         if(single_carousel_module.length > 0) {
-            var testimonial_carousel = jQuery("#page-builder-frame").contents().find(".testimonial-carousel");
+            var testimonial_carousel = jQuery("#page-builder-frame").contents().find(".owl-carousel.testimonial-carousel");
             if (testimonial_carousel.length > 0) {
                 testimonial_carousel.owlCarousel({
                     autoPlay: 3000,
@@ -201,31 +201,31 @@ jQuery(document).ready(function ($) {
         //Carousel
         var carousel_module = jQuery(this).contents().find( ".dslc-module-ExperiensaCarousel_LC_Module" );
         if(carousel_module.length>0){
-            console.log("hay un dslc-module-ExperiensaCarousel_LC_Module");
+            // console.log("hay un dslc-module-ExperiensaCarousel_LC_Module");
             initCarouselLC();
         }
         //Single Carousel
         var single_carousel_module = jQuery(this).contents().find( ".dslc-module-SingleCarousel_LC_Module" );
         if(single_carousel_module.length>0){
-            console.log("hay un dslc-module-SingleCarousel_LC_Module");
+            // console.log("hay un dslc-module-SingleCarousel_LC_Module");
             initSingleCarousel();
         }
         //Masonry
         var masonry_module = jQuery(this).contents().find( ".grid-masonry" );
         if(masonry_module.length>0){
-            console.log("si hay");
+            // console.log("si hay");
             initMasonryLC();
         }
         //SuperSlides
         var super_slide_module = jQuery(this).contents().find( ".dslc-module-SuperSlider_LC_Module" );
         if(super_slide_module.length>0){
-            console.log("hay un dslc-module-SuperSlider_LC_Module");
+            // console.log("hay un dslc-module-SuperSlider_LC_Module");
             initSuperSliderLC();
         }
         //Vegas
         var vegas_module = jQuery(this).contents().find( ".dslc-module-VegasSlider_LC_Module" );
         if(vegas_module.length>0){
-            console.log("hay un .dslc-module-VegasSlider_LC_Module");
+            // console.log("hay un .dslc-module-VegasSlider_LC_Module");
             initVegasSliderLC();
         }
         //Freewall Flex Layout
@@ -273,24 +273,15 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
         initFreewallFlexLC();
     }
     if(settings.data.indexOf('dslc_module_id=ImageLayout_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
-        console.log("voy a image layout");
+        // console.log("voy a image layout");
         initFreewallImageLC();
     }
     if(settings.data.indexOf('dslc_module_id=PinterestLayout_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
-        console.log("voy a pintrest layout");
+        // console.log("voy a pintrest layout");
         initFreewallPinterestLC();
     }
     if(settings.data.indexOf('dslc_module_id=Windows8Layout_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
-        console.log("voy a windows8 layout");
+        // console.log("voy a windows8 layout");
         initFreewallWindows8LC();
     }
 });
-    //     var testimonial_carousel = jQuery(".testimonial-carousel");
-    //     if(testimonial_carousel.length > 0) {
-    //         jQuery('.owl-nav').show();
-    //     }else{
-    //         var carousel_active = jQuery('.owl-item.active').length;
-    //         if (carousel_active === 1) {
-    //             jQuery('.owl-nav').hide();
-    //         }
-    //     }

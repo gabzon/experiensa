@@ -1,27 +1,6 @@
 <?php
 if(!empty($data)):
 ?>
-<script type="text/javascript">
-    jQuery(function() {
-        var testimonial_carousel = jQuery(".testimonial-carousel");
-        testimonial_carousel.owlCarousel({
-            autoPlay: 3000,
-            loop:true,
-            margin:5,
-            nav:true,
-            items: 1,
-            stopOnHover:true,
-            navText: [
-                "<i class='angle left big icon'></i>",
-                "<i class='angle right big icon'></i>"
-            ],
-        });
-        testimonial_carousel.each(function(){
-            jQuery(".owl-dots",this).removeClass('disabled');
-            jQuery(".owl-nav",this).removeClass('disabled');
-        });
-    });
-</script>
 <!-- Testimonial Carousel Component -->
 <section id="<?= $name;?>" class="ui vertical segment custom-section <?= $background['color'];?>" style="<?= $background['size'];?>">
     <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>

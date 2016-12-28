@@ -11,7 +11,7 @@ if(!empty($data)):
                 <?= (!empty($layout['subtitle'])?"<h3>".$layout['subtitle']."</h3><br>":"");?>
             </div>
         </div>
-        <div class="owl-carousel">
+        <div class="owl-carousel carousel-multi">
         <?php
         foreach($data as $value):
             $textimage_option->setInfo($value['title'], $value['subtitle'],$value['image_url']);
