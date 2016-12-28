@@ -263,6 +263,9 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
     if(settings.data.indexOf('dslc_module_id=ExperiensaCarousel_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
         initCarouselLC();
     }
+    if(settings.data.indexOf('dslc_module_id=SingleCarousel_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
+        initSingleCarousel();
+    }
     if(settings.data.indexOf('dslc_module_id=Masonry_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
         initMasonryLC();
     }

@@ -1,6 +1,6 @@
 
 function initCarousel(){
-    var carousel = jQuery(".owl-carousel");
+    var carousel = jQuery(".owl-carousel.carousel-multi");
     if(carousel.length>0) {
         carousel.owlCarousel({
             loop: true,
@@ -28,7 +28,7 @@ function initCarousel(){
             jQuery(".owl-dots", this).removeClass('disabled');
             jQuery(".owl-nav", this).removeClass('disabled');
         });
-        var testimonial_carousel = jQuery(".testimonial-carousel");
+        var testimonial_carousel = jQuery(".owl-carousel.testimonial-carousel");
         if(testimonial_carousel.length > 0) {
             jQuery('.owl-nav').show();
         }else{
