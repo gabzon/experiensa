@@ -108,8 +108,6 @@ function assets() {
     'siteurl'=>get_site_url(),
     'stylesheet_directory_uri'=>get_stylesheet_directory_uri()
   );
-  if(\Helpers::check_internet_connection())
-    wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');
   wp_enqueue_script('freewall/js', Assets\asset_path('scripts/freewall.js'), ['jquery'], null, false);
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_enqueue_script('react', Assets\asset_path('scripts/react_app.js'), [], null, true);

@@ -197,3 +197,12 @@ function load_custom_wp_admin_style($hook) {
     wp_enqueue_script( 'react-catalog', get_template_directory_uri().'/dist/scripts/react_app.js', [], null, true);
 }
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
+
+function wpse_cpt_enqueue_estimate( $hook_suffix ){
+    $cpt = 'estimate';
+    if(is_single() && get_post_type() == $cpt && \Helpers::check_internet_connection()){
+        wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');
+    }
+}
+
+add_action( 'wp_enqueue_scripts', 'wpse_cpt_enqueue_estimate');
