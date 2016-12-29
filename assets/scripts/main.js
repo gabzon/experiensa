@@ -95,6 +95,7 @@
                 initVegasSlider();
                 initCarousel();
                 initMasonry();
+                initPinterest();
                 freewall_layout();
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
             },

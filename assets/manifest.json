@@ -20,12 +20,14 @@
                 "owl.carousel",
                 "masonry",
                 "freewall",
-                "jquery-ui"
+                "jquery-ui",
+                "pinto"
             ]
         },
         "main.css": {
             "files": [
-                "styles/main.scss"
+                "styles/main.scss",
+                "styles/pinto.css"
             ],
             "bower":[
                 "vegas",
