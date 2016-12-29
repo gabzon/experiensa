@@ -1,38 +1,6 @@
 <?php
 if(!empty($data)):
 ?>
-<style>
-    .pinterest-container {
-        margin:20px auto;
-    }
-    .pinterest-container .pinto {
-        box-sizing: border-box;
-        border: 1px solid;
-    }
-    .pinterest-container .pinto {
-        margin-bottom:15px;
-        color:#333;
-        text-align:left;
-        border-radius:5px;
-        overflow:hidden;
-    }
-    .pinterest-container .pinto img {
-        display:block;
-        width:100%;
-    }
-    .pinterest-container .pinto .info {
-        padding:10px 15px;
-        background-color:#fff;
-    }
-    .pinterest-container .pinto .info h2 {
-        margin:0;
-        font-size:18px;
-    }
-    .pinterest-container .pinto .info p {
-        margin:10px 0 0;
-        font-size:14px;
-    }
-</style>
 <!-- Pinterest Component -->
 <section id="<?= $name;?>" class="ui vertical segment custom-section <?= $background['color'];?>" style="<?= $background['size'];?>">
     <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>
