@@ -198,6 +198,7 @@ jQuery(document).ready(function ($) {
     window.initFreewallWindows8LC = initFreewallWindows8LC;
     //Init all registered componets
     jQuery('#page-builder-frame').on('load', function () {
+        jQuery(this).find("#dslc-content").css("margin-top","250px");
         //Carousel
         var carousel_module = jQuery(this).contents().find( ".dslc-module-ExperiensaCarousel_LC_Module" );
         if(carousel_module.length>0){
