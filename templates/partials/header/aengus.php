@@ -18,7 +18,7 @@ $logo = Helpers::getWebsiteLogo();
         <div class="ui <?= Header::get_menu_style(); ?> menu centered navbar grid borderless header-menu pc">
             <a class="item" href="<?= esc_url(home_url('/')); ?>">
                 <?php if ($logo): ?>
-                    <img class="ui tiny image logo" src="<?= wp_get_attachment_url($logo); ?>"  />
+                    <img class="ui tiny image logo" src="<?= wp_get_attachment_url($logo); ?>"  alt="logo"/>
                 <?php else: ?>
                     <?= Header::get_blog_name(); ?>
                 <?php endif; ?>

@@ -5,7 +5,7 @@ $logo = Helpers::getWebsiteLogo();
 if($logo && $display_logo == 'true'):?>
 <div class="item">
   <br>
-  <img class="ui <?= \Components\Footer\Footer::getLogoSize();?> image logo" src="<?= wp_get_attachment_url($logo);?>"/>
+  <img class="ui <?= \Components\Footer\Footer::getLogoSize();?> image logo" src="<?= wp_get_attachment_url($logo);?>" alt="logo"/>
 <?php else: ?>
   <div class="content">
     <h1><?= bloginfo('name'); ?></h1>

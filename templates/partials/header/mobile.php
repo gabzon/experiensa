@@ -9,7 +9,7 @@ $logo_size = Header::get_header_logo_size();
         <a class="item" href="<?= esc_url(home_url('/')); ?>">
             <?php
             if ($logo):?>
-                <img class="ui <?= $logo_size;?> image logo" src="<?= wp_get_attachment_url($logo); ?>"  />
+                <img class="ui <?= $logo_size;?> image logo" src="<?= wp_get_attachment_url($logo); ?>" alt="logo"/>
             <?php else: ?>
                 <?= Header::get_blog_name(); ?>
             <?php endif; ?>

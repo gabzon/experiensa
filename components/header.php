@@ -84,7 +84,7 @@ Class Header{
         $home_url = get_home_url ('/');
         $item = "<a class='item' href='$home_url'>";
         if($logo){
-            $item .= "<img class=\"ui ".$logo_size." image logo\" src=\"".$logo_url."\"/>";
+            $item .= "<img class=\"ui ".$logo_size." image logo\" src=\"".$logo_url."\"/ alt=\"logo\">";
         }else{
             $item .= self::get_blog_name();
         }

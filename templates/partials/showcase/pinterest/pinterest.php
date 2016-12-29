@@ -50,7 +50,7 @@ if(!empty($data)):
         ?>
             <div class="pinto">
                 <a href="<?=$value['post_link'];?>" class="image" target="_blank">
-                    <img src="<?=$value['image_url'];?>">
+                    <img src="<?=$value['image_url'];?>" alt="<?=$value['title'];?>">
                 </a>
                 <div class="info">
                     <h2><?=$value['title'];?></h2>
