@@ -30,7 +30,7 @@ if(!empty($data)):
                     <div class="four column centered row">
                         <div class="right aligned column">
                             <div class="ui tiny circular image">
-                                <img src="<?=$value['image_url'];?>">
+                                <img src="<?=$value['image_url'];?>" alt="image">
                             </div>
                         </div>
                         <div class="column">

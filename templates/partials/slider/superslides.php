@@ -3,7 +3,7 @@
     <ul class="slides-container">
         <?php foreach($data as $info):?>
             <li>
-                <img src="<?= $info['image'];?>" alt="" class="ui image"/>
+                <img src="<?= $info['image'];?>" alt="image" class="ui image"/>
                 <div class="ui container" style="margin-top: 10%;">
                     <div class="ui centered grid">
                         <div class="twelve wide column" id="slider-text">

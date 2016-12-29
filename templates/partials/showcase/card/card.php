@@ -17,7 +17,7 @@ if(!empty($data)):
         ?>
             <div class="ui card" style="margin: 0 10px 0 10px;">
                 <a href="<?=$value['post_link'];?>" class="image" target="_blank">
-                    <img src="<?=$value['image_url'];?>">
+                    <img src="<?=$value['image_url'];?>" alt="image">
                 </a>
                 <div class="content">
                     <div class="center aligned header"><?=$value['title'];?></div>

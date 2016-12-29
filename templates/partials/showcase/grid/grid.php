@@ -45,7 +45,7 @@ if(!empty($data)):
                                                 ?>
                                             </div>
                                         </div>
-                                        <img src="<?=$value['image_url'];?>" width="100%">
+                                        <img src="<?=$value['image_url'];?>" width="100%" alt="image">
                                     </div>
                                 </a>
                             </div>

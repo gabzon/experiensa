@@ -8,6 +8,6 @@
             </div>
         </div>
         <div class="ui dimmer" style="padding: 5px 5px 5px 5px;"></div>
-        <img src="<?=$textimage->getImage();?>" width="100%">
+        <img src="<?=$textimage->getImage();?>" width="100%" alt="<?= $textimage->getTitle();?>">
     </div>
 </a>

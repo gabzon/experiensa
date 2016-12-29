@@ -6,5 +6,5 @@
             <div class="description" style="color: #ffffff;"><?= $textimage->getSubtitle();?></div>
         </div>
     </div>
-    <img src="<?=$textimage->getImage();?>" width="100%">
+    <img src="<?=$textimage->getImage();?>" width="100%" alt="<?= $textimage->getTitle();?>">
 </div>
