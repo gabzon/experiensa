@@ -85,28 +85,27 @@
         'page':{
             init: function() {
                 var liveComposerEditor = jQuery(".dslca-enabled").length > 0;
+                var liveComposerClass = jQuery(".dslca-enabled").length > 0;
                 console.log("se inicia una PAGE");
                 setHeaderBackground();
                 headerMarginTop();
                 mobileMenuOnPcMarginConf();
                 mobileMenuMarginConfig();
                 if(liveComposerEditor){
-                    console.log("Existe liveComposerEditor");
                     var menuHeight = getPcHeaderMenuHeight();
-                    console.log("el valor de la altura del menu "+menuHeight);
                     menuHeight += 30;
                     jQuery("#main-content").css("margin-top",menuHeight+"px");
                 }
                 reservation_datepicker();
                 sendReservation();
                 smoothPageScroll();
-                initSlides();
-                initVegasSlider();
-                initCarousel();
-                initMasonry();
-                initPinterest();
-                freewall_layout();
-                $(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
+                initSlides(liveComposerClass);
+                initVegasSlider(liveComposerClass);
+                initCarousel(liveComposerClass);
+                initMasonry(liveComposerClass);
+                initPinterest(liveComposerClass);
+                initFreewallComponents(liveComposerClass);
+                jQuery(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
             },
             finalize: function() {
               // JavaScript to be fired on all pages, after page specific JS is fired
@@ -139,12 +138,11 @@
                     }
                 }
                 if(!liveComposerEditor){
-                    console.log("NO existe liveComposerEditor en home");
                     jQuery('.header-menu').addClass("secondary");
                 }
 
                 scrollMenu(header_menu_background,liveComposerEditor);
-                $(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
+                // $(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
             },
             finalize: function() {
                 // JavaScript to be fired on the home page, after the init JS

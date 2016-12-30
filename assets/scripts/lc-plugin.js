@@ -4,6 +4,7 @@
 // var $ = jQuery;
 jQuery(document).ready(function ($) {
     function initCarouselLC(){
+        console.log("se inicia Carousel desde LC");
         var carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-ExperiensaCarousel_LC_Module" );
         if(carousel_module.length > 0) {
             // console.log("hay dslc-module-ExperiensaCarousel_LC_Module*****");
@@ -42,6 +43,7 @@ jQuery(document).ready(function ($) {
     window.initCarouselLC = initCarouselLC;
 
     function initSingleCarousel(){
+        console.log("se inicia Single Carousel desde LC");
         var single_carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-SingleCarousel_LC_Module" );
         if(single_carousel_module.length > 0) {
             var testimonial_carousel = jQuery("#page-builder-frame").contents().find(".owl-carousel.testimonial-carousel");
@@ -68,6 +70,7 @@ jQuery(document).ready(function ($) {
     window.initSingleCarousel = initSingleCarousel;
 
     function initMasonryLC() {
+        console.log("se inicia Masonry desde LC");
         var jMasonry = jQuery("#page-builder-frame").contents().find( ".grid-masonry" );
         if (jMasonry.length > 0) {
             jMasonry.masonry({
@@ -83,6 +86,7 @@ jQuery(document).ready(function ($) {
     window.initMasonryLC = initMasonryLC;
 
     function initSuperSliderLC(){
+        console.log("se inicia Slides desde LC");
         var super_slide_module = jQuery('#page-builder-frame') .contents().find( ".dslc-module-SuperSlider_LC_Module" );
         if(super_slide_module.length > 0){
             var super_slides = super_slide_module.find(".super-slides-component");
@@ -93,6 +97,7 @@ jQuery(document).ready(function ($) {
     window.initSuperSliderLC = initSuperSliderLC;
 
     function initVegasSliderLC(){
+        console.log("se inicia Vegas desde LC");
         var vegas_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-VegasSlider_LC_Module" );
         if(vegas_module.length > 0){
             var vegas_src = vegas_module.find(".vegas-images");
@@ -122,6 +127,7 @@ jQuery(document).ready(function ($) {
 
     var Freewall = freewall;
     function initFreewallFlexLC(){
+        console.log("se inicia Flex desde LC");
         var flex_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-FlexLayout_LC_Module" );
         if(flex_module.length > 0){
             var wall = new Freewall(flex_module.find('#freewall'));
@@ -140,6 +146,7 @@ jQuery(document).ready(function ($) {
     window.initFreewallFlexLC = initFreewallFlexLC;
 
     function initFreewallImageLC(){
+        console.log("se inicia Image desde LC");
         var image_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-ImageLayout_LC_Module" );
         if(image_module.length > 0){
             var wall_image = new Freewall(image_module.find("#freewall-image"));
@@ -158,6 +165,7 @@ jQuery(document).ready(function ($) {
     window.initFreewallImageLC = initFreewallImageLC;
 
     function initFreewallPinterestLC(){
+        console.log("se inicia Pinterest desde LC");
         // console.log("ya estoy aqui initFreewallPinterestLC");
         var pinterest_module = $('#page-builder-frame').contents().find( ".dslc-module-PinterestLayout_LC_Module" );
         if(pinterest_module.length > 0){
@@ -169,6 +177,7 @@ jQuery(document).ready(function ($) {
     window.initFreewallPinterestLC = initFreewallPinterestLC;
 
     function initFreewallWindows8LC(){
+        console.log("se inicia Windows8 desde LC");
         // console.log("ya estoy aqui initFreewallWindows8LC");
         var windows8_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-Windows8Layout_LC_Module" );
         if(windows8_module.length > 0){

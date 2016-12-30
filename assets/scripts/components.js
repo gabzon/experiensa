@@ -1,7 +1,7 @@
 
-function initCarousel(){
-    console.log("vamos por aqui");
-    if (jQuery(".dslca-enabled").length < 1) {
+function initCarousel(liveComposerClass){
+    if (!liveComposerClass) {
+        console.log("se inicia Carousel");
         var carousel = jQuery(".owl-carousel.carousel-multi");
         if (carousel.length > 0) {
             carousel.owlCarousel({
@@ -43,8 +43,9 @@ function initCarousel(){
     }
 }
 window.initCarousel = initCarousel;
-function initMasonry() {
-    if (jQuery(".dslca-enabled").length < 1) {
+function initMasonry(liveComposerClass) {
+    if (!liveComposerClass) {
+        console.log("se inicia Masonry");
         var jMasonry = jQuery('.grid-masonry');
         if (jMasonry.length > 0) {
             jMasonry.masonry({
@@ -58,43 +59,45 @@ function initMasonry() {
         }
     }
 }
-function initSlides(){
-    console.log("se inicia Slides");
-    var slides = jQuery('.super-slides-component');
-    if(slides.length > 0){
-        slides.superslides({play:'8000'});
-    }
-}
-function initVegasSlider(){
-    var vegas_src = jQuery(".vegas-images");
-    if(vegas_src.length > 0) {
-        var slides = vegas_src.attr("data-img");
-        var data = slides.split(',');
-        var array_src = [];
-        var row = {};
-        for(var i = 0; i < data.length; i++){
-            row.src = data[i];
-            array_src.push(row);
-            row = {};
+function initSlides(liveComposerClass){
+    if(!liveComposerClass) {
+        console.log("se inicia Slides");
+        var slides = jQuery('.super-slides-component');
+        if (slides.length > 0) {
+            slides.superslides({play: '8000'});
         }
-        var jVegas =  jQuery(".voyage-slider");
-        var vegas_overlay = jQuery(".vegas-overlays");
-        var overlay = vegas_overlay.attr("data-overlay");
-        jQuery(".voyage-slider").vegas({
-            overlay: overlay,
-            slides: array_src
-        });
     }
 }
-function initPinterest(){
-    var pinterest = jQuery(".pinterest-container");
-    if(pinterest.length > 0) {
-        pinterest.pinto();
+function initVegasSlider(liveComposerClass){
+    if(!liveComposerClass) {
+        console.log("se inicia Vegas");
+        var vegas_src = jQuery(".vegas-images");
+        if (vegas_src.length > 0) {
+            var slides = vegas_src.attr("data-img");
+            var data = slides.split(',');
+            var array_src = [];
+            var row = {};
+            for (var i = 0; i < data.length; i++) {
+                row.src = data[i];
+                array_src.push(row);
+                row = {};
+            }
+            var jVegas = jQuery(".voyage-slider");
+            var vegas_overlay = jQuery(".vegas-overlays");
+            var overlay = vegas_overlay.attr("data-overlay");
+            jQuery(".voyage-slider").vegas({
+                overlay: overlay,
+                slides: array_src
+            });
+        }
     }
 }
-function initLandingComponents(){
-    console.log("se inicio por acá");
-    initCarousel();
-    initMasonry();
-    initPinterest();
+function initPinterest(liveComposerClass){
+    if(!liveComposerClass) {
+        console.log("se inicia Pinterest");
+        var pinterest = jQuery(".pinterest-container");
+        if (pinterest.length > 0) {
+            pinterest.pinto();
+        }
+    }
 }
