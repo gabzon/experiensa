@@ -24,6 +24,11 @@ function wp_svg_style() {
 }
 add_action("admin_head", "wp_svg_style");
 */
+/**
+ * Check if admin bar is showing and add customs body class
+ * @param $classes
+ * @return array
+ */
 function add_custom_body_class($classes){
     if(is_admin_bar_showing()){
         $classes[] = 'displayed-admin-bar';
@@ -34,7 +39,10 @@ function add_custom_body_class($classes){
 }
 add_filter('body_class', 'add_custom_body_class');
 
-
+/**
+ * Set Default user color schema when create new users
+ * @param $user_id
+ */
 function set_default_admin_color_schema($user_id) {
     if(!WP_DEBUG){
         $args = array(
@@ -125,6 +133,7 @@ function hide_hotel_settings_tab($part_data, $folder){
     }
 }
 add_filter('piklist_part_process_callback','hide_hotel_settings_tab', 10, 2);
+
 /**
  * Ajax/JSON response to get Hotel reservation unable dates
  */
@@ -182,11 +191,10 @@ function babelType($tag,$handle,$src){
 }
 add_filter('script_loader_tag','babelType',10,3);
 
-//function load_custom_tailor_canvas() {
-//    wp_enqueue_script( 'custom-tailor-canvas', get_template_directory_uri() . '/dist/scripts/canvas.js', [], null, true );
-//}
-//add_action( 'customize_preview_init', 'load_custom_tailor_canvas' );
-
+/**
+ * Enqueue LiveComposer dependencies on Editor
+ * @param $hook
+ */
 function load_custom_wp_admin_style($hook) {
     if($hook != 'toplevel_page_livecomposer_editor') {
         return;
@@ -197,7 +205,10 @@ function load_custom_wp_admin_style($hook) {
     wp_enqueue_script( 'react-catalog', get_template_directory_uri().'/dist/scripts/react_app.js', [], null, true);
 }
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
-
+/**
+ * Enqueue Stripe api on estimate posts
+ * @param $hook_suffix
+ */
 function wpse_cpt_enqueue_estimate( $hook_suffix ){
     $cpt = 'estimate';
     if(is_single() && get_post_type() == $cpt && \Helpers::check_internet_connection()){

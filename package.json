@@ -93,6 +93,7 @@
     "run-sequence": "^1.1.2",
     "traverse": "^0.6.6",
     "typescript": "^1.7.3",
+    "uglifyify": "^3.0.4",
     "vinyl-source-stream": "^1.1.0",
     "wiredep": "^2.2.2"
   }

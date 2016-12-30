@@ -1,4 +1,5 @@
 function freewall_layout() {
+    console.log("se inician todos los layouts");
     var Freewall = freewall;
     var wall = new Freewall('#freewall');
     wall.reset({

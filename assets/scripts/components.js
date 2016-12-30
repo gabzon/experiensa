@@ -1,5 +1,6 @@
 
 function initCarousel(){
+    console.log("vamos por aqui");
     if (jQuery(".dslca-enabled").length < 1) {
         var carousel = jQuery(".owl-carousel.carousel-multi");
         if (carousel.length > 0) {
@@ -58,6 +59,7 @@ function initMasonry() {
     }
 }
 function initSlides(){
+    console.log("se inicia Slides");
     var slides = jQuery('.super-slides-component');
     if(slides.length > 0){
         slides.superslides({play:'8000'});
@@ -91,6 +93,7 @@ function initPinterest(){
     }
 }
 function initLandingComponents(){
+    console.log("se inicio por acá");
     initCarousel();
     initMasonry();
     initPinterest();

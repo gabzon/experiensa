@@ -20,35 +20,37 @@ function headerMarginTop(){
     var headerArray = [];
     var menu_height = 0;
     var i;
-    /*var mainHeader = jQuery("#header-nav");
-    var mainHeaderHeight = mainHeader.height();*/
     var acum;
     var homeClass = jQuery(".home.page");
     var voyageClass = jQuery(".single.single-voyage");
     var mainContent = jQuery("#main-content");
-    //Check if exist WP adminbar
-    if(admin_bar.length>0){
+    var liveComposerEditor = jQuery(".dslca-enabled");
+
+    if(admin_bar.length>0){//Check if WP adminbar is active
         var admin_bar_height = admin_bar.height();
         acum = admin_bar_height;
-        //Push al header-menu pc on one array
-        jQuery( ".ui.menu.navbar.grid.header-menu.pc" ).each(function( index ) {
-            headerArray.push(jQuery(this));
-        });
-
-        for(i=0;i<headerArray.length;i++){
-            acum += headerArray[i].height();
-            if(i < 1){
-                menu_height = menu_height + admin_bar_height;
-            }else{
-                menu_height = menu_height + headerArray[i-1].height();
+        if(liveComposerEditor.length < 1) {//Check if LiveComposer editor is active
+            //Push all header-menu pc on one array
+            jQuery(".ui.menu.navbar.grid.header-menu.pc").each(function (index) {
+                headerArray.push(jQuery(this));
+            });
+            //Pc Header Margin
+            for (i = 0; i < headerArray.length; i++) {
+                acum += headerArray[i].height();
+                if (i < 1) {
+                    menu_height = menu_height + admin_bar_height;
+                } else {
+                    menu_height = menu_height + headerArray[i - 1].height();
+                }
+                headerArray[i].css('margin-top', menu_height + 'px');
             }
-            headerArray[i].css('margin-top',menu_height+'px');
-        }
-        var mobileHeader = jQuery('.ui.navbar.menu.header-menu.mobile');
-        mobileHeader.css('margin-top',admin_bar_height+'px');
-        if(homeClass.length <= 0 && voyageClass.length <= 0) {
-            acum = acum - 4;
-            mainContent.css('margin-top',  acum+ 'px');
+            //Mobile Header Margin
+            var mobileHeader = jQuery('.ui.navbar.menu.header-menu.mobile');
+            mobileHeader.css('margin-top',admin_bar_height+'px');
+            if(homeClass.length <= 0 && voyageClass.length <= 0) {
+                acum = acum - 4;
+                mainContent.css('margin-top',  acum+ 'px');
+            }
         }
     }else{
         jQuery( ".ui.menu.navbar.grid.header-menu.pc" ).each(function( index ) {
@@ -67,6 +69,17 @@ function headerMarginTop(){
         }
     }
 
+}
+function getPcHeaderMenuHeight(){
+    var headerArray = [];
+    jQuery(".ui.menu.navbar.grid.header-menu.pc").each(function (index) {
+        headerArray.push(jQuery(this));
+    });
+    var acum = 0;
+    for (var i = 0; i < headerArray.length; i++) {
+        acum += headerArray[i].height();
+    }
+    return acum;
 }
 function setHeaderBackground(){
     var header_menu_background = header_background_color();

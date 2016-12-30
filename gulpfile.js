@@ -278,16 +278,38 @@ function bundleReactApp(isProduction) {
             appBundler.external(dep);
         });
     }
+    if(enabled.rev){
+        appBundler
+        // transform ES6 and JSX to ES5 with babelify
+            .transform("babelify",
+                {
+                    presets: ["es2015", "react",'stage-0'],
+                    plugins: ['transform-decorators-legacy','transform-object-assign']
+                }
+            )
+            .transform({
+                global: true,
+                sourcemap: enabled.rev
+            }, 'uglifyify')
+            .bundle()
+            .on('error',gutil.log)
+            .pipe(source('react_app.js'))
+            .pipe(gulp.dest(scripts_path));
+    }else{
+        appBundler
+        // transform ES6 and JSX to ES5 with babelify
+            .transform("babelify",
+                {
+                    presets: ["es2015", "react",'stage-0'],
+                    plugins: ['transform-decorators-legacy','transform-object-assign']
+                }
+            )
+            .bundle()
+            .on('error',gutil.log)
+            .pipe(source('react_app.js'))
+            .pipe(gulp.dest(scripts_path));
+    }
 
-    appBundler
-    // transform ES6 and JSX to ES5 with babelify
-        .transform("babelify", {
-            presets: ["es2015", "react",'stage-0'],
-            plugins: ['transform-decorators-legacy','transform-object-assign']})
-        .bundle()
-        .on('error',gutil.log)
-        .pipe(source('react_app.js'))
-        .pipe(gulp.dest(scripts_path));
 }
 gulp.task('react-dev', function () {
     bundleReactApp(false);

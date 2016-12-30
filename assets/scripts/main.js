@@ -84,6 +84,7 @@
         },
         'page':{
             init: function() {
+                console.log("se inicia una PAGE");
                 setHeaderBackground();
                 headerMarginTop();
                 mobileMenuOnPcMarginConf();
@@ -96,6 +97,7 @@
                 initCarousel();
                 initMasonry();
                 initPinterest();
+
                 freewall_layout();
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
             },
@@ -118,7 +120,9 @@
         // Home page
         'home': {
             init: function() {
-                initSlides();
+                var liveComposerEditor = jQuery(".dslca-enabled").length > 0;
+                console.log("se inicia el HOME");
+                //Get Header Menu Background
                 var header_menu_background = header_background_color();
                 var first_section = jQuery('.ui.vertical.segment:first');
                 if(first_section.length>0){
@@ -127,14 +131,16 @@
                         title_first_section.prepend( "<br><br><br>" );
                     }
                 }
-                //if (jQuery('.main-slider').length>0) {
-                jQuery('.header-menu').addClass("secondary");
-                scrollMenu(header_menu_background);
-                //}
-                //Init Landing Components: Carousel
-                initLandingComponents();
+                if(!liveComposerEditor){
+                    jQuery('.header-menu').addClass("secondary");
+                }else{
+                    var menuHeight = getPcHeaderMenuHeight();
+                    menuHeight += 30;
+                    jQuery("#main-content").css("margin-top",menuHeight+"px");
+                }
+
+                scrollMenu(header_menu_background,liveComposerEditor);
                 $(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
-                freewall_layout();
             },
             finalize: function() {
                 // JavaScript to be fired on the home page, after the init JS
@@ -151,7 +157,7 @@
         'single_voyage':{
             init: function(){
                 var header_menu_background = header_background_color();
-                scrollMenu(header_menu_background);
+                scrollMenu(header_menu_background,false);
 
                 $('#host-gallery').slick({
                     autoplay:true,

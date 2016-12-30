@@ -1,6 +1,5 @@
 
 function ajaxSubmitEstimate(estimate_number) {
-    //console.log("se pago todo ahora vamos a validar algunas cosas");
     var form = jQuery('#payment-form'+estimate_number);
     var estimate_form = jQuery('#payment-form'+estimate_number).serialize();
     console.log(estimate_form);
