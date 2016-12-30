@@ -51,16 +51,6 @@
         "freewall.js": {
             "bower": ["freewall"]
         },
-        "canvas.js": {
-            "files": [
-                "scripts/canvas.js"
-            ]
-        },
-        "client.js": {
-            "files": [
-                "scripts/client.js"
-            ]
-        },
         "lc-plugins.js":{
             "bower": [
                 "owl.carousel",
