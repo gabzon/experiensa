@@ -132,9 +132,12 @@
                     }
                 }
                 if(!liveComposerEditor){
+                    console.log("NO existe liveComposerEditor en home");
                     jQuery('.header-menu').addClass("secondary");
                 }else{
+                    console.log("Existe liveComposerEditor en home");
                     var menuHeight = getPcHeaderMenuHeight();
+                    console.log("el valor de la altura del menu "+menuHeight);
                     menuHeight += 30;
                     jQuery("#main-content").css("margin-top",menuHeight+"px");
                 }
