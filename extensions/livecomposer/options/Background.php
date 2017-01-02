@@ -1,5 +1,6 @@
 <?php namespace Experiensa\LiveComposer\Options;
 
+use Experiensa\Component\Background as BG;
 
 class Background
 {
@@ -23,6 +24,10 @@ class Background
                     'label' => __('Image', 'sage'),
                     'value' => 'image'
                 )
+            ),
+            'dependent_controls' => array(
+                'color' => 'background_color,color_inverted',
+                'image' => 'image_size,opacity_value,opacity_color'
             ),
             'section'           => 'styling',
             'tab'               => __('Background', 'sage')
@@ -75,7 +80,7 @@ class Background
             'tab' => __('Background','sage')
         );
     }
-    public static function image($id='image'){
+    public static function image($id='background_image'){
         return array(
             'label' => __( 'Background Image', 'sage' ),
             'id' => $id,
@@ -85,15 +90,73 @@ class Background
             'tab' => __('Background','sage')
         );
     }
+    public static function imageSize($id='image_size',$default=''){
+        return array(
+            'label'   => __('Color inverted', 'sage'),
+            'id'      => $id,
+            'std'     => $default,
+            'type'    => 'select',
+            'choices' => array(
+                array(
+                    'label' => __('Full size','sage'),
+                    'value' => 'full'
+                ),
+                array(
+                    'label' => __('Fit to content','sage'),
+                    'value' => 'content'
+                )
+            ),
+            'section' => 'styling',
+            'tab' => __('Background','sage')
+        );
+    }
+    public static function opacityValue($id='opacity_value',$default='0.05'){
+        return array(
+            'label'   => __('Opacity Value', 'sage'),
+            'id'      => $id,
+            'std'     => $default,
+            'type'    => 'slider',
+            'max' => 1,
+            'increment' => 0.01,
+            'onlypositive' => true,
+            'refresh_on_change' => false,
+            'section' => 'styling',
+            'tab' => __('Background','sage')
+        );
+    }
+    public static function opacityColor($id = 'opacity_color',$default='#000000'){
+        return array(
+            'label'   => __('Opacity Color', 'sage'),
+            'id'      => $id,
+            'std'     => $default,
+            'type'    => 'color',
+            'refresh_on_change' => false,
+            'section' => 'styling',
+            'tab' => __('Background','sage')
+        );
+    }
     public static function setBackgroundOption($options = []){
         $type = $options['background_type'];
-//        $background['type'] = $options['background_type'];
         $background['style'] = '';
         $background['class'] = '';
         $background['size'] = '';
+        $background['color'] = '';
         $background['type'] = $type;
-        if($type == 'color'){
-            $background['color'] = get_the_color($options['background_color'], $options['color_inverted']);
+        switch ($type){
+            case 'texture':
+                $background['style'] = BG::getBgTexture($options['background_image']);
+                break;
+            case 'image':
+                $background['style'] = BG::getBackgroundImage(
+                    $options['background_image'],
+                    $options['image_size'],
+                    $options['opacity_value'],
+                    $options['opacity_color']
+                );
+                break;
+            default:
+                $background['color'] = get_the_color($options['background_color'], $options['color_inverted']);
+                break;
         }
         return $background;
     }

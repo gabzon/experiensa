@@ -1,6 +1,7 @@
 <?php
 if(!empty($data)):
 ?>
+
 <!-- Masonry Component -->
 <section id="<?= $name;?>" class="ui vertical segment custom-section <?= $background['color'];?>" style="<?= $background['size'];?>">
     <div class="section-background <?= $background['class'];?>" style="<?= $background['style'];?>"></div>
