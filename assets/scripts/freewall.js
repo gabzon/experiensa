@@ -1,6 +1,6 @@
 function initFreewallComponents(liveComposerClass) {
     if(!liveComposerClass) {
-        console.log("se inician todos los Freewall layouts");
+        // console.log("se inician todos los Freewall layouts");
         var Freewall = freewall;
         var wall = new Freewall('#freewall');
         wall.reset({

@@ -86,7 +86,7 @@
             init: function() {
                 var liveComposerEditor = jQuery(".dslca-enabled").length > 0;
                 var liveComposerClass = jQuery(".dslca-enabled").length > 0;
-                console.log("se inicia una PAGE");
+                // console.log("se inicia una PAGE");
                 setHeaderBackground();
                 headerMarginTop();
                 mobileMenuOnPcMarginConf();
@@ -105,7 +105,9 @@
                 initMasonry(liveComposerClass);
                 initPinterest(liveComposerClass);
                 initFreewallComponents(liveComposerClass);
+                changeEditorBackground(liveComposerClass);
                 jQuery(".image .dimmer").dimmer({on:'hover', opacity: 0.5});
+
             },
             finalize: function() {
               // JavaScript to be fired on all pages, after page specific JS is fired
@@ -127,7 +129,7 @@
         'home': {
             init: function() {
                 var liveComposerEditor = jQuery(".dslca-enabled").length > 0;
-                console.log("se inicia el HOME");
+                // console.log("se inicia el HOME");
                 //Get Header Menu Background
                 var header_menu_background = header_background_color();
                 var first_section = jQuery('.ui.vertical.segment:first');

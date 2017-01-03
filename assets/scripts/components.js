@@ -1,7 +1,6 @@
 
 function initCarousel(liveComposerClass){
     if (!liveComposerClass) {
-        console.log("se inicia Carousel");
         var carousel = jQuery(".owl-carousel.carousel-multi");
         if (carousel.length > 0) {
             carousel.owlCarousel({
@@ -45,7 +44,6 @@ function initCarousel(liveComposerClass){
 window.initCarousel = initCarousel;
 function initMasonry(liveComposerClass) {
     if (!liveComposerClass) {
-        console.log("se inicia Masonry");
         var jMasonry = jQuery('.grid-masonry');
         if (jMasonry.length > 0) {
             jMasonry.masonry({
@@ -61,7 +59,6 @@ function initMasonry(liveComposerClass) {
 }
 function initSlides(liveComposerClass){
     if(!liveComposerClass) {
-        console.log("se inicia Slides");
         var slides = jQuery('.super-slides-component');
         if (slides.length > 0) {
             slides.superslides({play: '8000'});
@@ -70,7 +67,6 @@ function initSlides(liveComposerClass){
 }
 function initVegasSlider(liveComposerClass){
     if(!liveComposerClass) {
-        console.log("se inicia Vegas");
         var vegas_src = jQuery(".vegas-images");
         if (vegas_src.length > 0) {
             var slides = vegas_src.attr("data-img");
@@ -94,10 +90,19 @@ function initVegasSlider(liveComposerClass){
 }
 function initPinterest(liveComposerClass){
     if(!liveComposerClass) {
-        console.log("se inicia Pinterest");
         var pinterest = jQuery(".pinterest-container");
         if (pinterest.length > 0) {
             pinterest.pinto();
         }
+    }
+}
+function changeEditorBackground(liveComposerClass){
+    if(liveComposerClass){
+        var x=0;
+        jQuery('.section-background').each(function(i, obj) {
+            var parent = jQuery( this ).parent();
+            var parent_height = parent.height();
+            jQuery(this).css("height",parent_height+"px");
+        });
     }
 }
