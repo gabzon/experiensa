@@ -66,7 +66,6 @@
     </div>
     <br>
     <br>
-
 </section>
 <!--FACILITIES SECTION-->
 <section id="section_component_facilities" class="ui vertical segment custom-section" style="">

@@ -136,27 +136,30 @@ class Background
         );
     }
     public static function setBackgroundOption($options = []){
-        $type = $options['background_type'];
         $background['style'] = '';
         $background['class'] = '';
         $background['size'] = '';
         $background['color'] = '';
-        $background['type'] = $type;
-        switch ($type){
-            case 'texture':
-                $background['style'] = BG::getBgTexture($options['background_image']);
-                break;
-            case 'image':
-                $background['style'] = BG::getBackgroundImage(
-                    $options['background_image'],
-                    $options['image_size'],
-                    $options['opacity_value'],
-                    $options['opacity_color']
-                );
-                break;
-            default:
-                $background['color'] = get_the_color($options['background_color'], $options['color_inverted']);
-                break;
+        $background['type'] = '';
+        if(isset($options['background_type'])) {
+            $type = $options['background_type'];
+            $background['type'] = $type;
+            switch ($type) {
+                case 'texture':
+                    $background['style'] = BG::getBgTexture($options['background_image']);
+                    break;
+                case 'image':
+                    $background['style'] = BG::getBackgroundImage(
+                        $options['background_image'],
+                        $options['image_size'],
+                        $options['opacity_value'],
+                        $options['opacity_color']
+                    );
+                    break;
+                default:
+                    $background['color'] = get_the_color($options['background_color'], $options['color_inverted']);
+                    break;
+            }
         }
         return $background;
     }

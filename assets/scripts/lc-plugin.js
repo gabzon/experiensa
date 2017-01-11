@@ -205,6 +205,23 @@ jQuery(document).ready(function ($) {
         }
     }
     window.initFreewallWindows8LC = initFreewallWindows8LC;
+
+    function reservation_datepickerLC() {
+        var reservation_datepicker = jQuery('#page-builder-frame').contents().find('#reservation_datepicker');
+        if (reservation_datepicker.length > 0) {
+            reservation_datepicker.datepicker({
+                inline: true,
+                firstDay: 1,
+                minDate: -20,
+                dateFormat: 'dd/mm/yy'
+            });
+            if (jQuery('#page-builder-frame').contents().find('.villa-blanca').length > 0) {
+                jQuery('#page-builder-frame').contents().find("#ui-datepicker-div").addClass("villa-blanca");
+
+            }
+        }
+    }
+    window.reservation_datepickerLC = reservation_datepickerLC;
     //Init all registered componets
     jQuery('#page-builder-frame').on('load', function () {
         // jQuery(this).find("#dslc-content").css("margin-top","250px");
@@ -258,6 +275,11 @@ jQuery(document).ready(function ($) {
         if(windows8_module.length > 0){
             initFreewallWindows8LC();
         }
+        //Villa Blanca Reservations
+        var vb_reservation = jQuery(this).contents().find( ".dslc-module-ReservationsVB_LC_Module" );
+        if(vb_reservation.length > 0){
+            reservation_datepickerLC();
+        }
     });
 
 });
@@ -296,5 +318,7 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
     if(settings.data.indexOf('dslc_module_id=Windows8Layout_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
         // console.log("voy a windows8 layout");
         initFreewallWindows8LC();
+    }if(settings.data.indexOf('dslc_module_id=ReservationsVB_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
+        reservation_datepickerLC();
     }
 });
