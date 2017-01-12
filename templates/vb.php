@@ -97,6 +97,15 @@
         $textimage['text_transform'] = "capitalize";
         $textimage['font_size'] = "1.8";
         $textimage['text_color'] = '#FFFFFF';
+
+        $layout['container_class'] = 'full';
+        $layout['container_style'] = 'padding: 0px 15px 0 15px;';
+        $layout['content_color'] = 'color:#000000;';
+        $layout['title_color'] = 'color:#000000;';
+        $layout['title_alignment'] = 'center aligned';
+        $layout['title'] = ucwords(str_replace('_',' ',$category));
+        $layout['subtitle'] = '';
+        set_query_var('layout',$layout);
 //        var_dump($textimage);
         $textimage_obj = new \Experiensa\Component\Textimage($textimage);
 //        var_dump($textimage_obj);
