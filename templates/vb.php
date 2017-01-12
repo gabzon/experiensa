@@ -100,10 +100,10 @@
 
         $layout['container_class'] = 'full';
         $layout['container_style'] = 'padding: 0px 15px 0 15px;';
-        $layout['content_color'] = 'color:#000000;';
-        $layout['title_color'] = 'color:#000000;';
+        $layout['content_color'] = 'color:#FFFFFF;';
+        $layout['title_color'] = 'color:#FFFFFF;';
         $layout['title_alignment'] = 'center aligned';
-        $layout['title'] = ucwords(str_replace('_',' ',$category));
+        $layout['title'] = 'Facilities';
         $layout['subtitle'] = '';
         set_query_var('layout',$layout);
 //        var_dump($textimage);

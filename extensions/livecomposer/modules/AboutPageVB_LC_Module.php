@@ -15,8 +15,8 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
         {
             // The options array
             $options = array(
-                VillaBlanca::mainTitle('about_title'),
-                VillaBlanca::mainSubTitle('about_subtitle'),
+                VillaBlanca::mainTitle('about_title','Title','About'),
+                VillaBlanca::mainSubTitle('about_subtitle','Subtitle','At the heart of beautiful Catalonia: enjoy the elegance of the mansion, romantic gardens, calm and prestige, sports facilities fun, clear sea of Costa Brava, charms of Barcelona, in exclusivity for your family and friends'),
                 VillaBlanca::content('first_content','First Column',''),
                 VillaBlanca::content('second_content','Second Column',''),
             );
