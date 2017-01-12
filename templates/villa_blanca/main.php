@@ -4,7 +4,7 @@
         <br>
         <div class="ui center aligned header" style="color:#FFFFFF;">
             <div class="page-header"><br><br><br>
-                <h1>Villa Blanca</h1>
+                <h1><?= $title?></h1>
             </div>
         </div>
         <br>
@@ -12,7 +12,7 @@
         <br>
         <div class="ui grid centered">
             <div class="ten wide column">
-                <p class="text-center" style="font-size: 2em"><strong>Close your eyes. Imagine your dream holidays. </strong><strong>Open your eyes: welcome to Villa Blanca.</strong></p>
+                <p class="text-center" style="font-size: 2em"><?=$subtitle;?></p>
 
             </div>
         </div>
