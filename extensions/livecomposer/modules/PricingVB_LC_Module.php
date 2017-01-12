@@ -15,7 +15,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
         {
             // The options array
             $options = array(
-                VillaBlanca::mainTitle(),
+                VillaBlanca::mainTitle('main_title','Title','Pricing'),
                 VillaBlanca::mainTitle('box_title','Box Title','Starting at'),
                 VillaBlanca::mainTitle('price','Price','1100'),
                 VillaBlanca::mainTitle('price_desc','Price Description','PER NIGHT UP TO 24 PEOPLE'),
