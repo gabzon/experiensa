@@ -29,14 +29,30 @@ function initCarousel(liveComposerClass){
                 jQuery(".owl-dots", this).removeClass('disabled');
                 jQuery(".owl-nav", this).removeClass('disabled');
             });
-            var testimonial_carousel = jQuery(".owl-carousel.testimonial-carousel");
-            if (testimonial_carousel.length > 0) {
-                jQuery('.owl-nav').show();
-            } else {
-                var carousel_active = jQuery('.owl-item.active').length;
-                if (carousel_active === 1) {
-                    jQuery('.owl-nav').hide();
-                }
+        }
+        var testimonial_carousel = jQuery(".owl-carousel.testimonial-carousel");
+        if (testimonial_carousel.length > 0) {
+            testimonial_carousel.owlCarousel({
+                autoPlay: 3000,
+                loop:true,
+                margin:5,
+                nav:true,
+                items: 1,
+                stopOnHover:true,
+                navText: [
+                    "<i class='angle left big icon'></i>",
+                    "<i class='angle right big icon'></i>"
+                ],
+            });
+            testimonial_carousel.each(function(){
+                jQuery(".owl-dots",this).removeClass('disabled');
+                jQuery(".owl-nav",this).removeClass('disabled');
+            });
+            jQuery('.owl-nav').show();
+        } else {
+            var carousel_active = jQuery('.owl-item.active').length;
+            if (carousel_active === 1) {
+                jQuery('.owl-nav').hide();
             }
         }
     }

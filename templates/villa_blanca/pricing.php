@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="extra center aligned content">
-                        <a href="http://bnb.experiensa.com/#villa_blanca_reservations" class="ui pink button" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false"><?=$button;?></a>
+                        <a href="<?=get_permalink()."#villa_blanca_reservations";?>" class="ui pink button" data-slimstat-clicked="false" data-slimstat-type="2" data-slimstat-tracking="false" data-slimstat-async="false" data-slimstat-callback="false"><?=$button;?></a>
                     </div>
                 </div>
             </div>
