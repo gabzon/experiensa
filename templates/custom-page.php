@@ -3,7 +3,7 @@
  * Template Name: Custom Page
  */
 ?>
-<div style="margin-top:40px">
+<div>
     <?php while (have_posts()) : the_post(); ?>
         <?php the_content(); ?>
     <?php endwhile; ?>
