@@ -165,7 +165,7 @@ class TextImage
             'id'      => $id,
             'std'     => '#FFFFFF',
             'type'    => 'color',
-//            'refresh_on_change' => false,
+            'refresh_on_change' => false,
             'section' => 'styling',
             'tab' => __('TextImage','sage')
         );

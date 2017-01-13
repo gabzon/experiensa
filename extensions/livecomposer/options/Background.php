@@ -1,5 +1,9 @@
 <?php namespace Experiensa\LiveComposer\Options;
-
+/**
+ *
+ *      UNUSED
+ *
+ */
 use Experiensa\Component\Background as BG;
 
 class Background

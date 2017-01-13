@@ -4,13 +4,10 @@
 // var $ = jQuery;
 jQuery(document).ready(function ($) {
     function initCarouselLC(){
-        // console.log("se inicia Carousel desde LC");
         var carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-ExperiensaCarousel_LC_Module" );
         if(carousel_module.length > 0) {
-            // console.log("hay dslc-module-ExperiensaCarousel_LC_Module*****");
             var carousel = jQuery("#page-builder-frame").contents().find(".owl-carousel.carousel-multi");
             if (carousel.length > 0) {
-                // console.log("ahora hay un carousel************");
                 carousel.owlCarousel({
                     loop: true,
                     margin: 5,
@@ -43,7 +40,6 @@ jQuery(document).ready(function ($) {
     window.initCarouselLC = initCarouselLC;
 
     function initSingleCarousel(){
-        // console.log("se inicia Single Carousel desde LC");
         var single_carousel_module = jQuery("#page-builder-frame").contents().find( ".dslc-module-SingleCarousel_LC_Module" );
         if(single_carousel_module.length > 0) {
             var testimonial_carousel = jQuery("#page-builder-frame").contents().find(".owl-carousel.testimonial-carousel");
@@ -70,7 +66,6 @@ jQuery(document).ready(function ($) {
     window.initSingleCarousel = initSingleCarousel;
 
     function initMasonryLC() {
-        // console.log("se inicia Masonry desde LC");
         var jMasonry = jQuery("#page-builder-frame").contents().find( ".grid-masonry" );
         if (jMasonry.length > 0) {
             jMasonry.masonry({
@@ -86,18 +81,15 @@ jQuery(document).ready(function ($) {
     window.initMasonryLC = initMasonryLC;
 
     function initSuperSliderLC(){
-        // console.log("se inicia Slides desde LC");
         var super_slide_module = jQuery('#page-builder-frame') .contents().find( ".dslc-module-SuperSlider_LC_Module" );
         if(super_slide_module.length > 0){
             var super_slides = super_slide_module.find(".super-slides-component");
             super_slides.superslides({play:'8000'});
-            // console.log("he iniciado superslides!!!!!!!!!!!!!!!!!");
         }
     }
     window.initSuperSliderLC = initSuperSliderLC;
 
     function initVegasSliderLC(){
-        // console.log("se inicia Vegas desde LC");
         var vegas_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-VegasSlider_LC_Module" );
         if(vegas_module.length > 0){
             var vegas_src = vegas_module.find(".vegas-images");
@@ -127,7 +119,6 @@ jQuery(document).ready(function ($) {
 
     var Freewall = freewall;
     function initFreewallFlexLC(){
-        // console.log("se inicia Flex desde LC");
         var flex_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-FlexLayout_LC_Module" );
         if(flex_module.length > 0){
             var wall = new Freewall(flex_module.find('#freewall'));
@@ -146,7 +137,6 @@ jQuery(document).ready(function ($) {
     window.initFreewallFlexLC = initFreewallFlexLC;
 
     function initFreewallImageLC(){
-        // console.log("se inicia Image desde LC");
         var image_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-ImageLayout_LC_Module" );
         if(image_module.length > 0){
             var wall_image = new Freewall(image_module.find("#freewall-image"));
@@ -165,11 +155,8 @@ jQuery(document).ready(function ($) {
     window.initFreewallImageLC = initFreewallImageLC;
 
     function initFreewallPinterestLC(){
-        // console.log("se inicia Pinterest desde LC");
-        // console.log("ya estoy aqui initFreewallPinterestLC");
         var pinterest_module = $('#page-builder-frame').contents().find( ".dslc-module-PinterestLayout_LC_Module" );
         if(pinterest_module.length > 0){
-            // console.log("voy a crear el initFreewallPinterestLC");
             var pinterest = pinterest_module.find(".pinterest-container");
             pinterest.pinto();
         }
@@ -177,18 +164,10 @@ jQuery(document).ready(function ($) {
     window.initFreewallPinterestLC = initFreewallPinterestLC;
 
     function initFreewallWindows8LC(){
-        // console.log("se inicia Windows8 desde LC");
-        // console.log("ya estoy aqui initFreewallWindows8LC");
         var windows8_module = jQuery('#page-builder-frame').contents().find( ".dslc-module-Windows8Layout_LC_Module" );
         if(windows8_module.length > 0){
-            // console.log("voy a crear el initFreewallWindows8LC");
             var win8 = windows8_module.find("#win8-freewall");
             var selector = win8.find('.level1');
-            // if(selector.length>0){
-            //     console.log("existe selector");
-            // }else{
-            //     console.log("NOOOO existe selector");
-            // }
             var wall_win8 = new Freewall(win8);
             wall_win8.reset({
                 selector: selector,
@@ -224,35 +203,29 @@ jQuery(document).ready(function ($) {
     window.reservation_datepickerLC = reservation_datepickerLC;
     //Init all registered componets
     jQuery('#page-builder-frame').on('load', function () {
-        // jQuery(this).find("#dslc-content").css("margin-top","250px");
         //Carousel
         var carousel_module = jQuery(this).contents().find( ".dslc-module-ExperiensaCarousel_LC_Module" );
         if(carousel_module.length>0){
-            // console.log("hay un dslc-module-ExperiensaCarousel_LC_Module");
             initCarouselLC();
         }
         //Single Carousel
         var single_carousel_module = jQuery(this).contents().find( ".dslc-module-SingleCarousel_LC_Module" );
         if(single_carousel_module.length>0){
-            // console.log("hay un dslc-module-SingleCarousel_LC_Module");
             initSingleCarousel();
         }
         //Masonry
         var masonry_module = jQuery(this).contents().find( ".grid-masonry" );
         if(masonry_module.length>0){
-            // console.log("si hay");
             initMasonryLC();
         }
         //SuperSlides
         var super_slide_module = jQuery(this).contents().find( ".dslc-module-SuperSlider_LC_Module" );
         if(super_slide_module.length>0){
-            // console.log("hay un dslc-module-SuperSlider_LC_Module");
             initSuperSliderLC();
         }
         //Vegas
         var vegas_module = jQuery(this).contents().find( ".dslc-module-VegasSlider_LC_Module" );
         if(vegas_module.length>0){
-            // console.log("hay un .dslc-module-VegasSlider_LC_Module");
             initVegasSliderLC();
         }
         //Freewall Flex Layout
@@ -288,6 +261,7 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
     // console.log(event);
     // console.log(xhr);
     // console.log(settings);
+    // console.log(settings.data);
     var action = 'action=dslc-ajax-add-module';
     if(settings.data.indexOf('dslc_module_id=SuperSlider_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
         initSuperSliderLC();
