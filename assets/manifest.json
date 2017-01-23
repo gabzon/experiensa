@@ -27,7 +27,8 @@
         "main.css": {
             "files": [
                 "styles/main.scss",
-                "styles/pinto.css"
+                "styles/pinto.css",
+                "styles/react_datepicker.css"
             ],
             "bower":[
                 "vegas",

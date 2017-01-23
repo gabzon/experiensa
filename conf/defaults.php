@@ -217,3 +217,13 @@ function wpse_cpt_enqueue_estimate( $hook_suffix ){
 }
 
 add_action( 'wp_enqueue_scripts', 'wpse_cpt_enqueue_estimate');
+
+/**
+ * Enqueue Scripts and Styles by Template
+ */
+function Load_ScriptsStyles_By_Template(){
+    if ( is_page_template('templates/flight-offers-form.php') ) {
+        wp_enqueue_script('offers', get_template_directory_uri().'/dist/scripts/offers.js', [], null, true);
+    }
+}
+add_action('wp_enqueue_scripts','Load_ScriptsStyles_By_Template');
