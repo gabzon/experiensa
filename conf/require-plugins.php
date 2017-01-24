@@ -46,7 +46,15 @@ function showRequirePlugins()
     foreach ($plugins as $key => $value) {
         $plugin = $value['folder'] . '/' . $value['file'];
         if (!is_plugin_active( $plugin )) {
-            $plugin_messages[] = $msg . $value['name'] . ' <a href="'. $value['url'] .'">'.__('Download') . '</a>';
+            if($value['name']=='WP API 2'){
+                $wp_version = get_bloginfo('version');
+                $version = explode('.',$wp_version);
+                if(!empty($version) && ((int)$version[0]<4) && (int)$version[1]<7){
+                    $plugin_messages[] = $msg . $value['name'] . ' <a href="'. $value['url'] .'">'.__('Download') . '</a> '.__('Or install a Wordpress version over ','sage').' '.$wp_version;
+                }
+            }else{
+                $plugin_messages[] = $msg . $value['name'] . ' <a href="'. $value['url'] .'">'.__('Download') . '</a>';
+            }
         }
     }
 

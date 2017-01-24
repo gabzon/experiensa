@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {requestAirports} from '../actions/airports';
-import { Button, Checkbox, Dropdown,Form, Segment} from 'semantic-ui-react';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
 
-const countryOptions = [ { value: 'af', flag: 'af', text: 'Afghanistan' }];
+import {requestAirports} from '../actions/airports';
+
+import { Button, Form, Segment} from 'semantic-ui-react';
+
+import AirportsOptions from './AirportsOptions';
+
 
 class FlightOffersForm extends Component {
-    constructor(props, context) {
-        super(props, context);
-        this.state = {
-            startDate: moment()
-        }
+    constructor() {
+        super();
     }
     componentWillMount(){
         this.props.requestAirports()
@@ -22,12 +20,7 @@ class FlightOffersForm extends Component {
             <Segment vertical padded='very'>
                 <Form>
                     <Form.Group>
-                        <Dropdown placeholder='Destination' fluid search selection options={countryOptions} />
-                        <DatePicker
-                            selected={this.state.startDate}
-                            placeholderText="Date" />
-                        <Dropdown placeholder='Arrival' fluid search selection options={countryOptions} />
-                        <DatePicker placeholderText="Arrival Date" />
+                        <AirportsOptions airports={this.props.airports}/>
                     </Form.Group>
                     <Button type='submit'>Submit</Button>
                 </Form>
@@ -38,7 +31,7 @@ class FlightOffersForm extends Component {
 
 function mapStateToProps(state){
     return {
-        airport: state.airport
+        airports: state.airports
     }
 }
 

@@ -24,6 +24,7 @@ $sage_includes = [
     'models/taxonomy',            // Custom taxonomies
     'models/post-type',           // All custom post types
     'modules',
+    'modules/IATA',
     'extensions/livecomposer/options',
     'extensions/livecomposer/modules',
     'extensions'
