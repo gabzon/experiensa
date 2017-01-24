@@ -141,7 +141,7 @@ export function requestCatalog() {
                         themes: response.data.theme_filter,
                         themes_actives: [],
                         locations: response.data.location_filter,
-                        locations_active: []
+                        locations_active: [],
                     }
                 )
             })

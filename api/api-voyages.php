@@ -105,6 +105,36 @@ function slug_register_voyage_theme() {
         )
     );
 }
+add_action( 'rest_api_init', 'slug_register_voyage_categories' );
+function slug_register_voyage_categories() {
+    register_rest_field( 'voyage', 'category',
+        array(
+            'get_callback'    => 'slug_get_voyage_category',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+add_action( 'rest_api_init', 'slug_register_voyage_included' );
+function slug_register_voyage_included() {
+    register_rest_field( 'voyage', 'included',
+        array(
+            'get_callback'    => 'slug_get_voyage_included',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+add_action( 'rest_api_init', 'slug_register_voyage_excluded' );
+function slug_register_voyage_excluded() {
+    register_rest_field( 'voyage', 'excluded',
+        array(
+            'get_callback'    => 'slug_get_voyage_excluded',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
 /**
  * Get the value of the "starship" field
  *
@@ -274,4 +304,69 @@ function slug_get_voyage_theme( $object, $field_name, $request ) {
     $themes = rtrim(rtrim($themes),',');
 	return $themes;
 }
-?>
+function slug_get_voyage_category( $object, $field_name, $request ) {
+    $row = [];
+    $terms = get_the_terms($object[ 'id' ],'category');
+    if(!empty($terms)){
+        if(count($terms) < 2){
+            $row['array'][]= ucfirst($terms[0]->name);
+            $row['text'] = ucfirst($terms[0]->name);
+        }else {
+            $text = "";
+            foreach ($terms as $term) {
+                if (!empty($term->name)){
+                    $name = ucfirst($term->name);
+                    $text .= $name.", ";
+                    $row['array'][] = $name;
+                }
+            }
+            $row['text'] = rtrim(rtrim($text),',');
+        }
+    }
+    $categories = $row;
+    return $categories;
+}
+function slug_get_voyage_included( $object, $field_name, $request ) {
+    $row = [];
+    $terms = get_the_terms($object[ 'id' ],'included');
+    if(!empty($terms)){
+        if(count($terms) < 2){
+            $row['array'][]= ucfirst($terms[0]->name);
+            $row['text'] = ucfirst($terms[0]->name);
+        }else {
+            $text = "";
+            foreach ($terms as $term) {
+                if (!empty($term->name)){
+                    $name = ucfirst($term->name);
+                    $text .= $name.", ";
+                    $row['array'][] = $name;
+                }
+            }
+            $row['text'] = rtrim(rtrim($text),',');
+        }
+    }
+    $includes = $row;
+    return $includes;
+}
+function slug_get_voyage_excluded( $object, $field_name, $request ) {
+    $row = [];
+    $terms = get_the_terms($object[ 'id' ],'excluded');
+    if(!empty($terms)){
+        if(count($terms) < 2){
+            $row['array'][]= ucfirst($terms[0]->name);
+            $row['text'] = ucfirst($terms[0]->name);
+        }else {
+            $text = "";
+            foreach ($terms as $term) {
+                if (!empty($term->name)){
+                    $name = ucfirst($term->name);
+                    $text .= $name.", ";
+                    $row['array'][] = $name;
+                }
+            }
+            $row['text'] = rtrim(rtrim($text),',');
+        }
+    }
+    $excludes = $row;
+    return $excludes;
+}

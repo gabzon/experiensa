@@ -1,5 +1,6 @@
 import React from 'react';
 import CatalogVoyage from './CatalogVoyage'
+import CatalogVoyageModel2 from './CatalogVoyageModel2'
 
 export default class CatalogLayout extends React.Component {
     constructor(){
@@ -9,7 +10,7 @@ export default class CatalogLayout extends React.Component {
         if(this.props.voyages) {
             return this.props.voyages.map((voyage) => {
                 return (
-                    <CatalogVoyage voyage={voyage} key={voyage.index}/>
+                    <CatalogVoyageModel2 voyage={voyage} key={voyage.index}/>
                 )
             })
         }else{

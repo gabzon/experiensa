@@ -1,12 +1,12 @@
 import {REQUEST_CATALOG, FILTER_CATALOG} from '../actions'
 
 const initialState = {
-  catalog: [],
-  originalCatalog: [],
-  theme_filters: [],
-  location_filters: [],
-  theme_filters_active: [],
-  location_filters_active: []
+    catalog: [],
+    originalCatalog: [],
+    theme_filters: [],
+    location_filters: [],
+    theme_filters_active: [],
+    location_filters_active: [],
 }
 export function requestCatalog(state = initialState,action){
     switch (action.type) {
