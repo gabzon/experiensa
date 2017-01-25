@@ -2,18 +2,18 @@
 
 function requestReservation(){
     $headers = array('Content-Type: text/html; charset=UTF-8');
-    if ( function_exists( 'gglcptch_check' ) ){
-        $validate = gglcptch_check();
-        if($validate['response']===false && $validate['reason']!='VERIFICATION_FAILED'){
-            $msg = "Error checking captcha. ";
-            echo $msg;
-            die();
-        }
-    }else{
-        $msg = 'Need to install captcha plugin. ';
-        echo $msg;
+    if(!isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+        $error =   "<div class=\"ui negative message\">
+                  <i class=\"close icon\"></i>
+                  <div class=\"header\">
+                    ".__("Error","sage")."
+                  </div>
+                  <p>".__("Error checking captcha verification or need to add reCAPTCHA keys.","sage")."</p>
+                </div>";
+        echo $error;
         die();
     }
+
     $fullname = $_POST['fullname'];
     $agency_email = $_POST['agency_email'];
     $email = $_POST['email'];
@@ -47,7 +47,6 @@ function requestReservation(){
                   </div>
                   <p>".__("Reservation could not be sent","sage")."</p>
                 </div>";
-    $msg = $error;
     if( wp_mail( $to,$subject , $body, $headers) === FALSE){
       $msg = $error;
     }else{

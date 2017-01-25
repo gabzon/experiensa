@@ -89,14 +89,14 @@ class Footer
     public static function getContactInfo(){
         $agency_options = get_option('agency_settings');
         $info = array();
-        $info['email'] = ($agency_options['agency_email']?$agency_options['agency_email']:false);
-        $info['phone'] = ($agency_options['agency_phone']?$agency_options['agency_phone']:false);
-        $info['fax'] = ($agency_options['agency_fax']?$agency_options['agency_fax']:false);
+        $info['email'] = (isset($agency_options['agency_email'])?$agency_options['agency_email']:false);
+        $info['phone'] = (isset($agency_options['agency_phone'])?$agency_options['agency_phone']:false);
+        $info['fax'] = (isset($agency_options['agency_fax'])?$agency_options['agency_fax']:false);
         return $info;
     }
     public static function getScheduleInfo(){
         $agency_options = get_option('agency_settings');
-        $schedule = ($agency_options['agency_schedule']?$agency_options['agency_schedule']:false);
+        $schedule = (isset($agency_options['agency_schedule'])?$agency_options['agency_schedule']:false);
         return $schedule;
     }
     public static function getSocialNetwork(){

@@ -8,7 +8,7 @@ if($logo && $display_logo == 'true'):?>
   <img class="ui <?= \Components\Footer\Footer::getLogoSize();?> image logo" src="<?= wp_get_attachment_url($logo);?>" alt="logo"/>
 <?php else: ?>
   <div class="content">
-    <h1><?= bloginfo('name'); ?></h1>
+    <h3><?= bloginfo('name'); ?></h3>
     <?php if(\Components\Footer\Footer::getIfDisplayTagline()): ?>
     <div class="meta">
       <span><?= get_bloginfo('description');?></span>

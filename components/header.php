@@ -148,7 +148,7 @@ Class Header{
     public static function get_phone_button($display = false){
         $show_phone = get_theme_mod('header_display_phone_number');
         $agency_options = get_option('agency_settings');
-        $phone = $agency_options['agency_phone'];
+        $phone = (isset($agency_options['agency_phone'])?$agency_options['agency_phone']:false);
         $phone_button = "";
         if ($show_phone  === 'TRUE'){
             $style = '';

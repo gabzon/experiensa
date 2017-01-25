@@ -98,20 +98,23 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
+    wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
 
-  if (is_single() && comments_open() && get_option('thread_comments')) {
-    wp_enqueue_script('comment-reply');
-  }
-  $localized_array = array(
-  	'ajaxurl'=>admin_url('admin-ajax.php'),
-    'siteurl'=>get_site_url(),
-    'stylesheet_directory_uri'=>get_stylesheet_directory_uri()
-  );
-  wp_enqueue_script('freewall/js', Assets\asset_path('scripts/freewall.js'), ['jquery'], null, false);
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
-  wp_enqueue_script('react', Assets\asset_path('scripts/react_app.js'), [], null, true);
+    if (is_single() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+    $localized_array = array(
+        'ajaxurl'=>admin_url('admin-ajax.php'),
+        'siteurl'=>get_site_url(),
+        'stylesheet_directory_uri'=>get_stylesheet_directory_uri()
+    );
+
+    wp_enqueue_script('recaptcha/js', 'https://www.google.com/recaptcha/api.js', [], null, false);
+    wp_enqueue_script('freewall/js', Assets\asset_path('scripts/freewall.js'), ['jquery'], null, false);
+    wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+    wp_enqueue_script('react', Assets\asset_path('scripts/react_app.js'), [], null, true);
     wp_enqueue_script('offers', get_template_directory_uri().'/dist/scripts/offers.js', [], null, true);
-  wp_localize_script('sage/js','sage_vars',$localized_array);
+
+    wp_localize_script('sage/js','sage_vars',$localized_array);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

@@ -219,3 +219,22 @@ piklist('field', array(
         'no' => __('No')
     )
 ));
+piklist('field', array(
+    'type' => 'text',
+    'field' => 'recaptcha_site_key',
+    'label' => __('reCAPTCHA Site Key','sage'),
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('Enter the reCAPTCHA site key','sage')
+    )
+));
+
+piklist('field', array(
+    'type' => 'text',
+    'field' => 'recaptcha_secret_key',
+    'label' => __('reCAPTCHA Secret Key','sage'),
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('Enter the reCAPTCHA secret key','sage')
+    )
+));

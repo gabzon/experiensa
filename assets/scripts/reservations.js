@@ -95,16 +95,12 @@ function ajaxSubmitReservation(){
       data: newRequest,
       success:function(data){
           jQuery("#reservationFeedback").html(data);
-          var tam = jQuery("#reservationFeedback").height();
-          var main_tam = jQuery("#villa_blanca_reservations").height();
-          var bg_div = jQuery("#villa_blanca_reservations").find(".section-background");
-          var background_tam = bg_div.height();
+          var reservationFeedbackHeight = jQuery("#reservationFeedback").height();
+          var villa_blanca_reservations_height = jQuery("#villa_blanca_reservations").height();
           jQuery("#reservationFeedback").show(1000,function () {
-              jQuery("#villa_blanca_reservations").height(main_tam+tam);
-              bg_div.height(background_tam+tam);
+              jQuery("#villa_blanca_reservations").height(villa_blanca_reservations_height+reservationFeedbackHeight);
           }).delay(2000).fadeOut(function () {
-              jQuery("#villa_blanca_reservations").height(main_tam);
-              bg_div.height(background_tam);
+              jQuery("#villa_blanca_reservations").height(villa_blanca_reservations_height);
           });
 
       },
@@ -116,7 +112,6 @@ function ajaxSubmitReservation(){
   return false;
 }
 function sendReservation(){
-  ajaxSubmitReservation();
   jQuery('#newReservation').submit(ajaxSubmitReservation);
 }
                 

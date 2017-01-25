@@ -29,7 +29,7 @@ class Helpers {
     }
     public static function getWebsiteLogo(){
         $agency_options = get_option('agency_settings');
-        $agency_logo = $agency_options['agency_logo'];
+        $agency_logo = (isset($agency_options['agency_logo'])?$agency_options['agency_logo']:[]);
         if(empty($agency_logo))
             return false;
         if(empty($agency_logo[0]))
@@ -242,5 +242,16 @@ class Helpers {
             'imghvr-blur'                  => __('No', 'Blur')
         );
         return $effecfts;
+    }
+
+    /**
+     * Get Recaptcha keys added on WP-ADMIN -> Appearance -> Options -> Information
+     * @return mixed
+     */
+    public static function getRecaptchaData(){
+        $agency_options = get_option('agency_settings');
+        $recaptcha['site_key'] = (isset($agency_options['recaptcha_site_key'])?$agency_options['recaptcha_site_key']:'6Lfq_Q0UAAAAACUqqMQSJ-qOhT8SHS_msHRbOdB1');
+        $recaptcha['secret_key'] = (isset($agency_options['recaptcha_secret_key'])?$agency_options['recaptcha_secret_key']:'6Lfq_Q0UAAAAAFZKcsbGcX89WEBvarb_wu7jzKqe');
+        return $recaptcha;
     }
 }

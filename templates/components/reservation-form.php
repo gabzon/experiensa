@@ -31,13 +31,14 @@
     <input type="hidden" name="action" value="requestReservation"/>
     <?php 
     $agency_options = get_option('agency_settings');
-    $agency_email = $agency_options['agency_email'];
+    $agency_email = (isset($agency_options['agency_email'])?$agency_options['agency_email']:"");
     $agency_email = ($agency_email=="" || $agency_email==null? "gabriel@sevinci.com":$agency_email);
+    $recaptcha = Helpers::getRecaptchaData();
     ?>
     <input type="hidden" name="agency_email" value="<?php echo $agency_email; ?>"/>
     <input type="hidden" id="reservation_date" name="reservation_date">
     <div class="field">
-        <?php if( function_exists( 'gglcptch_display' ) ) { echo gglcptch_display(); } ; ?>
+        <div class="g-recaptcha" data-sitekey="<?= $recaptcha['site_key']?>"></div>
     </div>
     <div class="field">
         <input id="form-submit" type="submit" class="ui button pink" value="<?= __('Send a Reservation','sage'); ?>">
