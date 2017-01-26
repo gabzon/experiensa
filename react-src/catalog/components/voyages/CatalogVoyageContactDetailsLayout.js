@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Icon} from 'semantic-ui-react'
 import CatalogVoyageDetailsModal from './CatalogVoyageDetailsModal'
 
 export default class CatalogVoyageContactDetailsLayout extends React.Component {

@@ -9,7 +9,6 @@ import reducers from './reducers';
 import Catalog from './components/Catalog'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-
 let catalog_app = document.getElementById('catalog-app')
 if(catalog_app != null ) {
     ReactDOM.render(

@@ -254,4 +254,79 @@ class Helpers {
         $recaptcha['secret_key'] = (isset($agency_options['recaptcha_secret_key'])?$agency_options['recaptcha_secret_key']:'6Lfq_Q0UAAAAAFZKcsbGcX89WEBvarb_wu7jzKqe');
         return $recaptcha;
     }
+    public static function getActivePostTypesByUse(){
+        $agency_options = get_option('agency_settings');
+        $post_types = [];
+        if(isset($agency_options)) {
+            $website_use = (isset($agency_options['website_use'])?$agency_options['website_use']:null);
+            if (isset($website_use)) {
+                switch ($website_use) {
+                    case 'travel':
+                        $post_types = $agency_options['travel_agency_posttypes'];
+                        break;
+                    case 'hotel':
+                        $post_types = $agency_options['hotel_posttypes'];
+                        break;
+                    default:
+                        $post_types = $agency_options['tourist_office_posttypes'];
+                        break;
+                }
+            }
+        }
+        return $post_types;
+    }
+    public static function getSocialMedia(){
+        $agency_options = get_option('agency_settings');
+        $info = array();
+        $info['facebook'] = (isset($agency_options['social_facebook'])?$agency_options['social_facebook']:"");
+        $info['twitter'] = (isset($agency_options['social_twitter'])?$agency_options['social_twitter']:"");
+        $info['instagram'] = (isset($agency_options['social_instagram'])?$agency_options['social_instagram']:"");
+        $info['linkedin'] = (isset($agency_options['social_linkedin'])?$agency_options['social_linkedin']:"");
+        $info['gplus'] = (isset($agency_options['social_gplus'])?$agency_options['social_gplus']:"");
+        $info['skype'] = (isset($agency_options['social_skype'])?$agency_options['social_skype']:"");
+        $info['pinterest'] = (isset($agency_options['social_pinterest'])?$agency_options['social_pinterest']:"");
+        return $info;
+    }
+    public static function getAgencyPartners(){
+        $agency_options = get_option('agency_settings');
+        $partners = array();
+        if(isset($agency_options['agency_partners'])){
+            foreach ($agency_options['agency_partners'] as $partner){
+                $row['name'] = $partner['partner_name'];
+                $row['url'] = $partner['partner_website'];
+                $logo = (isset($partner['partner_logo'][0])?wp_get_attachment_url($partner['partner_logo'][0]):"");
+                $row['logo'] = $logo;
+                $partners[] = $row;
+            }
+        }
+        return $partners;
+    }
+    public static function getConfigData(){
+        $config_data = [];
+        $settings = get_option('agency_settings');
+        $config_data['currency'] = (isset($settings['currency'])?$settings['currency']:'USD');
+        $config_data['timezone'] = (isset($settings['timezone'])?$settings['timezone']:'America/Caracas');
+        $config_data['use'] = self::getWebsiteUse();
+        $config_data['description'] = (isset($settings['description'])?$settings['description']:'');
+        $config_data['address'] = (isset($settings['address'])?$settings['address']:'');
+        $config_data['postal_code'] = (isset($settings['postal_code'])?$settings['postal_code']:'');
+        $config_data['city'] = (isset($settings['city'])?$settings['city']:'');
+        $config_data['country'] = (isset($settings['country'])?$settings['country']:'');
+        $config_data['email'] = (isset($settings['email'])?$settings['email']:'');
+        $config_data['phone'] = (isset($settings['phone'])?$settings['phone']:'');
+        $config_data['fax'] = (isset($settings['fax'])?$settings['fax']:'');
+        $config_data['schedule'] = (isset($settings['schedule'])?$settings['schedule']:'');
+        $config_data['google_map'] = (isset($settings['google_map'])?$settings['google_map']:'');
+        $config_data['insurance'] = (isset($settings['insurance'])?$settings['insurance']:[]);
+        $config_data['captcha'] = self::getRecaptchaData();
+        $logo = self::getWebsiteLogo();
+        $config_data['logo'] = ($logo?wp_get_attachment_url($logo):"");
+        $config_data['active_post_types'] = self::getActivePostTypesByUse();
+        $config_data['website_color'] = (!get_theme_mod('website_color')?'':get_theme_mod('website_color'));
+        $config_data['catalog_template'] = get_theme_mod('agency_catalog_template');
+        $config_data['catalog_template'] = (!$config_data['catalog_template']?'cards':$config_data['catalog_template']);
+        $config_data['social_media'] = self::getSocialMedia();
+        $config_data['partners'] = self::getAgencyPartners();
+        return $config_data;
+    }
 }

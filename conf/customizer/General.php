@@ -79,6 +79,9 @@ class General
                     'simple-grid'   =>  __('Simple Grid','sage'),
                     'isotope-grid'  =>  __('Isotope Grid','sage'),
                     'partners-api'  =>  __('Partners API','sage'),
+                    'cards'         =>  __('Cards','sage'),
+                    'minimalist'    =>  __('Minimalist','sage'),
+                    'pinterest'     =>  __('Pinterest','sage'),
                 ),
             )
         );
