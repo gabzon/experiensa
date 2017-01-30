@@ -11,7 +11,16 @@ export default class CatalogVoyageDetailsModalMinimalist extends React.Component
     handleClose = (e) => this.setState({
         modalOpen: false,
     })
-
+    createButtonAction(){
+        if(this.props.options.price){
+            return(
+                <Button id="modal-card-details" onClick={this.handleOpen} basic color='black' attached='bottom'>{this.props.price}</Button>
+            );
+        }
+        return(
+            <Button id="modal-card-details" onClick={this.handleOpen} basic color='black' attached='bottom'>Details</Button>
+        );
+    }
     constructor(){
         super()
     }
@@ -59,43 +68,46 @@ export default class CatalogVoyageDetailsModalMinimalist extends React.Component
                 title = "Itinerary"
             return title
         }
-        return (
-            <Modal trigger={<Button id="modal-card-details" onClick={this.handleOpen} basic color='black' attached='bottom'>{this.props.price}</Button>}
-                   open={this.state.modalOpen}
-                   onClose={this.handleClose}
-            >
-                <Modal.Header>
-                    <h2>{voyage.title}</h2>
-                </Modal.Header>
-                <Modal.Content>
-                    <Grid stackable columns={2}>
-                        <Grid.Column width={6}>
-                            <div dangerouslySetInnerHTML={{__html: price()}}/>
-                            <div dangerouslySetInnerHTML={{__html: duration()}}/>
-                            <div dangerouslySetInnerHTML={{__html: country()}}/>
-                            <div dangerouslySetInnerHTML={{__html: location()}}/>
-                            <div dangerouslySetInnerHTML={{__html: theme()}}/>
-                            <br/>
-                            <p dangerouslySetInnerHTML={{__html: voyage.excerpt}}></p>
-                        </Grid.Column>
-                        <Grid.Column width={10}>
-                            <Image src={voyageImage()}/>
-                        </Grid.Column>
-                    </Grid>
-                </Modal.Content>
-                <Modal.Content>
-                    <h3>{itinerary_title()}</h3>
-                    <Modal.Description dangerouslySetInnerHTML={{__html: voyage.itinerary}}>
-                    </Modal.Description>
-                </Modal.Content>
-                <Modal.Actions>
-                    <Button color="black" onClick={this.handleClose}>Close</Button>
-                    <a className="ui positive right labeled icon button">
-                        Contact us
-                        <Icon name='checkmark' />
-                    </a>
-                </Modal.Actions>
-            </Modal>
-        );
+        if(this.props.options.button) {
+            return (
+                <Modal trigger={this.createButtonAction()}
+                       open={this.state.modalOpen}
+                       onClose={this.handleClose}
+                >
+                    <Modal.Header>
+                        <h2>{voyage.title}</h2>
+                    </Modal.Header>
+                    <Modal.Content>
+                        <Grid stackable columns={2}>
+                            <Grid.Column width={6}>
+                                <div dangerouslySetInnerHTML={{__html: price()}}/>
+                                <div dangerouslySetInnerHTML={{__html: duration()}}/>
+                                <div dangerouslySetInnerHTML={{__html: country()}}/>
+                                <div dangerouslySetInnerHTML={{__html: location()}}/>
+                                <div dangerouslySetInnerHTML={{__html: theme()}}/>
+                                <br/>
+                                <p dangerouslySetInnerHTML={{__html: voyage.excerpt}}></p>
+                            </Grid.Column>
+                            <Grid.Column width={10}>
+                                <Image src={voyageImage()}/>
+                            </Grid.Column>
+                        </Grid>
+                    </Modal.Content>
+                    <Modal.Content>
+                        <h3>{itinerary_title()}</h3>
+                        <Modal.Description dangerouslySetInnerHTML={{__html: voyage.itinerary}}>
+                        </Modal.Description>
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button color="black" onClick={this.handleClose}>Close</Button>
+                        <a className="ui positive right labeled icon button">
+                            Contact us
+                            <Icon name='checkmark'/>
+                        </a>
+                    </Modal.Actions>
+                </Modal>
+            );
+        }
+        return(<div></div>);
     }
 }

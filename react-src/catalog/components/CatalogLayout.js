@@ -1,5 +1,5 @@
 import React from 'react';
-import CatalogVoyage from './CatalogVoyage'
+import CatalogVoyageCards from './CatalogVoyageCards'
 import CatalogVoyageMinimalist from './CatalogVoyageMinimalist'
 
 export default class CatalogLayout extends React.Component {
@@ -9,9 +9,15 @@ export default class CatalogLayout extends React.Component {
     renderVoyages(){
         if(this.props.voyages) {
             return this.props.voyages.map((voyage) => {
-                return (
-                    <CatalogVoyageMinimalist voyage={voyage} key={voyage.index}/>
-                )
+                if(this.props.options.type =='cards'){
+                    return (
+                        <CatalogVoyageCards voyage={voyage} key={voyage.index} options={this.props.options}/>
+                    )
+                }else {
+                    return (
+                        <CatalogVoyageMinimalist voyage={voyage} key={voyage.index} options={this.props.options}/>
+                    )
+                }
             })
         }else{
             return(<h1>No Voyages Available</h1>);

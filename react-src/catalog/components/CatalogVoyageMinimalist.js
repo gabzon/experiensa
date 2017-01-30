@@ -7,6 +7,24 @@ export default class CatalogVoyageMinimalist extends React.Component {
     constructor(){
         super()
     }
+    createTitleRow(value,show){
+        if(show){
+            return(
+                <div className="header">{value}</div>
+            )
+        }
+        return(<div></div>)
+    }
+    createDataRow(title,value,show){
+        if(show) {
+            return (
+                <div>
+                    <br/><strong>{title}: </strong>{value}
+                </div>
+            );
+        }
+        return(<div></div>);
+    }
     render() {
         // console.log(this.props.voyage);
         let voyage = this.props.voyage;
@@ -22,13 +40,13 @@ export default class CatalogVoyageMinimalist extends React.Component {
             <div className="ui card">
                 <Minimalist voyage={this.props.voyage}/>
                 <div className="content">
-                    <div className="header">{voyage.title}</div>
-                    <br/><strong>Duration: </strong>{voyage.duration}
-                    <br/><strong>Theme: </strong>{voyage.theme}
-                    <br/><strong>Places: </strong>{voyage.location}
-                    <br/><strong>Country: </strong>{voyage.country}
+                    {this.createTitleRow(voyage.title,this.props.options.title)}
+                    {this.createDataRow('Duration',voyage.duration,this.props.options.duration)}
+                    {this.createDataRow('Theme',voyage.theme,this.props.options.themes)}
+                    {this.createDataRow('Places',voyage.location,this.props.options.location)}
+                    {this.createDataRow('Country',voyage.country,this.props.options.country)}
                 </div>
-                <CatalogVoyageDetailsModalMinimalist voyage={this.props.voyage} price={price}/>
+                <CatalogVoyageDetailsModalMinimalist voyage={this.props.voyage} price={price} options={this.props.options}/>
             </div>
         );
     }

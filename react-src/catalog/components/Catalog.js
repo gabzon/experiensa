@@ -20,7 +20,7 @@ class Catalog extends React.Component {
                 <br/><br/><br/><br/>
                 <CatalogFilterLayout themes={this.props.theme_filters} locations={this.props.location_filters}/>
                 <br/><br/>
-                <CatalogLayout voyages={this.props.catalog}/>
+                <CatalogLayout voyages={this.props.catalog} options={this.props.options}/>
                 <br/><br/>
             </div>
         );
