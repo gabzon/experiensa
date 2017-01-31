@@ -14,11 +14,11 @@ export default class CatalogVoyageDetailsModalMinimalist extends React.Component
     createButtonAction(){
         if(this.props.options.price){
             return(
-                <Button id="modal-card-details" onClick={this.handleOpen} basic color='black' attached='bottom'>{this.props.price}</Button>
+                <Button id="modal-card-details" className="catalog-button" onClick={this.handleOpen} basic color='black' attached='bottom'>{this.props.price}</Button>
             );
         }
         return(
-            <Button id="modal-card-details" onClick={this.handleOpen} basic color='black' attached='bottom'>Details</Button>
+            <Button id="modal-card-details" className="catalog-button" onClick={this.handleOpen} basic color='black' attached='bottom'>Details</Button>
         );
     }
     constructor(){

@@ -7,7 +7,7 @@ export default class CatalogVoyageTitle extends React.Component {
     render() {
         return (
             <div className="content">
-                <div className="header">{this.props.title}</div>
+                <div className="header catalog-title">{this.props.title}</div>
             </div>
         );
     }

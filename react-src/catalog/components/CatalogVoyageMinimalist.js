@@ -10,7 +10,7 @@ export default class CatalogVoyageMinimalist extends React.Component {
     createTitleRow(value,show){
         if(show){
             return(
-                <div className="header">{value}</div>
+                <div className="header catalog-title">{value}</div>
             )
         }
         return(<div></div>)
@@ -18,7 +18,7 @@ export default class CatalogVoyageMinimalist extends React.Component {
     createDataRow(title,value,show){
         if(show) {
             return (
-                <div>
+                <div className="catalog-content">
                     <br/><strong>{title}: </strong>{value}
                 </div>
             );

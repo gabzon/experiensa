@@ -6,7 +6,7 @@ export default class CatalogVoyageExcerpt extends React.Component {
     }
     render() {
         return (
-            <div className="extra content">
+            <div className="extra content catalog-content">
                 <p dangerouslySetInnerHTML={{__html: this.props.excerpt}} />
             </div>
         );

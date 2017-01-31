@@ -22,7 +22,7 @@ export default class FilterLocation extends React.Component {
             <div className="column">
             	<h3 className="ui header">
             		<i className="world icon"/>
-				  	<div className="content">Location</div>
+				  	<div className="content catalog-title">Location</div>
             	</h3>
                 <div className="ui items" style={{"display": "block"}}>
                     {this.renderLocationButtons()}

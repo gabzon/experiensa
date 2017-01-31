@@ -251,7 +251,7 @@ function bundleReactApp(isProduction) {
     scriptsCount++;
     // Browserify will bundle all our js files together in to one and will let
     // us use modules in the front end.
-    var appBundler = browserify({
+    var catalogBundler = browserify({
         entries: './react-src/catalog/index.js',
         debug: true
     });
@@ -279,11 +279,11 @@ function bundleReactApp(isProduction) {
         // app bundler. Dependencies are already bundled in vendor.js for
         // development environments.
         dependencies.forEach(function(dep){
-            appBundler.external(dep);
+            catalogBundler.external(dep);
         });
     }
     if(enabled.rev){
-        appBundler
+        catalogBundler
         // transform ES6 and JSX to ES5 with babelify
             .transform("babelify",
                 {
@@ -301,7 +301,7 @@ function bundleReactApp(isProduction) {
             .pipe(gulp.dest(scripts_path));
     }else{
         // transform ES6 and JSX to ES5 with babelify
-        appBundler
+        catalogBundler
         .transform("babelify",
             {
                 presets: ["es2015", "react",'stage-0'],
@@ -310,7 +310,7 @@ function bundleReactApp(isProduction) {
         )
         .bundle()
         .on('error',gutil.log)
-        .pipe(source('react_app.js'))
+        .pipe(source('catalog.js'))
         .pipe(gulp.dest(scripts_path));
 
         offersBundler

@@ -60,7 +60,7 @@ export default class CatalogVoyageDetailsModalCards extends React.Component {
             return title
         }
         return (
-            <Modal trigger={<Button id="modal-card-details" onClick={this.handleOpen} className="ui green button" type="submit" name="select" style={{"width": "100%","height": "100%"}}><Icon name='eye' />Details</Button>}
+            <Modal trigger={<Button id="modal-card-details" onClick={this.handleOpen} className="ui green button catalog-button" type="submit" name="select" style={{"width": "100%","height": "100%"}}><Icon name='eye' />Details</Button>}
                    open={this.state.modalOpen}
                    onClose={this.handleClose}
             >

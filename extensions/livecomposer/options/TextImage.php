@@ -206,4 +206,17 @@ class TextImage
         $textimage_obj = new \Experiensa\Component\Textimage($data);
         return $textimage_obj;
     }
+    public static function setTextFontFamily($id = 'text_font', $default = 'Source Sans Pro', $tab = 'Content',$class='.catalog-title'){
+        return array(
+            'label' => __( 'Font Family', 'sage' ),
+            'id' => $id,
+            'std' => $default,//'Open Sans',
+            'type' => 'font',
+            'refresh_on_change' => false,
+            'affect_on_change_el' => $class,
+            'affect_on_change_rule' => 'font-family',
+            'section' => 'styling',
+            'tab' => __( $tab, 'sage' )
+        );
+    }
 }

@@ -8,7 +8,7 @@ export default class CatalogVoyageContactDetailsLayoutCards extends React.Compon
     render() {
         let mailData = "mailto:?subject= Offer "+this.props.voyage.title;
         return (
-            <div className="ui two bottom attached buttons">
+            <div className="ui two bottom attached buttons catalog-button">
                 <a href={mailData} className="ui blue button">
                     <i className="mail outline icon"/>Contact us
                 </a>

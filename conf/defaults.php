@@ -202,7 +202,7 @@ function load_custom_wp_admin_style($hook) {
     wp_enqueue_style('lc-experiensa-plugins-style',get_template_directory_uri() . '/dist/styles/lc-plugins.css');
     wp_enqueue_script( 'lc-experiensa-plugins', get_template_directory_uri() . '/dist/scripts/lc-plugins.js' );
     wp_enqueue_script( 'lc-experiensa-plugins-init', get_template_directory_uri() . '/dist/scripts/lc-plugins-init.js',['lc-experiensa-plugins'] );
-    wp_enqueue_script( 'react-catalog', get_template_directory_uri().'/dist/scripts/react_app.js', [], null, true);
+//    wp_enqueue_script( 'react-catalog', get_template_directory_uri().'/dist/scripts/catalog.js', [], null, true);
 }
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 /**

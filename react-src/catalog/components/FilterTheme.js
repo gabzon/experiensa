@@ -20,8 +20,8 @@ export default class FilterTheme extends React.Component {
         return (
             <div className="column">
             	<h3 className="ui header">
-            		<i className="soccer icon"></i>
-				  	<div className="content">Theme</div>
+            		<i className="soccer icon"/>
+				  	<div className="content catalog-title">Theme</div>
             	</h3>
                 <div className="ui items" style={{"display": "block"}}>
                     {this.renderThemesButtons()}

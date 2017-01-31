@@ -262,7 +262,7 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
     // console.log(xhr);
     // console.log(settings);
     // console.log(settings.data);
-    var action = 'action=dslc-ajax-add-module';
+    let action = 'action=dslc-ajax-add-module';
     if(settings.data.indexOf('dslc_module_id=SuperSlider_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
         initSuperSliderLC();
     }
@@ -282,15 +282,12 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
         initFreewallFlexLC();
     }
     if(settings.data.indexOf('dslc_module_id=ImageLayout_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
-        // console.log("voy a image layout");
         initFreewallImageLC();
     }
     if(settings.data.indexOf('dslc_module_id=PinterestLayout_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
-        // console.log("voy a pintrest layout");
         initFreewallPinterestLC();
     }
     if(settings.data.indexOf('dslc_module_id=Windows8Layout_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
-        // console.log("voy a windows8 layout");
         initFreewallWindows8LC();
     }if(settings.data.indexOf('dslc_module_id=ReservationsVB_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
         reservation_datepickerLC();

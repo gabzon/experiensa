@@ -7,7 +7,7 @@ class CatalogFilterButton extends React.Component {
         super()
         this.state = {
             isActive: false,
-            customClass: "ui compact button"
+            customClass: "ui compact button catalog-button"
         }
         // this.handleClick = this.handleClick.bind(this)
     }
@@ -15,12 +15,12 @@ class CatalogFilterButton extends React.Component {
         if(this.state.isActive){
             this.setState({
                 isActive: false,
-                customClass: "ui compact button"
+                customClass: "ui compact button catalog-button"
             })
         }else{
             this.setState({
                 isActive: true,
-                customClass: "ui active compact button"
+                customClass: "ui active compact button catalog-button"
             })
         }
         switch(filter_type){

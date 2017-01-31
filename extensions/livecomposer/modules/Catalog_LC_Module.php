@@ -1,6 +1,7 @@
 <?php
 
 use \Experiensa\LiveComposer\Options\Catalog;
+use \Experiensa\LiveComposer\Options\TextImage;
 // Check if Live Composer is active
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
     class Catalog_LC_Module extends DSLC_Module{
@@ -14,7 +15,10 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             // The options array
             $options = array(
                 Catalog::type(),
-                Catalog::elements()
+                Catalog::elements(),
+                TextImage::setTextFontFamily('title_font','Source Sans Pro','Title','.catalog-title'),
+                TextImage::setTextFontFamily('content_font','Source Sans Pro','Content','.catalog-content'),
+                TextImage::setTextFontFamily('button_font','Source Sans Pro','Button','.catalog-button')
             );
 
             // Return the array

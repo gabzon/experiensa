@@ -44,7 +44,7 @@ export default class CatalogLayout extends React.Component {
             );
         }else{
             return (
-                <div className="ui four stackable cards">>
+                <div className="ui four stackable cards">
                     {this.renderVoyages()}
                 </div>
             );
