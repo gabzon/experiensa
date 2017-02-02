@@ -219,4 +219,17 @@ class TextImage
             'tab' => __( $tab, 'sage' )
         );
     }
+    public static function contentColor($id = 'content_color',$default='#000',$scope='.catalog-title',$section='styling',$tab='Content'){
+        return array(
+            'label'   => __('Content Color', 'sage'),
+            'id'      => $id,
+            'std'     => $default,
+            'type'    => 'color',
+            'refresh_on_change' => false,
+            'affect_on_change_el' => $scope,
+            'affect_on_change_rule' => 'color',
+            'section' => $section,
+            'tab' => __($tab,'sage')
+        );
+    }
 }

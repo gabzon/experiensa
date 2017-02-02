@@ -18,7 +18,10 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Catalog::elements(),
                 TextImage::setTextFontFamily('title_font','Source Sans Pro','Title','.catalog-title'),
                 TextImage::setTextFontFamily('content_font','Source Sans Pro','Content','.catalog-content'),
-                TextImage::setTextFontFamily('button_font','Source Sans Pro','Button','.catalog-button')
+                TextImage::setTextFontFamily('button_font','Source Sans Pro','Button','.catalog-button'),
+                TextImage::contentColor('title_text_color','#000','.catalog-title','styling','Title'),
+                TextImage::contentColor('content_text_color','#000','.catalog-content','styling','Content'),
+                TextImage::contentColor('button_text_color','#000','.catalog-button','styling','Button'),
             );
 
             // Return the array
