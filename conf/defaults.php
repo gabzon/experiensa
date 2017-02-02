@@ -238,6 +238,7 @@ function loadLiveComposerHeaderFooterFunctionality(){
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     if(is_plugin_active('live-composer-page-builder/ds-live-composer.php')){
         define( 'DS_LIVE_COMPOSER_HF', true );
+        add_filter( 'dslc_tutorials', '__return_true' );
     }
 }
 loadLiveComposerHeaderFooterFunctionality();
