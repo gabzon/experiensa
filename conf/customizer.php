@@ -15,11 +15,11 @@ function experiensa_customize_register( $wp_customize ) {
 
     $general = new Customizer\General($wp_customize);
     $general->create_components();
-    $header = new HeaderCustomizer\Header($wp_customize);
-    $header->create_components();
+//    $header = new HeaderCustomizer\Header($wp_customize);
+//    $header->create_components();
     /*$landing = new LandingCustomizer\Landing($wp_customize);
     $landing->create_components();*/
-    $footer = new FooterCustomizer\Footer($wp_customize);
-    $footer->create_components();
+//    $footer = new FooterCustomizer\Footer($wp_customize);
+//    $footer->create_components();
 }
 add_action( 'customize_register', 'experiensa_customize_register' );

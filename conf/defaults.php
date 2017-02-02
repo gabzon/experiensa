@@ -233,3 +233,11 @@ add_action( 'wp_enqueue_scripts', 'wpse_cpt_enqueue_estimate');
 //    }
 //}
 //add_action('wp_enqueue_scripts','Load_ScriptsStyles_By_Template');
+
+function loadLiveComposerHeaderFooterFunctionality(){
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    if(is_plugin_active('live-composer-page-builder/ds-live-composer.php')){
+        define( 'DS_LIVE_COMPOSER_HF', true );
+    }
+}
+loadLiveComposerHeaderFooterFunctionality();

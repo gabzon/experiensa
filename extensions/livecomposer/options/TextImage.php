@@ -232,4 +232,17 @@ class TextImage
             'tab' => __($tab,'sage')
         );
     }
+    public static function backgroundColor($id = 'content_color',$label='Color',$default='#fff',$scope='.catalog-button',$section='styling',$tab='Content',$effect='background'){
+        return array(
+            'label'   => __($label, 'sage'),
+            'id'      => $id,
+            'std'     => $default,
+            'type'    => 'color',
+            'refresh_on_change' => false,
+            'affect_on_change_el' => $scope,
+            'affect_on_change_rule' => 'background',
+            'section' => $section,
+            'tab' => __($tab,'sage')
+        );
+    }
 }

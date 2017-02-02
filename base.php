@@ -20,7 +20,7 @@ use Roots\Sage\Wrapper;
 <?php //get_template_part('templates/sidebar-form'); ?>
 <div class="pusher">
     <?php
-    get_template_part('templates/partials/header');
+//    get_template_part('templates/partials/header');
     ?>
     <div id="main-content" class="content">
         <main class="main">

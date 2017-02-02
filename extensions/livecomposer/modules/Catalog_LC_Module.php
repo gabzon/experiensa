@@ -22,6 +22,23 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 TextImage::contentColor('title_text_color','#000','.catalog-title','styling','Title'),
                 TextImage::contentColor('content_text_color','#000','.catalog-content','styling','Content'),
                 TextImage::contentColor('button_text_color','#000','.catalog-button','styling','Button'),
+                array(
+                    'label' => __( 'Background', 'sage' ),
+                    'id' => 'css_bg_button_group',
+                    'type' => 'group',
+                    'action' => 'open',
+                    'section' => 'styling',
+                    'tab' => __( 'Button', 'sage' )
+                ),
+                TextImage::backgroundColor('button_bg_color','Color','#fff','.button.catalog-button','styling','Button','background'),
+                TextImage::backgroundColor('button_bg_hover_color','Color - Hover','#fff','.catalog-button button:hover','styling','Button','background'),
+                array(
+                    'id' => 'css_bg_button_group',
+                    'type' => 'group',
+                    'action' => 'close',
+                    'section' => 'styling',
+                    'tab' => __( 'Button', 'sage' )
+                ),
             );
 
             // Return the array
