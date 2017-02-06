@@ -262,7 +262,7 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
     // console.log(xhr);
     // console.log(settings);
     // console.log(settings.data);
-    let action = 'action=dslc-ajax-add-module';
+    var action = 'action=dslc-ajax-add-module';
     if(settings.data.indexOf('dslc_module_id=SuperSlider_LC_Module')!==-1 && settings.data.indexOf(action) !== -1) {
         initSuperSliderLC();
     }

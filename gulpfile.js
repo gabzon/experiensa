@@ -186,6 +186,10 @@ gulp.task('styles', ['wiredep'], function() {
     .pipe(writeToManifest('styles'));
 });
 
+var onError = function (err) {
+    console.log(err.toString());
+    this.emit('end');
+};
 // ### Scripts
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
 // and project JS.
@@ -194,6 +198,7 @@ gulp.task('scripts', ['jshint'], function() {
     manifest.forEachDependency('js', function(dep) {
         merged.add(
             gulp.src(dep.globs, {base: 'scripts'})
+            .pipe(plumber({ errorHandler: onError }))
             .pipe(jsTasks(dep.name))
         );
     });

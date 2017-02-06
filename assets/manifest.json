@@ -80,6 +80,11 @@
             "files":[
                 "scripts/lc-plugin.js"
             ]
+        },
+        "gplace_autocomplete.js":{
+            "files":[
+                "scripts/gplace_autocomplete.js"
+            ]
         }
     },
     "config": {
