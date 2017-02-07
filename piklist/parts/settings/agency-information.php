@@ -238,3 +238,14 @@ piklist('field', array(
         'placeholder' => __('Enter the reCAPTCHA secret key','sage')
     )
 ));
+
+piklist('field', array(
+    'type' => 'text',
+    'description' => __('If you don\'t have, get one here: ','sage').'<a href="https://developers.google.com/" target="_blank">Google Developers</a>',
+    'field' => 'gmaps_api_key',
+    'label' => __('Google Maps API Key','sage'),
+    'attributes' => array(
+        'class' => 'regular-text',
+        'placeholder' => __('Enter the Google Maps API key','sage')
+    )
+));

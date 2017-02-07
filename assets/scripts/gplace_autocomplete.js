@@ -16,7 +16,30 @@ jQuery(document).ready(function ($) {
                 photos.push(place.photos[i].getUrl({ 'maxWidth': 1024, 'maxHeight': 768 }));
             }
         }
-
+        var phone_number = '';
+        if(typeof place.international_phone_number !== "undefined") {
+            phone_number = place.international_phone_number;
+        }
+        var vicinity = '';
+        if(typeof place.vicinity !== "undefined") {
+            vicinity = place.vicinity;
+        }
+        var rating = '';
+        if(typeof place.rating !== "undefined") {
+            rating = place.rating;
+        }
+        var utc_offset = '';
+        if(typeof place.utc_offset !== "undefined") {
+            utc_offset = place.utc_offset;
+        }
+        var website = '';
+        if(typeof place.website !== "undefined") {
+            website = place.website;
+        }
+        var reviews = [];
+        if(typeof place.reviews !== "undefined") {
+            reviews = place.reviews;
+        }
         var place_data = {
             name: place.name,
             place_id: place.place_id,
@@ -26,8 +49,19 @@ jQuery(document).ready(function ($) {
                 longitude: place.geometry.location.lng()
             },
             types: place.types,
-            photos: photos
+            photos: photos,
+            map_url: place.url,
+            phone_number: phone_number,
+            vicinity: vicinity,
+            rating: rating,
+            utc_offset: utc_offset,
+            website: website,
+            reviews: reviews
         };
         console.log(place_data);
+        var place_string = JSON.stringify(place_data);
+        // $('#_post_meta_place_api_data_0').val(place_string);
+        var place_input = $('input[name="_post_meta[place_api_data]"]:hidden');
+        place_input.val(place_string);
     });
 });

@@ -210,6 +210,11 @@
                 });
             }
         },
+        'single_place':{
+            init:function(){
+                initMasonry(false);
+            }
+        },
         'page_template_request_form':{
             init:function(){
                 requestForm();

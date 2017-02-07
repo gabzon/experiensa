@@ -254,6 +254,11 @@ class Helpers {
         $recaptcha['secret_key'] = (isset($agency_options['recaptcha_secret_key'])?$agency_options['recaptcha_secret_key']:'6Lfq_Q0UAAAAAFZKcsbGcX89WEBvarb_wu7jzKqe');
         return $recaptcha;
     }
+    public static function getGoogleMapsAPIKey(){
+        $agency_options = get_option('agency_settings');
+        $api_key = (isset($agency_options['gmaps_api_key'])?$agency_options['gmaps_api_key']:'AIzaSyAxU6TfM2bDMh6NR9jVksCrNIT6nY8BeNo');
+        return $api_key;
+    }
     public static function getActivePostTypesByUse(){
         $agency_options = get_option('agency_settings');
         $post_types = [];
