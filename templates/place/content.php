@@ -1,3 +1,4 @@
+<!-- Place content information -->
 <div class="column">
     <div class="ui raised segment">
         <p><?php the_content(); ?></p>

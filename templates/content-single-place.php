@@ -7,6 +7,9 @@ date_default_timezone_set($timezone);
     <?php $api_data = (array) json_decode(get_post_meta($post->ID, 'place_api_data', true));?>
     <h1><?php the_title(); ?></h1>
     <div class="ui container">
+        <?php
+        var_dump($api_data);
+        ?>
         <br>
         <br>
         <div class="ui stackable two column grid">
@@ -14,28 +17,32 @@ date_default_timezone_set($timezone);
                 <?php
                 set_query_var('data',$api_data);
                 get_template_part('templates/place/content');
+                set_query_var('place_id',$api_data['place_id']);
+                get_template_part('templates/place/map');
                 ?>
-                <div class="column">
-                    <iframe
-                            width="600"
-                            height="450"
-                            frameborder="0" style="border:0"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAVNQzi_QzaPGAk-w6d4mq6Qe6lIQ1U6Rk
-    &q=place_id:<?= $api_data['place_id'];?>" allowfullscreen>
-                    </iframe>
-                </div>
             </div>
             <div class="two column row">
-                <div class="sixteen wide column">
-                    <div class="grid-masonry">
-                        <div class="grid-sizer"></div>
-                        <div class="grid-item">
-                            <?php foreach ($api_data['photos'] as $photo):?>
-                                <img src="<?=$photo?>" width="100%" alt="<?= $api_data['name'];?>">
-                            <?php endforeach;?>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                set_query_var('photos',$api_data['photos']);
+                set_query_var('name',$api_data['name']);
+                get_template_part('templates/place/gallery');
+                ?>
+            </div>
+            <div class="two column row">
+                <?php
+//                set_query_var('latitude',$api_data['location']->latitude);
+//                set_query_var('longitude',$api_data['location']->longitude);
+//                get_template_part('templates/place/nearby_places');
+                ?>
+            </div>
+            <div class="two column row">
+                <?php
+                set_query_var('name',$api_data['name']);
+                set_query_var('address',$api_data['address']);
+                set_query_var('latitude',$api_data['location']->latitude);
+                set_query_var('longitude',$api_data['location']->longitude);
+                get_template_part('templates/place/weather');
+                ?>
             </div>
         </div>
         <br>

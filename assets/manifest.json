@@ -85,6 +85,11 @@
             "files":[
                 "scripts/gplace_autocomplete.js"
             ]
+        },
+        "place.js":{
+            "files":[
+                "scripts/place.js"
+            ]
         }
     },
     "config": {

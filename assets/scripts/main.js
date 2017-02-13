@@ -211,7 +211,9 @@
             }
         },
         'single_place':{
-            init:function(){
+            init:function() {
+                var dimmer = $(".image .dimmer");
+                dimmer.dimmer({on:'hover', opacity: 0.5});
                 initMasonry(false);
             }
         },
