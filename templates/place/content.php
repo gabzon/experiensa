@@ -1,10 +1,25 @@
 <!-- Place content information -->
 <div class="column">
     <div class="ui raised segment">
-        <p><?php the_content(); ?></p>
-        <?php
-//        var_dump($data);
-        ?>
+    <?php
+        $content = get_the_content();
+        if(!empty($content) && $content !== ''):
+    ?>
+        <div class="ui content place-content">
+            <?= $content;?>
+        </div>
+    <?php
+        else:
+            $wiki_content = \Experiensa\Modules\Wikipedia::getLocationArticle($data['name']);
+            if($wiki_content != ''):
+    ?>
+        <div class="ui content wiki-content">
+            <?=$wiki_content;?>
+        </div>
+    <?php
+            endif;
+        endif;
+    ?>
         <br>
         <div class="ui list">
             <div class="item">
@@ -14,7 +29,7 @@
                 </div>
             </div>
             <?php
-            if(isset($data['vicinity'])):
+            if(isset($data['vicinity']) && $data['vicinity'] !== ''):
                 ?>
                 <div class="item">
                     <i class="building icon"></i>
@@ -32,7 +47,7 @@
                 </div>
             </div>
             <?php
-            if(isset($data['phone_number'])):
+            if(isset($data['phone_number']) && $data['phone_number'] !== ''):
                 ?>
                 <div class="item">
                     <i class="phone icon"></i>
@@ -44,7 +59,7 @@
             endif;
             ?>
             <?php
-            if(isset($data['rating'])):
+            if(isset($data['rating'])  && $data['rating'] !== ''):
                 ?>
                 <div class="item">
                     <i class="star icon"></i>
@@ -56,12 +71,12 @@
             endif;
             ?>
             <?php
-            if(isset($data['website'])):
+            if(isset($data['website']) && $data['website'] !== ''):
             ?>
                 <div class="item">
                     <i class="world icon"></i>
                     <div class="content">
-                        <a href="<?= $data['website'];?>" target="_blank"><?= $data['website'];?></a>
+                        <a href="<?= $data['website'];?>" target="_blank"><?= __('Website','sage');?></a>
                     </div>
                 </div>
             <?php

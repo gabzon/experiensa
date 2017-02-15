@@ -5,10 +5,13 @@ date_default_timezone_set($timezone);
 ?>
 <?php while (have_posts()) : the_post(); ?>
     <?php $api_data = (array) json_decode(get_post_meta($post->ID, 'place_api_data', true));?>
-    <h1><?php the_title(); ?></h1>
+    <br/><br/><br/><br/>
     <div class="ui container">
+        <h1><?php the_title(); ?></h1>
         <?php
-        var_dump($api_data);
+//        echo "<pre>";
+//        var_dump($api_data);
+//        echo "</pre>";
         ?>
         <br>
         <br>
