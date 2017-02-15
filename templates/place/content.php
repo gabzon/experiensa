@@ -1,6 +1,6 @@
 <!-- Place content information -->
 <div class="column">
-    <div class="ui raised segment">
+    <div class="ui raised segment" style="min-height: 450px;">
     <?php
         $content = get_the_content();
         if(!empty($content) && $content !== ''):
