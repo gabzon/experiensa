@@ -13,7 +13,7 @@
             $wiki_content = \Experiensa\Modules\Wikipedia::getLocationArticle($data['name']);
             if($wiki_content != ''):
     ?>
-        <div class="ui content wiki-content">
+        <div class="ui content wiki-content" style="display: none;">
             <?=$wiki_content;?>
         </div>
     <?php

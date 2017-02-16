@@ -25,6 +25,7 @@ $sage_includes = [
     'models/post-type',           // All custom post types
     'modules',
     'modules/IATA',
+    'modules/Requests',
     'extensions/livecomposer/options',
     'extensions/livecomposer/modules',
     'extensions'

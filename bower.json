@@ -99,7 +99,7 @@
         "./build/js/bootstrap-datetimepicker.min.js"
       ]
     },
-    "pinto":{
+    "pinto": {
       "main": [
         "./jquery.pinto.js"
       ]

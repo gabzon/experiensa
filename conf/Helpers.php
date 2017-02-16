@@ -50,7 +50,19 @@ class Helpers {
         }
         return $code;
     }
-
+    public static function getBlogLanguage(){
+        return get_bloginfo("language");
+    }
+    public static function getBlogLanguageSimple(){
+        $lang = self::getBlogLanguage();
+        $lang = explode("-",$lang,2);
+        return $lang[0];
+    }
+    public static function getSiteLanguageCode(){
+        $lang = self::getActiveLanguageCode();
+        $lang = (!$lang?strtolower(self::getBlogLanguageSimple()):strtolower($lang));
+        return $lang;
+    }
     public static function getPageTemplateNames(){
         $templates = get_page_templates();
         $templates_names = array();

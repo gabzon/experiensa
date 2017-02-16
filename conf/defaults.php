@@ -219,18 +219,20 @@ function wpse_cpt_enqueue_estimate( $hook_suffix ){
 add_action( 'wp_enqueue_scripts', 'wpse_cpt_enqueue_estimate');
 
 function enqueue_gplace_autocomplete_place($hook){
+    $lang = Helpers::getSiteLanguageCode();
+//    echo "<h1>                     assadasdasdasdasdsa  ".$lang."</h1>";
     global $pagenow;
     $cpt = (isset($_GET['post_type'])?$_GET['post_type']:'');
     $api_key = Helpers::getGoogleMapsAPIKey();
     if($pagenow == 'post-new.php' && $cpt == 'place'){
         wp_enqueue_script('gplace_autocomplete/js', get_template_directory_uri() . '/dist/scripts/gplace_autocomplete.js');
-        wp_enqueue_script('gplace_api/js', 'https://maps.googleapis.com/maps/api/js?libraries=places&key='.$api_key);
+        wp_enqueue_script('gplace_api/js', 'https://maps.googleapis.com/maps/api/js?libraries=places&key='.$api_key.'&language='.$lang);
     }else{
         $cpt = (isset($_GET['post'])?get_post_type($_GET['post']):'');
         $action = (isset($_GET['action'])?$_GET['action']:'');
         if($pagenow == 'post.php' && $cpt == 'place' && $action == 'edit'){
             wp_enqueue_script('gplace_autocomplete/js', get_template_directory_uri() . '/dist/scripts/gplace_autocomplete.js');
-            wp_enqueue_script('gplace_api/js', 'https://maps.googleapis.com/maps/api/js?libraries=places&key='.$api_key);
+            wp_enqueue_script('gplace_api/js', 'https://maps.googleapis.com/maps/api/js?libraries=places&key='.$api_key.'&language='.$lang);
         }
     }
 }
@@ -256,7 +258,6 @@ function loadLiveComposerHeaderFooterFunctionality(){
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     if(is_plugin_active('live-composer-page-builder/ds-live-composer.php')){
         define( 'DS_LIVE_COMPOSER_HF', true );
-
     }
 }
 loadLiveComposerHeaderFooterFunctionality();

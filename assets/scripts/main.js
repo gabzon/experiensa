@@ -216,6 +216,13 @@
                 dimmer.dimmer({on:'hover', opacity: 0.5});
                 initMasonry(false);
                 getWikiText();
+                $( ".place-photo" ).click(function( event ) {
+                    event.preventDefault();
+                    console.log('asdsadasdas');
+                    $(this).next().modal('show');
+                    // $('.place-photo-modal').modal('show');
+                });
+                getLanguage();
             }
         },
         'page_template_request_form':{
