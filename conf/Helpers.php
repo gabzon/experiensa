@@ -36,7 +36,9 @@ class Helpers {
             return false;
         return $agency_logo[0];
     }
-
+    public static function checkWPMLactive(){
+        return function_exists('icl_object_id');
+    }
     /**
      * If WPML plugin is active get active language code
      * @return bool

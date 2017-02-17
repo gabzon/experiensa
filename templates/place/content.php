@@ -10,17 +10,20 @@
         </div>
     <?php
         else:
-            $wiki_content = \Experiensa\Modules\Wikipedia::getLocationArticle($data['name']);
-            if($wiki_content != ''):
+            if(isset($data['name']) && !empty($data['name'])):
+                $wiki_content = \Experiensa\Modules\Wikipedia::getLocationArticle($data['name']);
+                if($wiki_content != ''):
     ?>
         <div class="ui content wiki-content" style="display: none;">
-            <?=$wiki_content;?>
+                <?=$wiki_content;?>
         </div>
     <?php
+                endif;
             endif;
         endif;
     ?>
         <br>
+        <?php if(isset($data) && !empty($data)):?>
         <div class="ui list">
             <div class="item">
                 <i class="marker icon"></i>
@@ -83,5 +86,6 @@
             endif;
             ?>
         </div>
+        <?php endif;?>
     </div>
 </div>

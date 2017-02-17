@@ -596,19 +596,25 @@
      * @return array
      */
     public static function get_terms_by_id_taxonomies($id,$taxonomies){
-        global $sitepress;
-        $default_language = $sitepress->get_default_language();
-        $actual_language = ICL_LANGUAGE_CODE;
-        if($default_language != $actual_language)
-            $sitepress->switch_lang($default_language, true);
-            $terms = array();
+        $WPML_active = Helpers::checkWPMLactive();
+        if($WPML_active) {
+            global $sitepress;
+            $default_language = $sitepress->get_default_language();
+            $actual_language = ICL_LANGUAGE_CODE;
+            if ($default_language != $actual_language)
+                $sitepress->switch_lang($default_language, true);
+        }
+        $terms = array();
         foreach($taxonomies as $taxonomy){
             $result = get_the_terms($id ,$taxonomy);
             if(!empty($result)){
                 $terms = array_merge($terms,$result);
             }
         }
-        $sitepress->switch_lang($actual_language, true);
+        if($WPML_active) {
+//            global $sitepress;
+            $sitepress->switch_lang($actual_language, true);
+        }
         if(!empty($terms)){
             $result = array();
             foreach($terms as $term){

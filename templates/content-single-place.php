@@ -1,4 +1,5 @@
 <?php
+//echo dslc_hf_get_header();
 $agency_options = get_option('agency_settings');
 $timezone = $agency_options['agency_timezone'];
 date_default_timezone_set($timezone);
@@ -18,17 +19,23 @@ date_default_timezone_set($timezone);
         <div class="ui stackable two column grid">
             <div class="two column row">
                 <?php
-                set_query_var('data',$api_data);
-                get_template_part('templates/place/content');
-                set_query_var('place_id',$api_data['place_id']);
-                get_template_part('templates/place/map');
+                if(isset($api_data) && !empty($api_data)) {
+                    set_query_var('data', $api_data);
+                }
+                    get_template_part('templates/place/content');
+                if(isset($api_data) && !empty($api_data)) {
+                    set_query_var('place_id', $api_data['place_id']);
+                    get_template_part('templates/place/map');
+                }
                 ?>
             </div>
             <div class="two column row">
                 <?php
-                set_query_var('photos',$api_data['photos']);
-                set_query_var('name',$api_data['name']);
-                get_template_part('templates/place/gallery');
+                if(isset($api_data) && !empty($api_data)) {
+                    set_query_var('photos', $api_data['photos']);
+                    set_query_var('name', $api_data['name']);
+                    get_template_part('templates/place/gallery');
+                }
                 ?>
             </div>
             <div class="two column row">
@@ -40,11 +47,13 @@ date_default_timezone_set($timezone);
             </div>
             <div class="two column row">
                 <?php
-                set_query_var('name',$api_data['name']);
-                set_query_var('address',$api_data['address']);
-                set_query_var('latitude',$api_data['location']->latitude);
-                set_query_var('longitude',$api_data['location']->longitude);
-                get_template_part('templates/place/weather');
+                if(isset($api_data) && !empty($api_data)) {
+                    set_query_var('name', $api_data['name']);
+                    set_query_var('address', $api_data['address']);
+                    set_query_var('latitude', $api_data['location']->latitude);
+                    set_query_var('longitude', $api_data['location']->longitude);
+                    get_template_part('templates/place/weather');
+                }
                 ?>
             </div>
         </div>
