@@ -8,6 +8,7 @@ date_default_timezone_set($timezone);
     <?php $api_data = (array) json_decode(get_post_meta($post->ID, 'place_api_data', true));?>
     <br/><br/><br/><br/>
     <div class="ui container">
+        <br/>
         <h1><?php the_title(); ?></h1>
         <?php
 //        echo "<pre>";
