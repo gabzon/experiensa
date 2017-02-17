@@ -1,3 +1,4 @@
+<!-- Voyage Conditions -->
 <?php
 $included     = wp_get_post_terms(get_the_ID(), 'included', array("fields" => "all"));
 $excluded     = wp_get_post_terms(get_the_ID(), 'excluded', array("fields" => "all"));
@@ -37,7 +38,7 @@ $voyage_info = get_post_meta(get_the_ID(), 'information_conditions', true);
     <div class="ui two column grid stackable">
         <div class="column">
             <h3><?php _e('Included','sage') ?></h3>
-            <?php if ($included): ?>
+            <?php if ($included && !empty($included)): ?>
                 <ul>
                     <?php foreach ($included as $key): ?>
                         <li><strong><?= $key->name; ?></strong> <?= $key->description; ?></li>
@@ -47,7 +48,7 @@ $voyage_info = get_post_meta(get_the_ID(), 'information_conditions', true);
         </div>
         <div class="column">
             <h3><?php _e('Not included','sage') ?></h3>
-            <?php if ($excluded): ?>
+            <?php if ($excluded && !empty($excluded)): ?>
                 <ul>
                     <?php foreach ($excluded as $key): ?>
                         <li><strong><?= $key->name; ?></strong> <?= $key->description; ?></li>
