@@ -27,7 +27,7 @@ $voyage_info = get_post_meta(get_the_ID(), 'information_conditions', true);
         </div>
     <?php endif; ?>
     <!-- <h3><?php //_e('Information & Conditions','sage'); ?></h3> -->
-    <?= $voyage_info; ?>
+    <?= do_shortcode(wpautop($voyage_info)); ?>
     <br><br>
 <?php endif; ?>
 
