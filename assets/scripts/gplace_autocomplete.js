@@ -1,7 +1,40 @@
+function getSiteLanguage(callback){
+    jQuery.ajax({
+        type:"POST",
+        url: sage_vars.ajaxurl,
+        data:{
+            'action': 'requestLanguage'
+        },
+        async: false,
+        success:function(response){
+            callback(response.language);
+        },
+        error: function(request, error) {
+            console.log("Request: " + JSON.stringify(request));
+            console.log("Error: " + JSON.stringify(error));
+        }
+    });
+}
+/*function createWikiObject(labels,texts,links){
+    var response = [];
+    var len = labels.length;
+    for (var i = 0; i < len; i++) {
+        item = {
+            item: {
+                label: labels[i],
+                value: labels[i],
+                text: texts[i],
+                link: links[i]
+            }
+        };
+        response.push(item);
+    }
+    return response;
+}*/
 jQuery(document).ready(function ($) {
-    $("#title-prompt-text").html('');
+    // $("#title-prompt-text").html('');
     var input = /** @type {!HTMLInputElement} */(
-        document.getElementById('title'));
+        document.getElementsByClassName('search-google-place')[0]);
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.addListener('place_changed', function () {
         var place = autocomplete.getPlace();
@@ -63,5 +96,37 @@ jQuery(document).ready(function ($) {
         // $('#_post_meta_place_api_data_0').val(place_string);
         var place_input = $('input[name="_post_meta[place_api_data]"]:hidden');
         place_input.val(place_string);
+    });
+    var language = 'en';
+    getSiteLanguage(function(response){
+        language = response;
+    });
+    var wikiApiURL = 'http://'+language+'.wikipedia.org/w/api.php';
+
+    $(".search-wiki-article").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: wikiApiURL,
+                dataType: "jsonp",
+                data: {
+                    'action': "opensearch",
+                    'format': "json",
+                    'search': request.term
+                },
+                success: function(data) {
+                    response(data[1]);
+                    // console.log(data);
+                }
+            });
+        },
+        focus: function( e, ui ) {
+            $( ".search-wiki-article" ).val( ui.item.label );
+            return false;
+        },
+        select: function(e, ui){
+            // console.log('se ha seleccionado');
+            console.log(ui);
+            return false;
+        }
     });
 });

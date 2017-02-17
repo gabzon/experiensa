@@ -15,6 +15,7 @@ function getLanguage(callback){
         data:{
             'action': 'requestLanguage'
         },
+        async: false,
         success:function(response){
             callback(response.language);
         },

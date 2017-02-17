@@ -218,11 +218,9 @@
                 getWikiText();
                 $( ".place-photo" ).click(function( event ) {
                     event.preventDefault();
-                    console.log('asdsadasdas');
                     $(this).next().modal('show');
                     // $('.place-photo-modal').modal('show');
                 });
-                getLanguage();
             }
         },
         'page_template_request_form':{

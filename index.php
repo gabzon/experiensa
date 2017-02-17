@@ -1,5 +1,5 @@
 <div class="spacer" style="width: 100%; height:100px"></div>
-<div class="ui container">
+<div class="ui">
     <?php get_template_part('templates/page', 'header'); ?>
 
     <?php if (!have_posts()) : ?>

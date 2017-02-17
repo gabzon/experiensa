@@ -8,5 +8,3 @@
       <?php get_template_part('templates/content', 'page'); ?>
     <?php endwhile; ?>
 </div>
-<br>
-<br>
