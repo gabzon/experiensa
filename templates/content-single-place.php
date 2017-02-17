@@ -5,7 +5,10 @@ $timezone = $agency_options['agency_timezone'];
 date_default_timezone_set($timezone);
 ?>
 <?php while (have_posts()) : the_post(); ?>
-    <?php $api_data = (array) json_decode(get_post_meta($post->ID, 'place_api_data', true));?>
+    <?php
+    $api_data = (array) json_decode(get_post_meta($post->ID, 'place_api_data', true));
+    $wikiname = get_post_meta($post->ID, 'place_article_search', true);
+    ?>
     <br/><br/><br/><br/>
     <div class="ui container">
         <br/>
@@ -22,6 +25,9 @@ date_default_timezone_set($timezone);
                 <?php
                 if(isset($api_data) && !empty($api_data)) {
                     set_query_var('data', $api_data);
+                }
+                if(isset($wikiname) && !empty($wikiname)) {
+                    set_query_var('wikiname', $wikiname);
                 }
                     get_template_part('templates/place/content');
                 if(isset($api_data) && !empty($api_data)) {

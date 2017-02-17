@@ -10,9 +10,12 @@
         </div>
     <?php
         else:
-            if(isset($data['name']) && !empty($data['name'])):
-                $wiki_content = \Experiensa\Modules\Wikipedia::getLocationArticle($data['name']);
-                if($wiki_content != ''):
+            if(isset($wikiname) && !empty($wikiname)):
+                $wiki_content = \Experiensa\Modules\Wikipedia::getLocationArticle($wikiname);
+//                echo "<pre>";
+//                var_dump($wiki_content);
+//                echo "</pre>";
+                if(!empty($wiki_content != '')):
     ?>
         <div class="ui content wiki-content" style="display: none;">
                 <?=$wiki_content;?>

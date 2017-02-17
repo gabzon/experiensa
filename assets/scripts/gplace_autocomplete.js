@@ -111,6 +111,7 @@ jQuery(document).ready(function ($) {
                 data: {
                     'action': "opensearch",
                     'format': "json",
+                    'limit': "20",
                     'search': request.term
                 },
                 success: function(data) {
