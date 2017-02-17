@@ -7,7 +7,12 @@
 //echo "</pre>";
 //echo "<h1>Voy por wunderground_forecast_request</h1>";
 $weather = \Experiensa\Modules\Weather::wunderground_forecast_request(false,$latitude,$longitude);
+//echo "<pre>";
+//var_dump($weather);
+//echo "</pre>";
+if(isset($weather) && !empty($weather->response->forecast)):
 $forecast = $weather->forecast->simpleforecast->forecastday;
+
 ?>
 <br/>
 <br/>
@@ -41,3 +46,4 @@ $forecast = $weather->forecast->simpleforecast->forecastday;
         <?php endforeach;?>
     </div>
 </div>
+<?php endif;
