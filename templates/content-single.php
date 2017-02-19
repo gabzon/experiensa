@@ -14,7 +14,10 @@
             <br>
 
             <div class="entry-content">
-                <?php the_content(); ?>
+                <?php 
+                $content = get_the_content();
+                echo $content;
+                ?>
             </div>
             <footer>
                 <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>

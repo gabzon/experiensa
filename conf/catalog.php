@@ -10,7 +10,7 @@ class Catalog{
         }
         $api_response = [];
         //Agency Catalog
-        $agency_api_url = get_site_url() . '/wp-json/wp/v2/voyage';
+        $agency_api_url = get_site_url() . '/wp-json/wp/v2/voyage?per_page=100';
 //        echo " el agency api url es ".$agency_api_url;
         if (function_exists('curl_version')){//Using Curl
             //  Initiate curl
@@ -55,7 +55,7 @@ class Catalog{
                 if(substr($partners[$i]['website'], -1)!='/') {
                     $api_url .= '/';
                 }
-                $api_url .= 'wp-json/wp/v2/voyage';
+                $api_url .= 'wp-json/wp/v2/voyage?per_page=100';
 //                echo "<br>entro a un partner ".$api_url;
                 //Check if $api_url is a valid url
                 if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
