@@ -4,13 +4,13 @@ class Catalog{
     public static function get_catalog(){
         $code = Helpers::getActiveLanguageCode();
         if(!$code){
-            $lang_req = "";
+            $lang_req = "?per_page=100";
         }else{
-            $lang_req = '?lang='.$code;
+            $lang_req = '?lang='.$code.'&per_page=100';
         }
         $api_response = [];
         //Agency Catalog
-        $agency_api_url = get_site_url() . '/wp-json/wp/v2/voyage?per_page=100';
+        $agency_api_url = get_site_url() . '/wp-json/wp/v2/voyage';
 //        echo " el agency api url es ".$agency_api_url;
         if (function_exists('curl_version')){//Using Curl
             //  Initiate curl
@@ -55,7 +55,7 @@ class Catalog{
                 if(substr($partners[$i]['website'], -1)!='/') {
                     $api_url .= '/';
                 }
-                $api_url .= 'wp-json/wp/v2/voyage?per_page=100';
+                $api_url .= 'wp-json/wp/v2/voyage';
 //                echo "<br>entro a un partner ".$api_url;
                 //Check if $api_url is a valid url
                 if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
