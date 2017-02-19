@@ -1,7 +1,7 @@
 <?php
 $agency_options = get_option('agency_settings');
 $timezone = $agency_options['agency_timezone'];
-date_default_timezone_set($timezone);
+@date_default_timezone_set($timezone);
 ?>
 <?php while (have_posts()) : the_post(); ?>
     <?php $voyage_expiry_date = get_post_meta($post->ID, 'expiry_date', true);?>

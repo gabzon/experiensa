@@ -1,0 +1,30 @@
+ul.dslc-social {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style-type: none !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+}
+ul.dslc-social a.dslc-social-icon {
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+}
+#dslc-content ul.dslc-social a.dslc-social-icon {
+    border: 0 solid transparent;
+    /* display: block; */
+    background: #40bde6;
+    text-decoration: none;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    /* text-align: center; */
+    font-size: 15px;
+    position: relative;
+    float: left;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

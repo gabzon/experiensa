@@ -264,7 +264,7 @@ function loadLiveComposerHeaderFooterFunctionality(){
     include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     if(is_plugin_active('live-composer-page-builder/ds-live-composer.php')){
         define( 'DS_LIVE_COMPOSER_HF', true );
-        define( 'DS_LIVE_COMPOSER_HF_AUTO', false );
+        //define( 'DS_LIVE_COMPOSER_HF_AUTO', false );
     }
 }
 loadLiveComposerHeaderFooterFunctionality();
