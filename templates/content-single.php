@@ -17,7 +17,6 @@
                 <?php 
                 $content = get_the_content();
                 echo $content;
-                Catalog::get_catalog();
                 ?>
             </div>
             <footer>
