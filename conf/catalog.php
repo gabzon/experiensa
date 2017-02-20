@@ -11,6 +11,9 @@ class Catalog{
         $api_response = [];
         //Agency Catalog
         $agency_api_url = get_site_url() . '/wp-json/wp/v2/voyage';
+        echo get_bloginfo('wpurl')."<br> ";
+        echo get_bloginfo('url')."<br> ";
+        //echo get_bloginfo('wpurl')."<br> ";
         echo " el agency api url es ".$agency_api_url;
         if (function_exists('curl_version')){//Using Curl
             //  Initiate curl
@@ -98,11 +101,14 @@ class Catalog{
                                 $partner_response = "";
                         }
                         $partner_response = json_decode($partner_response);
+                        echo"<pre>";
+                        var_dump($partner_response);
                         $api_response[] = $partner_response;
                     }
                 }
             }
         }
+        echo" <br> all responses";
         echo "<pre>";
         print_r($api_response);
         echo "</pre>";

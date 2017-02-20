@@ -358,4 +358,8 @@ class Helpers {
             'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
         return strtr( $str, $unwanted_array );
     }
+    public static function getTransformBedrockBaseUrl(){
+        $base = get_site_url();
+        return $base;
+    }
 }
