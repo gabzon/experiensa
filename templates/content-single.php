@@ -17,6 +17,8 @@
                 <?php 
                 $content = get_the_content();
                 echo $content;
+                echo "<h1>".get_bloginfo('url')."</h1>";
+                echo "<h1>".get_bloginfo('wpurl')."</h1>";
                 ?>
             </div>
             <footer>
