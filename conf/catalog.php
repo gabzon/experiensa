@@ -48,9 +48,9 @@ class Catalog{
 
         //Partners Catalog
         $partners = Partners::partnerApiList();
-//        echo "<pre>";
-//        var_dump($partners);
-//        echo "</pre>";
+        echo "<br>Partners<br><pre>";
+        var_dump($partners);
+        echo "</pre>";
         if(!empty($partners) && Helpers::check_internet_connection()){
 //            echo " entro a partners";
             for ($i=0; $i < count($partners); $i++) {
@@ -60,16 +60,16 @@ class Catalog{
                     $api_url .= '/';
                 }
                 $api_url .= 'wp-json/wp/v2/voyage';
-//                echo "<br>entro a un partner ".$api_url;
+                echo "<br>entro a un partner ".$api_url;
                 //Check if $api_url is a valid url
                 if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
-//                    echo "<br>entro aqui ".$api_url;
+                    echo "<br>entro aqui ".$api_url;
                     $file_headers = @get_headers($api_url);
 //                    echo "<br>los header de ".$api_url;
-//                    echo"<br><strong>Datos del header</strong>";
-//                    echo "<pre>";
-//                    var_dump($file_headers);
-//                    echo "</pre>";
+                    echo"<br><strong>Datos del header</strong>";
+                    echo "<pre>";
+                    var_dump($file_headers);
+                    echo "</pre>";
                     //check if url have response HTTP/1.1 200 OK
                     if($file_headers && !empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
                         //Using Curl
@@ -82,26 +82,26 @@ class Catalog{
                             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                             // Set the url
                             $real_url = $api_url.$lang_req;
-                            //echo "<br> real url ".$real_url;
+                            echo "<br> Voy a buscar con esta URL ".$real_url;
                             curl_setopt($ch, CURLOPT_URL,$real_url);
                             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
                             curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds
 //                            set_time_limit(0);
                             // Execute
                             $partner_response=curl_exec($ch);
-//                            echo"<br>qqqq";
-//                            echo "<pre>";
-//                            var_dump($partner_response);
-//                            echo "</pre>";
+                            echo"<br>qqqq";
+                            echo "<pre>";
+                            var_dump($partner_response);
+                            echo "</pre>";
                             if(!$partner_response){
-                                //echo "<br> api url ".$api_url;
+                                echo "<br> Voy a buscar con esta otra URL ".$api_url;
                                 curl_setopt($ch, CURLOPT_URL,$api_url);
                                 $partner_response=curl_exec($ch);
                             }
-//                            echo"<br>xxxxx";
-//                            echo "<pre>";
-//                            var_dump($partner_response);
-//                            echo "</pre>";
+                            echo"<br>xxxxx";
+                            echo "<pre>";
+                            var_dump($partner_response);
+                            echo "</pre>";
                             // Closing
                             curl_close($ch);
                         }else{
@@ -113,19 +113,19 @@ class Catalog{
                                 $partner_response = "";
                         }
                         $partner_response = json_decode($partner_response);
-//                        echo"<br>respuesta del partner";
-//                        echo"<pre>";
-//                        var_dump($partner_response);
-//                        echo "</pre>";
+                        echo"<br>respuesta del partner";
+                        echo"<pre>";
+                        var_dump($partner_response);
+                        echo "</pre>";
                         $api_response[] = $partner_response;
                     }
                 }
             }
         }
-//        echo" <br> all responses";
-//        echo "<pre>";
-//        var_dump($api_response);
-//        echo "</pre>";
+        echo" <br> all responses";
+        echo "<pre>";
+        var_dump($api_response);
+        echo "</pre>";
         $voyages = array();
         $index = 0;
         for ($i=0; $i < count($api_response); $i++) {
