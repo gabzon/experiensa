@@ -84,9 +84,9 @@ class Catalog{
                             $real_url = $api_url.$lang_req;
                             //echo "<br> real url ".$real_url;
                             curl_setopt($ch, CURLOPT_URL,$real_url);
-                            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
-                            curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds
-                            set_time_limit(0);
+//                            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
+//                            curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds
+//                            set_time_limit(0);
                             // Execute
                             $partner_response=curl_exec($ch);
                             if(!$partner_response){
