@@ -40,7 +40,7 @@ class Catalog{
                 $agency_response = "";
         }
         echo "<pre>";
-        print_r($agency_response);
+        var_dump($agency_response);
         echo "</pre>";
         $agency_response = json_decode($agency_response);
         $api_response[] =$agency_response;
