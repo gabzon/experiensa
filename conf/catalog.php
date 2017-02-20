@@ -65,11 +65,11 @@ class Catalog{
                 if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
 //                    echo "<br>entro aqui ".$api_url;
                     $file_headers = @get_headers($api_url);
-                    echo "<br>los header de ".$api_url;
-                    echo"<br><strong>Datos del header</strong>";
-                    echo "<pre>";
-                    var_dump($file_headers);
-                    echo "</pre>";
+//                    echo "<br>los header de ".$api_url;
+//                    echo"<br><strong>Datos del header</strong>";
+//                    echo "<pre>";
+//                    var_dump($file_headers);
+//                    echo "</pre>";
                     //check if url have response HTTP/1.1 200 OK
                     if($file_headers && !empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
                         //Using Curl
@@ -89,18 +89,18 @@ class Catalog{
 //                            set_time_limit(0);
                             // Execute
                             $partner_response=curl_exec($ch);
-                            echo"<br>qqqq";
-                            echo "<pre>";
-                            var_dump($partner_response);
-                            echo "</pre>";
+//                            echo"<br>qqqq";
+//                            echo "<pre>";
+//                            var_dump($partner_response);
+//                            echo "</pre>";
                             if(!$partner_response){
                                 //echo "<br> api url ".$api_url;
                                 curl_setopt($ch, CURLOPT_URL,$api_url);
                                 $partner_response=curl_exec($ch);
                             }
-                            echo"<br>xxxxx";
-                            echo "<pre>";
-                            var_dump($partner_response);
+//                            echo"<br>xxxxx";
+//                            echo "<pre>";
+//                            var_dump($partner_response);
 //                            echo "</pre>";
                             // Closing
                             curl_close($ch);

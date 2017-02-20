@@ -147,6 +147,9 @@ export function requestCatalog() {
                     }
                 )
             })
+            .catch((error)=>{
+                console.log('Error',error)
+            })
     }
  }
 
