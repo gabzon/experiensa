@@ -346,6 +346,8 @@ class Helpers {
         $config_data['catalog_template'] = (!$config_data['catalog_template']?'cards':$config_data['catalog_template']);
         $config_data['social_media'] = self::getSocialMedia();
         $config_data['partners'] = self::getAgencyPartners();
+        $config_data['wpml_lang'] = self::getActiveLanguageCode();
+        $config_data['blog_language'] = self::getBlogLanguageSimple();
         return $config_data;
     }
     public static function normalizeChars($str){
