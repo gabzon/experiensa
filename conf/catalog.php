@@ -39,10 +39,10 @@ class Catalog{
 //                    echo "<br>entro aqui ";
                     $file_headers = @get_headers($api_url);
 //                    echo "<br>los header de ".$api_url;
-//                    echo"<br><h2>Datos del header</h2>";
-//                    echo "<pre>";
-//                    var_dump($file_headers);
-//                    echo "</pre>";
+                    echo"<br><h2>Datos del header</h2>";
+                    echo "<pre>";
+                    var_dump($file_headers);
+                    echo "</pre>";
                     //check if url have response HTTP/1.1 200 OK
                     if($file_headers && !empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
                         //Using Curl
