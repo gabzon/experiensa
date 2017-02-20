@@ -84,16 +84,24 @@ class Catalog{
                             $real_url = $api_url.$lang_req;
                             //echo "<br> real url ".$real_url;
                             curl_setopt($ch, CURLOPT_URL,$real_url);
-//                            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
-//                            curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds
+                            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
+                            curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds
 //                            set_time_limit(0);
                             // Execute
                             $partner_response=curl_exec($ch);
+                            echo"<br>qqqq";
+                            echo "<pre>";
+                            var_dump($partner_response);
+                            echo "</pre>";
                             if(!$partner_response){
                                 //echo "<br> api url ".$api_url;
                                 curl_setopt($ch, CURLOPT_URL,$api_url);
                                 $partner_response=curl_exec($ch);
                             }
+                            echo"<br>xxxxx";
+                            echo "<pre>";
+                            var_dump($partner_response);
+                            echo "</pre>";
                             // Closing
                             curl_close($ch);
                         }else{
