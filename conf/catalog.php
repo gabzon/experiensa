@@ -39,8 +39,9 @@ class Catalog{
             }else
                 $agency_response = "";
         }
+        echo "<br>Datos de la agencia";
         echo "<pre>";
-       print_r($agency_response);
+        var_dump($agency_response);
         echo "</pre>";
         $agency_response = json_decode($agency_response);
         $api_response[] =$agency_response;
@@ -48,7 +49,7 @@ class Catalog{
         //Partners Catalog
         $partners = Partners::partnerApiList();
         echo "<pre>";
-        print_r($partners);
+        var_dump($partners);
         echo "</pre>";
         if(!empty($partners) && Helpers::check_internet_connection()){
             echo " entro a partners";
@@ -66,7 +67,7 @@ class Catalog{
                     $file_headers = @get_headers($api_url);
                     echo "<br>los header de ".$api_url;
                     echo "<pre>";
-                    print_r($file_headers);
+                    var_dump($file_headers);
                     echo "</pre>";
                     //check if url have response HTTP/1.1 200 OK
                     if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
@@ -82,6 +83,9 @@ class Catalog{
                             $real_url = $api_url.$lang_req;
                             //echo "<br> real url ".$real_url;
                             curl_setopt($ch, CURLOPT_URL,$real_url);
+                            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
+                            curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds
+                            set_time_limit(0);
                             // Execute
                             $partner_response=curl_exec($ch);
                             if(!$partner_response){
@@ -110,7 +114,7 @@ class Catalog{
         }
         echo" <br> all responses";
         echo "<pre>";
-        print_r($api_response);
+        var_dump($api_response);
         echo "</pre>";
         $voyages = array();
         $index = 0;
