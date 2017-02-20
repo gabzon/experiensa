@@ -1,131 +1,66 @@
 <?php
 
+use Experiensa\Modules\CurlRequest;
+
 class Catalog{
     public static function get_catalog(){
-        $code = Helpers::getActiveLanguageCode();
-        if(!$code){
-            $lang_req = "?per_page=100";
-        }else{
-            $lang_req = '?lang='.$code.'&per_page=100';
-        }
         $api_response = [];
         //Agency Catalog
-        /*$agency_api_url = get_bloginfo('url') . '/wp-json/wp/v2/voyage';
-//        echo " el agency api url es ".$agency_api_url;
-        if (function_exists('curl_version')){//Using Curl
-            //  Initiate curl
-            $ch = curl_init();
-            // Disable SSL verification
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            // Will return the response, if false it print the response
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            // Set the url
-            $real_url = $agency_api_url.$lang_req;
-            //echo "el real url propio es ".$real_url;
-            curl_setopt($ch, CURLOPT_URL,$real_url);
-            // Execute
-            $agency_response=curl_exec($ch);
-            if(!$agency_response){
-                curl_setopt($ch, CURLOPT_URL,$agency_api_url);
-                $agency_response=curl_exec($ch);
-            }
-            // Closing
-            curl_close($ch);
-        }else{
-            if(ini_get('allow_url_fopen')) {
-                $agency_response = @file_get_contents($agency_api_url . $lang_req);
-                if(!$agency_response)
-                    $agency_response = @file_get_contents($agency_api_url);
-            }else
-                $agency_response = "";
-        }*/
-//        echo "<br>Datos de la agencia";
+        $agency_api_url = get_bloginfo('url') . '/wp-json/wp/v2/voyage';
+        $agency_response = CurlRequest::getApiResponse($agency_api_url.'?&per_page=100',true);
+        if(!$agency_response){
+            $agency_response = CurlRequest::getApiResponse($agency_api_url.'?&per_page=100');
+        }
 //        echo "<pre>";
 //        var_dump($agency_response);
 //        echo "</pre>";
-//        $agency_response = json_decode($agency_response);
-//        $api_response[] =$agency_response;
+        if(!empty($agency_response) && !isset($agency_response->status) && $agency_response != NULL) {
+//            echo "<h3>por aqui fue</h3>";
+            $api_response[] = $agency_response;
+        }
 
         //Partners Catalog
         $partners = Partners::partnerApiList();
-        echo "<br>Partners<br><pre>";
-        var_dump($partners);
-        echo "</pre>";
+//        echo "<br><h2></h2>Partners</h2><br><pre>";
+//        var_dump($partners);
+//        echo "</pre>";
         if(!empty($partners) && Helpers::check_internet_connection()){
 //            echo " entro a partners";
             for ($i=0; $i < count($partners); $i++) {
                 // Check if  $partners[$i]['website'] dont have '/' on last char
-                $api_url=$partners[$i]['website'];
+                $api_url = $partners[$i]['website'];
                 if(substr($partners[$i]['website'], -1)!='/') {
                     $api_url .= '/';
                 }
                 $api_url .= 'wp-json/wp/v2/voyage';
-                echo "<br>entro a un partner ".$api_url;
+//                echo "<br>entro a un partner ".$api_url;
                 //Check if $api_url is a valid url
                 if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
-                    echo "<br>entro aqui ".$api_url;
+//                    echo "<br>entro aqui ";
                     $file_headers = @get_headers($api_url);
 //                    echo "<br>los header de ".$api_url;
-                    echo"<br><strong>Datos del header</strong>";
-                    echo "<pre>";
-                    var_dump($file_headers);
-                    echo "</pre>";
+//                    echo"<br><h2>Datos del header</h2>";
+//                    echo "<pre>";
+//                    var_dump($file_headers);
+//                    echo "</pre>";
                     //check if url have response HTTP/1.1 200 OK
                     if($file_headers && !empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
                         //Using Curl
-                        if (function_exists('curl_version')){
-                            //  Initiate curl
-                            $ch = curl_init();
-                            // Disable SSL verification
-                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                            // Will return the response, if false it print the response
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                            // Set the url
-                            $real_url = $api_url.$lang_req;
-                            echo "<br> Voy a buscar con esta URL ".$real_url;
-                            curl_setopt($ch, CURLOPT_URL,$real_url);
-                            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
-                            curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds
-//                            set_time_limit(0);
-                            // Execute
-                            $partner_response=curl_exec($ch);
-                            echo"<br>qqqq";
-                            echo "<pre>";
-                            var_dump($partner_response);
-                            echo "</pre>";
-                            if(!$partner_response){
-                                echo "<br> Voy a buscar con esta otra URL ".$api_url;
-                                curl_setopt($ch, CURLOPT_URL,$api_url);
-                                $partner_response=curl_exec($ch);
-                            }
-                            echo"<br>xxxxx";
-                            echo "<pre>";
-                            var_dump($partner_response);
-                            echo "</pre>";
-                            // Closing
-                            curl_close($ch);
-                        }else{
-                            if(ini_get('allow_url_fopen')) {
-                                $partner_response = @file_get_contents($api_url . $lang_req);
-                                if(!$partner_response)
-                                    $partner_response = @file_get_contents($api_url);
-                            }else
-                                $partner_response = "";
+                        $partner_response = CurlRequest::getApiResponse($api_url.'?&per_page=100',true);
+                        if(!$partner_response){
+                            $partner_response = CurlRequest::getApiResponse($api_url.'?&per_page=100');
                         }
-                        $partner_response = json_decode($partner_response);
-                        echo"<br>respuesta del partner";
-                        echo"<pre>";
-                        var_dump($partner_response);
-                        echo "</pre>";
-                        $api_response[] = $partner_response;
+                        if(!empty($partner_response) && !isset($partner_response->status) && $partner_response != NULL) {
+                            $api_response[] = $partner_response;
+                        }
                     }
                 }
             }
         }
-        echo" <br> all responses";
-        echo "<pre>";
-        var_dump($api_response);
-        echo "</pre>";
+//        echo" <br><h2> all responses</h2>";
+//        echo "<pre>";
+//        var_dump($api_response);
+//        echo "</pre>";
         $voyages = array();
         $index = 0;
         for ($i=0; $i < count($api_response); $i++) {

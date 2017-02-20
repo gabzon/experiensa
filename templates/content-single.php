@@ -19,10 +19,10 @@
                 echo $content;
 //                echo "<h1>".get_bloginfo('url')."</h1>";
 //                echo "<h1>".get_bloginfo('wpurl')."</h1>";
-                Catalog::get_catalog();
-                echo"<pre>";
-                var_dump(Catalog::get_catalog());
-                echo"</pre>";
+//                Catalog::get_catalog();
+//                echo"<pre>";
+//                var_dump(Catalog::get_catalog());
+//                echo"</pre>";
                 ?>
             </div>
             <footer>
