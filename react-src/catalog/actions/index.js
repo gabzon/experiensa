@@ -131,7 +131,7 @@ export function requestCatalog() {
     return(dispatch,getState)=>{
         let localApiCatalogURL = sage_vars.siteurl + '/wp-json/wp/v2/catalog'
         console.log(localApiCatalogURL)
-        axios.get(localApiCatalogURL)
+        axios.get(localApiCatalogURL,{timeout: 30000})
             .then((response)=>{
                 console.log(response);
                 dispatch(
