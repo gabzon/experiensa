@@ -10,7 +10,7 @@ class Catalog{
         }
         $api_response = [];
         //Agency Catalog
-        $agency_api_url = get_bloginfo('url') . '/wp-json/wp/v2/voyage';        
+        /*$agency_api_url = get_bloginfo('url') . '/wp-json/wp/v2/voyage';
 //        echo " el agency api url es ".$agency_api_url;
         if (function_exists('curl_version')){//Using Curl
             //  Initiate curl
@@ -38,13 +38,13 @@ class Catalog{
                     $agency_response = @file_get_contents($agency_api_url);
             }else
                 $agency_response = "";
-        }
+        }*/
 //        echo "<br>Datos de la agencia";
 //        echo "<pre>";
 //        var_dump($agency_response);
 //        echo "</pre>";
-        $agency_response = json_decode($agency_response);
-        $api_response[] =$agency_response;
+//        $agency_response = json_decode($agency_response);
+//        $api_response[] =$agency_response;
 
         //Partners Catalog
         $partners = Partners::partnerApiList();
@@ -89,19 +89,19 @@ class Catalog{
 //                            set_time_limit(0);
                             // Execute
                             $partner_response=curl_exec($ch);
-                            echo"<br>qqqq";
-                            echo "<pre>";
-                            var_dump($partner_response);
-                            echo "</pre>";
+//                            echo"<br>qqqq";
+//                            echo "<pre>";
+//                            var_dump($partner_response);
+//                            echo "</pre>";
                             if(!$partner_response){
                                 //echo "<br> api url ".$api_url;
                                 curl_setopt($ch, CURLOPT_URL,$api_url);
                                 $partner_response=curl_exec($ch);
                             }
-                            echo"<br>xxxxx";
-                            echo "<pre>";
-                            var_dump($partner_response);
-                            echo "</pre>";
+//                            echo"<br>xxxxx";
+//                            echo "<pre>";
+//                            var_dump($partner_response);
+//                            echo "</pre>";
                             // Closing
                             curl_close($ch);
                         }else{
