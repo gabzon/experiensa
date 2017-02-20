@@ -36,7 +36,7 @@ class Catalog{
 //                echo "<br>entro a un partner ".$api_url;
                 //Check if $api_url is a valid url
                 if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
-                    echo "<br>FILTER_VALIDATE_URL ";
+//                    echo "<br>FILTER_VALIDATE_URL ";
 //                    $file_headers = @get_headers($api_url);
 //                    echo "<br>los header de ".$api_url;
 //                    echo"<br><h2>Datos del header1</h2>";
