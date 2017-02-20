@@ -105,7 +105,7 @@ function assets() {
     }
     $localized_array = array(
         'ajaxurl'=>admin_url('admin-ajax.php'),
-        'siteurl'=>get_site_url(),
+        'siteurl'=>get_bloginfo('url'),
         'stylesheet_directory_uri'=>get_stylesheet_directory_uri()
     );
 
