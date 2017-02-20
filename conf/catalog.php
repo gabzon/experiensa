@@ -66,6 +66,7 @@ class Catalog{
                     echo "<br>entro aqui ".$api_url;
                     $file_headers = @get_headers($api_url);
                     echo "<br>los header de ".$api_url;
+                    echo"<br><strong>Datos del header</strong>";
                     echo "<pre>";
                     var_dump($file_headers);
                     echo "</pre>";
@@ -104,6 +105,7 @@ class Catalog{
                                 $partner_response = "";
                         }
                         $partner_response = json_decode($partner_response);
+                        echo"<br>respuesta del partner";
                         echo"<pre>";
                         var_dump($partner_response);
                         echo "</pre>";
