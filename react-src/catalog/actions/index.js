@@ -130,10 +130,10 @@ function searchOnCatalogAND(catalog,themes,locations){
 export function requestCatalog() {
     return(dispatch,getState)=>{
         let localApiCatalogURL = sage_vars.siteurl + '/wp-json/wp/v2/catalog'
-        console.log(localApiCatalogURL)
+        // console.log(localApiCatalogURL)
         axios.get(localApiCatalogURL,{timeout: 30000})
             .then((response)=>{
-                console.log(response);
+                // console.log(response);
                 dispatch(
                     {
                         type: REQUEST_CATALOG,

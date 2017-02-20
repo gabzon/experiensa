@@ -11,7 +11,7 @@ class Catalog{
         $api_response = [];
         //Agency Catalog
         $agency_api_url = get_bloginfo('url') . '/wp-json/wp/v2/voyage';        
-        echo " el agency api url es ".$agency_api_url;
+//        echo " el agency api url es ".$agency_api_url;
         if (function_exists('curl_version')){//Using Curl
             //  Initiate curl
             $ch = curl_init();
@@ -39,20 +39,20 @@ class Catalog{
             }else
                 $agency_response = "";
         }
-        echo "<br>Datos de la agencia";
-        echo "<pre>";
-        var_dump($agency_response);
-        echo "</pre>";
+//        echo "<br>Datos de la agencia";
+//        echo "<pre>";
+//        var_dump($agency_response);
+//        echo "</pre>";
         $agency_response = json_decode($agency_response);
         $api_response[] =$agency_response;
 
         //Partners Catalog
         $partners = Partners::partnerApiList();
-        echo "<pre>";
-        var_dump($partners);
-        echo "</pre>";
+//        echo "<pre>";
+//        var_dump($partners);
+//        echo "</pre>";
         if(!empty($partners) && Helpers::check_internet_connection()){
-            echo " entro a partners";
+//            echo " entro a partners";
             for ($i=0; $i < count($partners); $i++) {
                 // Check if  $partners[$i]['website'] dont have '/' on last char
                 $api_url=$partners[$i]['website'];
@@ -60,18 +60,18 @@ class Catalog{
                     $api_url .= '/';
                 }
                 $api_url .= 'wp-json/wp/v2/voyage';
-                echo "<br>entro a un partner ".$api_url;
+//                echo "<br>entro a un partner ".$api_url;
                 //Check if $api_url is a valid url
                 if (!(filter_var($api_url, FILTER_VALIDATE_URL) === FALSE)){
-                    echo "<br>entro aqui ".$api_url;
+//                    echo "<br>entro aqui ".$api_url;
                     $file_headers = @get_headers($api_url);
-                    echo "<br>los header de ".$api_url;
-                    echo"<br><strong>Datos del header</strong>";
-                    echo "<pre>";
-                    var_dump($file_headers);
-                    echo "</pre>";
+//                    echo "<br>los header de ".$api_url;
+//                    echo"<br><strong>Datos del header</strong>";
+//                    echo "<pre>";
+//                    var_dump($file_headers);
+//                    echo "</pre>";
                     //check if url have response HTTP/1.1 200 OK
-                    if(!empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
+                    if($file_headers && !empty($file_headers) && strpos($file_headers[0],'OK')!==FALSE) {
                         //Using Curl
                         if (function_exists('curl_version')){
                             //  Initiate curl
@@ -105,19 +105,19 @@ class Catalog{
                                 $partner_response = "";
                         }
                         $partner_response = json_decode($partner_response);
-                        echo"<br>respuesta del partner";
-                        echo"<pre>";
-                        var_dump($partner_response);
-                        echo "</pre>";
+//                        echo"<br>respuesta del partner";
+//                        echo"<pre>";
+//                        var_dump($partner_response);
+//                        echo "</pre>";
                         $api_response[] = $partner_response;
                     }
                 }
             }
         }
-        echo" <br> all responses";
-        echo "<pre>";
-        var_dump($api_response);
-        echo "</pre>";
+//        echo" <br> all responses";
+//        echo "<pre>";
+//        var_dump($api_response);
+//        echo "</pre>";
         $voyages = array();
         $index = 0;
         for ($i=0; $i < count($api_response); $i++) {
