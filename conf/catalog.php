@@ -39,9 +39,9 @@ class Catalog{
             }else
                 $agency_response = "";
         }
-        echo "<pre>";
-        var_dump($agency_response);
-        echo "</pre>";
+//        echo "<pre>";
+//       var_dump($agency_response);
+//        echo "</pre>";
         $agency_response = json_decode($agency_response);
         $api_response[] =$agency_response;
 
@@ -49,6 +49,7 @@ class Catalog{
         $partners = Partners::partnerApiList();
 
         if(!empty($partners) && Helpers::check_internet_connection()){
+            echo " entro a partners";
             for ($i=0; $i < count($partners); $i++) {
                 // Check if  $partners[$i]['website'] dont have '/' on last char
                 $api_url=$partners[$i]['website'];
