@@ -17,6 +17,7 @@
                 <?php 
                 $content = get_the_content();
                 echo $content;
+                echo get_bloginfo('url') . '/wp-json/wp/v2/voyage';
                 ?>
             </div>
             <footer>

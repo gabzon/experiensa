@@ -11,7 +11,7 @@ class Catalog{
         $api_response = [];
         //Agency Catalog
         $agency_api_url = get_bloginfo('url') . '/wp-json/wp/v2/voyage';        
-        //echo " el agency api url es ".$agency_api_url;
+        echo " el agency api url es ".$agency_api_url;
         if (function_exists('curl_version')){//Using Curl
             //  Initiate curl
             $ch = curl_init();
