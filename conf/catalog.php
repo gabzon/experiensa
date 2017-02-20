@@ -39,7 +39,11 @@ class Catalog{
                     echo "<br>FILTER_VALIDATE_URL ";
                     $file_headers = @get_headers($api_url);
 //                    echo "<br>los header de ".$api_url;
-                    echo"<br><h2>Datos del header</h2>";
+                    echo"<br><h2>Datos del header1</h2>";
+                    echo "<pre>";
+                    var_dump(CurlRequest::getHeaders($api_url));
+                    echo "</pre>";
+                    echo"<br><h2>Datos del header2</h2>";
                     echo "<pre>";
                     var_dump($file_headers);
                     echo "</pre>";

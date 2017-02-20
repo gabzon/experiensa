@@ -31,4 +31,19 @@ class CurlRequest
         return json_decode($response);
         wp_reset_postdata();
     }
+    public static function getHeaders($url){
+        if (function_exists('curl_version')) {
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_HEADER => true,
+                CURLOPT_NOBODY => true,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_URL => $url));
+            $headers = explode("\n", curl_exec($curl));
+            curl_close($curl);
+        }else{
+            $headers = @get_headers($url);
+        }
+        return $headers;
+    }
 }
