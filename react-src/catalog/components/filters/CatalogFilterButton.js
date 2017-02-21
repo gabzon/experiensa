@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {filterThemeCatalog, filterLocationCatalog} from '../../actions'
+import {filterThemeCatalog, filterLocationCatalog, filterCountryCatalog} from '../../actions'
 
 class CatalogFilterButton extends React.Component {
     constructor(){
@@ -27,11 +27,13 @@ class CatalogFilterButton extends React.Component {
             case 'FILTER_THEME':
                 this.props.filterThemeCatalog(this.props.name,!this.state.isActive)
                 break
-            default:
+            case 'FILTER_LOCATION':
                 this.props.filterLocationCatalog(this.props.name,!this.state.isActive)
                 break
+            default:
+                this.props.filterCountryCatalog(this.props.name,!this.state.isActive)
+                break
         }
-
     }
     render() {
         return (
@@ -46,4 +48,9 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps,{filterThemeCatalog,filterLocationCatalog})(CatalogFilterButton)
+export default connect(mapStateToProps,
+    {
+        filterThemeCatalog,
+        filterLocationCatalog,
+        filterCountryCatalog
+    })(CatalogFilterButton)

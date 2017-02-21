@@ -44,6 +44,10 @@ class CatalogCustomRoute extends WP_REST_Controller {
 		    'methods'         => WP_REST_Server::READABLE,
 		    'callback'        => array( $this, 'response_theme_filter' ),
 		));
+        register_rest_route($this->namespace, '/' . $this->name. '/country', array(
+            'methods'         => WP_REST_Server::READABLE,
+            'callback'        => array( $this, 'response_country_filter' ),
+        ));
 	}
 
 	public function set_catalog() {
@@ -102,6 +106,38 @@ class CatalogCustomRoute extends WP_REST_Controller {
         }
 		return $this->get_unique_array_filter($filters);
 	}
+    public function get_country_filter($new = false){
+        if(!$new){
+            $catalog = $this->get_catalog();
+        }else{
+            $this->set_catalog();
+            $catalog = $this->get_catalog();
+        }
+        $filters = [];
+        if(!empty($catalog)){
+            $items = $catalog;
+            $country_string = '';
+            foreach ($items as $item){
+                if(!empty($item['country']))
+                    $country_string .= $item['country'].',';
+            }
+            if($country_string != '') {
+                $country_string = ltrim($country_string,' ');
+                $country_string = rtrim($country_string,',');
+                $filters = explode(',', $country_string);
+            }
+        }
+        if(!empty($filters)){
+            $filters_aux = $filters;
+            $filters = [];
+            foreach ($filters_aux as $filter_name){
+                $filter['name'] = rtrim(ltrim($filter_name.' '),' ');
+                $filter['active'] = false;
+                $filters[] = $filter;
+            }
+        }
+        return $this->get_unique_array_filter($filters);
+    }
 
 	public function get_theme_filter($new = false){
 		if(!$new){
@@ -144,6 +180,7 @@ class CatalogCustomRoute extends WP_REST_Controller {
 			$data['catalog'] = $catalog;
 			$data['theme_filter'] = $this->get_theme_filter();
 			$data['location_filter'] = $this->get_location_filter();
+			$data['country_filter'] = $this->get_country_filter();
         }
 		return new WP_REST_Response( $data, 200 );
 	}
@@ -155,6 +192,10 @@ class CatalogCustomRoute extends WP_REST_Controller {
 
     public function response_theme_filter($request){
         $data = $this->get_theme_filter(true);
+        return new WP_REST_Response( $data, 200 );
+    }
+    public function response_country_filter($request){
+        $data = $this->get_country_filter(true);
         return new WP_REST_Response( $data, 200 );
     }
 

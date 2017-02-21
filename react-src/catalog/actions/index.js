@@ -71,57 +71,103 @@ function searchOnCatalogOR(catalog,themes,locations){
     }
     return auxList
 }
-function searchOnCatalogAND(catalog,themes,locations){
+var arrayUnique = (array) =>{
+    return array.filter((elem,pos,arr)=>{
+        return arr.indexOf(elem) == pos;
+    })
+}
+function getFilteredCatalog(catalog,filters,object_name){
+    // console.log('estoy en getFilteredCatalog')
+    // console.log('el catalogo',catalog)
+    // console.log('filtros',filters)
+    // console.log('mi object_name',object_name)
     let auxList = []
-    let returnAuxList = []
     let sw
-    if(themes.length > 0) {
-        for (var voyage of catalog) {
-            sw = true
-            for (var filter of themes) {
-                if (voyage.theme.indexOf(filter) === -1) {
-                    sw = false
-                    break
-                }
-            }
-            if (sw) {
-                auxList.push(voyage)
+    for (var voyage of catalog) {
+        sw = true
+        for (var filter of filters) {
+            if (voyage[object_name].indexOf(filter) === -1) {
+                sw = false
+                break
             }
         }
+        if (sw) {
+            auxList.push(voyage)
+        }
+    }
+    // console.log('retorno de getFilteredCatalog',auxList)
+    return auxList
+}
+function searchOnCatalogAND(catalog,themes,locations,countries){
+    let auxList = []
+    let returnAuxList = []
+    // console.log('estoy en searchOnCatalogAND')
+    // console.log('themes',themes,'locations',locations,'countries',countries)
+    if(themes.length > 0) {
+        // console.log('1 voy por themes',catalog)
+        let nAuxList = getFilteredCatalog(catalog,themes,'theme')
+        auxList.push(...nAuxList)
         if(auxList.length > 0 && locations.length > 0){
-            for (var voyage of auxList) {
-                sw = true
-                for (var filter of locations) {
-                    if (voyage.location.indexOf(filter) === -1) {
-                        sw = false
-                        break
-                    }
-                }
-                if (sw) {
-                    returnAuxList.push(voyage)
-                }
+            // console.log('2 voy por locations',auxList)
+            nAuxList = getFilteredCatalog(auxList,locations,'location');
+            if(nAuxList.length > 0) {
+                auxList.push(...nAuxList)
+                auxList = arrayUnique(auxList)
+            }else{
+                auxList = []
+            }
+            if(auxList.length > 0 && countries.length > 0){
+                // console.log('3 voy por country',auxList)
+                nAuxList = getFilteredCatalog(auxList,countries,'country');
+                returnAuxList.push(...nAuxList)
+            }else{
+                returnAuxList = auxList
             }
         }else{
-            if(auxList.length > 0)
+            if(auxList.length > 0 && countries.length > 0){
+                nAuxList = getFilteredCatalog(auxList,countries,'country');
+                if(nAuxList.length > 0) {
+                    returnAuxList.push(...nAuxList)
+                }else{
+                    returnAuxList = []
+                }
+            }else{
                 returnAuxList = auxList
+            }
         }
 
     }else{
         if(locations.length > 0){
-            for (var voyage of catalog) {
-                sw = true
-                for (var filter of locations) {
-                    if (voyage.location.indexOf(filter) === -1) {
-                        sw = false
-                        break
-                    }
+            // console.log('1 voy por location', catalog)
+            let nAuxList = getFilteredCatalog(catalog,locations,'location')
+            auxList.push(...nAuxList)
+            if(auxList.length > 0 && countries.length > 0){
+                // console.log('2 voy por country',auxList)
+                nAuxList = getFilteredCatalog(auxList,countries,'country');
+                // returnAuxList.push(...nAuxList)
+                if(nAuxList.length > 0) {
+                    returnAuxList.push(...nAuxList)
+                    returnAuxList = arrayUnique(returnAuxList)
+                }else{
+                    returnAuxList = []
                 }
-                if (sw) {
-                    returnAuxList.push(voyage)
-                }
+            }else{
+                returnAuxList = auxList
+            }
+        }else{
+            if(countries.length > 0){
+                // console.log('1 voy por country')
+                let nAuxList = getFilteredCatalog(catalog,countries,'country');
+                returnAuxList.push(...nAuxList)
+                // console.log('voy a regresar ',auxList)
+                // returnAuxList = auxList
+            }else{
+                // console.log('1 voy por nada')
+                returnAuxList = auxList
             }
         }
     }
+    // console.log('el filtrado final es',returnAuxList)
     return returnAuxList
 }
 /*
@@ -144,6 +190,8 @@ export function requestCatalog() {
                         themes_actives: [],
                         locations: response.data.location_filter,
                         locations_active: [],
+                        countries: response.data.country_filter,
+                        countries_active: []
                     }
                 )
             })
@@ -157,19 +205,21 @@ export function filterThemeCatalog(filter,add){
     return(dispatch,getState)=>{
         let original_state = getState().catalog
         let originalCatalog = original_state.originalCatalog
-        let themes_actives
+
         let location_actives = original_state.location_filters_active
+        let countries_actives = original_state.country_filters_active
+
+        let themes_actives
         if(add){
             themes_actives = add_filter(filter,original_state.theme_filters_active)
         }else{
             themes_actives = delete_filter(filter,original_state.theme_filters_active)
         }
         let newCatalog
-        if(themes_actives.length < 1 && location_actives.length < 1){
+        if(themes_actives.length < 1 && location_actives.length < 1 && countries_actives.length < 1){
             newCatalog =  original_state.originalCatalog
         }else{
-            newCatalog = searchOnCatalogAND(originalCatalog, themes_actives,location_actives)
-            // newCatalog = searchOnCatalogOR(originalCatalog, themes_actives,location_actives)
+            newCatalog = searchOnCatalogAND(originalCatalog, themes_actives,location_actives,countries_actives)
         }
         dispatch({
             type: FILTER_CATALOG,
@@ -178,27 +228,36 @@ export function filterThemeCatalog(filter,add){
             themes: original_state.theme_filters,
             themes_actives: themes_actives,
             locations: original_state.location_filters,
-            locations_active: location_actives
+            locations_active: location_actives,
+            countries: original_state.country_filters,
+            countries_actives: countries_actives
         })
     }
 }
 
 export function filterLocationCatalog(filter,add){
+    // console.log('filter',filter)
+    // console.log('filter')
     return(dispatch,getState)=>{
         let original_state = getState().catalog
         let originalCatalog = original_state.originalCatalog
+
         let themes_actives = original_state.theme_filters_active
+        let countries_actives = original_state.country_filters_active
+        // console.log('themes_actives',themes_actives)
+        // console.log('countries_actives',countries_actives)
         let location_actives
         if(add){
             location_actives = add_filter(filter,original_state.location_filters_active)
         }else{
             location_actives = delete_filter(filter,original_state.location_filters_active)
         }
+        // console.log('location_actives',location_actives)
         let newCatalog
-        if(themes_actives.length < 1 && location_actives.length < 1){
+        if(themes_actives.length < 1 && location_actives.length < 1 && countries_actives.length < 1){
             newCatalog =  original_state.originalCatalog
         }else{
-            newCatalog = searchOnCatalogAND(originalCatalog, themes_actives,location_actives)
+            newCatalog = searchOnCatalogAND(originalCatalog, themes_actives,location_actives,countries_actives)
         }
         dispatch({
             type: FILTER_CATALOG,
@@ -207,7 +266,42 @@ export function filterLocationCatalog(filter,add){
             themes: original_state.theme_filters,
             themes_actives: themes_actives,
             locations: original_state.location_filters,
-            locations_active: location_actives
+            locations_active: location_actives,
+            countries: original_state.country_filters,
+            countries_actives: countries_actives
+        })
+    }
+}
+export function filterCountryCatalog(filter, add){
+    return(dispatch,getState)=>{
+        let original_state = getState().catalog
+        let originalCatalog = original_state.originalCatalog
+
+        let themes_actives = original_state.theme_filters_active
+        let location_actives = original_state.location_filters_active
+
+        let countries_actives
+        if(add){
+            countries_actives = add_filter(filter,original_state.country_filters_active)
+        }else{
+            countries_actives = delete_filter(filter,original_state.country_filters_active)
+        }
+        let newCatalog
+        if(themes_actives.length < 1 && location_actives.length < 1 && countries_actives.length < 1){
+            newCatalog =  original_state.originalCatalog
+        }else{
+            newCatalog = searchOnCatalogAND(originalCatalog, themes_actives,location_actives,countries_actives)
+        }
+        dispatch({
+            type: FILTER_CATALOG,
+            payload: newCatalog,
+            originalCatalog: original_state.originalCatalog,
+            themes: original_state.theme_filters,
+            themes_actives: themes_actives,
+            locations: original_state.location_filters,
+            locations_active: location_actives,
+            countries: original_state.country_filters,
+            countries_actives: countries_actives
         })
     }
 }
