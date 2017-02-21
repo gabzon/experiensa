@@ -31,7 +31,8 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'tab' => __( 'Button', 'sage' )
                 ),
                 TextImage::backgroundColor('button_bg_color','Color','#fff','.button.catalog-button','styling','Button','background'),
-                TextImage::backgroundColor('button_bg_hover_color','Color - Hover','#fff','.catalog-button button:hover','styling','Button','background'),
+                TextImage::backgroundColor('button_bg_hover_color','Color - Hover','#fff','.catalog-button:hover','styling','Button','background'),
+                TextImage::backgroundColor('button_bg_active_color','Color - Active','#fff','.catalog-button:focus','styling','Button','background'),
                 array(
                     'id' => 'css_bg_button_group',
                     'type' => 'group',
