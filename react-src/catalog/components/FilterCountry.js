@@ -10,7 +10,7 @@ export default class FilterCountry extends React.Component {
             return this.props.countries.map((country) => {
                 return (
                     <CatalogFilterButton key={country.id} id={country.id} name={country.name}
-                                         filter_type="FILTER_COUNTRY"/>
+                                         filter_type="FILTER_COUNTRY" options={this.props.options}/>
                 )
             })
         }else{

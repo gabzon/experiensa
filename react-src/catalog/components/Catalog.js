@@ -18,7 +18,7 @@ class Catalog extends React.Component {
         return (
             <div className="ui container">
                 <br/><br/><br/><br/>
-                <CatalogFilterLayout themes={this.props.theme_filters} locations={this.props.location_filters} countries={this.props.country_filters}/>
+                <CatalogFilterLayout themes={this.props.theme_filters} locations={this.props.location_filters} countries={this.props.country_filters} options={this.props.options}/>
                 <br/><br/>
                 <CatalogLayout voyages={this.props.catalog} options={this.props.options}/>
                 <br/><br/>

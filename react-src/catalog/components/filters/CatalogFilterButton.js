@@ -1,28 +1,28 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {filterThemeCatalog, filterLocationCatalog, filterCountryCatalog} from '../../actions'
+import { Button } from 'semantic-ui-react'
+import $ from 'jquery';
 
 class CatalogFilterButton extends React.Component {
     constructor(){
         super()
         this.state = {
             isActive: false,
-            customClass: "ui compact button catalog-button"
+            classValue: 'catalog-button'
         }
-        // this.handleClick = this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this)
+        // this.getStyles = /this.getStyles.bind(this)
     }
-    handleClick(filter_type){
-        if(this.state.isActive){
-            this.setState({
-                isActive: false,
-                customClass: "ui compact button catalog-button"
-            })
-        }else{
-            this.setState({
-                isActive: true,
-                customClass: "ui active compact button catalog-button"
-            })
-        }
+    handleClick(e,filter_type){
+        console.log('handleCLick',e.currentTarget.style)
+        // e.currentTarget.style.backgroundColor = '#ccc';
+        const active = !this.state.isActive
+        const value = active?'active catalog-button': 'catalog-button'
+        this.setState({
+            isActive: active,
+            classValue: value
+        })
         switch(filter_type){
             case 'FILTER_THEME':
                 this.props.filterThemeCatalog(this.props.name,!this.state.isActive)
@@ -35,9 +35,33 @@ class CatalogFilterButton extends React.Component {
                 break
         }
     }
+    getStyles(){
+        // console.log('mis props',this.props)
+        // console.log('mis states son',this.state)
+        // let bg = this.props.options.btn_color + '!important'
+        // if(this.state.isActive)
+        //     bg = this.props.options.btn_color_active+' !important'
+        let style = {
+            margin: "3px"//,
+            // background: bg
+        }
+        // console.log('mi nuevo estilo es',style)
+        return (style)
+    }
     render() {
+        // console.log('mis propsx',this.props)
+        let styles = this.getStyles()
         return (
-            <button className={this.state.customClass} key={this.props.id} style={{"margin":"3px"}} onClick={() => this.handleClick(this.props.filter_type)}>{this.props.name}</button>
+            <Button
+                toggle
+                compact
+                className={this.state.classValue}
+                key={this.props.id}
+                style={styles}
+                onClick={(e) => this.handleClick(e,this.props.filter_type)}
+            >
+                {this.props.name}
+            </Button>
         );
     }
 }

@@ -32,7 +32,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 TextImage::backgroundColor('button_bg_color','Color','#fff','.button.catalog-button','styling','Button','background'),
                 TextImage::backgroundColor('button_bg_hover_color','Color - Hover','#fff','.catalog-button:hover','styling','Button','background'),
-                TextImage::backgroundColor('button_bg_active_color','Color - Active','#fff','.catalog-button:focus','styling','Button','background'),
+                TextImage::backgroundColor('button_bg_active_color','Color - Active','#fff','.ui.button.toggle.active.catalog-button','styling','Button','background'),
                 array(
                     'id' => 'css_bg_button_group',
                     'type' => 'group',
@@ -50,9 +50,16 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
         function output( $options ) {
             $type = $options['type'];
             $elements = $options['elements'];
+            $button_bg_color = $options['button_bg_color'];
+            $button_bg_hover_color = $options['button_bg_hover_color'];
+            $button_bg_active_color = $options['button_bg_active_color'];
+
 
             set_query_var('type',$type);
             set_query_var('elements',$elements);
+            set_query_var('button_bg_color',$button_bg_color);
+            set_query_var('button_bg_hover_color',$button_bg_hover_color);
+            set_query_var('button_bg_active_color',$button_bg_active_color);
 
             ob_start();
             get_template_part("templates/catalog/catalog-react");

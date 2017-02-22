@@ -9,7 +9,7 @@ export default class FilterTheme extends React.Component {
         if(this.props.themes) {
             return this.props.themes.map((theme) => {
                 return (
-                    <CatalogFilterButton key={theme.id} id={theme.id} name={theme.name} filter_type="FILTER_THEME"/>
+                    <CatalogFilterButton key={theme.id} id={theme.id} name={theme.name} filter_type="FILTER_THEME" options={this.props.options}/>
                 )
             })
         }else{

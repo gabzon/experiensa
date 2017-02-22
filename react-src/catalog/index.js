@@ -21,6 +21,9 @@ if(catalog_app != null ) {
     let themes = true;
     let country = true;
     let type = 'minimalist';
+    let btn_color = '#fff';
+    let btn_color_active = '#fff';
+    let btn_color_hover = '#fff';
     if(catalog_props.length > 0){
         title = (catalog_props.data('title') == 'title');
         price = (catalog_props.data('price') == 'price');
@@ -30,6 +33,9 @@ if(catalog_app != null ) {
         themes = catalog_props.data('themes') == 'themes';
         country = catalog_props.data('country') == 'country';
         type = catalog_props.data('type');
+        btn_color = catalog_props.data('button_bg_color');
+        btn_color_active = catalog_props.data('button_bg_hover_color');
+        btn_color_hover = catalog_props.data('button_bg_active_color');
     }
     let options = {
         title: title,
@@ -39,7 +45,10 @@ if(catalog_app != null ) {
         duration: duration,
         themes: themes,
         country: country,
-        type: type
+        type: type,
+        btn_color: btn_color,
+        btn_color_active: btn_color_active,
+        btn_color_hover: btn_color_hover
     }
     ReactDOM.render(
         <Provider store={createStoreWithMiddleware(reducers)}>
