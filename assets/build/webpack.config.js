@@ -37,6 +37,11 @@ let webpackConfig = {
         options: { objectAssign: 'Object.assign' },
       },
       {
+        test: /\.jsx?$/,        
+        exclude: [/(node_modules|bower_components)(?![/|\\](bootstrap|foundation-sites))/],
+        loader: ['babel-loader','eslint-loader'],
+      },
+      {
         test: /\.css$/,
         include: config.paths.assets,
         loader: ExtractTextPlugin.extract({
