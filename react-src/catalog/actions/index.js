@@ -7,16 +7,22 @@ export const FILTER_CATALOG_THEME_OFF = 'FILTER_CATALOG_THEME_OFF'
 /**
  * Helper functions
  */
-function check_name_exist(name, list) {
+function check_name_exist(name, list = []) {
     let found = false
-    if(list.length > 0) {
-        for (var item of list) {
-            if (item.name === name) {
+    list.map((item,index)=>{
+        if(item === name){
+            found = true
+            return
+        }
+    })
+    /*if(list.length > 0) {
+        for (var i of list) {
+            if (list[i].name === name) {
                 found = true
                 break
             }
         }
-    }
+    }*/
     return found
 }
 function add_filter(name,filters){
