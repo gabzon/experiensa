@@ -1,3 +1,4 @@
+require('es6-promise').polyfill();
 import axios from 'axios'
 //Action Types
 export const REQUEST_CATALOG = 'REQUEST_CATALOG'
