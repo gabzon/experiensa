@@ -77,23 +77,23 @@ var arrayUnique = (array) =>{
         return arr.indexOf(elem) == pos;
     })
 }
-function getFilteredCatalog(catalog,filters,object_name){
+function getFilteredCatalog(catalog = [],filters = [],object_name){
     // console.log('estoy en getFilteredCatalog')
     // console.log('el catalogo',catalog)
     // console.log('filtros',filters)
     // console.log('mi object_name',object_name)
     let auxList = []
     let sw
-    for (var voyage of catalog) {
+    for (var i in catalog) {
         sw = true
-        for (var filter of filters) {
-            if (voyage[object_name].indexOf(filter) === -1) {
+        for (var j in filters) {
+            if (catalog[i][object_name].indexOf(filters[j]) === -1) {
                 sw = false
                 break
             }
         }
         if (sw) {
-            auxList.push(voyage)
+            auxList.push(catalog[i])
         }
     }
     // console.log('retorno de getFilteredCatalog',auxList)

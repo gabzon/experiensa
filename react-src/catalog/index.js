@@ -4,6 +4,7 @@ import $ from 'jquery';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'
+require('es6-symbol/implement')
 
 import reducers from './reducers';
 
