@@ -1,6 +1,7 @@
 import React from 'react';
-import Minimalist from './voyages/layouts/VoyageImageMinimalist'
+import VoyageImageMinimalist from './voyages/layouts/VoyageImageMinimalist'
 import CatalogVoyageDetailsModalMinimalist from './voyages/layouts/CatalogVoyageDetailsModalMinimalist'
+import DetailsModal from './voyages/layouts/DetailsModal'
 import { Button} from 'semantic-ui-react'
 
 export default class CatalogVoyageMinimalist extends React.Component {
@@ -38,7 +39,7 @@ export default class CatalogVoyageMinimalist extends React.Component {
             price = currency+' '+price;
         return (
             <div className="ui card">
-                <Minimalist voyage={this.props.voyage}/>
+                <DetailsModal voyage={this.props.voyage} price={price} options={this.props.options} type="image"/>
                 <div className="content">
                     {this.createTitleRow(voyage.title,this.props.options.title)}
                     {this.createDataRow('Duration',voyage.duration,this.props.options.duration)}
