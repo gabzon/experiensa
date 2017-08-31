@@ -51,7 +51,12 @@
             ?>
             <input type="hidden" name="agency_email" value="<?php echo $agency_email; ?>"/>
             <br><br>
-            <?php if( function_exists( 'gglcptch_display' ) ) { echo gglcptch_display(); } ; ?>
+            <?php 
+            $recaptcha = Helpers::getRecaptchaData();
+            ?>
+            <div class="field">
+                <div class="g-recaptcha" data-sitekey="<?= $recaptcha['site_key']?>"></div>
+            </div>
             <br><br>
             <input id="form-submit" type="submit" class="ui button" value="<?php _e('Request a quote','sage'); ?>">
         </form>

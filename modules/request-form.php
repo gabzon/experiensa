@@ -5,21 +5,12 @@ function requestQuote(){
     $msg = '';
     $body = '';
     $headers = array('Content-Type: text/html; charset=UTF-8');
-
-    if ( function_exists( 'gglcptch_check' ) ){
-		$validate = gglcptch_check();
-		if($validate['response']===false && $validate['reason']!='VERIFICATION_FAILED'){
-            $msg .= "Error checking captcha. ";
-            header('Content-Type: application/json');
-            echo json_encode(['error'=>$error,"msg"=>$msg]);
-			die();
-		}
-    }else{
-        $msg .= 'Need to install captcha plugin. ';
+    if(!isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+        $msg .= "Error checking captcha verification or need to add reCAPTCHA keys. ";
         header('Content-Type: application/json');
         echo json_encode(['error'=>$error,"msg"=>$msg]);
-		die();
-	}
+        die();
+    }
     $fullname       = $_POST['fullname'];
     $email          = $_POST['email'];
     $phone          = $_POST['phone'];
