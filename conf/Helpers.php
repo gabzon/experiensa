@@ -264,8 +264,8 @@ class Helpers {
      */
     public static function getRecaptchaData(){
         $agency_options = get_option('agency_settings');
-        $recaptcha['site_key'] = (isset($agency_options['recaptcha_site_key'])?$agency_options['recaptcha_site_key']:'6Lfq_Q0UAAAAACUqqMQSJ-qOhT8SHS_msHRbOdB1');
-        $recaptcha['secret_key'] = (isset($agency_options['recaptcha_secret_key'])?$agency_options['recaptcha_secret_key']:'6Lfq_Q0UAAAAAFZKcsbGcX89WEBvarb_wu7jzKqe');
+        $recaptcha['site_key'] = (isset($agency_options['recaptcha_site_key'])?$agency_options['recaptcha_site_key']:'6Leoqi8UAAAAAKOaMCaqkpSbxTzXpZI_Fpjqqrgx');
+        $recaptcha['secret_key'] = (isset($agency_options['recaptcha_secret_key'])?$agency_options['recaptcha_secret_key']:'6Leoqi8UAAAAAB8OHEuUk_9sJJG8G8PrAYQLPJUe');
         return $recaptcha;
     }
     public static function getGoogleMapsAPIKey(){
